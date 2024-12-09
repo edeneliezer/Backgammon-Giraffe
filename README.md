@@ -50,7 +50,7 @@ Each difficulty level influences both gameplay and the complexity of the Q&A sta
 This project is proudly brought to you by:
 - **Rami Daood**
 - **Mariana Dakwar**
-- **Hadar Matatiho**
+- **Hadar Matityahu**
 - **Eden Eliezer**
 
 ---
