@@ -71,10 +71,3 @@ _Coming Soon_: Detailed instructions on how to install and play Backgammon: Surp
 
 We'd love to hear your thoughts! If you have suggestions for new features, questions, or want to contribute to the project, please reach out.
 
----
-
-
-## Contact
-
-For any inquiries, reach out to us at:
-- **Email**: backgammonproject@support.com
