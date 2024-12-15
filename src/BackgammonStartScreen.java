@@ -106,10 +106,10 @@ public class BackgammonStartScreen extends Application {
     }
 
     private Button createStyledButton(String text) {
-        Button button = new Button(text);
-        button.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
-        button.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
-        button.setPrefSize(80, 30);
-        return button;
-    }
+    	Button button = new Button(text);
+    	button.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+    	button.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
+    	button.setPrefSize(80, 30);
+    	return button;
+    }
 }

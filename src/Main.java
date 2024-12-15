@@ -7,8 +7,8 @@ public class Main extends Application {
         // Launch BackgammonUI
         new BackgammonStartScreen().start(primaryStage);
     }
-
     public static void main(String[] args) {
-        launch(args);
-    }
+    	launch(args);
+    }
+    
 }
