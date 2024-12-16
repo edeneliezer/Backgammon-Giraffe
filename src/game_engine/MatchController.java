@@ -132,7 +132,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	/**
 	 * Asks for player name and start the game.
 	 */
-	private void startGame() {
+	public void startGame() {
 		// prompt players for their infos only if it is their first time.
 		if (isPlayerInfosEnteredFirstTime) {
 			promptStartGame();
