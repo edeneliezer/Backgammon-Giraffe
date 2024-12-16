@@ -13,12 +13,16 @@ import javafx.stage.Stage;
 
 public class BackgammonStartScreen extends Application {
 
+        private Button selectedButton; // To track the selected difficulty button
+
     @Override
     public void start(Stage primaryStage) {
-        // Main layout (VBox)
+        // Main layout - Centered VBox
         VBox root = new VBox(20);
         root.setPadding(new Insets(20));
         root.setStyle("-fx-background-color: #fefaf4;");
+        root.setAlignment(Pos.CENTER);
+        root.setPrefHeight(600); // Ensures vertical centering
 
         // Title
         Label title = new Label("BACKGAMMON");
@@ -26,16 +30,12 @@ public class BackgammonStartScreen extends Application {
         title.setTextFill(Color.web("#4d2d00"));
         title.setAlignment(Pos.CENTER);
 
-        // Subheading
+        // Players Section
         HBox playersBox = new HBox(50);
         playersBox.setAlignment(Pos.CENTER);
 
-        // Player 1 Box
-        VBox player1Box = createPlayerBox("Player 1 Name");
-
-        // Player 2 Box
-        VBox player2Box = createPlayerBox("Player 2 Name");
-
+        VBox player1Box = createPlayerBox("player 1 name");
+        VBox player2Box = createPlayerBox("player 2 name");
         playersBox.getChildren().addAll(player1Box, player2Box);
 
         // Difficulty Buttons
@@ -50,66 +50,78 @@ public class BackgammonStartScreen extends Application {
         Button mediumButton = createStyledButton("Medium");
         Button hardButton = createStyledButton("Hard");
 
+        addHighlightEffect(easyButton);
+        addHighlightEffect(mediumButton);
+        addHighlightEffect(hardButton);
+
         difficultyBox.getChildren().addAll(difficultyLabel, easyButton, mediumButton, hardButton);
 
-        // Let's Play Button
+        // Bottom Buttons
+        HBox bottomBox = new HBox(20);
+        bottomBox.setAlignment(Pos.CENTER);
+
         Button playButton = new Button("Let's play!");
         playButton.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         playButton.setStyle("-fx-background-color: #d11e1e; -fx-text-fill: white;");
         playButton.setPrefSize(200, 60);
 
-        playButton.setOnAction(event -> {
-            // Transition to BackgammonBoard
-            new JavaFXBackgammon().start(primaryStage);
-        });
-
-        // History Button
         Button historyButton = new Button("History");
         historyButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
         historyButton.setStyle("-fx-background-color: #d11e1e; -fx-text-fill: white;");
         historyButton.setPrefSize(100, 40);
 
-        // Bottom Layout for Play and History Buttons
-        HBox bottomBox = new HBox(20);
-        bottomBox.setAlignment(Pos.CENTER);
         bottomBox.getChildren().addAll(playButton, historyButton);
 
-        // Combine all into the main layout
+        // Combine everything into the root VBox
         root.getChildren().addAll(title, playersBox, difficultyBox, bottomBox);
 
-        // Scene
+        // Scene and Stage
         Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("Backgammon Game");
         primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
         primaryStage.show();
     }
 
+    // Create player box
     private VBox createPlayerBox(String playerName) {
         Label nameLabel = new Label(playerName);
         nameLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
         nameLabel.setTextFill(Color.WHITE);
 
         TextField textField = new TextField();
-        textField.setPromptText("Enter Name");
+        textField.setPromptText("write here");
         textField.setPrefWidth(150);
 
-        Button submitButton = new Button("Submit");
+        Button submitButton = new Button("submit");
         submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
         submitButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
 
         VBox playerBox = new VBox(10);
         playerBox.setAlignment(Pos.CENTER);
-        playerBox.setStyle("-fx-background-color: #b30000; -fx-padding: 15; -fx-border-color: black; -fx-border-width: 3px;");
+        playerBox.setStyle("-fx-background-color: #b30000; -fx-padding: 15; -fx-border-color: black;");
         playerBox.getChildren().addAll(nameLabel, textField, submitButton);
 
         return playerBox;
     }
 
+    // Create styled button
     private Button createStyledButton(String text) {
-    	Button button = new Button(text);
-    	button.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
-    	button.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
-    	button.setPrefSize(80, 30);
-    	return button;
+        Button button = new Button(text);
+        button.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+        button.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
+        button.setPrefSize(80, 30);
+        return button;
+    }
+
+    // Highlight effect for difficulty buttons
+    private void addHighlightEffect(Button button) {
+        button.setOnAction(e -> {
+            if (selectedButton != null) {
+                selectedButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
+            }
+            button.setStyle("-fx-background-color: #ffcc66; -fx-text-fill: black;"); // Highlight color
+            selectedButton = button;
+        });
     }
 }
