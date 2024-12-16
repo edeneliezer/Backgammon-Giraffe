@@ -1,0 +1,181 @@
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+> [System] Trying to quit game.
+
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+> [System] Trying to quit game.
+
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+> [System] Roll dice results: [3, 2]
+> [System] Roll dice results: [2, 4]
+> [System] Roll dice results: [5, 1]
+> [System] Roll dice results: [3, 5]
+> [System] Roll dice results: [1, 5]
+> [System] Roll dice results: [5, 4]
+> [System] Roll dice results: [2, 6]
+> [System] Roll dice results: [1, 4]
+> [System] Roll dice results: [1, 4]
+> [System] Roll dice results: [5, 4]
+> [System] Roll dice results: [2, 4]
+> [System] Roll dice results: [5, 5, 5, 5]
+> [System] Roll dice results: [4, 6]
+> [System] Roll dice results: [5, 4]
+> [System] Roll dice results: [4, 5]
+> [System] Roll dice results: [6, 6, 6, 6]
+> [System] Roll dice results: [5, 1]
+> [System] Roll dice results: [1, 3]
+> [System] Roll dice results: [1, 5]
+> [System] Roll dice results: [3, 4]
+> [System] Roll dice results: [4, 6]
+> [System] Moved checker from 1 to 3.
+> [System] Trying to quit game.
+
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+> [System] Roll dice results: [4, 2]
+> [System] Moved checker from 1 to 4.
+> [System] Moved checker from 1 to 2.
+> [System] Moved checker from 2 to 1.
+> [System] Moved checker from 17 to home.
+> [System] Moved checker from 19 to 10.
+
+> [System] Starting game...
+> [System] Player with black checkers is now "rami".
+> [System] Player with white checkers is now "mariana".
+> [System] Max totalGames per game set to 11.
+
+> [System] Rolling...
+> [System] First player to move is: rami.
+> [System] Roll dice result: [5, 2].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 2
+      C. 6-4
+      D. 8-6
+      E. 13-11
+      F. 24-22
+
+  Roll of 7
+      G. 13-6
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 6 to 4.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (white) move.
+> [System] You may now roll the dice or play the double.
+> [System] Trying to quit game.
+
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+> [System] Roll dice results: [4, 3]
+> [System] Roll dice results: [6, 1]
+
+> [System] Starting game...
+> [System] Player with black checkers is now "rami".
+> [System] Player with white checkers is now "hadar".
+> [System] Max totalGames per game set to 11.
+
+> [System] Rolling...
+> [System] First player to move is: rami.
+> [System] Roll dice result: [4, 3].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 3
+      E. 6-3
+      F. 8-5
+      G. 13-10
+      H. 24-21
+
+  Roll of 7
+      I. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now hadar's (white) move.
+> [System] You may now roll the dice or play the double.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4*
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 8
+      H. 13-5*
+      I. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4*
+      B. 8-6
+      C. 13-11
+      D. 24-22
+      E. 7-5*
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 6.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rami's (black) move.
+> [System] You may now roll the dice or play the double.
+> [System] Trying to quit game.
+
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+> [System] Trying to quit game.
+
