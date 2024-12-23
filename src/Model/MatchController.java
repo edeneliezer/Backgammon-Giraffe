@@ -30,12 +30,6 @@ import view.ScoreboardPrompt;
  * 
  * These components are children of this class, therefore
  * this class is the root in the layout structure/tree.
- * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
  */
 public class MatchController extends GridPane implements ColorPerspectiveParser, InputValidator {
 	private Player bottomPlayer;
@@ -80,6 +74,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		isPromptCancel = false;
 	}
 	
+	
 	/**
 	 * Initialize game components and sub-controllers.
 	 */
@@ -106,7 +101,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		isPromptCancel = false;
 		hadCrawfordGame = false;
 		isCrawfordGame = false;
-		Settings.setTotalGames(Settings.DEFAULT_TOTAL_GAMES);
+		//Settings.setTotalGames(Settings.DEFAULT_TOTAL_GAMES);
 	}
 	
 	public void resetGame() {
@@ -298,7 +293,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		promptResults(String bName, String wName, String totalGames) {
 			this.bName = bName;
 			this.wName = wName;
-			this.totalGames = totalGames;
+			this.totalGames = "1";
 		}
 	}
 	// valid input if:
@@ -369,6 +364,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 				}
 			}
 		);
+		
 	}
 	
 	public boolean isCrawfordGame() {

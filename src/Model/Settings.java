@@ -1,17 +1,13 @@
 package Model;
 
 import javafx.scene.paint.Color;
+import view.backgammonUI;
 
 /**
  * This class serves as a point where other class files share hard-coded data or relative data.
  * This class represents the user-specified data only, for default game data, refer to GameConstants.java.
  * This allows us to keep track of any user-specified data.
  * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
  */
 public class Settings {
 	public static final boolean ENABLE_AUTO_PLAY = false;
@@ -119,10 +115,10 @@ public class Settings {
 		String name = null;
 		switch (pov) {
 			case BOTTOM:
-				name = "Cup";
+				name =backgammonUI.getPlayer1Field().getText();
 				break;
 			case TOP:
-				name = "Tea";
+				name =backgammonUI.getPlayer2Field().getText() ;
 				break;
 			default:
 				throw new PlayerNoPerspectiveException();

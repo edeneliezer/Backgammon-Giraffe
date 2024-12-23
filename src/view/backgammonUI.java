@@ -26,8 +26,8 @@ public class backgammonUI extends Application {
     private Button playButton; // Button for playing the game
     private boolean arePlayersReady = false;
     private boolean isDifficultySelected = false;
-    private TextField player1Field; // TextField for player 1
-    private TextField player2Field;
+    private static TextField player1Field; // TextField for player 1
+    private static TextField player2Field;
     private Button easyButton;
     private Button mediumButton;
     private Button hardButton;
@@ -99,7 +99,9 @@ public class backgammonUI extends Application {
         playersBox.getChildren().addAll(player1Box, player2Box);
         player1Field = (TextField) player1Box.getChildren().get(1); // עכשיו הם שדות מחלקה
         player2Field = (TextField) player2Box.getChildren().get(1);
-
+        
+        
+        
         // מאזיני טקסט לשדות השחקנים
         player1Field.textProperty().addListener((observable, oldValue, newValue) -> {
             checkIfReadyToPlay();
@@ -205,7 +207,10 @@ public class backgammonUI extends Application {
         } else {
             playButton.setDisable(true); // Keep it disabled if conditions are not met
         }
+        
     }
+    
+    
 
     private VBox createPlayerBox(String playerName) {
         Label nameLabel = new Label(playerName);
@@ -270,6 +275,20 @@ public class backgammonUI extends Application {
     	Button playButton = new Button("Play");
         return playButton;
     }
+	public static TextField getPlayer1Field() {
+		return player1Field;
+	}
+	public void setPlayer1Field(TextField player1Field) {
+		this.player1Field = player1Field;
+	}
+	public static TextField getPlayer2Field() {
+		return player2Field;
+	}
+	public void setPlayer2Field(TextField player2Field) {
+		this.player2Field = player2Field;
+	}
+    
+    
     
 
   

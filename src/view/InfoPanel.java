@@ -18,12 +18,6 @@ import javafx.scene.text.TextFlow;
 
 /**
  * A TextFlow contained in a ScrollPane that displays the status of the game.
- * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- * 
  */
 public class InfoPanel extends ScrollPane {
 	private TextFlow textContainer;
