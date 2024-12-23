@@ -2709,3 +2709,31 @@
 
 > [System] Trying to quit game.
 
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+> [System] Trying to quit game.
+
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+
+> [System] Rolling...
+> [System] First player to move is: 4.
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 1
+      D. 6-5
+      E. 8-7
+      F. 24-23
+
+  Roll of 7
+      G. 13-6
+
+> [System] Trying to quit game.
+
