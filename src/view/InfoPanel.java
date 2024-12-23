@@ -28,9 +28,7 @@ public class InfoPanel extends ScrollPane {
 		textContainer = new TextFlow();
 		styleScrollPane();
 		styleTextContainer();
-		initLayout();
-		welcome();
-	}
+		initLayout();	}
 	
 	private void styleScrollPane() {
 		double height = GameConstants.getHalfBoardSize().getHeight();
@@ -67,14 +65,6 @@ public class InfoPanel extends ScrollPane {
 		setContent(textContainer);
 	}
 	
-	/**
-	 * Outputs welcome message and prompts player to start game
-	 */
-	public void welcome() {
-		print("Welcome to Backgammon!");
-		print("Enter \"/start\" below to start a new game.");
-		print("Or enter \"/help\" for a list of possible commands.");
-	}
 
 	// text padding at top and bottom.
 	// 2 line spacing in a single line, top and bottom.

@@ -17,13 +17,18 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import view.CommandPanel;
 import view.Dialogs;
 import view.InfoPanel;
 import view.RollDieButton;
 import view.ScoreboardPrompt;
-
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.paint.Color;
+import javafx.geometry.Pos;
 /**
  * This class represents the entire component of the application,
  * consisting of the game components and the UI components.
@@ -126,6 +131,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 
 	public void startGame() {
 	    if (isPlayerInfosEnteredFirstTime) {
+	    	
 
 	        // הגדרת מספר משחקים ברירת מחדל (לדוגמה, 1)
 	        Settings.setTotalGames(1);
@@ -140,6 +146,8 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	    if (!isPromptCancel) {
 	        gameplay.start();
 	    }
+	    handleMatchOver(true); // הצגת ההודעה כאשר השחקן התחתון מנצח
+
 	}
 
 	// Checks if next game is crawford game.
@@ -198,11 +206,56 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 				}
 			}
 		});
+	}*/
+	
+	public void handleMatchOver(boolean isOutOfTime) {
+	    Player winner;
+	    String winnerMessage;
+	    
+	    if (isOutOfTime) {
+	        winner = gameplay.getOpponent();
+	        winnerMessage = "The game ended. The winner is: " + winner.getShortName();
+	    } else {
+	        winner = gameplay.getCurrent();
+	        winnerMessage = "Congratulations, " + winner.getShortName() + " wins the match!";
+	    }
+	    
+	    // יצירת דיאלוג מותאם אישית
+	    Dialogs<ButtonType> dialog = new Dialogs<ButtonType>(winnerMessage, stage, "Play again");
+
+	    // יצירת אובייקט Text מותאם אישית עם צבעים ואימוג'ים
+	    Text winnerText = new Text(winnerMessage);
+	    if (winner == bottomPlayer) {
+	        winnerText.setStyle("-fx-fill: green; -fx-font-size: 18px; -fx-font-weight: bold;");
+	        winnerText.setText(winnerText.getText() + " 🎉");
+	    } else {
+	        winnerText.setStyle("-fx-fill: blue; -fx-font-size: 18px; -fx-font-weight: bold;");
+	        winnerText.setText(winnerText.getText() + " 🏆");
+	    }
+	 // יצירת התוכן המותאם אישית לדיאלוג
+	    dialog.getDialogPane().setContent(winnerText);
+
+	    // הרצת הדיאלוג
+	    Platform.runLater(new Runnable() {
+	        @Override
+	        public void run() {
+	            Optional<ButtonType> result = dialog.showAndWait();
+	            
+	            if (ButtonType.OK.equals(result.get())) {
+	                resetApplication();
+	                cmd.runCommand("/start");
+	            } else {
+	                resetApplication();
+	                infoPnl.print("Enter /start if you wish to play again.", MessageType.ANNOUNCEMENT);
+	                infoPnl.print("Enter /quit if you wish to quit.", MessageType.ANNOUNCEMENT);
+	            }
+	        }
+	    });
 	}
 	public void handleMatchOver() {
 		handleMatchOver(false);
 	}
-	*/
+	
 
 	/**
 	 * Inner class that stores results of promptStartGame() so we can process user input.
@@ -294,4 +347,6 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	public boolean isCrawfordGame() {
 		return isCrawfordGame;
 	}
+	
+	
 }
