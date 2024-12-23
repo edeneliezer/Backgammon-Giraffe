@@ -178,7 +178,9 @@ public class backgammonUI extends Application {
             MatchController matchController = new MatchController(primaryStage); // assuming primaryStage is available here
             Scene gameScene = new Scene(matchController, 1000, 800); // adjust size as needed
             primaryStage.setScene(gameScene); // Switch to the game screen
+            matchController.startGame();
         });
+        
         
         
 

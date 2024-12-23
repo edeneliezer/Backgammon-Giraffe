@@ -122,43 +122,26 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		startGame();
 	}
 	
-	/**
-	 * Asks for player name and start the game.
-	 */
+	
+
 	public void startGame() {
-		// prompt players for their infos only if it is their first time.
-		if (isPlayerInfosEnteredFirstTime) {
-			promptStartGame();
-		}
-		
-		if (!isPromptCancel) {
-			/* Handle Crawford Game */
-			// if did not have a crawford game,
-			// we check if next game is crawford game.
-			if (!hadCrawfordGame && checkIsCrawfordGame()) {
-				isCrawfordGame = true;
-				hadCrawfordGame = true;
-				infoPnl.print("Current game is a Crawford game.");
-			// if had crawford game,
-			// we check if the current game is a crawford game,
-			// if it is, we reset.
-			// giving us:
-			// isCrawfordGame = false, hadCrawfordGame = true.
-			} else if (isCrawfordGame) {
-				isCrawfordGame = false;
-				infoPnl.print("New game is not a Crawford game.", MessageType.DEBUG);
-			}
-			
-			if (!hadCrawfordGame && GameConstants.FORCE_TEST_AFTER_CRAWFORD_RULE) {
-				isCrawfordGame = true;
-				hadCrawfordGame = true;
-				infoPnl.print("Current game is a Crawford game.");
-			}
-			
-			isPlayerInfosEnteredFirstTime = false;
-			gameplay.start();
-		}
+	    if (isPlayerInfosEnteredFirstTime) {
+
+	        // הגדרת מספר משחקים ברירת מחדל (לדוגמה, 1)
+	        Settings.setTotalGames(1);
+	        game.getPlayerPanel(Settings.getTopPerspectiveColor()).updateTotalGames();
+	        game.getPlayerPanel(Settings.getBottomPerspectiveColor()).updateTotalGames();
+
+	        isPromptCancel = false;
+	        isPlayerInfosEnteredFirstTime = false;
+	    }
+
+	    // הפעלת המשחק
+	    if (!isPromptCancel) {
+	        gameplay.start();
+	    }
 	}
+
 	// Checks if next game is crawford game.
 	// is crawford game either winner match score, i.e. TOTAL_GAMES_IN_A_MATCH-1.
 	private boolean checkIsCrawfordGame() {
@@ -178,7 +161,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	 * If a player has a score equal to the maximum score,
 	 * then announce the winner and ask if they want to play again.
 	 */
-	public void handleMatchOver(boolean isOutOfTime) {
+	/*public void handleMatchOver(boolean isOutOfTime) {
 		Player winner;
 		if (isOutOfTime) winner = gameplay.getOpponent();
 		else winner = gameplay.getCurrent();
@@ -219,67 +202,8 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	public void handleMatchOver() {
 		handleMatchOver(false);
 	}
-	
-	/**
-	 * Displays a dialog that prompts players to input
-	 * 		- Player names and colors.
-	 * 		- Score limit for this match.
-	 * 
-	 * NOTE: 
-	 * 		- Players can start the game with or without changing default round by clicking start.
-	 * 		- Players can cancel starting the game by clicking cancel.
-	 * 		- Players can NOT have empty names.
-	 * 		- Players can NOT have negative or even totalGames.
-	 */
-	private void promptStartGame() {
-		// Create dialog.
-		Dialogs<promptResults> dialog = new Dialogs<promptResults>("Please enter player names and number of games to play", stage, "Start");
-		
-		// Create dialog contents.
-		ScoreboardPrompt contents = new ScoreboardPrompt();
-		
-		// Add contents to dialog.
-		dialog.getDialogPane().setContent(contents);
-		
-		// On click start button, return player names as result.
-		// Else result is null, cancel the game.
-		dialog.setResultConverter(click -> {
-			if (click == dialog.getButton())
-				return new promptResults(contents.getPlayerInput("black"), contents.getPlayerInput("white"), contents.getPlayerInput("score"));
-			return null;
-		});
-		
-		// Show dialog to get player input.
-		Optional<promptResults> result = dialog.showAndWait();
-		
-		// If result is present and name is not empty, change player names.
-		// If result is null, cancel starting the game.
-		result.ifPresent((promptResults results) -> {
-			if (results.bName.length() != 0)
-				cmd.runCommand("/name black " + results.bName);
-			if (results.wName.length() != 0)
-				cmd.runCommand("/name white " + results.wName);			
+	*/
 
-			String userInput = results.totalGames;
-			if (userInput.length() == 0 || isValidInput(userInput)) {
-				if (userInput.length() != 0) {
-					Settings.setTotalGames(Integer.parseInt(userInput));
-					game.getPlayerPanel(Settings.getTopPerspectiveColor()).updateTotalGames();
-					game.getPlayerPanel(Settings.getBottomPerspectiveColor()).updateTotalGames();
-				}
-				infoPnl.print("Max totalGames per game set to " + Settings.TOTAL_GAMES_IN_A_MATCH + ".");
-				isPromptCancel = false;
-			} else {
-				infoPnl.print("You must play to a positive odd number less than 100. Please try again.", MessageType.ERROR);
-				isPromptCancel = true;
-				promptStartGame();
-			}
-        });
-		if (!result.isPresent()) {
-			isPromptCancel = true;
-			infoPnl.print("Game not started.");
-		}
-	}
 	/**
 	 * Inner class that stores results of promptStartGame() so we can process user input.
 	 * 		- Player names + total games they play to

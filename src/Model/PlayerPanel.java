@@ -92,7 +92,6 @@ public class PlayerPanel extends HBox implements ColorParser {
 	
 	public void setPlayerScore(Player player, int score) {
 		player.setScore(score);
-		playerScore.setText(player.getScore() + " / " + Settings.TOTAL_GAMES_IN_A_MATCH);
 	}
 	
 	public void updateTotalGames() {
@@ -123,4 +122,6 @@ public class PlayerPanel extends HBox implements ColorParser {
 	public void resetTimer() {
 		timer.reset();
 	}
+	
 }
+
