@@ -242,7 +242,6 @@ public class InfoPanel extends ScrollPane {
 	
 	public void reset() {
 		textContainer.getChildren().clear();
-		welcome();
 		redraw();
 	}
 }

@@ -63,7 +63,6 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 		
 		initTouchableListeners();
 		initTouchablesStorersListeners();
-		initOutOfTimeListener();
 	}
 	public void resetSelections() {
 		// reshow the dices on the board,
@@ -312,16 +311,6 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 		return isPipSelectionMode || isBarSelectionMode || isCubeHomeSelectionMode || isHomeSelectionMode;
 	}
 	
-	private void initOutOfTimeListener() {
-		root.addEventHandler(OutOfTimeSelectedEvent.OUTOFTIME, outOfTimeHandler);
-	}
-	OutOfTimeHandler outOfTimeHandler = new OutOfTimeHandler() {
-		@Override
-		public void onOutOfTime() {
-			infoPnl.print("You ran out of time.");
-			root.handleMatchOver(true);
-		}
-	};
 
 	/**
 	 * Manages all the UI (infoPnl, cmdPnl, rollDieBtn) listeners.

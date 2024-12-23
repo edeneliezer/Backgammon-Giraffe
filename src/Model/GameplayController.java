@@ -28,7 +28,9 @@ import view.ScoreboardPrompt;
  */
 public class GameplayController implements ColorParser, ColorPerspectiveParser, InputValidator, IndexOffset, IntegerLettersParser {
 	private boolean isStarted, isRolled, isMoved, isFirstRoll, isTopPlayer, isDoubling, isDoubled, isMaxDoubling, isInTransition;
-	private Player bottomPlayer, topPlayer, pCurrent, pOpponent;
+	private Player bottomPlayer, topPlayer;
+	private static Player pCurrent;
+	private Player pOpponent;
 	
 	private Stage stage;
 	private MatchController root;
@@ -77,7 +79,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		cmd.runCommand("/roll");
 		
 		// facial expressions.
-		game.getEmojiOfPlayer(pCurrent.getColor()).setThinkingFace();
+		game.getEmojiOfPlayer(getpCurrent().getColor()).setThinkingFace();
 		game.getEmojiOfPlayer(pOpponent.getColor()).setThinkingFace();
 	}
 	
@@ -91,26 +93,26 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		DieResults rollResult;
 		if (isFirstRoll) {
 			rollResult = game.getBoard().rollDices(DieInstance.SINGLE);
-			pCurrent = getFirstPlayerToRoll(rollResult);
-			pOpponent = getSecondPlayerToRoll(pCurrent);
-			infoPnl.print("First player to move is: " + pCurrent.getName() + ".");
+			setpCurrent(getFirstPlayerToRoll(rollResult));
+			pOpponent = getSecondPlayerToRoll(getpCurrent());
+			infoPnl.print("First player to move is: " + getpCurrent().getName() + ".");
 			isFirstRoll = false;
 			handleNecessitiesOfEachTurn();	// highlight the current player's checker in his player panel.
 			
 			// if first player is top player, then we swap the pip number labels.
-			if (pCurrent.equals(topPlayer)) {
+			if (getpCurrent().equals(topPlayer)) {
 				game.getBoard().swapPipLabels();
 				isTopPlayer = true;
 			}
 		} else {
-			rollResult = game.getBoard().rollDices(pCurrent.getPOV());
+			rollResult = game.getBoard().rollDices(getpCurrent().getPOV());
 		}
 		
 		infoPnl.print("Roll dice result: " + rollResult + ".");
 		isRolled = true;
 		
 		// calculate possible moves.
-		setValidMoves(game.getBoard().calculateMoves(rollResult, pCurrent));
+		setValidMoves(game.getBoard().calculateMoves(rollResult, getpCurrent()));
 		gameplayMoves.handleEndOfMovesCalculation(getValidMoves());
 	}
 	
@@ -157,7 +159,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		} else {
 			updateMovesAfterMoving();
 			
-			boolean moveMadeCausedPlayerAbleBearOff = !getValidMoves().isEmpty() && game.getBoard().isAllCheckersInHomeBoard(pCurrent);
+			boolean moveMadeCausedPlayerAbleBearOff = !getValidMoves().isEmpty() && game.getBoard().isAllCheckersInHomeBoard(getpCurrent());
 			if (moveMadeCausedPlayerAbleBearOff || getValidMoves().hasDiceResultsLeft()) {
 				recalculateMoves();
 			} else if (getValidMoves().isEmpty()) {
@@ -172,13 +174,13 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	}
 	
 	private void updateMovesAfterMoving() {
-		game.getBoard().updateIsHit(getValidMoves(), pCurrent);
+		game.getBoard().updateIsHit(getValidMoves(), getpCurrent());
 	}
 	
 	public void recalculateMoves() {
 		if (isRolled()) {
 			infoPnl.print("Recalculating moves.", MessageType.DEBUG);
-			setValidMoves(game.getBoard().recalculateMoves(getValidMoves(), pCurrent));
+			setValidMoves(game.getBoard().recalculateMoves(getValidMoves(), getpCurrent()));
 			gameplayMoves.handleEndOfMovesCalculation(getValidMoves());
 		}
 	}
@@ -189,7 +191,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	 * it will start decrementing the player's individual timer per sec.
 	 */
 	private void startCurrentPlayerTimer() {
-		if (pCurrent != null) game.getPlayerPanel(pCurrent.getColor()).getTimer().start();
+		if (getpCurrent() != null) game.getPlayerPanel(getpCurrent().getColor()).getTimer().start();
 	}
 	
 	/**
@@ -198,7 +200,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	 * else, update the player's individual timer
 	 */
 	public void stopCurrentPlayerTimer() {
-		if (pCurrent != null) game.getPlayerPanel(pCurrent.getColor()).getTimer().stop();
+		if (getpCurrent() != null) game.getPlayerPanel(getpCurrent().getColor()).getTimer().stop();
 	}
 	
 	/**
@@ -226,7 +228,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 			nextPause.play();
 			isInTransition = true;
 		} else nextFunction();
-		return pCurrent;
+		return getpCurrent();
 	}
 	public void nextFunction() {
 		if (isDoubling()) stopCurrentPlayerTimer();
@@ -250,10 +252,10 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		}
 	}
 	private void swapPlayers() {
-		Player temp = pCurrent;
-		pCurrent = pOpponent;
+		Player temp = getpCurrent();
+		setpCurrent(pOpponent);
 		pOpponent = temp;
-		if (pCurrent.equals(topPlayer)) {
+		if (getpCurrent().equals(topPlayer)) {
 			isTopPlayer = true;
 		} else {
 			isTopPlayer = false;
@@ -264,7 +266,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		startCurrentPlayerTimer();
 		// highlight the current player's checker in his player panel,
 		// and unhighlight opponent's.
-		game.getPlayerPanel(pCurrent.getColor()).highlightChecker();
+		game.getPlayerPanel(getpCurrent().getColor()).highlightChecker();
 		game.getPlayerPanel(pOpponent.getColor()).unhighlightChecker();
 	}
 	
@@ -273,7 +275,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		if (!root.isCrawfordGame() && !isInTransition() && !isMaxDoubling() || isDoubling()) {
 			// if cube in player's home,
 			// then highlight only when it is that player's turn.
-			if (game.isCubeInHome() && !pCurrent.hasCube()) {
+			if (game.isCubeInHome() && !getpCurrent().hasCube()) {
 				mustHighlightCube = false;
 			} else {
 				mustHighlightCube = true;
@@ -296,7 +298,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	// i.e. player wins the match if player wins this game.
 	// i.e. currentPlayer.score + 1*cubeMultiplier >= totalGames.
 	public boolean isCurrentPlayerScoreCapped() {
-		return pCurrent.getScore() + game.getCube().getEndGameMultiplier() >= Settings.TOTAL_GAMES_IN_A_MATCH;
+		return getpCurrent().getScore() + game.getCube().getEndGameMultiplier() >= Settings.TOTAL_GAMES_IN_A_MATCH;
 	}
 	
 	/**
@@ -340,7 +342,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	
 	public void highlightOtherHomeCubeZones() {
 		if (isStarted()) {
-			game.highlightCubeZones(pCurrent.getColor());
+			game.highlightCubeZones(getpCurrent().getColor());
 		} else {
 			game.highlightAllPlayersCubeHomes();
 		}
@@ -348,7 +350,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	
 	public void highlightBoardCubeZones() {
 		if (isStarted()) {
-			game.getBoard().highlightCubeHome(pCurrent.getColor());
+			game.getBoard().highlightCubeHome(getpCurrent().getColor());
 		} else {
 			game.getBoard().highlightAllCubeHome();
 		}
@@ -382,11 +384,11 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		if (root.isMatchOver())
 			root.handleMatchOver();
 		else {
-			int remainingScore = Settings.TOTAL_GAMES_IN_A_MATCH - pCurrent.getScore();
-			String playerResult = pCurrent.getScore() + " down, " + remainingScore + " to go.";
+			int remainingScore = Settings.TOTAL_GAMES_IN_A_MATCH - getpCurrent().getScore();
+			String playerResult = getpCurrent().getScore() + " down, " + remainingScore + " to go.";
 			
 			// Create dialog prompt.
-			Dialogs<ButtonType> dialog = new Dialogs<ButtonType>("Winner Winner Chicken Dinner! " + pCurrent.getShortName() + " wins! " + playerResult, stage, "Next game");
+			Dialogs<ButtonType> dialog = new Dialogs<ButtonType>("Winner Winner Chicken Dinner! " + getpCurrent().getShortName() + " wins! " + playerResult, stage, "Next game");
 			
 			// Add score board to dialog prompt
 			ScoreboardPrompt contents = new ScoreboardPrompt(topPlayer, bottomPlayer);
@@ -414,7 +416,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	}
 	
 	private void handleGameOverScore(boolean isIntermediate) {
-		Player winner = pCurrent;
+		Player winner = getpCurrent();
 		if (isIntermediate) {
 			// round end, allocate points as required.
 			PlayerPanel winnerPnl = game.getPlayerPanel(winner.getColor());
@@ -429,7 +431,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 			}
 		}
 		// facial expressions.
-		game.getEmojiOfPlayer(pCurrent.getColor()).setWinFace();
+		game.getEmojiOfPlayer(getpCurrent().getColor()).setWinFace();
 		game.getEmojiOfPlayer(pOpponent.getColor()).setLoseFace();
 		infoPnl.print("Congratulations, " + winner.getName() + " won.");
 		infoPnl.print(topPlayer.getName() + ": " + getScoreFormat(topPlayer.getScore()) + " vs " + bottomPlayer.getName() + ": " + getScoreFormat(bottomPlayer.getScore()));
@@ -452,7 +454,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		int score;
 		// since current player is the one that made the winning move,
 		// the opponent the loser.
-		Player winner = pCurrent;
+		Player winner = getpCurrent();
 		Player loser = pOpponent;
 		DoublingCube cube = game.getCube();
 		score = winner.getScore() + game.getBoard().getGameScore(loser.getColor())*cube.getEndGameMultiplier();
@@ -464,7 +466,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		int score;
 		// current player must be the proposer, hence the winner.
 		// so turns must be swapped to get back to the proposer.
-		Player winner = pCurrent;
+		Player winner = getpCurrent();
 		DoublingCube cube = game.getCube();
 		score = winner.getScore() + GameEndScore.SINGLE.ordinal()*cube.getIntermediateGameMultiplier();
 		return score;
@@ -505,7 +507,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		return gameplayMoves.getValidMoves();
 	}
 	public Player getCurrent() {
-		return pCurrent;
+		return getpCurrent();
 	}
 	public Player getOpponent() {
 		return pOpponent;
@@ -515,5 +517,13 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	}
 	public void setIsMaxDoubling(boolean isMaxDoubling) {
 		this.isMaxDoubling = isMaxDoubling;
+	}
+
+	public static Player getpCurrent() {
+		return pCurrent;
+	}
+
+	public void setpCurrent(Player pCurrent) {
+		this.pCurrent = pCurrent;
 	}
 }

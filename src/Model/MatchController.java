@@ -146,9 +146,29 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	    if (!isPromptCancel) {
 	        gameplay.start();
 	    }
-	    handleMatchOver(true); // הצגת ההודעה כאשר השחקן התחתון מנצח
-
 	}
+	
+	/* public void startGame() {
+	    if (isPlayerInfosEnteredFirstTime) {
+	        // הגדרת מספר משחקים ברירת מחדל (לדוגמה, 1)
+	        Settings.setTotalGames(1);
+	        game.getPlayerPanel(Settings.getTopPerspectiveColor()).updateTotalGames();
+	        game.getPlayerPanel(Settings.getBottomPerspectiveColor()).updateTotalGames();
+
+	        isPromptCancel = false;
+	        isPlayerInfosEnteredFirstTime = false;
+	    }
+
+	    // הפעלת המשחק
+	    if (!isPromptCancel) {
+	        gameplay.start();
+
+	        // סימולציה של ניצחון שחקן תחתון לצורך הצגת מסך ההכרזה
+	        bottomPlayer.setScore(Settings.TOTAL_GAMES_IN_A_MATCH); // סימון שהשחקן התחתון ניצח
+	        handleMatchOver(false); // הצגת ההודעה על המנצח
+	    }
+	}*/
+
 
 	// Checks if next game is crawford game.
 	// is crawford game either winner match score, i.e. TOTAL_GAMES_IN_A_MATCH-1.
@@ -208,7 +228,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		});
 	}*/
 	
-	public void handleMatchOver(boolean isOutOfTime) {
+	/*public void handleMatchOver(boolean isOutOfTime) {
 	    Player winner;
 	    String winnerMessage;
 	    
@@ -251,9 +271,73 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	            }
 	        }
 	    });
-	}
+	}*/
+	
 	public void handleMatchOver() {
-		handleMatchOver(false);
+	    String winnerMessage;
+	        winnerMessage = "🏆 Congratulations, " + GameplayController.getpCurrent().getShortName() + " wins the match! 🏆";
+
+	    // יצירת דיאלוג מותאם אישית
+	    Dialogs<ButtonType> dialog = new Dialogs<>("Match Over", stage, "Match Options");
+
+	    // הוספת כפתורים Play Again ו-Home
+	    ButtonType playAgainButton = new ButtonType("Play Again");
+	    ButtonType homeButton = new ButtonType("Home");
+
+	    // הוספת הכפתורים לדיאלוג
+	    dialog.getDialogPane().getButtonTypes().setAll(playAgainButton, homeButton);
+
+	    // יצירת כיתוב גדול וברור להכרזה
+	    Text winnerText = new Text(winnerMessage);
+	    winnerText.setStyle("-fx-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
+	                        "-fx-font-size: 42px; " +
+	                        "-fx-font-weight: bold; " +
+	                        "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0.3, 2, 2); " +
+	                        "-fx-text-alignment: center;");
+	    winnerText.setWrappingWidth(600);
+
+	    // יצירת אזור עיצוב נוסף
+	    VBox contentBox = new VBox();
+	    contentBox.setAlignment(Pos.CENTER);
+	    contentBox.setSpacing(30);
+	    contentBox.setStyle("-fx-background-color: #FAEBD7; " +
+	                        "-fx-border-color: #8B4513; " +
+	                        "-fx-border-width: 8px; " +
+	                        "-fx-border-radius: 25px; " +
+	                        "-fx-padding: 30px;");
+	    contentBox.getChildren().add(winnerText);
+
+	    // הוספת תוכן לדיאלוג
+	    dialog.getDialogPane().setContent(contentBox);
+
+	    // הגדלת גודל החלון
+	    dialog.getDialogPane().setPrefSize(850, 450);
+
+	    // הצגת הדיאלוג
+	    Platform.runLater(() -> {
+	        Optional<ButtonType> result = dialog.showAndWait();
+
+	        if (result.isPresent()) {
+	            if (result.get().equals(playAgainButton)) {
+	                // סגירת הדיאלוג לפני התחלת המשחק
+	                dialog.hide(); // סגירת הדיאלוג
+	                resetApplication(); // איפוס המשחק
+	                cmd.runCommand("/start"); // התחלת משחק חדש
+	            } else if (result.get().equals(homeButton)) {
+	                // סגירת הדיאלוג וחזרה למסך הפתיחה
+	                dialog.hide(); // סגירת הדיאלוג
+	                resetApplication(); // איפוס נתוני המשחק
+	                Platform.runLater(() -> {
+	                    try {
+	                        view.backgammonUI openingScreen = new view.backgammonUI();
+	                        openingScreen.start(stage); // מעבר למסך הפתיחה
+	                    } catch (Exception e) {
+	                        e.printStackTrace();
+	                    }
+	                });
+	            }
+	        }
+	    });
 	}
 	
 
