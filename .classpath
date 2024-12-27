@@ -46,7 +46,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/97254/Downloads/json-20240303.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/97254/Downloads/json-20240303.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

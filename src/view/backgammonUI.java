@@ -1,5 +1,7 @@
 package view;
+import Model.GameModel;
 import Model.MatchController;
+import controller.jsonController;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -121,9 +123,9 @@ public class backgammonUI extends Application {
         difficultyLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
         difficultyLabel.setTextFill(Color.BLACK);
 
-        Button easyButton = createStyledButton("Easy");
-        Button mediumButton = createStyledButton("Medium");
-        Button hardButton = createStyledButton("Hard");
+         easyButton = createStyledButton("Easy");
+         mediumButton = createStyledButton("Medium");
+         hardButton = createStyledButton("Hard");
 
         addHighlightEffect(easyButton);
         addHighlightEffect(mediumButton);
@@ -177,6 +179,17 @@ public class backgammonUI extends Application {
         playButton.setPrefSize(200, 60);
         playButton.setDisable(true);
         playButton.setOnAction(e -> {
+        	 // Save game info via the Controller
+            String player1 = player1Field.getText();
+            String player2 = player2Field.getText();
+            String difficulty = getSelectedDifficulty();
+
+            // Save game information
+            jsonController.saveGame(player1, player2, difficulty);
+
+            // Print all saved games to verify
+            GameModel.printGameInfo();
+
             // Create a new MatchController instance
             MatchController matchController = new MatchController(primaryStage); // assuming primaryStage is available here
             Scene gameScene = new Scene(matchController, 1000, 800); // adjust size as needed
@@ -271,6 +284,15 @@ public class backgammonUI extends Application {
         button.setStyle("-fx-background-color: transparent;");
         return button;
     }
+    private String getSelectedDifficulty() {
+        if (easyButton != null && easyButton.getStyle().contains("ffcc66")) return "Easy";
+        if (mediumButton != null && mediumButton.getStyle().contains("ffcc66")) return "Medium";
+        if (hardButton != null && hardButton.getStyle().contains("ffcc66")) return "Hard";
+        return "Unknown";
+    }
+
+    
+    
 
     public Button getPlayButton() {
     	Button playButton = new Button("Play");
