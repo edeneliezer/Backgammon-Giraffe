@@ -1,8 +1,16 @@
-package Model;
+package controller;
 
 import java.util.Optional;
 
+import Model.GameConstants;
+import Model.MatchTimer;
+import Model.Player;
+import Model.PlayerPerspectiveFrom;
+import Model.Settings;
 import controller.ColorPerspectiveParser;
+import controller.CommandController;
+import controller.EventController;
+import controller.GameplayController;
 import controller.InputValidator;
 import controller.MusicPlayer;
 import javafx.application.Platform;
@@ -21,6 +29,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 //import view.CommandPanel;
 import view.Dialogs;
+import view.GameComponentsController;
 import view.InfoPanel;
 import view.RollDieButton;
 import view.ScoreboardPrompt;

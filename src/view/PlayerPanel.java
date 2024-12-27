@@ -1,5 +1,8 @@
-package Model;
+package view;
 
+import Model.Emoji;
+import Model.GameConstants;
+import Model.Player;
 import controller.ColorParser;
 import javafx.geometry.Pos;
 import javafx.scene.control.ContentDisplay;

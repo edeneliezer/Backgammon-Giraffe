@@ -1,14 +1,29 @@
-package Model;
+package controller;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import Model.Bar;
+import Model.BarToPip;
+import Model.GameConstants;
+import Model.MessageType;
+import Model.Move;
+import Model.Moves;
+import Model.Pip;
+import Model.PipToHome;
+import Model.PipToPip;
+import Model.RollMoves;
+import Model.Settings;
+import Model.SumMove;
 import controller.ColorParser;
 import controller.ColorPerspectiveParser;
+import controller.CommandController;
+import controller.GameplayController;
 import controller.IndexOffset;
 import controller.InputValidator;
 import controller.IntegerLettersParser;
 import javafx.scene.paint.Color;
+import view.GameComponentsController;
 import view.InfoPanel;
 
 /**

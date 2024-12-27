@@ -1,5 +1,18 @@
-package Model;
+package view;
 
+import Model.Bar;
+import Model.Bars;
+import Model.Board;
+import Model.DoublingCube;
+import Model.DoublingCubeHome;
+import Model.Emoji;
+import Model.GameConstants;
+import view.Home;
+import view.HomePanel;
+import Model.MoveResult;
+import Model.Pip;
+import Model.Player;
+import Model.Settings;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;

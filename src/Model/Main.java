@@ -2,6 +2,7 @@ package Model;
 import java.io.IOException;
 import java.io.InputStream;
 
+import controller.MatchController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

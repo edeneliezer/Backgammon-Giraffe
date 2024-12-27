@@ -1,5 +1,6 @@
-package Model;
+package view;
 
+import Model.GameConstants;
 import javafx.scene.layout.BorderPane;
 
 /**

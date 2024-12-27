@@ -2,6 +2,7 @@ package Model;
 
 import controller.TouchablesStorerSelectedEvent;
 import javafx.scene.input.MouseEvent;
+import view.Checker;
 
 /**
  * This class should be extended by game components (bar, home, pips) that will store checkers.

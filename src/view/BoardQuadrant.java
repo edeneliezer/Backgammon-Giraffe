@@ -1,5 +1,12 @@
-package Model;
+package view;
 
+import Model.GameConstants;
+import Model.Pip;
+import view.PipNumberLabel;
+import Model.Player;
+import Model.PlayerPerspectiveFrom;
+import Model.Quadrant;
+import Model.Settings;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;

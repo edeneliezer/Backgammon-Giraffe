@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import controller.ColorParser;
 import javafx.scene.paint.Color;
+import view.GameComponentsController;
 
 /**
  * This class represents the Board object in Backgammon from the perspective of moves calculation.

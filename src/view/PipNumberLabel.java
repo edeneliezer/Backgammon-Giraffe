@@ -1,5 +1,6 @@
-package Model;
+package view;
 
+import Model.GameConstants;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;

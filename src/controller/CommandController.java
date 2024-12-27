@@ -1,14 +1,24 @@
-package Model;
+package controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import controller.ColorParser;
-import controller.IndexOffset;
-import controller.InputValidator;
-import controller.MusicPlayer;
-import controller.SoundEffectsPlayer;
+import Model.DieResults;
+import Model.DoublingCube;
+import Model.DoublingCubeHome;
+import controller.EventController;
+import view.GameComponentsController;
+import Model.GameConstants;
+import controller.GameplayController;
+import view.Home;
+import controller.MatchController;
+import Model.MessageType;
+import Model.MoveResult;
+import Model.Pip;
+import Model.Player;
+import Model.PlayerPerspectiveFrom;
+import Model.Settings;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.paint.Color;

@@ -1,5 +1,7 @@
-package Model;
+package view;
 
+import Model.CheckersStorer;
+import Model.GameConstants;
 import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 

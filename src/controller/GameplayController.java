@@ -1,9 +1,21 @@
-package Model;
+package controller;
 
 import java.util.Optional;
 
+import Model.DieInstance;
+import Model.DieResults;
+import Model.DoublingCube;
+import Model.GameEndScore;
+import controller.GameplayMovesController;
+import view.Home;
+import controller.MatchController;
+import Model.MessageType;
+import Model.Moves;
+import Model.Player;
+import Model.Settings;
 import controller.ColorParser;
 import controller.ColorPerspectiveParser;
+import controller.CommandController;
 import controller.IndexOffset;
 import controller.InputValidator;
 import controller.IntegerLettersParser;
@@ -13,7 +25,9 @@ import javafx.util.Duration;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import view.Dialogs;
+import view.GameComponentsController;
 import view.InfoPanel;
+import view.PlayerPanel;
 import view.ScoreboardPrompt;
 
 /**

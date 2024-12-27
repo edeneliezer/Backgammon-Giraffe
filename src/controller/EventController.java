@@ -1,9 +1,21 @@
-package Model;
+package controller;
 
+import java.awt.TrayIcon.MessageType;
 import java.util.Optional;
 
+import Model.Bar;
+import Model.DoublingCubeHome;
+import view.GameComponentsController;
+import Model.GameConstants;
+import controller.GameplayController;
+import view.Home;
+import controller.MatchController;
+import Model.Pip;
+import Model.Settings;
+import Model.TouchablesStorer;
 import controller.ColorParser;
 import controller.ColorPerspectiveParser;
+import controller.CommandController;
 import controller.InputValidator;
 import controller.OutOfTimeHandler;
 import controller.OutOfTimeSelectedEvent;
@@ -160,10 +172,10 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 					if (!gameplay.isStarted() || gameplay.getValidMoves().isValidFro(fromPip)) {
 						gameplay.highlightPips(fromPip);
 						isPipSelectionMode = true;
-						infoPnl.print("Pip clicked is: " + gameplay.correct(fromPip) + ".", MessageType.DEBUG);
+						infoPnl.print("Pip clicked is: " + gameplay.correct(fromPip) + ".", Model.MessageType.DEBUG);
 					} else {
-						if (!gameplay.isRolled()) infoPnl.print("You can only move after rolling.", MessageType.ERROR);
-						else infoPnl.print("You can only move from highlighted objects.", MessageType.ERROR);
+						if (!gameplay.isRolled()) infoPnl.print("You can only move after rolling.", Model.MessageType.ERROR);
+						else infoPnl.print("You can only move from highlighted objects.", Model.MessageType.ERROR);
 					}
 				// either pip or bar selected, basis for toPip selection.
 				} else if (isPipSelectionMode || isBarSelectionMode) {
@@ -191,10 +203,10 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 					if (!gameplay.isStarted() || gameplay.getValidMoves().isValidFro(fromBarPipNum)) {
 						gameplay.highlightPips(fromBar);
 						isBarSelectionMode = true;
-						infoPnl.print("Bar clicked.", MessageType.DEBUG);
+						infoPnl.print("Bar clicked.", Model.MessageType.DEBUG);
 					} else {
-						if (!gameplay.isRolled()) infoPnl.print("You can only move after rolling.", MessageType.ERROR);
-						else infoPnl.print("You can only move from highlighted objects.", MessageType.ERROR);
+						if (!gameplay.isRolled()) infoPnl.print("You can only move after rolling.", Model.MessageType.ERROR);
+						else infoPnl.print("You can only move from highlighted objects.", Model.MessageType.ERROR);
 					}
 				}
 			// home selected, basis for fromHome or toHome selection.
@@ -303,7 +315,7 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 					}
 				}
 			} else {
-				infoPnl.print("Other instances of checkersStorer were clicked.", MessageType.DEBUG);
+				infoPnl.print("Other instances of checkersStorer were clicked.", Model.MessageType.DEBUG);
 			}
 		}
 	};

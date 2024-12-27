@@ -4,6 +4,8 @@ import java.util.LinkedList;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import view.BoardQuadrant;
+import view.HalfBoard;
 
 /**
  * This class represents the Board object in Backgammon from the perspective of its components.

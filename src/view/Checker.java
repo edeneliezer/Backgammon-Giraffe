@@ -1,8 +1,9 @@
-package Model;
+package view;
 
 import java.io.IOException;
 import java.io.InputStream;
 
+import Model.Touchable;
 import controller.ColorParser;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

@@ -1,9 +1,13 @@
-package Model;
+package view;
 
+import Model.DoublingCubeHome;
+import Model.GameConstants;
+import Model.Settings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import view.Home;
 
 /**
  * This class represents the panel that contains the homes in Backgammon.

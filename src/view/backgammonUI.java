@@ -1,6 +1,6 @@
 package view;
 import Model.GameModel;
-import Model.MatchController;
+import controller.MatchController;
 import controller.jsonController;
 import javafx.application.Application;
 import javafx.geometry.Insets;

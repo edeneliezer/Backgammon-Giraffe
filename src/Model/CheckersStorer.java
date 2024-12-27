@@ -2,6 +2,7 @@ package Model;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import view.Checker;
 
 public class CheckersStorer extends TouchablesStorer {
 	public CheckersStorer() {

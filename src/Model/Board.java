@@ -1,12 +1,15 @@
 package Model;
 
 import javafx.scene.paint.Color;
+import view.GameComponentsController;
+import view.HalfBoard;
 
 /**
  * This class represents the Board object in Backgammon from the perspective of its functions.
+ * @param <isCheckersInHome>
  * 
  */
-public class Board extends BoardMoves {
+public class Board<isCheckersInHome> extends BoardMoves {
 	private GameComponentsController game;
 	
 	public Board(GameComponentsController game) {
