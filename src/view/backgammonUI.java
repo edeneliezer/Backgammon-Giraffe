@@ -56,7 +56,7 @@ public class backgammonUI extends Application {
 
         // Gradient Title on the Left
         Text menuTitle = new Text("BACKGAMMON");
-        menuTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 28));
+        menuTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 17));
         menuTitle.setFill(new LinearGradient(
                 0, 0, 1, 0, true, CycleMethod.NO_CYCLE,
                 new Stop(0, Color.web("#d11e1e")), // Start of gradient
@@ -67,28 +67,31 @@ public class backgammonUI extends Application {
         HBox menuButtons = new HBox(15);
         menuButtons.setAlignment(Pos.CENTER_RIGHT);
 
-        Button homeButton = createImageButton("path/to/home.png", 30, 30);
-        Button settingsButton = createImageButton("path/to/settings.png", 30, 30);
-        Button pauseButton = createImageButton("path/to/pause.png", 30, 30);
+        Button homeButton = createImageButton("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjH7pqz2CjdDdATbWPhlUt3DNjZh6mhjQ0YA&s", 25, 30);
+        Button settingsButton = createImageButton("https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png", 25, 25);
+        Button pauseButton = createImageButton("https://png.pngtree.com/png-vector/20220124/ourmid/pngtree-pause-icon-pause-pause-icon-sign-vector-png-image_26215894.jpg", 30, 25);
 
-        menuButtons.getChildren().addAll(homeButton, settingsButton, pauseButton);
+        menuButtons.getChildren().addAll(pauseButton,settingsButton,homeButton);
 
         // Add title and buttons to menu bar
         HBox.setHgrow(menuButtons, Priority.ALWAYS); // Push buttons to the right
         menuBar.getChildren().addAll(menuTitle, menuButtons);
-
-        // --- TITLE BOX (With Images) ---
+        
+     // --- TITLE BOX (With Gradient Colors) ---
         HBox titleBox = new HBox(20);
         titleBox.setAlignment(Pos.CENTER);
 
-        ImageView leftImage = createImageView("path/to/left_image.png", 80, 80);
-        Label title = new Label("BACKGAMMON");
-        title.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
-        title.setTextFill(Color.web("#4d2d00"));
-        title.setAlignment(Pos.CENTER);
-        ImageView rightImage = createImageView("path/to/right_image.png", 80, 80);
+        // Create the big title with gradient colors
+        Text bigTitle = new Text("BACKGAMMON");
+        bigTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
+        bigTitle.setFill(new LinearGradient(
+                0, 0, 1, 0, true, CycleMethod.NO_CYCLE,
+                new Stop(0, Color.web("#d11e1e")), // Start of gradient
+                new Stop(1, Color.web("#a07f17"))  // End of gradient
+        ));
 
-        titleBox.getChildren().addAll(leftImage, title, rightImage);
+        titleBox.getChildren().addAll(bigTitle);
+
 
         // --- PLAYERS SECTION ---
         HBox playersBox = new HBox(50);
@@ -161,7 +164,7 @@ public class backgammonUI extends Application {
 
 
 
-        
+        root.setSpacing(50); 
         difficultyBox.getChildren().addAll(difficultyLabel, easyButton, mediumButton, hardButton);
 
         // --- PLAY BUTTON ONLY (Centered) ---
@@ -223,14 +226,10 @@ public class backgammonUI extends Application {
         textField.setPromptText("write here");
         textField.setPrefWidth(150);
 
-        Button submitButton = new Button("submit");
-        submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
-        submitButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
-
         VBox playerBox = new VBox(10);
         playerBox.setAlignment(Pos.CENTER);
         playerBox.setStyle("-fx-background-color: #b30000; -fx-padding: 15; -fx-border-color: black;");
-        playerBox.getChildren().addAll(nameLabel, textField, submitButton);
+        playerBox.getChildren().addAll(nameLabel, textField);
 
         return playerBox;
     }
