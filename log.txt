@@ -7839,3 +7839,377 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] First player to move is: idan.
+> [System] Roll dice result: [4, 3].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 3
+      E. 6-3
+      F. 8-5
+      G. 13-10
+      H. 24-21
+
+  Roll of 7
+      I. 13-6
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5*
+      C. 13-10
+      D. 24-21
+
+  Roll of 2
+      E. 6-4*
+      F. 8-6
+      G. 13-11
+      H. 24-22
+
+  Roll of 5
+      I. 6-1
+      J. 8-3
+      K. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now idan's (black) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: bye.
+> [System] Roll dice result: [5, 3].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 3
+      C. 6-3
+      D. 8-5
+      E. 13-10
+      F. 24-21
+
+  Roll of 8
+      G. 13-5
+      H. 24-16
+
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+
+> [System] Enter /start if you wish to play again.
+
+> [System] Enter /quit if you wish to quit.
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+
+> [System] Starting game...
+
+> [System] Rolling...
+> [System] First player to move is: eden.
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+> [System] You ran out of time.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: hadar.
+> [System] Roll dice result: [4, 2].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 2
+      E. 6-4
+      F. 8-6
+      G. 13-11
+      H. 24-22
+
+  Roll of 6
+      I. 8-2
+      J. 13-7
+      K. 24-18
+
+> [System] You ran out of time.
+> [System] Trying to quit game.
+
+
+> [System] Enter /start if you wish to play again.
+
+> [System] Enter /quit if you wish to quit.
+> [System] Trying to quit game.
+
+> [System] Welcome to Backgammon!
+> [System] Enter "/start" below to start a new game.
+> [System] Or enter "/help" for a list of possible commands.
+
+> [System] Rolling...
+> [System] First player to move is: 4.
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 1
+      D. 6-5
+      E. 8-7
+      F. 24-23
+
+  Roll of 7
+      G. 13-6
+
+> [System] Trying to quit game.
+> [System] Game log saved to log.txt
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: 7.
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 8
+      G. 13-5
+      H. 24-16
+
+> [System] Trying to quit game.
+
+
+> [System] Enter /start if you wish to play again.
+
+> [System] Enter /quit if you wish to quit.
+> [System] Trying to quit game.
+
+
+> [System] Enter /start if you wish to play again.
+
+> [System] Enter /quit if you wish to quit.
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+
+> [System] Enter /start if you wish to play again.
+
+> [System] Enter /quit if you wish to quit.
+> [System] Trying to quit game.
+
+
+> [System] Enter /start if you wish to play again.
+
+> [System] Enter /quit if you wish to quit.
+> [System] Trying to quit game.
+
+
+> [System] Enter /start if you wish to play again.
+
+> [System] Enter /quit if you wish to quit.
+> [System] Trying to quit game.
+
+
+> [System] Returning to home screen...
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: eden.
+> [System] Roll dice result: [2, 4].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 4
+      E. 6-2
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+  Roll of 6
+      I. 8-2
+      J. 13-7
+      K. 24-18
+
+> [System] You ran out of time.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: rrrt.
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 7
+      G. 13-6
+
+> [System] You ran out of time.
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: sadwere.
+> [System] Roll dice result: [5, 6].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 6
+      C. 8-2
+      D. 13-7
+      E. 24-18
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+> [System] You ran out of time.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: move.
+> [System] Roll dice result: [2, 1].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 1
+      E. 6-5
+      F. 8-7
+      G. 24-23
+
+  Roll of 3
+      H. 6-3
+      I. 8-5
+      J. 13-10
+      K. 24-21
+
+> [Error] Game already started.
+> [System] You ran out of time.
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Roll dice results: [4, 4, 4, 4]
+> [System] Moved checker from 6 to 6.
+> [System] Moved checker from 6 to 6.
+> [System] Roll dice results: [4, 4, 4, 4]
+> [System] Roll dice results: [1, 4]
+> [System] Roll dice results: [6, 5]
+> [System] Roll dice results: [5, 4]
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: hey.
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 2
+      E. 6-4
+      F. 8-6
+      G. 13-11
+      H. 24-22
+
+  Roll of 5
+      I. 8-3
+      J. 13-8
+
+> [System] Trying to quit game.
+

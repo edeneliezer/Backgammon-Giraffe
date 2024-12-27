@@ -1,7 +1,5 @@
 package view;
-import Model.GameModel;
 import Model.MatchController;
-import controller.jsonController;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -45,58 +43,52 @@ public class backgammonUI extends Application {
 
         // --- MENU BAR ---
         HBox menuBar = new HBox();
-        menuBar.setPadding(new Insets(5)); // Reduced padding to make the bar thinner
-        menuBar.setSpacing(10);
-        menuBar.setStyle("-fx-background-color: #fefaf4; -fx-border-color: transparent; -fx-border-width: 0; -fx-position: absolute; -fx-top: 0;");
+        menuBar.setPadding(new Insets(10));
+        menuBar.setSpacing(20);
+        menuBar.setStyle("-fx-background-color: #fefaf4;"); // Match page color
         menuBar.setAlignment(Pos.CENTER_LEFT);
-        menuBar.setPrefHeight(50); // Adjusted height to ensure it remains fixed
-        menuBar.setMinHeight(50); // Ensures consistent height
-        menuBar.setMaxHeight(50); // Prevents accidental resizing
 
-        // Add shadow effect to distinguish the menu bar from the rest of the page
+        // Add DropShadow for Shading Effect
         DropShadow shadow = new DropShadow();
-        shadow.setOffsetY(3.0);
+        shadow.setOffsetY(4.0);
         shadow.setColor(Color.rgb(0, 0, 0, 0.2)); // Subtle shadow with 20% opacity
         menuBar.setEffect(shadow);
-        
-     // Ensure the menu bar is stuck to the top of the page
-        VBox.setVgrow(menuBar, Priority.NEVER); // Prevents resizing or moving
 
-        // Gradient Title
+        // Gradient Title on the Left
         Text menuTitle = new Text("BACKGAMMON");
-        menuTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 15)); // Adjusted font size to match thinner bar
+        menuTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 28));
         menuTitle.setFill(new LinearGradient(
                 0, 0, 1, 0, true, CycleMethod.NO_CYCLE,
-                new Stop(0, Color.web("#ffcc33")),
-                new Stop(1, Color.web("#cc3300"))
+                new Stop(0, Color.web("#d11e1e")), // Start of gradient
+                new Stop(1, Color.web("#a07f17"))  // End of gradient
         ));
 
-        // Buttons on the Right
-        HBox menuButtons = new HBox(10);
+        // Buttons with Placeholder Images on the Right
+        HBox menuButtons = new HBox(15);
         menuButtons.setAlignment(Pos.CENTER_RIGHT);
 
-        Button homeButton = createImageButton("https://cdn-icons-png.flaticon.com/512/1946/1946488.png", 20, 20); // Reduced icon size to match thinner bar
-        Button settingsButton = createImageButton("https://w7.pngwing.com/pngs/257/93/png-transparent-settings-gear-icon-gear-configuration-set-up-thumbnail.png", 20, 20);
-        Button pauseButton = createImageButton("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0QaB4crIBJNqg3hT6owLJQczvGy7JkCflIQ&s", 20, 20);
+        Button homeButton = createImageButton("path/to/home.png", 30, 30);
+        Button settingsButton = createImageButton("path/to/settings.png", 30, 30);
+        Button pauseButton = createImageButton("path/to/pause.png", 30, 30);
 
-        menuButtons.getChildren().addAll(pauseButton, settingsButton,homeButton );
-        HBox.setHgrow(menuButtons, Priority.ALWAYS);
+        menuButtons.getChildren().addAll(homeButton, settingsButton, pauseButton);
+
+        // Add title and buttons to menu bar
+        HBox.setHgrow(menuButtons, Priority.ALWAYS); // Push buttons to the right
         menuBar.getChildren().addAll(menuTitle, menuButtons);
 
         // --- TITLE BOX (With Images) ---
         HBox titleBox = new HBox(20);
         titleBox.setAlignment(Pos.CENTER);
 
-        Text title = new Text("BACKGAMMON");
+        ImageView leftImage = createImageView("path/to/left_image.png", 80, 80);
+        Label title = new Label("BACKGAMMON");
         title.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
-        title.setFill(new LinearGradient(
-                0, 0, 1, 0, true, CycleMethod.NO_CYCLE,
-                new Stop(0, Color.web("#ffcc33")),
-                new Stop(1, Color.web("#cc3300"))
-        ));
+        title.setTextFill(Color.web("#4d2d00"));
+        title.setAlignment(Pos.CENTER);
+        ImageView rightImage = createImageView("path/to/right_image.png", 80, 80);
 
-        titleBox.getChildren().addAll(title);
-
+        titleBox.getChildren().addAll(leftImage, title, rightImage);
 
         // --- PLAYERS SECTION ---
         HBox playersBox = new HBox(50);
@@ -181,15 +173,12 @@ public class backgammonUI extends Application {
         playButton.setStyle("-fx-background-color: #d11e1e; -fx-text-fill: white;");
         playButton.setPrefSize(200, 60);
         playButton.setDisable(true);
-       playButton.setOnAction(e -> {
-            // Save game info via the Controller
-        	jsonController.saveGame(player1Field.getText(), player2Field.getText(), getSelectedDifficulty());
-
-            GameModel.printGameInfo();
-        	 // Proceed to start the game
-            MatchController matchController = new MatchController(primaryStage);
-            Scene gameScene = new Scene(matchController, 1000, 800);
-            primaryStage.setScene(gameScene);
+        playButton.setOnAction(e -> {
+            // Create a new MatchController instance
+            MatchController matchController = new MatchController(primaryStage); // assuming primaryStage is available here
+            Scene gameScene = new Scene(matchController, 1000, 800); // adjust size as needed
+            primaryStage.setScene(gameScene); // Switch to the game screen
+            matchController.startGame();
         });
         
         
@@ -199,7 +188,7 @@ public class backgammonUI extends Application {
         bottomBox.getChildren().add(playButton);
         
 
-         root.setSpacing(50); // Adjust the value to create more or less vertical space
+        // Combine everything into the root
         root.getChildren().addAll(menuBar, titleBox, playersBox, difficultyBox, bottomBox);
 
         // Scene and Stage
@@ -233,6 +222,10 @@ public class backgammonUI extends Application {
         TextField textField = new TextField();
         textField.setPromptText("write here");
         textField.setPrefWidth(150);
+
+        Button submitButton = new Button("submit");
+        submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+        submitButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
 
         VBox playerBox = new VBox(10);
         playerBox.setAlignment(Pos.CENTER);
@@ -296,15 +289,4 @@ public class backgammonUI extends Application {
 	public void setPlayer2Field(TextField player2Field) {
 		this.player2Field = player2Field;
 	}
-    
-     private String getSelectedDifficulty() {
-        if (easyButton != null && easyButton.getStyle().contains("ffcc66")) return "Easy";
-        if (mediumButton != null && mediumButton.getStyle().contains("ffcc66")) return "Medium";
-        if (hardButton != null && hardButton.getStyle().contains("ffcc66")) return "Hard";
-        return "Unknown";
-    }
-
-    
-
-  
 }

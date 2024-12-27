@@ -34,8 +34,9 @@ import view.backgammonUI;
 			}
 	}
 	public static void main(String[] args) {
-		launch(args); // calls start method.
+		launch(args); // calls start method.
 	}
 	
 	}
-	
+
+
