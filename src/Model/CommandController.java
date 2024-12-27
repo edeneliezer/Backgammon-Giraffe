@@ -22,11 +22,7 @@ import view.InfoPanel;
  * This class handles all the commands that is entered by the user.
  * Sub-controller of MainController.
  * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
+
  */
 public class CommandController implements ColorParser, InputValidator, IndexOffset {
 	private Stage stage;
@@ -34,14 +30,14 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 	private GameplayController gameplay;
 	private EventController event;
 	private InfoPanel infoPnl;
-	private CommandPanel cmdPnl;
+	//private CommandPanel cmdPnl;
 	private Player bottomPlayer, topPlayer;
 	private MatchController root;
 	private MusicPlayer musicPlayer;
 	private SoundEffectsPlayer soundFXPlayer;
 	
 	public CommandController(Stage stage, MatchController root, GameComponentsController game,
-			GameplayController gameplay, InfoPanel infoPnl, CommandPanel cmdPnl, Player bottomPlayer, Player topPlayer, MusicPlayer musicPlayer) {
+			GameplayController gameplay, InfoPanel infoPnl,Player bottomPlayer, Player topPlayer, MusicPlayer musicPlayer) {
 		this.bottomPlayer = bottomPlayer;
 		this.topPlayer = topPlayer;
 		this.stage = stage;
@@ -49,7 +45,7 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 		this.game = game;
 		this.gameplay = gameplay;
 		this.infoPnl = infoPnl;
-		this.cmdPnl = cmdPnl;
+		//this.cmdPnl = cmdPnl;
 		this.musicPlayer = musicPlayer;
 		soundFXPlayer = new SoundEffectsPlayer();
 	}
@@ -114,7 +110,7 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 		} else if (command.equals("/dark")) {
 			Settings.useDarkTheme();
 			infoPnl.redraw();
-			cmdPnl.redraw();
+			//cmdPnl.redraw();
 		} else {
 			infoPnl.print("Unknown Command.", MessageType.ERROR);
 		}
@@ -468,7 +464,7 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 		// checks are made to /accept beforehand.
 		if (gameplay.isDoubling()) {
 			infoPnl.print("Doubling cube accepted, game continues.", MessageType.ANNOUNCEMENT);
-			gameplay.stopCurrentPlayerTimer();
+		//	gameplay.stopCurrentPlayerTimer();
 			gameplay.doubling();
 			runCommand("/movecube " + parseColor(gameplay.getOpponent().getColor()) + " " + parseColor(gameplay.getCurrent().getColor()));
 			gameplay.getCurrent().setHasCube(true);

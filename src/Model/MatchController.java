@@ -19,7 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import view.CommandPanel;
+//import view.CommandPanel;
 import view.Dialogs;
 import view.InfoPanel;
 import view.RollDieButton;
@@ -42,13 +42,14 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	private GameComponentsController game;
 	private InfoPanel infoPnl;
 	private RollDieButton rollDieBtn;
-	private CommandPanel cmdPnl;
+//	private CommandPanel cmdPnl;
 	private CommandController cmd;
 	private GameplayController gameplay;
 	private EventController event;
 	private MusicPlayer musicPlayer;
 	private Stage stage;
 	private boolean isPlayerInfosEnteredFirstTime, isPromptCancel, hadCrawfordGame, isCrawfordGame;
+	private MatchTimer gameTimer;
 	
 	/**
 	 * Default Constructor
@@ -73,7 +74,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		topPlayer = new Player(PlayerPerspectiveFrom.TOP);
 		infoPnl = new InfoPanel();
 		rollDieBtn = new RollDieButton();
-		cmdPnl = new CommandPanel();
+	//	cmdPnl = new CommandPanel();
 		musicPlayer = new MusicPlayer();
 		isPlayerInfosEnteredFirstTime = true;
 		isPromptCancel = false;
@@ -86,21 +87,22 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	private void initGame() {
 		game = new GameComponentsController(bottomPlayer, topPlayer);
 		gameplay = new GameplayController(stage, this, game, infoPnl, bottomPlayer, topPlayer);
-		cmd = new CommandController(stage, this, game, gameplay, infoPnl, cmdPnl, bottomPlayer, topPlayer, musicPlayer);
+		cmd = new CommandController(stage, this, game, gameplay, infoPnl, bottomPlayer, topPlayer, musicPlayer);
 		gameplay.setCommandController(cmd);
-		event = new EventController(stage, this, game, gameplay, cmdPnl, cmd, infoPnl, rollDieBtn);
+		event = new EventController(stage, this, game, gameplay, cmd, infoPnl, rollDieBtn);
 		cmd.setEventController(event);
 		initLayout();
+		gameTimer = new MatchTimer();
 	}
 	
 	public void resetApplication() {
-		cmdPnl.reset();
+	//	cmdPnl.reset();
 		musicPlayer.reset();
 		bottomPlayer.reset();
 		topPlayer.reset();
 		infoPnl.reset();
 		resetGame();
-		game.resetTimers();
+		//game.resetTimers();
 		
 		isPlayerInfosEnteredFirstTime = true;
 		isPromptCancel = false;
@@ -146,6 +148,8 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	    if (!isPromptCancel) {
 	        gameplay.start();
 	    }
+	    gameTimer.start();
+
 	}
 	
 	/* public void startGame() {
@@ -274,12 +278,14 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	}*/
 	
 	public void handleMatchOver() {
+		gameTimer.stop();
+        System.out.println("Game over! Total time: " + gameTimer.getFormattedTime());
+
 	    String winnerMessage;
 	        winnerMessage = "🏆 Congratulations, " + GameplayController.getpCurrent().getShortName() + " wins the match! 🏆";
 
 	    // יצירת דיאלוג מותאם אישית
 	    Dialogs<ButtonType> dialog = new Dialogs<>("Match Over", stage, "Match Options");
-
 	    // הוספת כפתורים Play Again ו-Home
 	    ButtonType playAgainButton = new ButtonType("Play Again");
 	    ButtonType homeButton = new ButtonType("Home");
@@ -393,7 +399,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	 */
 	public void initLayout() {
 		VBox terminal = new VBox();
-		terminal.getChildren().addAll(infoPnl, cmdPnl);
+		terminal.getChildren().addAll(infoPnl);
 		terminal.setAlignment(Pos.CENTER);
 		terminal.setEffect(new DropShadow(20, 0, 0, Color.BLACK));
 		

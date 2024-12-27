@@ -1,4 +1,4 @@
-package Model;
+/*package Model;
 
 import controller.OutOfTimeSelectedEvent;
 import javafx.animation.Animation;
@@ -16,13 +16,7 @@ import javafx.util.Duration;
 
 /**
  * This class represents the timer in the player's panel.
- * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
- */
+ 
 public class GameplayTimer extends Label {
 	// in seconds.
 	private final long ROLL_DELAY = 15;
@@ -155,4 +149,4 @@ public class GameplayTimer extends Label {
 			remainingTime = 4;
 		else remainingTime = TOTAL_PLAY_TIME;
 	}
-}
+}*/

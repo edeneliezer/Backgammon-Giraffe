@@ -31,8 +31,8 @@ public class InfoPanel extends ScrollPane {
 		initLayout();	}
 	
 	private void styleScrollPane() {
-		double height = GameConstants.getHalfBoardSize().getHeight();
-		double width = GameConstants.getMiddlePartWidth() / 3.0;
+		double height = GameConstants.getHalfBoardSize().getHeight()/2;
+		double width = GameConstants.getMiddlePartWidth() / 3.0/2;
 		setMinHeight(height);
 		setMaxHeight(height);
 		setMinWidth(width);

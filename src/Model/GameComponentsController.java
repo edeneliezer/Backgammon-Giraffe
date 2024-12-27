@@ -8,11 +8,7 @@ import javafx.scene.paint.Color;
 /**
  * This class represents the game made up of separate components in Backgammon.
  * This class creates a game made out of modular panes/nodes.
- * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
+uthor Braddy Yeoh, 17357376
  *
  */
 public class GameComponentsController extends VBox {
@@ -292,8 +288,8 @@ public class GameComponentsController extends VBox {
 		btmPlayerPnl.reset();
 	}
 	// used exclusively to reset after each match, not each game.
-	public void resetTimers() {
+	/*public void resetTimers() {
 		topPlayerPnl.resetTimer();
 		btmPlayerPnl.resetTimer();
-	}
+	}*/
 }

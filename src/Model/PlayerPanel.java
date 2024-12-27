@@ -12,10 +12,7 @@ import javafx.scene.text.Font;
 /**
  * This class represents the panel that displays player info at the top/bottom of the board.
  * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
+hor Braddy Yeoh, 17357376
  *
  */
 public class PlayerPanel extends HBox implements ColorParser {
@@ -50,7 +47,7 @@ public class PlayerPanel extends HBox implements ColorParser {
 	private PlayerInfo playerName;
 	private PlayerInfo playerColor;
 	private PlayerInfo playerScore;
-	private GameplayTimer timer;
+	//private GameplayTimer timer;
 	
 	public PlayerPanel(double width, Player player) {
 		super();
@@ -78,11 +75,11 @@ public class PlayerPanel extends HBox implements ColorParser {
 		setPlayerScore(player, player.getScore());
 		playerScore.setFont(Font.loadFont(GameConstants.getFontInputStream(true, true), 24));
 		
-		timer = new GameplayTimer();
+		//timer = new GameplayTimer();
 	}
 	
 	private void initLayout() {
-		getChildren().addAll(playerName, playerColor, playerScore, timer);
+		getChildren().addAll(playerName, playerColor, playerScore);
 	}
 	
 	public void setPlayerName(Player player, String name) {
@@ -109,19 +106,19 @@ public class PlayerPanel extends HBox implements ColorParser {
 		return playerName.getEmoji();
 	}
 	
-	public GameplayTimer getTimer() {
+	/*public GameplayTimer getTimer() {
 		return timer;
 	}
-	
+	*/
 	public void reset() {
 		setPlayerName(player, player.getName());
 		playerName.getEmoji().reset();
 		unhighlightChecker();
 		setPlayerScore(player, player.getScore());
 	}
-	public void resetTimer() {
+	/*public void resetTimer() {
 		timer.reset();
-	}
+	}*/
 	
 }
 

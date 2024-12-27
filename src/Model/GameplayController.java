@@ -19,12 +19,7 @@ import view.ScoreboardPrompt;
 /**
  * This class handles the gameplay of Backgammon.
  * Sub-controller of MainController.
- * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
+
  */
 public class GameplayController implements ColorParser, ColorPerspectiveParser, InputValidator, IndexOffset, IntegerLettersParser {
 	private boolean isStarted, isRolled, isMoved, isFirstRoll, isTopPlayer, isDoubling, isDoubled, isMaxDoubling, isInTransition;
@@ -62,7 +57,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		isInTransition = false;
 		if (nextPause != null) nextPause.stop();
 		gameplayMoves.reset();
-		stopCurrentPlayerTimer();
+		//stopCurrentPlayerTimer();
 	}
 	
 	public void setCommandController(CommandController cmd) {
@@ -190,18 +185,18 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	 * If the safe timer runs out (15 secs),
 	 * it will start decrementing the player's individual timer per sec.
 	 */
-	private void startCurrentPlayerTimer() {
+/*	private void startCurrentPlayerTimer() {
 		if (getpCurrent() != null) game.getPlayerPanel(getpCurrent().getColor()).getTimer().start();
-	}
+	}*/
 	
 	/**
 	 * Stops the timer for the respective player's turn.
 	 * If timer is stopped within the safe timer's limit, then nothing is decremented,
 	 * else, update the player's individual timer
 	 */
-	public void stopCurrentPlayerTimer() {
+/*	public void stopCurrentPlayerTimer() {
 		if (getpCurrent() != null) game.getPlayerPanel(getpCurrent().getColor()).getTimer().stop();
-	}
+	}*/
 	
 	/**
 	 * Swap players and pip number labels, used to change turns.
@@ -214,7 +209,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		// if not during wait, players can /next more than once.
 		isRolled = false;
 		isMoved = false;
-		stopCurrentPlayerTimer();
+		//stopCurrentPlayerTimer();
 		
 		infoPnl.print("Swapping turns...", MessageType.ANNOUNCEMENT);
 		
@@ -231,7 +226,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		return getpCurrent();
 	}
 	public void nextFunction() {
-		if (isDoubling()) stopCurrentPlayerTimer();
+		//if (isDoubling()) stopCurrentPlayerTimer();
 		
 		infoPnl.print("It is now " + pOpponent.getName() + "'s (" + parseColor(pOpponent.getColor()) + ") move.");
 		swapPlayers();
@@ -263,7 +258,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	}
 	
 	private void handleNecessitiesOfEachTurn() {
-		startCurrentPlayerTimer();
+		//startCurrentPlayerTimer();
 		// highlight the current player's checker in his player panel,
 		// and unhighlight opponent's.
 		game.getPlayerPanel(getpCurrent().getColor()).highlightChecker();
@@ -377,7 +372,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		// Output to infoPnl.
 		infoPnl.print("Game over.", MessageType.ANNOUNCEMENT);
 		
-		stopCurrentPlayerTimer();
+		//stopCurrentPlayerTimer();
 		if (isIntermediate) swapPlayers();
 		handleGameOverScore(isIntermediate);
 		

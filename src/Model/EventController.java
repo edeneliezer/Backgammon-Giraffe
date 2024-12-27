@@ -38,16 +38,16 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 	private GameplayController gameplay;
 	private InfoPanel infoPnl;
 	private RollDieButton rollDieBtn;
-	private CommandPanel cmdPnl;
+	//private CommandPanel cmdPnl;
 	private CommandController cmd;
 
 	public EventController(Stage stage, MatchController root, GameComponentsController game, GameplayController gameplay,
-			CommandPanel cmdPnl, CommandController cmd, InfoPanel infoPnl, RollDieButton rollDieBtn) {
+			 CommandController cmd, InfoPanel infoPnl, RollDieButton rollDieBtn) {
 		this.stage = stage;
 		this.root = root;
 		this.game = game;
 		this.gameplay = gameplay;
-		this.cmdPnl = cmdPnl;
+		//this.cmdPnl = cmdPnl;
 		this.cmd = cmd;
 		this.infoPnl = infoPnl;
 		this.rollDieBtn = rollDieBtn;
@@ -316,7 +316,7 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 	 * Manages all the UI (infoPnl, cmdPnl, rollDieBtn) listeners.
 	 */
 	private void initUIListeners() {
-		initCommandPanelListeners();
+		//initCommandPanelListeners();
 		initRollDieButtonListeners();
 
 		if (!GameConstants.DEBUG_MODE)
@@ -329,7 +329,7 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 	 * 		- echoes player input to infoPanel.
 	 * 		- does not echo empty strings/whitespace.
 	 */
-	private void initCommandPanelListeners() {
+/*	private void initCommandPanelListeners() {
 		cmdPnl.setOnAction((ActionEvent event) -> {
 			String text = cmdPnl.getText();
 			cmdPnl.addHistory(text);
@@ -366,7 +366,7 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 			}
 			cmdPnl.setText("");
 		});
-	}
+	}*/
 
 	private int dieState = 2;
 	private void initRollDieButtonListeners() {
