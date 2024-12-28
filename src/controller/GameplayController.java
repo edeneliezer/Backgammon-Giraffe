@@ -6,6 +6,7 @@ import Model.DieInstance;
 import Model.DieResults;
 import Model.DoublingCube;
 import Model.GameEndScore;
+import Model.GameModel;
 import controller.GameplayMovesController;
 import view.Home;
 import controller.MatchController;
@@ -426,6 +427,8 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	
 	private void handleGameOverScore(boolean isIntermediate) {
 		Player winner = getpCurrent();
+		String chosenDifficulty = view.backgammonUI.getChosenDifficulty();
+	    GameModel.saveGameInfo(bottomPlayer.getName(), topPlayer.getName(), chosenDifficulty, winner.getName());
 		if (isIntermediate) {
 			// round end, allocate points as required.
 			PlayerPanel winnerPnl = game.getPlayerPanel(winner.getColor());

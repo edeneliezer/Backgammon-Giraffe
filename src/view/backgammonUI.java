@@ -30,9 +30,9 @@ public class backgammonUI extends Application {
     private boolean isDifficultySelected = false;
     private static TextField player1Field; // TextField for player 1
     private static TextField player2Field;
-    private Button easyButton;
-    private Button mediumButton;
-    private Button hardButton;
+    private static Button easyButton;
+    private static Button mediumButton;
+    private static Button hardButton;
 
     @Override
     public void start(Stage primaryStage) {
@@ -184,8 +184,6 @@ public class backgammonUI extends Application {
             String player2 = player2Field.getText();
             String difficulty = getSelectedDifficulty();
 
-            // Save game information
-            jsonController.saveGame(player1, player2, difficulty);
 
             // Print all saved games to verify
             GameModel.printGameInfo();
@@ -284,17 +282,23 @@ public class backgammonUI extends Application {
         button.setStyle("-fx-background-color: transparent;");
         return button;
     }
-    private String getSelectedDifficulty() {
+    private static String getSelectedDifficulty() {
         if (easyButton != null && easyButton.getStyle().contains("ffcc66")) return "Easy";
         if (mediumButton != null && mediumButton.getStyle().contains("ffcc66")) return "Medium";
         if (hardButton != null && hardButton.getStyle().contains("ffcc66")) return "Hard";
         return "Unknown";
     }
-
     
+    private static String chosenDifficulty = getSelectedDifficulty();
     
 
-    public Button getPlayButton() {
+    public static String getChosenDifficulty() {
+		return chosenDifficulty;
+	}
+	public void setChosenDifficulty(String chosenDifficulty) {
+		this.chosenDifficulty = chosenDifficulty;
+	}
+	public Button getPlayButton() {
     	Button playButton = new Button("Play");
         return playButton;
     }

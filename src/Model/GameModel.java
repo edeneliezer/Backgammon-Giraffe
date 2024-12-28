@@ -27,7 +27,7 @@ public class GameModel {
         }
     }
 
-    public static void saveGameInfo(String player1, String player2, String difficulty) {
+    public static void saveGameInfo(String player1, String player2, String difficulty, String winner) {
         int gameNumber = gameNumberCounter.incrementAndGet(); // Increment the game number
 
         JSONObject gameInfo = new JSONObject();
@@ -35,6 +35,7 @@ public class GameModel {
         gameInfo.put("player1", player1);
         gameInfo.put("player2", player2);
         gameInfo.put("difficulty", difficulty);
+        gameInfo.put("winner", winner); // Save the winner's name
 
         try {
             File file = new File(FILE_NAME);
