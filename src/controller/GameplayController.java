@@ -429,6 +429,8 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		Player winner = getpCurrent();
 		String chosenDifficulty = view.backgammonUI.getChosenDifficulty();
 	    GameModel.saveGameInfo(bottomPlayer.getName(), topPlayer.getName(), chosenDifficulty, winner.getName());
+        // Print all saved games to verify
+        GameModel.printGameInfo();
 		if (isIntermediate) {
 			// round end, allocate points as required.
 			PlayerPanel winnerPnl = game.getPlayerPanel(winner.getColor());
