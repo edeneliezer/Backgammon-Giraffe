@@ -14396,3 +14396,23 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] First player to move is: w.
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+> [System] Trying to quit game.
+
