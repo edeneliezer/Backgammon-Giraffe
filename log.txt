@@ -14332,3 +14332,67 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] First player to move is: 2.
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 2
+      E. 6-4
+      F. 8-6
+      G. 13-11
+      H. 24-22
+
+  Roll of 5
+      I. 8-3
+      J. 13-8
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: ,.
+> [System] Roll dice result: [5, 6].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 6
+      C. 8-2
+      D. 13-7
+      E. 24-18
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: 11.
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 24-18
+
+> [System] Trying to quit game.
+
