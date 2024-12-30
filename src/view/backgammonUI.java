@@ -70,11 +70,13 @@ public class backgammonUI extends Application {
         HBox menuButtons = new HBox(15);
         menuButtons.setAlignment(Pos.CENTER_RIGHT);
 
-        Button homeButton = createImageButton("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjH7pqz2CjdDdATbWPhlUt3DNjZh6mhjQ0YA&s", 25, 30);
         Button settingsButton = createImageButton("https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png", 25, 25);
-        Button pauseButton = createImageButton("https://png.pngtree.com/png-vector/20220124/ourmid/pngtree-pause-icon-pause-pause-icon-sign-vector-png-image_26215894.jpg", 30, 25);
+        settingsButton.setOnAction(e -> {
+            HistoryScreen historyScreen = new HistoryScreen(); // Create the HistoryScreen instance
+            historyScreen.start(primaryStage); // Navigate to the HistoryScreen
+        });
 
-        menuButtons.getChildren().addAll(pauseButton,settingsButton,homeButton);
+        menuButtons.getChildren().addAll(settingsButton);
 
         // Add title and buttons to menu bar
         HBox.setHgrow(menuButtons, Priority.ALWAYS); // Push buttons to the right
