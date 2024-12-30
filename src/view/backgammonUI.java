@@ -179,15 +179,6 @@ public class backgammonUI extends Application {
         playButton.setPrefSize(200, 60);
         playButton.setDisable(true);
         playButton.setOnAction(e -> {
-        	 // Save game info via the Controller
-            String player1 = player1Field.getText();
-            String player2 = player2Field.getText();
-            String difficulty = getSelectedDifficulty();
-
-
-            // Print all saved games to verify
-            GameModel.printGameInfo();
-
             // Create a new MatchController instance
             MatchController matchController = new MatchController(primaryStage); // assuming primaryStage is available here
             Scene gameScene = new Scene(matchController, 1000, 800); // adjust size as needed
