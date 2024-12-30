@@ -30,9 +30,10 @@ public class backgammonUI extends Application {
     private boolean isDifficultySelected = false;
     private static TextField player1Field; // TextField for player 1
     private static TextField player2Field;
-    private static Button easyButton;
-    private static Button mediumButton;
-    private static Button hardButton;
+    private  Button easyButton;
+    private  Button mediumButton;
+    private  Button hardButton;
+    private static String chosenDiffficulty = "unknown";
 
     @Override
     public void start(Stage primaryStage) {
@@ -134,6 +135,7 @@ public class backgammonUI extends Application {
         easyButton.setOnAction(e -> {
             if (!isDifficultySelected) {
                 isDifficultySelected = true;  // בחר קושי
+                chosenDiffficulty = "Easy";
                 checkIfReadyToPlay();  // בודק אם אפשר להפעיל את כפתור המשחק
             }
             // משבית את שאר הכפתורים
@@ -145,6 +147,7 @@ public class backgammonUI extends Application {
         mediumButton.setOnAction(e -> {
             if (!isDifficultySelected) {
                 isDifficultySelected = true;
+                chosenDiffficulty = "Medium";
                 checkIfReadyToPlay();
             }
             // משבית את שאר הכפתורים
@@ -156,6 +159,7 @@ public class backgammonUI extends Application {
         hardButton.setOnAction(e -> {
             if (!isDifficultySelected) {
                 isDifficultySelected = true;
+                chosenDiffficulty = "Hard";
                 checkIfReadyToPlay();
             }
             // משבית את שאר הכפתורים
@@ -273,26 +277,25 @@ public class backgammonUI extends Application {
         button.setStyle("-fx-background-color: transparent;");
         return button;
     }
-    private static String getSelectedDifficulty() {
-        if (easyButton != null && easyButton.getStyle().contains("ffcc66")) return "Easy";
-        if (mediumButton != null && mediumButton.getStyle().contains("ffcc66")) return "Medium";
-        if (hardButton != null && hardButton.getStyle().contains("ffcc66")) return "Hard";
-        return "Unknown";
-    }
-    
-    private static String chosenDifficulty = getSelectedDifficulty();
-    
+//    private static String getSelectedDifficulty() {
+//        if (easyButton != null && easyButton.getStyle().contains("ffcc66")) return "Easy";
+//        if (mediumButton != null && mediumButton.getStyle().contains("ffcc66")) return "Medium";
+//        if (hardButton != null && hardButton.getStyle().contains("ffcc66")) return "Hard";
+//        return "Unknown";
+//    }
+        
 
-    public static String getChosenDifficulty() {
-		return chosenDifficulty;
-	}
-	public void setChosenDifficulty(String chosenDifficulty) {
-		this.chosenDifficulty = chosenDifficulty;
-	}
+
 	public Button getPlayButton() {
     	Button playButton = new Button("Play");
         return playButton;
     }
+	public static String getChosenDiffficulty() {
+		return chosenDiffficulty;
+	}
+	public static void setChosenDiffficulty(String chosenDiffficulty) {
+		backgammonUI.chosenDiffficulty = chosenDiffficulty;
+	}
 	public static TextField getPlayer1Field() {
 		return player1Field;
 	}
