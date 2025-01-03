@@ -16533,3 +16533,93 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] First player to move is: rami.
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: rami.
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 8
+      G. 13-5
+      H. 24-16
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 6 to 3.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 1].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 1
+      E. 6-5
+      F. 8-7
+      G. 24-23
+
+  Roll of 4
+      H. 6-2
+      I. 8-4
+      J. 13-9
+      K. 24-20
+
+> [System] Trying to quit game.
+

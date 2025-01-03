@@ -106,6 +106,12 @@ public class Dices extends HBox implements ColorParser {
 		return isDouble;
 	}
 	
+	public void setModeForAllDices(Dice.Mode mode) {
+	    for (Dice dice : dices) {
+	        dice.setMode(mode);
+	    }
+	}
+	
 	/**
 	 * Doubles the current cube objects in dices as well as the roll die result.
 	 * @param res the roll die result.
