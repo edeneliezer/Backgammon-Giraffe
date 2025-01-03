@@ -18,10 +18,11 @@ import Model.GameConstants;
  */
 public class MusicPlayer {
 	private final String defaultMusic = "jazz.aiff";
-	private MediaPlayer mediaPlayer;
+	private static MediaPlayer mediaPlayer;
 	private Media media;
 	private ArrayList<String> playlist;
 	private String currentMusic;
+	private static boolean isPlaying = false;
 	
 	public MusicPlayer() {
 		initPlaylist();
@@ -97,8 +98,9 @@ public class MusicPlayer {
 		});
 	}
 	
-	public void play() {
+	public static void play() {
 		mediaPlayer.play();
+		isPlaying = true;
 	}
 	
 	public void next() {
@@ -133,7 +135,7 @@ public class MusicPlayer {
 	 * This is to show the user that their command worked
 	 * @return String representation of the status of the mediaPlayer object
 	 */
-	public String getStatus(String option) {
+	public static String getStatus(String option) {
 		String outputStatus = "";
 		switch (option) {
 			case "play":
@@ -166,11 +168,14 @@ public class MusicPlayer {
 		return outputStatus;
 	}
 	
-	public void pause() {
+	public static void pause() {
 		mediaPlayer.pause();
+		isPlaying = false;
+
 	}
 	
-	public void stop() {
+	
+	public static void stop() {
 		mediaPlayer.stop();
 	}
 	
@@ -180,5 +185,9 @@ public class MusicPlayer {
 	
 	public void reset() {
 		random();
+	}
+	
+	public static boolean isPlaying() {
+	    return isPlaying; // Return current state
 	}
 }

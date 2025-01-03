@@ -2,6 +2,7 @@ package view;
 import Model.GameModel;
 import controller.MatchController;
 import controller.jsonController;
+import controller.MusicPlayer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -40,6 +41,9 @@ public class backgammonUI extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+    	 MusicPlayer musicPlayer = new MusicPlayer();
+    	 musicPlayer.play(); // Start the music immediately
+    	    
         // Main layout - Centered VBox
         VBox root = new VBox(20);
         root.setPadding(new Insets(20));
@@ -267,6 +271,23 @@ public class backgammonUI extends Application {
 
         // Buttons for settings options with icons
         Button musicButton = createIconButton("Music", "sound.png");
+        musicButton.setOnAction(e -> {
+        	ImageView icon;
+            if (controller.MusicPlayer.isPlaying()) {
+            	controller.MusicPlayer.pause();
+            	icon = new ImageView(new Image("mute.png"));
+                musicButton.setText("Unmute");
+            } else {
+            	controller.MusicPlayer.play();
+            	 icon = new ImageView(new Image("sound.png"));
+            	 musicButton.setText("Music");
+            }
+            // Set the size of the icon
+            icon.setFitWidth(20); // Set the width
+            icon.setFitHeight(20); // Set the height
+            musicButton.setGraphic(icon);
+        });
+       
         Button historyButton = createIconButton("History", "history.png");
         Button infoButton = createIconButton("Information", "info.png");
 
