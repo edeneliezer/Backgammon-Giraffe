@@ -19,7 +19,7 @@ public class Dice extends ImageView implements ColorParser {
     private int diceRollResult;
     private ColorAdjust colorAdjust;
     private Color color;
-    private Mode currentMode;
+    public static Mode currentMode = Mode.REGULAR;
 
     public enum Mode {
         REGULAR, HARD
@@ -28,22 +28,28 @@ public class Dice extends ImageView implements ColorParser {
     /**
      * Constructors
      */
+    
+    public Dice(Mode mode) {
+        this(Color.RED);
+    	//this.currentMode = mode;
+    }
+    
     public Dice(Dice otherDice) {
         this(otherDice.getColor());
         this.diceRollResult = otherDice.getDiceResult();
-        this.currentMode = otherDice.getMode();
+        //this.currentMode = otherDice.getMode();
     }
 
     public Dice(int diceRollResult) {
         this(Color.RED);
         this.diceRollResult = diceRollResult;
-        this.currentMode = Mode.REGULAR;
+       // this.currentMode = Mode.REGULAR;
     }
 
     public Dice(Color color) {
         super();
         this.color = color;
-        this.currentMode = Mode.REGULAR;
+       // this.currentMode = Mode.REGULAR;
         dices = new Image[MAX_DICE_SIZE];
         initImages();
 

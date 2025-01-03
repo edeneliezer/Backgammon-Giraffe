@@ -22,7 +22,14 @@ import view.backgammonUI;
 		// מתודת עזר שתציג את מסך המשחק
 		private void showGame(Stage stage) {
 			try {
-				MatchController root = new MatchController(stage);
+				
+				// Map chosen difficulty to Dice.Mode
+		        Dice.Mode mode = Dice.Mode.REGULAR; // Default mode
+		        String chosenDifficulty = backgammonUI.getChosenDiffficulty();
+		        if (chosenDifficulty.equals("Hard")) {
+		            mode = Dice.Mode.HARD;
+		        }
+				MatchController root = new MatchController(stage, mode);
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.setTitle("Backgammon");

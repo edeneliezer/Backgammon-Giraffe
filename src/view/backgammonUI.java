@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+import Model.Dice;
 import Model.GameModel;
 import controller.MatchController;
 import controller.jsonController;
@@ -196,8 +197,17 @@ public class backgammonUI extends Application {
         playButton.setDisable(true);
         playButton.setOnAction(e -> {
         	controller.MusicPlayer.stop();
-            // Create a new MatchController instance	
-            MatchController matchController = new MatchController(primaryStage); // assuming primaryStage is available here
+        	
+        	// Map difficulty string to Dice.Mode
+            Dice.Mode mode = Dice.Mode.REGULAR; // Default
+            Dice.currentMode = Dice.Mode.REGULAR;
+            if (chosenDiffficulty.equals("Hard")) {
+                mode = Dice.Mode.HARD;
+                Dice.currentMode = Dice.Mode.HARD;
+            }
+        	
+            // Create a new MatchController instance
+        	MatchController matchController = new MatchController(primaryStage, mode); // assuming primaryStage is available here
             Scene gameScene = new Scene(matchController, 1000, 800); // adjust size as needed
             primaryStage.setScene(gameScene); // Switch to the game screen
             matchController.startGame();

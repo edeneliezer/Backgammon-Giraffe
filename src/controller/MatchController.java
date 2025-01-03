@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Optional;
 
+import Model.Dice;
 import Model.GameConstants;
 import Model.MatchTimer;
 import Model.Player;
@@ -69,6 +70,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	private boolean isPlayerInfosEnteredFirstTime, isPromptCancel, hadCrawfordGame, isCrawfordGame;
 	private MatchTimer gameTimer;
 	private  Button settingsButton;
+	private Dice.Mode diceMode;
 	
 	/**
 	 * Default Constructor
@@ -77,13 +79,14 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	 * 		- Initialize the layout of the components.
 	 * 		- Style the application.
 	 */
-	public MatchController(Stage stage) {
-		super();
-		this.stage = stage;
-		initApplication();
-		initGame();
-		style();
-	}
+	 public MatchController(Stage stage, Dice.Mode diceMode) {
+	        super();
+	        this.stage = stage;
+	        this.diceMode = diceMode; // Store the dice mode
+	        initApplication();
+	        initGame();
+	        style();
+	    }
 	
 	/**
 	 * Initialize players and UI components.
@@ -100,9 +103,16 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	}
 	
 	
+	
+	
+	
+	
+	
 	/**
 	 * Initialize game components and sub-controllers.
 	 */
+	
+	
 	private void initGame() {
 		game = new GameComponentsController(bottomPlayer, topPlayer);
 		gameplay = new GameplayController(stage, this, game, infoPnl, bottomPlayer, topPlayer);
@@ -116,6 +126,8 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		initLayout();
 	}
 	
+	
+
 	private Button createSettingsButton() {
         Button button = new Button("Settings");
         button.setStyle(

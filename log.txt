@@ -16623,3 +16623,429 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] First player to move is: rami.
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 1
+      D. 6-5
+      E. 8-7
+      F. 24-23
+
+  Roll of 7
+      G. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rami's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 3].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 3
+      C. 5-2
+      D. 6-3
+      E. 8-5
+      F. 13-10
+      G. 24-21
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+      C. 21-16
+
+
+> [System] Moving...
+> [System] Moved checker from 21 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+      A. 5-3
+      B. 6-4
+      C. 8-6
+      D. 13-11
+      E. 24-22*
+
+  Roll of 5
+      F. 6-1*
+      G. 8-3
+      H. 13-8
+
+  Roll of 7
+      I. 8-1*
+      J. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 4.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to bar.
+> [System] Moved checker from 6 to 1.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rami's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 1].
+> [System] Available moves:
+  Roll of 3
+      A. Bar-22
+
+  Roll of 1
+
+  Roll of 4
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 22.
+> [System] Available moves:
+  Roll of 1
+      A. 3-2
+      B. 5-4
+      C. 6-5
+      D. 8-7
+      E. 16-15
+      F. 22-21*
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 4].
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 5-3*
+      C. 6-4
+      D. 8-6
+      E. 13-11
+      F. 24-22*
+
+  Roll of 4
+      G. 5-1
+      H. 6-2
+      I. 8-4
+      J. 13-9*
+
+  Roll of 6
+      K. 8-2
+      L. 13-7
+      M. 24-18
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: mariana.
+> [System] Roll dice result: [0, -1].
+> [System] Available moves:
+  Roll of 0
+      A. 6-6
+      B. 8-8
+      C. 13-13
+      D. 24-24
+
+  Roll of -1
+      E. 6-7
+      F. 8-9
+      G. 13-14
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 7.
+> [System] Available moves:
+  Roll of 0
+      A. 6-6
+      B. 8-8
+      C. 13-13
+      D. 24-24
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 8.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rami's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 4].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 4
+      E. 6-2
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+  Roll of 7
+      I. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 1].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2
+      C. 8-3
+      D. 13-8
+
+  Roll of 1
+      E. 6-5*
+      F. 7-6
+      G. 8-7
+      H. 24-23
+
+  Roll of 6
+      I. 7-1
+      J. 8-2
+      K. 13-7
+      L. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to bar.
+> [System] Moved checker from 6 to 5.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2
+      C. 8-3
+      D. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 1.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now rami's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, -1].
+> [System] Available moves:
+  Roll of 3
+      A. Bar-22
+
+  Roll of -1
+
+  Roll of 2
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 22.
+> [System] Available moves:
+  Roll of -1
+      A. 6-7
+      B. 8-9
+      C. 13-14
+      D. 21-22
+      E. 22-23
+
+
+> [System] Moving...
+> [System] Moved checker from 22 to 23.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 6].
+> [System] Available moves:
+  Roll of 3
+      A. 5-2*
+      B. 6-3
+      C. 7-4*
+      D. 8-5
+      E. 13-10
+      F. 24-21
+
+  Roll of 6
+      G. 7-1
+      H. 8-2*
+      I. 13-7
+      J. 24-18
+
+  Roll of 9
+      K. 13-4*
+      L. 24-15
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: rami.
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 10
+      H. 13-3
+      I. 24-14
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 6].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21*
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+> [System] Trying to quit game.
+

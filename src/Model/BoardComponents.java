@@ -639,6 +639,7 @@ public class BoardComponents extends HBox {
 		 * left uses red.
 		 * right uses black.
 		 */
+		//..............................................................................................................................................
 		dices = new Dices(Color.RED);
 	}
 	

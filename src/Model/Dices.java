@@ -49,7 +49,7 @@ public class Dices extends HBox implements ColorParser {
 	 */
 	private void initDices() {
 		for (int i = 0; i < dices.length; i++) {
-			dices[i] = new Dice(color);
+			dices[i] = new Dice(Dice.currentMode);
 		}
 	}
 	
