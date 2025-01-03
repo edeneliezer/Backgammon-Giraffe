@@ -131,8 +131,9 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
         return button;
     }
 	
+	  VBox settingsOverlay = createSettingsOverlay();
 	 private void toggleSettingsOverlay() {
-	        VBox settingsOverlay = createSettingsOverlay();
+	      
 	        Scene currentScene = stage.getScene();
 	        StackPane stackPane;
 
@@ -464,7 +465,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		add(game, 0, 0, 1, 3);
 		add(terminal, 1, 0);
 		add(rollDieBtn, 1, 2);
-		add(settingsButton, 0, 2);
+		add(settingsButton, 1, 1);
 	}
 	
 	/**
@@ -493,7 +494,8 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	}
 	
 	
-	  private VBox createSettingsOverlay() {
+	  @SuppressWarnings("static-access")
+	private VBox createSettingsOverlay() {
 	        // Create the settings box (overlay container)
 	        VBox settingsBox = new VBox(20); // Add smaller spacing between elements
 	        settingsBox.setPadding(new Insets(20)); // Reduce padding
