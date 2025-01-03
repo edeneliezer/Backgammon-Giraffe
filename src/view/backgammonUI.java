@@ -1,4 +1,9 @@
 package view;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
 import Model.GameModel;
 import controller.MatchController;
 import controller.jsonController;
@@ -294,6 +299,7 @@ public class backgammonUI extends Application {
        
         Button historyButton = createIconButton("History", "history.png");
         Button infoButton = createIconButton("Information", "info.png");
+        infoButton.setOnAction(e -> openPdfFile("BackgammonRules.pdf"));
 
         // Close Button
         Button closeButton = new Button("Close");
@@ -326,8 +332,20 @@ public class backgammonUI extends Application {
     }
 
 
-
-
+    private void openPdfFile(String resourcePath) {
+        try {
+            // Get the file as a resource stream
+            URL resourceUrl = getClass().getClassLoader().getResource(resourcePath);
+            if (resourceUrl != null) {
+                File pdfFile = new File(resourceUrl.toURI());
+                Desktop.getDesktop().open(pdfFile);
+            } else {
+                System.out.println("File not found: " + resourcePath);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private Button createIconButton(String text, String iconUrl) {
         // Create an icon for the button
         ImageView icon = new ImageView(new Image(iconUrl));
