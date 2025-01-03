@@ -190,7 +190,8 @@ public class backgammonUI extends Application {
         playButton.setPrefSize(200, 60);
         playButton.setDisable(true);
         playButton.setOnAction(e -> {
-            // Create a new MatchController instance
+        	controller.MusicPlayer.stop();
+            // Create a new MatchController instance	
             MatchController matchController = new MatchController(primaryStage); // assuming primaryStage is available here
             Scene gameScene = new Scene(matchController, 1000, 800); // adjust size as needed
             primaryStage.setScene(gameScene); // Switch to the game screen
@@ -233,7 +234,10 @@ public class backgammonUI extends Application {
             boolean isVisible = !settingsOverlay.isVisible();
             settingsOverlay.setVisible(isVisible);
             fadeBackground.setVisible(isVisible);
-        });    }
+        });   
+       }
+    
+    
     private void checkIfReadyToPlay() {
         // Enable "Let's play!" only if all conditions are met
         boolean isPlayer1NameEntered = !player1Field.getText().trim().isEmpty();

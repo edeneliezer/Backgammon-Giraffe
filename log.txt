@@ -15729,3 +15729,484 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] First player to move is: 2.
+> [System] Roll dice result: [4, 2].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 2
+      E. 6-4
+      F. 8-6
+      G. 13-11
+      H. 24-22
+
+  Roll of 6
+      I. 8-2
+      J. 13-7
+      K. 24-18
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: s.
+> [System] Roll dice result: [3, 1].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 1
+      E. 6-5
+      F. 8-7
+      G. 24-23
+
+  Roll of 4
+      H. 6-2
+      I. 8-4
+      J. 13-9
+      K. 24-20
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: w.
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [2, 3].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 3
+      E. 6-3
+      F. 8-5
+      G. 13-10
+      H. 24-21
+
+  Roll of 5
+      I. 8-3
+      J. 13-8
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: as.
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 10
+      H. 13-3
+      I. 24-14
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: s.
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 4
+      D. 6-2
+      E. 8-4
+      F. 13-9
+      G. 24-20
+
+  Roll of 10
+      H. 13-3
+      I. 24-14
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [1, 3].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 3
+      D. 6-3
+      E. 8-5
+      F. 13-10
+      G. 24-21
+
+  Roll of 4
+      H. 6-2
+      I. 8-4
+      J. 13-9
+      K. 24-20
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: s.
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 2
+      D. 6-4
+      E. 8-6
+      F. 13-11
+      G. 24-22
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 24-18
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 8
+      G. 13-5
+      H. 24-16
+
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [3, 4].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 4
+      E. 6-2
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+  Roll of 7
+      I. 13-6
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [4, 5].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 9
+      G. 13-4
+      H. 24-15
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [4, 5].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 9
+      G. 13-4
+      H. 24-15
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: s.
+> [System] Roll dice result: [6, 3].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 3
+      D. 6-3
+      E. 8-5
+      F. 13-10
+      G. 24-21
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: s.
+> [System] Roll dice result: [6, 3].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 3
+      D. 6-3
+      E. 8-5
+      F. 13-10
+      G. 24-21
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+> [System] Trying to quit game.
+> [System] Game log saved to log.txt
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [4, 5].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 9
+      G. 13-4
+      H. 24-15
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: x.
+> [System] Roll dice result: [5, 1].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 1
+      C. 6-5
+      D. 8-7
+      E. 24-23
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 24-18
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [5, 6].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 6
+      C. 8-2
+      D. 13-7
+      E. 24-18
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 24-18
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: c.
+> [System] Roll dice result: [5, 3].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 3
+      C. 6-3
+      D. 8-5
+      E. 13-10
+      F. 24-21
+
+  Roll of 8
+      G. 13-5
+      H. 24-16
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: a.
+> [System] Roll dice result: [5, 3].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 3
+      C. 6-3
+      D. 8-5
+      E. 13-10
+      F. 24-21
+
+  Roll of 8
+      G. 13-5
+      H. 24-16
+
+> [System] Trying to quit game.
+

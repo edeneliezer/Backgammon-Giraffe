@@ -16,20 +16,29 @@ import controller.MusicPlayer;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 //import view.CommandPanel;
 import view.Dialogs;
 import view.GameComponentsController;
+import view.HistoryScreen;
 import view.InfoPanel;
 import view.RollDieButton;
 import view.ScoreboardPrompt;
@@ -59,6 +68,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	private Stage stage;
 	private boolean isPlayerInfosEnteredFirstTime, isPromptCancel, hadCrawfordGame, isCrawfordGame;
 	private MatchTimer gameTimer;
+	private  Button settingsButton;
 	
 	/**
 	 * Default Constructor
@@ -100,9 +110,47 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		gameplay.setCommandController(cmd);
 		event = new EventController(stage, this, game, gameplay, cmd, infoPnl, rollDieBtn);
 		cmd.setEventController(event);
-		initLayout();
 		gameTimer = new MatchTimer();
+		 // Create the Settings Button
+	    settingsButton = createSettingsButton();
+		initLayout();
 	}
+	
+	private Button createSettingsButton() {
+        Button button = new Button("Settings");
+        button.setStyle(
+            "-fx-font-size: 14px; " +
+            "-fx-font-weight: bold; " +
+            "-fx-background-color: #d2a679; " +
+            "-fx-text-fill: black; " +
+            "-fx-border-radius: 5; " +
+            "-fx-background-radius: 5;"
+        );
+
+        button.setOnAction(e -> toggleSettingsOverlay());
+        return button;
+    }
+	
+	 private void toggleSettingsOverlay() {
+	        VBox settingsOverlay = createSettingsOverlay();
+	        Scene currentScene = stage.getScene();
+	        StackPane stackPane;
+
+	        if (currentScene.getRoot() instanceof StackPane) {
+	            stackPane = (StackPane) currentScene.getRoot();
+	        } else {
+	            stackPane = new StackPane(currentScene.getRoot());
+	            stage.setScene(new Scene(stackPane, currentScene.getWidth(), currentScene.getHeight()));
+	        }
+
+	        if (stackPane.getChildren().contains(settingsOverlay)) {
+	            settingsOverlay.setVisible(!settingsOverlay.isVisible());
+	        } else {
+	            stackPane.getChildren().add(settingsOverlay);
+	        }
+	        
+	        StackPane.setMargin(settingsOverlay, new Insets(500, 500, 250, 250)); // Margin from top and right edges
+	    }
 	
 	public void resetApplication() {
 	//	cmdPnl.reset();
@@ -416,6 +464,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		add(game, 0, 0, 1, 3);
 		add(terminal, 1, 0);
 		add(rollDieBtn, 1, 2);
+		add(settingsButton, 0, 2);
 	}
 	
 	/**
@@ -442,6 +491,106 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		);
 		
 	}
+	
+	
+	  private VBox createSettingsOverlay() {
+	        // Create the settings box (overlay container)
+	        VBox settingsBox = new VBox(20); // Add smaller spacing between elements
+	        settingsBox.setPadding(new Insets(20)); // Reduce padding
+	        settingsBox.setAlignment(Pos.TOP_CENTER);
+	        settingsBox.setStyle(
+	            "-fx-background-color: #fefaf4; " + // Match the beige background
+	            "-fx-border-color: brown; " +       // Dark brown border
+	            "-fx-border-width: 3; " +           // Border thickness
+	            "-fx-border-radius: 10; " +         // Rounded corners
+	            "-fx-background-radius: 10;"        // Rounded background
+	        );
+
+	        // Make the box smaller
+	        settingsBox.setPrefSize(150, 180); // Adjust width and height to make it smaller
+
+	        // Settings Title
+	        Label settingsTitle = new Label("SETTINGS");
+	        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 14)); // Slightly smaller font
+	        settingsTitle.setTextFill(Color.BROWN);
+
+	        // Buttons for settings options with icons
+	        Button musicButton = createIconButton("Music", "sound.png");
+	        musicButton.setOnAction(e -> {
+	        	ImageView icon;
+	            if (musicPlayer.isPlaying()) {
+	            	musicPlayer.pause();
+	            	icon = new ImageView(new Image("mute.png"));
+	                musicButton.setText("Unmute");
+	            } else {
+	            	 musicPlayer.play();
+	            	 icon = new ImageView(new Image("sound.png"));
+	            	 musicButton.setText("Music");
+	            }
+	            // Set the size of the icon
+	            icon.setFitWidth(20); // Set the width
+	            icon.setFitHeight(20); // Set the height
+	            musicButton.setGraphic(icon);
+	        });
+	       
+	        Button historyButton = createIconButton("History", "history.png");
+	        Button infoButton = createIconButton("Information", "info.png");
+
+	        // Close Button
+	        Button closeButton = new Button("Close");
+	        closeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+	        closeButton.setStyle(
+	            "-fx-background-color: #d11e1e; " +  // Red button background
+	            "-fx-text-fill: white; " +           // White text
+	            "-fx-border-radius: 5; " +           // Rounded border
+	            "-fx-background-radius: 5;"         // Rounded background
+	        );
+	        closeButton.setOnAction(e -> {
+	            settingsBox.setVisible(false); // Hide settings box
+	            StackPane stackPane = (StackPane) settingsBox.getParent();
+	            Node fadeBackground = stackPane.getChildren().get(1); // Access the fade rectangle
+	            fadeBackground.setVisible(false); // Hide fade background
+	        });
+	        
+	        // Add Action to the History Button
+	        historyButton.setOnAction(e -> {
+	            // Switch to History Screen
+	            Stage stage = (Stage) settingsBox.getScene().getWindow();
+	            HistoryScreen historyScreen = new HistoryScreen();
+	            historyScreen.start(stage); // Navigate to History Screen
+	        });
+	        
+	        // Add all elements to the settings box
+	        settingsBox.getChildren().addAll(settingsTitle, musicButton, historyButton, infoButton,closeButton);
+
+	        return settingsBox;
+	    }
+	  
+	  private Button createIconButton(String text, String iconUrl) {
+	        // Create an icon for the button
+	        ImageView icon = new ImageView(new Image(iconUrl));
+	        icon.setFitWidth(20); // Icon size
+	        icon.setFitHeight(20);
+
+	        // Create the button with the icon and text
+	        Button button = new Button(text, icon);
+	        button.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+	        button.setStyle(
+	            "-fx-background-color: #d2a679; " + // Light brown background
+	            "-fx-text-fill: black; " +          // Black text
+	            "-fx-border-color: brown; " +       // Dark brown border
+	            "-fx-border-width: 1.5; " +         // Thin border
+	            "-fx-background-radius: 10; " +    // Rounded background
+	            "-fx-border-radius: 10;"           // Rounded border
+	        );
+	        button.setContentDisplay(ContentDisplay.LEFT); // Icon on the left of text
+	        button.setPrefWidth(160); // Consistent button width
+	        return button;
+	    }
+
+	
+
+
 	
 	public boolean isCrawfordGame() {
 		return isCrawfordGame;
