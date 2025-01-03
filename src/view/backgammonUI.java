@@ -5,8 +5,10 @@ import controller.jsonController;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
@@ -17,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.Stop;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -200,14 +203,20 @@ public class backgammonUI extends Application {
         // Combine everything into the root
         root.getChildren().addAll(menuBar, titleBox, playersBox, difficultyBox, bottomBox);
 
+        // Create a semi-transparent rectangle for background fading
+        Rectangle fadeBackground = new Rectangle(800, 600); // Match the scene size
+        fadeBackground.setFill(Color.rgb(0, 0, 0, 0.5)); // Black with 50% opacity
+        fadeBackground.setVisible(false); // Initially hidden
+        
         // Create settings overlay
         VBox settingsOverlay = createSettingsOverlay();
         settingsOverlay.setVisible(false); // Initially hidden
 
-        // Wrap everything in a new StackPane
-        StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(root, settingsOverlay);
-
+        // Wrap everything in a StackPane
+        
+        StackPane stackPane = new StackPane(root, fadeBackground, settingsOverlay);
+        StackPane.setMargin(settingsOverlay, new Insets(250, 250, 250, 250)); // Margin from top and right edges
+        
         // Scene and Stage
         Scene scene = new Scene(stackPane, 800, 600);
         primaryStage.setTitle("Backgammon Game");
@@ -216,8 +225,11 @@ public class backgammonUI extends Application {
         primaryStage.show();
 
         // Toggle visibility of settings overlay
-        settingsButton.setOnAction(e -> settingsOverlay.setVisible(!settingsOverlay.isVisible()));
-    }
+        settingsButton.setOnAction(e -> {
+            boolean isVisible = !settingsOverlay.isVisible();
+            settingsOverlay.setVisible(isVisible);
+            fadeBackground.setVisible(isVisible);
+        });    }
     private void checkIfReadyToPlay() {
         // Enable "Let's play!" only if all conditions are met
         boolean isPlayer1NameEntered = !player1Field.getText().trim().isEmpty();
@@ -233,35 +245,88 @@ public class backgammonUI extends Application {
     }
     
     private VBox createSettingsOverlay() {
-        VBox settingsBox = new VBox(20);
-        settingsBox.setPadding(new Insets(20));
-        settingsBox.setAlignment(Pos.CENTER);
-        settingsBox.setStyle("-fx-background-color: rgba(94, 76, 61, 0.9); -fx-border-color: brown; -fx-border-width: 2;");
+        // Create the settings box (overlay container)
+        VBox settingsBox = new VBox(20); // Add smaller spacing between elements
+        settingsBox.setPadding(new Insets(20)); // Reduce padding
+        settingsBox.setAlignment(Pos.TOP_CENTER);
+        settingsBox.setStyle(
+            "-fx-background-color: #fefaf4; " + // Match the beige background
+            "-fx-border-color: brown; " +       // Dark brown border
+            "-fx-border-width: 3; " +           // Border thickness
+            "-fx-border-radius: 10; " +         // Rounded corners
+            "-fx-background-radius: 10;"        // Rounded background
+        );
 
-        // Settings title
+        // Make the box smaller
+        settingsBox.setPrefSize(150, 180); // Adjust width and height to make it smaller
+
+        // Settings Title
         Label settingsTitle = new Label("SETTINGS");
-        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 28));
+        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 14)); // Slightly smaller font
         settingsTitle.setTextFill(Color.BROWN);
 
-        // Buttons for settings options
-        Button musicButton = createStyledButton("Music");
-        Button historyButton = createStyledButton("History");
-        Button infoButton = createStyledButton("Information");
+        // Buttons for settings options with icons
+        Button musicButton = createIconButton("Music", "https://www.iconpacks.net/icons/1/free-volume-icon-495-thumb.png");
+        Button historyButton = createIconButton("History", "https://www.iconpacks.net/icons/2/free-history-icon-3115-thumb.png");
+        Button infoButton = createIconButton("Information", "https://www.iconpacks.net/icons/1/free-info-icon-144-thumb.png");
 
-        // Style the buttons
-        musicButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
-        historyButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
-        infoButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
+        // Close Button
+        Button closeButton = new Button("Close");
+        closeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+        closeButton.setStyle(
+            "-fx-background-color: #d11e1e; " +  // Red button background
+            "-fx-text-fill: white; " +           // White text
+            "-fx-border-radius: 5; " +           // Rounded border
+            "-fx-background-radius: 5;"         // Rounded background
+        );
+        closeButton.setOnAction(e -> {
+            settingsBox.setVisible(false); // Hide settings box
+            StackPane stackPane = (StackPane) settingsBox.getParent();
+            Node fadeBackground = stackPane.getChildren().get(1); // Access the fade rectangle
+            fadeBackground.setVisible(false); // Hide fade background
+        });
+        
+        // Add Action to the History Button
+        historyButton.setOnAction(e -> {
+            // Switch to History Screen
+            Stage stage = (Stage) settingsBox.getScene().getWindow();
+            HistoryScreen historyScreen = new HistoryScreen();
+            historyScreen.start(stage); // Navigate to History Screen
+        });
+        
+        // Add all elements to the settings box
+        settingsBox.getChildren().addAll(settingsTitle, musicButton, historyButton, infoButton,closeButton);
 
-        // Close button
-        Button closeButton = createStyledButton("Close");
-        closeButton.setOnAction(e -> settingsBox.setVisible(false)); // Hide the overlay when clicked
-
-        // Add components to the VBox
-        settingsBox.getChildren().addAll(settingsTitle, musicButton, historyButton, infoButton, closeButton);
-
-        return settingsBox; // Return the settings overlay
+        return settingsBox;
     }
+
+
+
+
+    private Button createIconButton(String text, String iconUrl) {
+        // Create an icon for the button
+        ImageView icon = new ImageView(new Image(iconUrl));
+        icon.setFitWidth(20); // Icon size
+        icon.setFitHeight(20);
+
+        // Create the button with the icon and text
+        Button button = new Button(text, icon);
+        button.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        button.setStyle(
+            "-fx-background-color: #d2a679; " + // Light brown background
+            "-fx-text-fill: black; " +          // Black text
+            "-fx-border-color: brown; " +       // Dark brown border
+            "-fx-border-width: 1.5; " +         // Thin border
+            "-fx-background-radius: 10; " +    // Rounded background
+            "-fx-border-radius: 10;"           // Rounded border
+        );
+        button.setContentDisplay(ContentDisplay.LEFT); // Icon on the left of text
+        button.setPrefWidth(160); // Consistent button width
+        return button;
+    }
+
+
+
 
 
     private VBox createPlayerBox(String playerName) {
@@ -280,6 +345,7 @@ public class backgammonUI extends Application {
 
         return playerBox;
     }
+    
 
     private Button createStyledButton(String text) {
         Button button = new Button(text);

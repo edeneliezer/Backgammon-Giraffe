@@ -3,6 +3,7 @@ package view;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -24,13 +25,34 @@ public class HistoryScreen {
         root.setPadding(new Insets(20));
         root.setStyle("-fx-background-color: #fefaf4;");
         root.setAlignment(Pos.TOP_CENTER);
+        // Home Button (Top-Left Corner)
+        Button homeButton = new Button("Home");
+        homeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        homeButton.setStyle(
+            "-fx-background-color: #d11e1e; " +  // Red background
+            "-fx-text-fill: white; " +          // White text
+            "-fx-border-radius: 5; " +          // Rounded border
+            "-fx-background-radius: 5;"         // Rounded background
+        );
+        homeButton.setOnAction(e -> {
+            // Navigate back to BackgammonUI
+            backgammonUI backgammonScreen = new backgammonUI();
+            backgammonScreen.start(primaryStage);
+        });
 
-     // Title
+        // Add Home Button to a HBox for alignment
+        HBox homeButtonContainer = new HBox(homeButton);
+        homeButtonContainer.setAlignment(Pos.TOP_LEFT);
+        homeButtonContainer.setPadding(new Insets(10));
+
+        // Title
         Label title = new Label("HISTORY");
-        title.setFont(Font.font("Verdana", FontWeight.BOLD, 36)); // Added FontWeight.BOLD
+        title.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
         title.setTextFill(Color.BROWN);
-        root.getChildren().add(title);
 
+        VBox titleContainer = new VBox(title);
+        titleContainer.setAlignment(Pos.TOP_CENTER);
+        titleContainer.setPadding(new Insets(10));
 
         // Read games from JSON file and add rows
         try {
