@@ -53,6 +53,11 @@ public class HistoryScreen {
         VBox titleContainer = new VBox(title);
         titleContainer.setAlignment(Pos.TOP_CENTER);
         titleContainer.setPadding(new Insets(10));
+        
+        // Add elements to BorderPane
+        root.getChildren().add(homeButtonContainer);
+        root.getChildren().add(titleContainer);
+
 
         // Read games from JSON file and add rows
         try {

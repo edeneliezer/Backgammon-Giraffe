@@ -73,7 +73,7 @@ public class backgammonUI extends Application {
         HBox menuButtons = new HBox(15);
         menuButtons.setAlignment(Pos.CENTER_RIGHT);
 
-        Button settingsButton = createImageButton("https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png", 25, 25);
+        Button settingsButton = createImageButton("settings.jpg", 25, 25);
         settingsButton.setId("settingsButton"); // Add an ID for lookup
 
 
