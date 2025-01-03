@@ -71,10 +71,8 @@ public class backgammonUI extends Application {
         menuButtons.setAlignment(Pos.CENTER_RIGHT);
 
         Button settingsButton = createImageButton("https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png", 25, 25);
-        settingsButton.setOnAction(e -> {
-            HistoryScreen historyScreen = new HistoryScreen(); // Create the HistoryScreen instance
-            historyScreen.start(primaryStage); // Navigate to the HistoryScreen
-        });
+        settingsButton.setId("settingsButton"); // Add an ID for lookup
+
 
         menuButtons.getChildren().addAll(settingsButton);
 
@@ -202,12 +200,23 @@ public class backgammonUI extends Application {
         // Combine everything into the root
         root.getChildren().addAll(menuBar, titleBox, playersBox, difficultyBox, bottomBox);
 
+        // Create settings overlay
+        VBox settingsOverlay = createSettingsOverlay();
+        settingsOverlay.setVisible(false); // Initially hidden
+
+        // Wrap everything in a new StackPane
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(root, settingsOverlay);
+
         // Scene and Stage
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(stackPane, 800, 600);
         primaryStage.setTitle("Backgammon Game");
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.show();
+
+        // Toggle visibility of settings overlay
+        settingsButton.setOnAction(e -> settingsOverlay.setVisible(!settingsOverlay.isVisible()));
     }
     private void checkIfReadyToPlay() {
         // Enable "Let's play!" only if all conditions are met
@@ -223,7 +232,37 @@ public class backgammonUI extends Application {
         
     }
     
-    
+    private VBox createSettingsOverlay() {
+        VBox settingsBox = new VBox(20);
+        settingsBox.setPadding(new Insets(20));
+        settingsBox.setAlignment(Pos.CENTER);
+        settingsBox.setStyle("-fx-background-color: rgba(94, 76, 61, 0.9); -fx-border-color: brown; -fx-border-width: 2;");
+
+        // Settings title
+        Label settingsTitle = new Label("SETTINGS");
+        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 28));
+        settingsTitle.setTextFill(Color.BROWN);
+
+        // Buttons for settings options
+        Button musicButton = createStyledButton("Music");
+        Button historyButton = createStyledButton("History");
+        Button infoButton = createStyledButton("Information");
+
+        // Style the buttons
+        musicButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
+        historyButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
+        infoButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
+
+        // Close button
+        Button closeButton = createStyledButton("Close");
+        closeButton.setOnAction(e -> settingsBox.setVisible(false)); // Hide the overlay when clicked
+
+        // Add components to the VBox
+        settingsBox.getChildren().addAll(settingsTitle, musicButton, historyButton, infoButton, closeButton);
+
+        return settingsBox; // Return the settings overlay
+    }
+
 
     private VBox createPlayerBox(String playerName) {
         Label nameLabel = new Label(playerName);
