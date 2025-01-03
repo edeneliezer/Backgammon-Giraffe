@@ -266,9 +266,9 @@ public class backgammonUI extends Application {
         settingsTitle.setTextFill(Color.BROWN);
 
         // Buttons for settings options with icons
-        Button musicButton = createIconButton("Music", "https://www.iconpacks.net/icons/1/free-volume-icon-495-thumb.png");
-        Button historyButton = createIconButton("History", "https://www.iconpacks.net/icons/2/free-history-icon-3115-thumb.png");
-        Button infoButton = createIconButton("Information", "https://www.iconpacks.net/icons/1/free-info-icon-144-thumb.png");
+        Button musicButton = createIconButton("Music", "sound.png");
+        Button historyButton = createIconButton("History", "history.png");
+        Button infoButton = createIconButton("Information", "info.png");
 
         // Close Button
         Button closeButton = new Button("Close");
