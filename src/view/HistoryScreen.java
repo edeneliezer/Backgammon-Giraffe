@@ -96,39 +96,42 @@ public class HistoryScreen {
     private HBox createGameRow(String player1, String player2, String difficulty, String winner) {
         HBox row = new HBox();
         row.setAlignment(Pos.CENTER);
-        row.setSpacing(20);
+        row.setSpacing(10);
         row.setStyle("-fx-background-color: #b30000; -fx-padding: 10; -fx-border-color: black; -fx-border-width: 2;");
         row.setPrefHeight(50);
 
-        // Player 1 on the far left
-        Label player1Label = new Label(player1);
+        // Player 1 or Winner Label
+        Label player1Label = new Label(player1.equals(winner) ? "Winner: " + player1 : player1);
         player1Label.setFont(Font.font("Verdana", 18));
         player1Label.setTextFill(player1.equals(winner) ? Color.LIGHTGREEN : Color.WHITE);
-        HBox.setHgrow(player1Label, Priority.ALWAYS);
-        player1Label.setAlignment(Pos.CENTER_LEFT);
 
-        // Difficulty in the center
+        // Difficulty Label
         Label difficultyLabel = new Label(difficulty);
         difficultyLabel.setFont(Font.font("Verdana", 18));
         difficultyLabel.setTextFill(Color.BEIGE);
         difficultyLabel.setStyle("-fx-background-color: #8b5e3c; -fx-padding: 5; -fx-border-color: black;");
+        HBox.setHgrow(difficultyLabel, Priority.ALWAYS); // Allow the label to occupy space for centering
 
-        // Player 2 on the far right
-        Label player2Label = new Label(player2);
+        // Player 2 or Winner Label
+        Label player2Label = new Label(player2.equals(winner) ? "Winner: " + player2 : player2);
         player2Label.setFont(Font.font("Verdana", 18));
         player2Label.setTextFill(player2.equals(winner) ? Color.LIGHTGREEN : Color.WHITE);
-        HBox.setHgrow(player2Label, Priority.ALWAYS);
-        player2Label.setAlignment(Pos.CENTER_RIGHT);
 
-        // Adjust alignment by using spacers
-        Region spacerLeft = new Region();
-        Region spacerRight = new Region();
-        HBox.setHgrow(spacerLeft, Priority.ALWAYS);
-        HBox.setHgrow(spacerRight, Priority.ALWAYS);
+        // Create containers to force proper alignment
+        HBox player1Container = new HBox(player1Label);
+        player1Container.setAlignment(Pos.CENTER_LEFT);
+        HBox.setHgrow(player1Container, Priority.ALWAYS);
 
-        row.getChildren().addAll(player1Label, spacerLeft, difficultyLabel, spacerRight, player2Label);
+        HBox player2Container = new HBox(player2Label);
+        player2Container.setAlignment(Pos.CENTER_RIGHT);
+        HBox.setHgrow(player2Container, Priority.ALWAYS);
+
+        // Add to row
+        row.getChildren().addAll(player1Container, difficultyLabel, player2Container);
         return row;
     }
+
+
 
 
 }
