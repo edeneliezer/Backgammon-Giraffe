@@ -159,6 +159,17 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	    diceStage.setScene(scene);
 	    diceStage.setTitle("Dice Roll");
 	    diceStage.show();
+	    
+	    // Prevent closing the stage until the confirm button is clicked
+	    diceStage.setOnCloseRequest(event -> {
+	        if (confirmButton.isDisable()) {
+	            event.consume(); // Block the close request
+	            new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING,
+	                "You must determine the first player before closing!").showAndWait();
+	        }
+	    });
+
+	    diceStage.show();
 	}
 
 	/**

@@ -17170,3 +17170,70 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 4.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rami's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 2
+      D. 6-4
+      E. 8-6
+      F. 13-11
+      G. 24-22
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+

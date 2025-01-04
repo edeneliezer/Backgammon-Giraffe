@@ -5,6 +5,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 /**
  * This class represents the game made up of separate components in Backgammon.
@@ -16,6 +17,8 @@ public class GameComponentsController extends VBox {
     private Board board;
     private HomePanel leftHome, rightHome, mainHome, otherHome;
     private Dice[] dices; // Array of dice objects for the game
+    private Stage playerDeciderStage;
+    private boolean playerChosen = false;
 
     /**
      * Constructor to initialize the game components.
