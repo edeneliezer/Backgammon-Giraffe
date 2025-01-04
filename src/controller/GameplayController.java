@@ -96,10 +96,15 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	    Stage diceStage = new Stage();
 	    VBox layout = new VBox(20);
 	    layout.setAlignment(Pos.CENTER);
+	    
+	    // Apply background color and padding to the layout
+	    layout.setStyle("-fx-background-color: #FDF5E6; -fx-padding: 20; -fx-border-color: #8B4513; -fx-border-width: 5;");
+
 
 	    javafx.scene.control.Label instructionLabel = new javafx.scene.control.Label("Roll the dice to determine the first player!");
 	    instructionLabel.setFont(javafx.scene.text.Font.font("Verdana", 16));
-
+	    instructionLabel.setStyle("-fx-text-fill: #8B4513;"); // Brown text
+	    
 	    // Dice views
 	    ImageView bottomPlayerDice = new ImageView();
 	    bottomPlayerDice.setFitWidth(100);
@@ -112,6 +117,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	    // Confirm button to close the diceStage
 	    javafx.scene.control.Button confirmButton = new javafx.scene.control.Button("OK");
 	    confirmButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
+	    confirmButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"); // Brown background, cream text
 	    confirmButton.setDisable(true); // Initially disabled until dice are rolled
 	    confirmButton.setOnAction(e -> {
 	        diceStage.close();
@@ -127,6 +133,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	    // Roll dice button
 	    javafx.scene.control.Button rollButton = new javafx.scene.control.Button("Roll Dice");
 	    rollButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
+	    rollButton.setStyle("-fx-background-color: #B22222; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"); // Red background, cream text
 	    rollButton.setOnAction(e -> {
 	        // Roll dice for both players
 	        int bottomPlayerRoll = rollDice(bottomPlayerDice);
