@@ -71,6 +71,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	private MatchTimer gameTimer;
 	private  Button settingsButton;
 	private Dice.Mode diceMode;
+	private SoundEffectsPlayer soundEffectsPlayer;
 	
 	/**
 	 * Default Constructor
@@ -98,6 +99,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		rollDieBtn = new RollDieButton();
 	//	cmdPnl = new CommandPanel();
 		musicPlayer = new MusicPlayer();
+	    soundEffectsPlayer = new SoundEffectsPlayer(); // Initialize sound effects
 		isPlayerInfosEnteredFirstTime = true;
 		isPromptCancel = false;
 	}
@@ -144,7 +146,8 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
         return button;
     }
 	
-	  VBox settingsOverlay = createSettingsOverlay();
+	 VBox settingsOverlay = createSettingsOverlay();
+	 
 	 private void toggleSettingsOverlay() {
 	      
 	        Scene currentScene = stage.getScene();
@@ -507,7 +510,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	}
 	
 	
-	  @SuppressWarnings("static-access")
+	@SuppressWarnings("static-access")
 	private VBox createSettingsOverlay() {
 	        // Create the settings box (overlay container)
 	        VBox settingsBox = new VBox(20); // Add smaller spacing between elements
@@ -530,22 +533,41 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	        settingsTitle.setTextFill(Color.BROWN);
 
 	        // Buttons for settings options with icons
-	        Button musicButton = createIconButton("Music", "sound.png");
+	        Button musicButton = createIconButton("Music", "music.png");
 	        musicButton.setOnAction(e -> {
 	        	ImageView icon;
 	            if (musicPlayer.isPlaying()) {
 	            	musicPlayer.pause();
-	            	icon = new ImageView(new Image("mute.png"));
+	            	icon = new ImageView(new Image("musicOff.png"));
 	                musicButton.setText("Unmute");
 	            } else {
 	            	 musicPlayer.play();
-	            	 icon = new ImageView(new Image("sound.png"));
+	            	 icon = new ImageView(new Image("music.png"));
 	            	 musicButton.setText("Music");
 	            }
 	            // Set the size of the icon
 	            icon.setFitWidth(20); // Set the width
 	            icon.setFitHeight(20); // Set the height
 	            musicButton.setGraphic(icon);
+	        });
+	        
+	        Button soundEffectsButton = createIconButton("disable Sound", "sound.png");
+//	        soundEffectsButton.setOnAction(e -> toggleSoundEffects(soundEffectsButton));
+	        soundEffectsButton.setOnAction(e -> {
+	        	ImageView pic;
+	        	 if (cmd.getSoundFXPlayer().isWorking()) {
+	        	     cmd.getSoundFXPlayer().disableEffects();
+	        	     soundEffectsButton.setText("enable Sound");
+	                 pic = new ImageView(new Image("mute.png"));
+	            } else {
+	            	cmd.getSoundFXPlayer().enableEffects();
+	                pic = new ImageView(new Image("sound.png"));
+	                soundEffectsButton.setText("disable sound");
+	            }
+	            // Set the size of the icon
+	            pic.setFitWidth(20); // Set the width
+	            pic.setFitHeight(20); // Set the height
+	            soundEffectsButton.setGraphic(pic);
 	        });
 	       
 	        Button historyButton = createIconButton("History", "history.png");
@@ -576,10 +598,26 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	        });
 	        
 	        // Add all elements to the settings box
-	        settingsBox.getChildren().addAll(settingsTitle, musicButton, historyButton, infoButton,closeButton);
+	        settingsBox.getChildren().addAll(settingsTitle, musicButton, soundEffectsButton,historyButton, infoButton,closeButton);
 
 	        return settingsBox;
 	    }
+	
+//	private void toggleSoundEffects(Button soundEffectsButton) {
+//	    ImageView icon;
+//	    if (soundEffectsPlayer.isEnabled()) {
+//	        soundEffectsPlayer.disable();
+//	        icon = new ImageView(new Image("mute.png"));
+//	        soundEffectsButton.setText("Unmute");
+//	    } else {
+//	        soundEffectsPlayer.enable();
+//	        icon = new ImageView(new Image("sound.png"));
+//	        soundEffectsButton.setText("Sound Effects");
+//	    }
+//	    icon.setFitWidth(20);
+//	    icon.setFitHeight(20);
+//	    soundEffectsButton.setGraphic(icon);
+//	}
 	  
 	  private Button createIconButton(String text, String iconUrl) {
 	        // Create an icon for the button

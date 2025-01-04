@@ -46,6 +46,9 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 	private MusicPlayer musicPlayer;
 	private SoundEffectsPlayer soundFXPlayer;
 	
+	
+	
+	
 	public CommandController(Stage stage, MatchController root, GameComponentsController game,
 			GameplayController gameplay, InfoPanel infoPnl,Player bottomPlayer, Player topPlayer, MusicPlayer musicPlayer) {
 		this.bottomPlayer = bottomPlayer;
@@ -59,6 +62,15 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 		this.musicPlayer = musicPlayer;
 		soundFXPlayer = new SoundEffectsPlayer();
 	}
+	
+	public SoundEffectsPlayer getSoundFXPlayer() {
+		return soundFXPlayer;
+	}
+	
+	public void setSoundFXPlayer(SoundEffectsPlayer soundFXPlayer) {
+		this.soundFXPlayer = soundFXPlayer;
+	}
+	
 	public void setEventController(EventController event) {
 		this.event = event;
 	}
