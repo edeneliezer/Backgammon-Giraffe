@@ -17049,3 +17049,124 @@
 
 > [System] Trying to quit game.
 
+> [System] Roll dice results: [3, 6]
+> [System] Roll dice results: [5, 3]
+> [System] Roll dice results: [4, 1]
+> [System] Roll dice results: [2, 1]
+> [System] Roll dice results: [3, 3, 3, 3]
+> [System] Roll dice results: [1, 4]
+> [System] Roll dice results: [2, 1]
+> [System] Roll dice results: [3, 5]
+> [System] Roll dice results: [6, 2]
+> [System] Roll dice results: [6, 1]
+> [System] Trying to quit game.
+
+> [System] rami rolled a 1
+> [System] mariana rolled a 5
+
+> [System] Rolling...
+> [System] First player to move is: rami.
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 7
+      G. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] mariana goes first with a roll of 6!
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] rami goes first with a roll of 6!
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] First player to move is: mariana.
+> [System] Roll dice result: [5, 4].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 4
+      C. 6-2
+      D. 8-4
+      E. 13-9
+      F. 24-20
+
+  Roll of 9
+      G. 13-4
+      H. 24-15
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 6].
+> [System] Available moves:
+  Roll of 1
+      A. 19-20
+      B. 17-18
+      C. 1-2
+
+  Roll of 6
+      D. 17-23
+      E. 12-18
+      F. 1-7
+
+  Roll of 7
+      G. 12-19
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+> [System] Trying to quit game.
+

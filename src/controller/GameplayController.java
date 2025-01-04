@@ -22,8 +22,13 @@ import controller.InputValidator;
 import controller.IntegerLettersParser;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.geometry.Pos;
 import javafx.util.Duration;
+import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import view.Dialogs;
 import view.GameComponentsController;
@@ -81,18 +86,102 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	}
 	
 	/**
-	 * Auto roll die to see which player moves first.
+	 * Start the game by determining the first player with a dice roll panel.
 	 * Called at /start.
 	 */
 	public void start() {
-		isStarted = true;
-		cmd.runCommand("/roll");
-		
-		// facial expressions.
-		game.getEmojiOfPlayer(getpCurrent().getColor()).setThinkingFace();
-		game.getEmojiOfPlayer(pOpponent.getColor()).setThinkingFace();
+	    isStarted = true;
+
+	    // Create a stage for the dice roll panel
+	    Stage diceStage = new Stage();
+	    VBox layout = new VBox(20);
+	    layout.setAlignment(Pos.CENTER);
+
+	    javafx.scene.control.Label instructionLabel = new javafx.scene.control.Label("Roll the dice to determine the first player!");
+	    instructionLabel.setFont(javafx.scene.text.Font.font("Verdana", 16));
+
+	    // Dice views
+	    ImageView bottomPlayerDice = new ImageView();
+	    bottomPlayerDice.setFitWidth(100);
+	    bottomPlayerDice.setFitHeight(100);
+
+	    ImageView topPlayerDice = new ImageView();
+	    topPlayerDice.setFitWidth(100);
+	    topPlayerDice.setFitHeight(100);
+
+	    // Confirm button to close the diceStage
+	    javafx.scene.control.Button confirmButton = new javafx.scene.control.Button("OK");
+	    confirmButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
+	    confirmButton.setDisable(true); // Initially disabled until dice are rolled
+	    confirmButton.setOnAction(e -> {
+	        diceStage.close();
+
+	        // Proceed with the game
+	        handleNecessitiesOfEachTurn();
+
+	        // Ensure the winner's turn is properly set
+	        isFirstRoll = false; // Indicates the first player is already set
+	        isRolled = false;    // Allow the winner to roll their actual dice
+	    });
+
+	    // Roll dice button
+	    javafx.scene.control.Button rollButton = new javafx.scene.control.Button("Roll Dice");
+	    rollButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
+	    rollButton.setOnAction(e -> {
+	        // Roll dice for both players
+	        int bottomPlayerRoll = rollDice(bottomPlayerDice);
+	        int topPlayerRoll = rollDice(topPlayerDice);
+
+	        // Determine the first player
+	        if (bottomPlayerRoll > topPlayerRoll) {
+	            setpCurrent(bottomPlayer);
+	            pOpponent = topPlayer;
+	            instructionLabel.setText(bottomPlayer.getName() + " goes first with a roll of " + bottomPlayerRoll + "!");
+	            rollButton.setDisable(true);
+	        } else if (topPlayerRoll > bottomPlayerRoll) {
+	            setpCurrent(topPlayer);
+	            pOpponent = bottomPlayer;
+	            instructionLabel.setText(topPlayer.getName() + " goes first with a roll of " + topPlayerRoll + "!");
+	            rollButton.setDisable(true);
+	        } else {
+	            // Handle tie by prompting to roll again
+	            instructionLabel.setText("It's a tie! Roll again.");
+	            return;
+	        }
+
+	        // Enable the confirm button after rolling
+	        confirmButton.setDisable(false);
+	    });
+
+	    layout.getChildren().addAll(instructionLabel, bottomPlayerDice, topPlayerDice, rollButton, confirmButton);
+
+	    Scene scene = new Scene(layout, 400, 400);
+	    diceStage.setScene(scene);
+	    diceStage.setTitle("Dice Roll");
+	    diceStage.show();
 	}
-	
+
+	/**
+	 * Roll a dice and update the dice face image.
+	 * @param diceView The ImageView to display the rolled dice face.
+	 * @return The rolled value.
+	 */
+	private int rollDice(ImageView diceView) {
+	    java.util.Random random = new java.util.Random();
+	    int rollResult = random.nextInt(6) + 1; // Roll a dice (1-6)
+	    
+	    // Correct resource path relative to 'resources' directory
+	    String diceImagePath = "/game/img/dices/black/" + rollResult + ".png";
+	    
+	    // Load the image from resources
+	    try {
+	        diceView.setImage(new Image(getClass().getResourceAsStream(diceImagePath)));
+	    } catch (NullPointerException e) {
+	        System.err.println("Image not found: " + diceImagePath);
+	        diceView.setImage(null); // Handle missing image gracefully
+	    }
+	    return rollResult;
+	}
 	/**
 	 * Rolls die, calculates possible moves and highlight top checkers.
 	 * Called at /roll.
