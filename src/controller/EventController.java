@@ -1,6 +1,8 @@
 package controller;
 
 import java.awt.TrayIcon.MessageType;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import Model.Bar;
@@ -52,6 +54,7 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 	private RollDieButton rollDieBtn;
 	//private CommandPanel cmdPnl;
 	private CommandController cmd;
+	private List<Stage> childStages = new ArrayList<Stage>(); // Track child stages
 
 	public EventController(Stage stage, MatchController root, GameComponentsController game, GameplayController gameplay,
 			 CommandController cmd, InfoPanel infoPnl, RollDieButton rollDieBtn) {
@@ -391,29 +394,42 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 			cmd.runCommand("/roll " + Integer.toString(dieState));
 		});
 	}
+	
+	// Register child stages
+	public void registerChildStage(Stage childStage) {
+	    childStages.add(childStage);
+	    childStage.setOnCloseRequest(event -> childStages.remove(childStage)); // Deregister when child closes
+	}
 
 	private void initStageListeners() {
-		// checks if player really wants to exit game prevents accidental exits
-		stage.setOnCloseRequest((WindowEvent event) -> {
-			// Alert settings.
-			Alert exitCheck = new Alert(Alert.AlertType.CONFIRMATION);
-			exitCheck.setHeaderText("Do you really want to exit Backgammon?");
-			exitCheck.initModality(Modality.APPLICATION_MODAL);
-			exitCheck.initOwner(stage);
+	    // Check if player really wants to exit game, prevents accidental exits
+	    stage.setOnCloseRequest((WindowEvent event) -> {
+	        // Alert settings
+	        Alert exitCheck = new Alert(Alert.AlertType.CONFIRMATION);
+	        exitCheck.setHeaderText("Do you really want to exit Backgammon?");
+	        exitCheck.initModality(Modality.APPLICATION_MODAL);
+	        exitCheck.initOwner(stage);
 
-			infoPnl.print("Trying to quit game.");
-			cmd.runSaveCommand();
+	        infoPnl.print("Trying to quit game.");
+	        cmd.runSaveCommand();
 
-			// Exit button.
-			Button exitBtn = (Button) exitCheck.getDialogPane().lookupButton(ButtonType.OK);
-			exitBtn.setText("Exit");
+	        // Exit button
+	        Button exitBtn = (Button) exitCheck.getDialogPane().lookupButton(ButtonType.OK);
+	        exitBtn.setText("Exit");
 
-			// Exit application.
-			Optional<ButtonType> closeResponse = exitCheck.showAndWait();
-			if (!ButtonType.OK.equals(closeResponse.get())) {
-				event.consume();
-			}
-		});
+	        // Exit application
+	        Optional<ButtonType> closeResponse = exitCheck.showAndWait();
+	        if (!ButtonType.OK.equals(closeResponse.get())) {
+	            event.consume(); // Cancel close event
+	        } else {
+	            // Close all child stages
+	            for (Stage childStage : childStages) {
+	                if (childStage.isShowing()) {
+	                    childStage.close();
+	                }
+	            }
+	        }
+	    });
 	}
 
 	public void reset() {

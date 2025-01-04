@@ -53,17 +53,23 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	private GameComponentsController game;
 	private InfoPanel infoPnl;
 	private GameplayMovesController gameplayMoves;
+	private EventController eventController; // Reference to EventController
+
 	
-	public GameplayController(Stage stage, MatchController root, GameComponentsController game, InfoPanel infoPnl, Player bottomPlayer, Player topPlayer) {
-		this.bottomPlayer = bottomPlayer;
-		this.topPlayer = topPlayer;
-		this.stage = stage;
-		this.root = root;
-		this.game = game;
-		this.infoPnl = infoPnl;
-		gameplayMoves = new GameplayMovesController(game, this, infoPnl);
-		reset();
-	}
+	public GameplayController(Stage stage, MatchController root, GameComponentsController game,
+            InfoPanel infoPnl, Player bottomPlayer, Player topPlayer,
+            EventController eventController) 
+	{
+            this.bottomPlayer = bottomPlayer;
+            this.topPlayer = topPlayer;
+            this.stage = stage;
+            this.root = root;
+            this.game = game;
+            this.infoPnl = infoPnl;
+            this.eventController = eventController; // Initialize the reference
+            gameplayMoves = new GameplayMovesController(game, this, infoPnl);
+            reset();
+    } 
 	
 	public void reset() {
 		isStarted = false;
@@ -167,6 +173,8 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	    diceStage.setTitle("Dice Roll");
 	    diceStage.show();
 	    
+	    eventController.registerChildStage(diceStage);
+	    
 	    // Prevent closing the stage until the confirm button is clicked
 	    diceStage.setOnCloseRequest(event -> {
 	        if (confirmButton.isDisable()) {
@@ -177,6 +185,14 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	    });
 
 	    diceStage.show();
+	}
+
+	public EventController getEventController() {
+		return eventController;
+	}
+
+	public void setEventController(EventController eventController) {
+		this.eventController = eventController;
 	}
 
 	/**
