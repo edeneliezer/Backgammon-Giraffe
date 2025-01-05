@@ -2,192 +2,207 @@ package controller;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
-import Model.GameConstants;
-
 /**
  * This class controls the music functionalities of the game.
- * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
  */
 public class MusicPlayer {
-	private final String defaultMusic = "jazz.aiff";
-	private static MediaPlayer mediaPlayer;
-	private Media media;
-	private ArrayList<String> playlist;
-	private String currentMusic;
-	private static boolean isPlaying = false;
-	
-	public MusicPlayer() {
-		initPlaylist();
-		initMediaPlayer(defaultMusic);
-		currentMusic = defaultMusic;
-	}
-	
-	/**
-	 * Method to load the music file into the mediaPlayer object to be played
-	 * @param fileName to be loaded into the media object to play the music
-	 */
-	private void initMediaPlayer(String fileName) {
-		media = new Media(getClass().getResource("/musicplayer/songs/" + fileName).toExternalForm());
-		mediaPlayer = new MediaPlayer(media);
-		mediaPlayer.setVolume(0.1);
+    private final String defaultMusic = "jazz.aiff";
+    private static MediaPlayer mediaPlayer;
+    private Media media;
+    private ArrayList<String> playlist;
+    private String currentMusic;
+    private static boolean isPlaying = false;
 
-		// We cannot play the file instantly as it has not properly loaded.
-		// Therefore we can only call it when it's loaded, 
-		// i.e getStatus() == READY.
-		mediaPlayer.setOnReady(new Runnable() {
-			public void run() {
-				if (GameConstants.VERY_VERBOSE_MODE) {
-					System.out.println("Run status: " + mediaPlayer.getStatus()); // Should return READY
-					System.out.println("Music duration: " + media.getDuration().toMinutes());
-					System.out.println("Volume: " + mediaPlayer.getVolume());
-					System.out.println("Tracks: " + media.getTracks());
-				}
-				mediaPlayer.setAutoPlay(true);
-			}
-		});
-		
-		mediaPlayer.setOnError(new Runnable() {
-			public void run() {
-				if (GameConstants.VERY_VERBOSE_MODE) {
-					System.out.println("Run status: " + mediaPlayer.getStatus());
-					System.out.println("Error status: " + mediaPlayer.getError());
-				}
-			}
-		});
-		
-		mediaPlayer.setOnEndOfMedia(new Runnable() {
-			public void run() {
-				play();
-			}
-		});
+    public MusicPlayer() {
+        initPlaylist();
+        try {
+            initMediaPlayer(defaultMusic);
+            currentMusic = defaultMusic;
+        } catch (RuntimeException e) {
+            // Handle initialization error silently
+        }
+    }
 
-		if (GameConstants.VERY_VERBOSE_MODE) {
-			System.out.println("Init music status: " + mediaPlayer.getStatus()); // Should return UNKNOWN
-		}
-	}
-	
-	private void initPlaylist() { // Can implement a text file and just read from text file for the names
-		playlist = new ArrayList<String>();
-		playlist.add("jazz.aiff");
-		playlist.add("classical.aiff");
-	}
-	
-	public void random() {
-		stop();
-		
-		Random random = new Random();
-		int indexOfSong = random.nextInt(2) + 1;
-		currentMusic = playlist.get(indexOfSong-1);
-		
-		play();
-	}
-	
-	public void repeat() {
-		mediaPlayer.setOnEndOfMedia(new Runnable() {
-			public void run() {
-				mediaPlayer.play();
-			}
-		});
-	}
-	
-	public static void play() {
-		mediaPlayer.play();
-		isPlaying = true;
-	}
-	
-	public void next() {
-		stop();
-		
-		int indexOfSong = playlist.indexOf(currentMusic);
+    /**
+     * Method to load the music file into the mediaPlayer object to be played.
+     * 
+     * @param fileName The music file to be loaded.
+     */
+    private void initMediaPlayer(String fileName) {
+        String resourcePath = "/musicplayer/songs/" + fileName;
+        URL resource = getClass().getResource(resourcePath);
 
-		// If indexOfSong isn't the last song.
-		if (indexOfSong == playlist.size() - 1)
-			currentMusic = playlist.get(0);
-		else
-			currentMusic = playlist.get(indexOfSong + 1);
-		
-		initMediaPlayer(currentMusic);
-	}
-	
-	public void prev() {
-		stop();
-		
-		int indexOfSong = playlist.indexOf(currentMusic);
+        if (resource == null) {
+            throw new RuntimeException("Resource not found: " + resourcePath);
+        }
 
-		// If indexOfSong isn't the first song.
-		if (indexOfSong != 0)
-			currentMusic = playlist.get(indexOfSong - 1);
-		else
-			currentMusic = playlist.get(playlist.size() - 1);
-		
-		initMediaPlayer(currentMusic);
-	}
-	
-	/**
-	 * This is to show the user that their command worked
-	 * @return String representation of the status of the mediaPlayer object
-	 */
-	public static String getStatus(String option) {
-		String outputStatus = "";
-		switch (option) {
-			case "play":
-				outputStatus = "Playing music..";
-				break;
-			case "next":
-				outputStatus = "Next track..";
-				break;
-			case "prev":
-				outputStatus = "Previous track..";
-				break;
-			case "pause":
-				outputStatus = "Pausing music..";
-				break;
-			case "stop":
-				outputStatus = "Stopping music..";
-				break;
-			case "random":
-				outputStatus = "Random song..";
-				break;
-			case "mute":
-				outputStatus = "Muting..";
-				break;
-			case "unmute":
-				outputStatus = "Unmuting..";
-				break;
-			default:
-				outputStatus = "Please try again";
-		}
-		return outputStatus;
-	}
-	
-	public static void pause() {
-		mediaPlayer.pause();
-		isPlaying = false;
+        media = new Media(resource.toExternalForm());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(0.1);
+        mediaPlayer.setOnReady(() -> mediaPlayer.setAutoPlay(true));
+    }
 
-	}
-	
-	
-	public static void stop() {
-		mediaPlayer.stop();
-	}
-	
-	public void muteVolume(boolean toggle) {
-		mediaPlayer.setMute(toggle);
-	}
-	
-	public void reset() {
-		random();
-	}
-	
-	public static boolean isPlaying() {
-	    return isPlaying; // Return current state
-	}
+    /**
+     * Initializes the playlist with available songs.
+     */
+    private void initPlaylist() {
+        playlist = new ArrayList<>();
+        playlist.add("jazz.aiff");
+        playlist.add("classical.aiff");
+    }
+
+    /**
+     * Plays a random track from the playlist.
+     */
+    public void random() {
+        stop();
+
+        Random random = new Random();
+        int indexOfSong = random.nextInt(playlist.size());
+        currentMusic = playlist.get(indexOfSong);
+
+        try {
+            initMediaPlayer(currentMusic);
+        } catch (RuntimeException e) {
+            // Handle random song error silently
+        }
+    }
+
+    /**
+     * Enables the repeat functionality for the current track.
+     */
+    public void repeat() {
+        mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.play());
+    }
+
+    /**
+     * Plays the current track.
+     */
+    public static void play() {
+        if (mediaPlayer != null) {
+            mediaPlayer.play();
+            isPlaying = true;
+        }
+    }
+
+    /**
+     * Plays the next track in the playlist.
+     */
+    public void next() {
+        stop();
+
+        int indexOfSong = playlist.indexOf(currentMusic);
+
+        if (indexOfSong == playlist.size() - 1) {
+            currentMusic = playlist.get(0); // Loop to the first song
+        } else {
+            currentMusic = playlist.get(indexOfSong + 1);
+        }
+
+        try {
+            initMediaPlayer(currentMusic);
+        } catch (RuntimeException e) {
+            // Handle next song error silently
+        }
+    }
+
+    /**
+     * Plays the previous track in the playlist.
+     */
+    public void prev() {
+        stop();
+
+        int indexOfSong = playlist.indexOf(currentMusic);
+
+        if (indexOfSong == 0) {
+            currentMusic = playlist.get(playlist.size() - 1); // Loop to the last song
+        } else {
+            currentMusic = playlist.get(indexOfSong - 1);
+        }
+
+        try {
+            initMediaPlayer(currentMusic);
+        } catch (RuntimeException e) {
+            // Handle previous song error silently
+        }
+    }
+
+    /**
+     * Returns the status of the media player as a string.
+     * 
+     * @param option The command to describe.
+     * @return The status message.
+     */
+    public static String getStatus(String option) {
+        switch (option) {
+            case "play":
+                return "Playing music..";
+            case "next":
+                return "Next track..";
+            case "prev":
+                return "Previous track..";
+            case "pause":
+                return "Pausing music..";
+            case "stop":
+                return "Stopping music..";
+            case "random":
+                return "Playing random song..";
+            case "mute":
+                return "Muting..";
+            case "unmute":
+                return "Unmuting..";
+            default:
+                return "Invalid command.";
+        }
+    }
+
+    /**
+     * Pauses the current track.
+     */
+    public static void pause() {
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+            isPlaying = false;
+        }
+    }
+
+    /**
+     * Stops the current track.
+     */
+    public static void stop() {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
+    }
+
+    /**
+     * Mutes or unmutes the volume.
+     * 
+     * @param toggle True to mute, false to unmute.
+     */
+    public void muteVolume(boolean toggle) {
+        if (mediaPlayer != null) {
+            mediaPlayer.setMute(toggle);
+        }
+    }
+
+    /**
+     * Resets the music player by playing a random track.
+     */
+    public void reset() {
+        random();
+    }
+
+    /**
+     * Checks if music is currently playing.
+     * 
+     * @return True if music is playing, false otherwise.
+     */
+    public static boolean isPlaying() {
+        return isPlaying;
+    }
 }
