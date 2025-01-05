@@ -22,6 +22,10 @@ public abstract class Move {
 		this.isHit = isHit;
 	}
 	
+	public void move() {
+		
+	}
+	
 	public RollMoves getRollMoves() {
 		return rollMoves;
 	}

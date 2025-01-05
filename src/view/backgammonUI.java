@@ -253,7 +253,7 @@ public class backgammonUI extends Application {
        }
     
     
-    private void checkIfReadyToPlay() {
+    public void checkIfReadyToPlay() {
         // Enable "Let's play!" only if all conditions are met
         boolean isPlayer1NameEntered = !player1Field.getText().trim().isEmpty();
         boolean isPlayer2NameEntered = !player2Field.getText().trim().isEmpty();
@@ -342,7 +342,7 @@ public class backgammonUI extends Application {
     }
 
 
-    private void openPdfFile(String resourcePath) {
+    public void openPdfFile(String resourcePath) {
         try {
             // Get the file as a resource stream
             URL resourceUrl = getClass().getClassLoader().getResource(resourcePath);
