@@ -1,7 +1,9 @@
 package view;
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
 import Model.Dice;
@@ -344,15 +346,32 @@ public class backgammonUI extends Application {
 
     private void openPdfFile(String resourcePath) {
         try {
-            // Get the file as a resource stream
-            URL resourceUrl = getClass().getClassLoader().getResource(resourcePath);
-            if (resourceUrl != null) {
-                File pdfFile = new File(resourceUrl.toURI());
-                Desktop.getDesktop().open(pdfFile);
-            } else {
-                System.out.println("File not found: " + resourcePath);
+            // Load the resource as an InputStream
+            InputStream resourceStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
+            if (resourceStream == null) {
+                throw new IllegalArgumentException("Resource not found: " + resourcePath);
             }
-        } catch (Exception e) {
+
+            // Create a temporary file
+            File tempFile = File.createTempFile("BackgammonRules", ".pdf");
+            tempFile.deleteOnExit(); // Ensure the file is deleted on JVM exit
+
+            // Write the resource contents to the temporary file
+            try (FileOutputStream outputStream = new FileOutputStream(tempFile)) {
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                while ((bytesRead = resourceStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+            }
+
+            // Open the PDF file using the default desktop application
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().open(tempFile);
+            } else {
+                System.err.println("Desktop is not supported on this platform.");
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
