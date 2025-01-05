@@ -22228,3 +22228,40 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 4].
+> [System] Available moves:
+  Roll of 3
+      A. 19-22
+      B. 17-20
+      C. 12-15
+      D. 1-4
+
+  Roll of 4
+      E. 19-23
+      F. 17-21
+      G. 12-16
+      H. 1-5
+
+  Roll of 7
+      I. 12-19
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to 4.
+> [System] Available moves:
+  Roll of 4
+      A. 19-23
+      B. 17-21
+      C. 12-16
+      D. 1-5
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] Trying to quit game.
+
