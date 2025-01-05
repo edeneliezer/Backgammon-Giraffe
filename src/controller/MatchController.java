@@ -570,7 +570,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	            soundEffectsButton.setGraphic(pic);
 	        });
 	       
-	        Button historyButton = createIconButton("History", "history.png");
+//	        Button historyButton = createIconButton("History", "history.png");
 	        Button infoButton = createIconButton("Information", "info.png");
 
 	        // Close Button
@@ -590,15 +590,15 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	        });
 	        
 	        // Add Action to the History Button
-	        historyButton.setOnAction(e -> {
-	            // Switch to History Screen
-	            Stage stage = (Stage) settingsBox.getScene().getWindow();
-	            HistoryScreen historyScreen = new HistoryScreen();
-	            historyScreen.start(stage); // Navigate to History Screen
-	        });
-	        
+//	        historyButton.setOnAction(e -> {
+//	            // Switch to History Screen
+//	            Stage stage = (Stage) settingsBox.getScene().getWindow();
+//	            HistoryScreen historyScreen = new HistoryScreen();
+//	            historyScreen.start(stage); // Navigate to History Screen
+//	        });
+//	        
 	        // Add all elements to the settings box
-	        settingsBox.getChildren().addAll(settingsTitle, musicButton, soundEffectsButton,historyButton, infoButton,closeButton);
+	        settingsBox.getChildren().addAll(settingsTitle, musicButton, soundEffectsButton, infoButton,closeButton);
 
 	        return settingsBox;
 	    }
