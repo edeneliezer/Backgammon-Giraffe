@@ -29,35 +29,29 @@ public class CheckersStorer extends TouchablesStorer {
 	 * (i.e. how it will be drawn eventually on the stage).
 	 */
 	public void drawCheckers() {
-		// Clear the point object of any children.
-		getChildren().clear();
-		
-		// If total height of checkers greater than point, we overlap the checkers.
-		int numCheckers = size();
-		double slack = GameConstants.getPipSize().getHeight() * 0.2;
-		double diff = numCheckers * GameConstants.getCheckerSize().getHeight() - GameConstants.getPipSize().getHeight() + slack;
-		
-		if (top() instanceof Checker) {
-			// If overlap, we basically add an y offset to the checkers so that they overlap each other.
-			// Else, we simply add them to the point without any offsets.
-			if (diff >= 0) {
-				int i = 0;
-				double yOffset = (diff / numCheckers);
-				for (Touchable chk : this) {
-					ImageView checker = (Checker) chk;
-					checker.setTranslateY(yOffset*(numCheckers-i-1));
-					checker.setViewOrder(i);	// lower order - higher z-index, i.e. order 1 overlaps order 2.
-					getChildren().add(checker);
-					i++;
-				}
-			} else {
-				for (Touchable chk : this) {
-					ImageView checker = (Checker) chk;
-					checker.setTranslateY(0);
-					getChildren().add(checker);
-				}
-			}
-		}
+	    // Clear the point object of any children.
+	    getChildren().clear();
+
+	    int numCheckers = size();
+	    double checkerHeight = GameConstants.getCheckerSize().getHeight();
+	    double pipHeight = GameConstants.getPipSize().getHeight();
+	    double overlapOffset = checkerHeight * 0.5; // Overlap by half the height
+	    double startOffset = 0;
+
+	    if ((numCheckers - 1) * overlapOffset + checkerHeight > pipHeight) {
+	        // Adjust overlap dynamically to fit within the pip
+	        overlapOffset = (pipHeight - checkerHeight) / (numCheckers - 1);
+	    }
+
+	    int index = numCheckers - 1; // Start from the last checker
+	    for (Touchable touchable : this) {
+	        if (touchable instanceof Checker) {
+	            Checker checker = (Checker) touchable;
+	            checker.setTranslateY(startOffset + index * overlapOffset); // Adjust position for reverse order
+	            getChildren().add(checker); // Add each checker in normal order for reversed z-order
+	            index--;
+	        }
+	    }
 	}
 	
 	/**

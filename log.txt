@@ -20399,3 +20399,247 @@
 > [System] You can only roll the dice.
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 5, 5, 5].
+> [System] Available moves:
+  Roll of 5
+      A. 17-22
+      B. 12-17
+
+  Roll of 10
+      C. 12-22
+
+  Roll of 15
+
+  Roll of 20
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 10
+      H. 13-3
+      I. 24-14
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+      D. 20-14
+
+
+> [System] Moving...
+> [System] Moved checker from 20 to 14.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now zxxx's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 2].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+  Roll of 2
+      D. 6-4
+      E. 8-6
+      F. 13-11*
+      G. 24-22
+
+  Roll of 7
+      H. 8-1*
+      I. 13-6
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 2
+      D. 6-4
+      E. 8-6
+      F. 13-11
+      G. 24-22
+
+  Roll of 3
+      H. 6-3
+      I. 8-5
+      J. 13-10
+      K. 24-21
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 4.
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+      D. 4-3
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now qw's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 6].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 6
+      C. 8-2
+      D. 13-7
+      E. 24-18
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 6].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 6
+      D. 8-2
+      E. 13-7
+      F. 24-18
+
+  Roll of 7
+      G. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now qq's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 3].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23*
+
+  Roll of 3
+      D. 6-3
+      E. 8-5
+      F. 13-10
+      G. 24-21
+
+  Roll of 4
+      H. 6-2
+      I. 8-4
+      J. 13-9
+      K. 24-20*
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now aa's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 1].
+> [System] Available moves:
+  Roll of 2
+      A. 5-3
+      B. 6-4
+      C. 8-6
+      D. 13-11
+      E. 24-22
+
+  Roll of 1
+      F. 5-4
+      G. 6-5
+      H. 8-7
+      I. 24-23*
+
+  Roll of 3
+      J. 5-2
+      K. 6-3
+      L. 8-5
+      M. 13-10
+      N. 24-21
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] Trying to quit game.
+
