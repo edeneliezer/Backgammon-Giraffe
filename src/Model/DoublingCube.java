@@ -1,113 +1,73 @@
 package Model;
 
+import java.util.Random;
+
 import controller.ColorPerspectiveParser;
-import javafx.animation.AnimationTimer;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
+import javafx.scene.image.ImageView;
 
 /**
  * This class represents the doubling cube object in Backgammon game.
+ * 
+ * @teamname TeaCup
+ * @author Bryan
  */
-public class DoublingCube extends StackPane implements ColorPerspectiveParser, Touchable {
+public class DoublingCube extends ImageView implements ColorPerspectiveParser, Touchable {
     private final int MAX_DICE_SIZE = 6;
-    private Label timerLabel;
-    private MatchTimer matchTimer;
     private int currentSide;
     private boolean isMaxDoubling, isUsed;
 
     /**
-     * Constructor
-     * - Initialize the cube with the timer and setup its state.
+     * Constructor - Initializes the doubling cube.
      */
     public DoublingCube() {
         super();
-        initTimer();
         reset();
     }
 
     /**
-     * Initializes the timer label and the MatchTimer.
-     */
-    private void initTimer() {
-        timerLabel = new Label();
-        timerLabel.setFont(Font.font("Arial", 16));
-        timerLabel.setTextAlignment(TextAlignment.CENTER);
-        timerLabel.setStyle("-fx-text-fill: white; -fx-padding: 10px; -fx-border-radius: 5px;");
-        matchTimer = new MatchTimer();
-        getChildren().add(timerLabel);
-        setStyle("-fx-border-radius: 10px; -fx-padding: 10px;");
-        setMinSize(100, 100);
-    }
-
-    /**
-     * Starts the timer and updates the timer label.
-     */
-    public void startTimer() {
-        matchTimer.start();
-        new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                timerLabel.setText(matchTimer.getFormattedTime());
-            }
-        }.start();
-    }
-
-    /**
-     * Stops the timer.
-     */
-    public void stopTimer() {
-        matchTimer.stop();
-    }
-
-    /**
-     * Use the highlighted state (visual change).
+     * Use the highlighted image. (Dummy implementation, no images loaded)
      */
     public void setHighlightImage() {
-        setStyle("-fx-background-color: yellow; -fx-border-radius: 10px; -fx-padding: 10px;");
+        // Dummy implementation since images are not used
     }
 
     /**
-     * Use the normal state (visual reset).
+     * Use the normal image. (Dummy implementation, no images loaded)
      */
     public void setNormalImage() {
-        setStyle("-fx-border-radius: 10px; -fx-padding: 10px;");
+        // Dummy implementation since images are not used
     }
 
     /**
-     * Rotate the doubling cube visually (if needed).
+     * Rotate the doubling cube representation only when it is on the board.
      */
     public void rotateOnBoard() {
-        // Add visual rotation if desired
+        // Simulate a rotation range of 15 to -15.
+        Random rand = new Random();
+        int rotation = rand.nextInt(30) - 15 + 1;
+        setRotate(rotation);
     }
 
     /**
-     * Doubling the current cube value.
+     * Doubles the value of the doubling cube.
      */
     public void doubleDoublingCube() {
+        // Allow double if less than max_dice_size-1.
         if (currentSide < MAX_DICE_SIZE - 1) currentSide += 1;
+        setNormalImage();
 
         if (currentSide == MAX_DICE_SIZE - 1) isMaxDoubling = true;
     }
 
-    /**
-     * For declined doubling cube multiplier.
-     * @return the intermediate game multiplier.
-     */
+    // For declined doubling cube multiplier.
     public int getIntermediateGameMultiplier() {
-        if (isUsed)
-            return (int) Math.pow(2.0, currentSide);
+        if (isUsed) return (int) Math.pow(2.0, currentSide);
         return 1;
     }
 
-    /**
-     * For game end multiplier.
-     * @return the final multiplier value.
-     */
+    // For game end multiplier.
     public int getEndGameMultiplier() {
-        if (isUsed)
-            return (int) Math.pow(2.0, currentSide + 1);
+        if (isUsed) return (int) Math.pow(2.0, currentSide + 1);
         return 1;
     }
 
@@ -129,16 +89,11 @@ public class DoublingCube extends StackPane implements ColorPerspectiveParser, T
         setRotate(0.0);
     }
 
-    /**
-     * Resets the cube to its initial state.
-     */
     public void reset() {
         currentSide = MAX_DICE_SIZE - 1;
         isMaxDoubling = false;
         isUsed = false;
         setNormalImage();
         resetRotation();
-        timerLabel.setText("00:00");
-        matchTimer.stop();
     }
 }
