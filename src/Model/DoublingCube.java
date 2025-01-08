@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Random;
+
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -10,6 +12,10 @@ public class DoublingCube extends StackPane implements Touchable {
     private final Label timerLabel;
     private final MatchTimer matchTimer;
 
+    private final int MAX_DICE_SIZE = 6;
+    private int currentSide;
+    private boolean isMaxDoubling, isUsed;
+    
     public DoublingCube() {
         super();
         timerLabel = new Label();
@@ -52,6 +58,11 @@ public class DoublingCube extends StackPane implements Touchable {
         matchTimer.stop();
         matchTimer.start();
         timerLabel.setText("00:00");
+        currentSide = MAX_DICE_SIZE - 1;
+        isMaxDoubling = false;
+        isUsed = false;
+        setNormalImage();
+        resetRotation();
     }
 
 	public void setNormalImage() {
@@ -60,27 +71,36 @@ public class DoublingCube extends StackPane implements Touchable {
 	}
 
 	public void setUsed(boolean b) {
-		// TODO Auto-generated method stub
-		
+		  this.isUsed = isUsed;
+	        currentSide = 0;
+	        setNormalImage();
 	}
 
 	public void doubleDoublingCube() {
-		// TODO Auto-generated method stub
+		// Allow double if less than max_dice_size-1.
+        if (currentSide < MAX_DICE_SIZE - 1) currentSide += 1;
+        setNormalImage();
+        if (currentSide == MAX_DICE_SIZE - 1) isMaxDoubling = true;
 		
 	}
 
 	public boolean isMaxDoubling() {
-		// TODO Auto-generated method stub
-		return false;
+		return isMaxDoubling;
 	}
 
 	public void resetRotation() {
-		// TODO Auto-generated method stub
+		setRotate(0.0);
 		
 	}
 
+	/**
+     * Rotate the doubling cube representation only when it is on the board.
+     */
 	public void rotateOnBoard() {
-		// TODO Auto-generated method stub
+		// Simulate a rotation range of 15 to -15.
+        Random rand = new Random();
+        int rotation = rand.nextInt(30) - 15 + 1;
+        setRotate(rotation);
 		
 	}
 
@@ -89,13 +109,15 @@ public class DoublingCube extends StackPane implements Touchable {
 		
 	}
 
+	 // For game end multiplier
 	public int getEndGameMultiplier() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (isUsed) return (int) Math.pow(2.0, currentSide + 1);
+        return 1;
 	}
 
+	// For declined doubling cube multiplier.
 	public int getIntermediateGameMultiplier() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (isUsed) return (int) Math.pow(2.0, currentSide);
+        return 1;
 	}
 }

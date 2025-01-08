@@ -18,18 +18,22 @@ import controller.MusicPlayer;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Dialog;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -209,7 +213,6 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	public void startGame() {
 	    if (isPlayerInfosEnteredFirstTime) {
 	    	
-
 	        // הגדרת מספר משחקים ברירת מחדל (לדוגמה, 1)
 	        Settings.setTotalGames(1);
 	        game.getPlayerPanel(Settings.getTopPerspectiveColor()).updateTotalGames();
@@ -355,74 +358,165 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	    });
 	}*/
 	
+	
 	public void handleMatchOver() {
-		gameTimer.stop();
-        System.out.println("Game over! Total time: " + gameTimer.getFormattedTime());
+	    gameTimer.stop();
+	    System.out.println("Game over! Total time: " + gameTimer.getFormattedTime());
 
 	    String winnerMessage;
-	        winnerMessage = "🏆 Congratulations, " + GameplayController.getpCurrent().getShortName() + " wins the match! 🏆";
+	    winnerMessage = "🏆 Congratulations, " + GameplayController.getpCurrent().getShortName() + " wins the match! 🏆";
 
 	    // יצירת דיאלוג מותאם אישית
-	    Dialogs<ButtonType> dialog = new Dialogs<>("Match Over", stage, "Match Options");
-	    // הוספת כפתורים Play Again ו-Home
-	    ButtonType playAgainButton = new ButtonType("Play Again");
-	    ButtonType homeButton = new ButtonType("Home");
+	    Dialog dialog = new Dialog();
+	    dialog.setTitle("Match Over");
 
-	    // הוספת הכפתורים לדיאלוג
-	    dialog.getDialogPane().getButtonTypes().setAll(playAgainButton, homeButton);
+	    // הגדרת שלב הדיאלוג
+	    dialog.initOwner(stage);
+
+	    // יצירת כפתור "Play Again"
+	    Button playAgainButton = new Button("Play Again");
+	    playAgainButton.setStyle(
+	            "-fx-font-size: 24px; " +
+	            "-fx-font-weight: bold; " +
+	            "-fx-text-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
+	            "-fx-background-color: #d2a679; " +
+	            "-fx-border-color: #8B4513; " +
+	            "-fx-border-width: 2px; " +
+	            "-fx-border-radius: 15px; " +
+	            "-fx-background-radius: 15px;" +
+	            "-fx-cursor: hand;"
+	    );
+
+	    // הוספת אפקט hover לכפתור Play Again
+	    playAgainButton.setOnMouseEntered(e -> playAgainButton.setStyle(
+	            "-fx-font-size: 24px; " +
+	            "-fx-font-weight: bold; " +
+	            "-fx-text-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
+	            "-fx-background-color: #e0b689; " + // צבע מודגש
+	            "-fx-border-color: #8B4513; " +
+	            "-fx-border-width: 2px; " +
+	            "-fx-border-radius: 15px; " +
+	            "-fx-background-radius: 15px;" +
+	            "-fx-cursor: hand;"
+	    ));
+	    playAgainButton.setOnMouseExited(e -> playAgainButton.setStyle(
+	            "-fx-font-size: 24px; " +
+	            "-fx-font-weight: bold; " +
+	            "-fx-text-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
+	            "-fx-background-color: #d2a679; " +
+	            "-fx-border-color: #8B4513; " +
+	            "-fx-border-width: 2px; " +
+	            "-fx-border-radius: 15px; " +
+	            "-fx-background-radius: 15px;" +
+	            "-fx-cursor: hand;"
+	    ));
+
+	    // יצירת כפתור "Home"
+	    Button homeButton = new Button("Home");
+	    homeButton.setStyle(
+	            "-fx-font-size: 18px; " +
+	            "-fx-font-weight: bold; " +
+	            "-fx-text-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
+	            "-fx-background-color: #d2a679; " +
+	            "-fx-border-color: #8B4513; " +
+	            "-fx-border-width: 2px; " +
+	            "-fx-border-radius: 15px; " +
+	            "-fx-background-radius: 15px;" +
+	            "-fx-cursor: hand;"
+	    );
+
+	    // הוספת אפקט hover לכפתור Home
+	    homeButton.setOnMouseEntered(e -> homeButton.setStyle(
+	            "-fx-font-size: 18px; " +
+	            "-fx-font-weight: bold; " +
+	            "-fx-text-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
+	            "-fx-background-color: #e0b689; " + // צבע מודגש
+	            "-fx-border-color: #8B4513; " +
+	            "-fx-border-width: 2px; " +
+	            "-fx-border-radius: 15px; " +
+	            "-fx-background-radius: 15px;" +
+	            "-fx-cursor: hand;"
+	    ));
+	    homeButton.setOnMouseExited(e -> homeButton.setStyle(
+	            "-fx-font-size: 18px; " +
+	            "-fx-font-weight: bold; " +
+	            "-fx-text-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
+	            "-fx-background-color: #d2a679; " +
+	            "-fx-border-color: #8B4513; " +
+	            "-fx-border-width: 2px; " +
+	            "-fx-border-radius: 15px; " +
+	            "-fx-background-radius: 15px;" +
+	            "-fx-cursor: hand;"
+	    ));
 
 	    // יצירת כיתוב גדול וברור להכרזה
 	    Text winnerText = new Text(winnerMessage);
-	    winnerText.setStyle("-fx-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
-	                        "-fx-font-size: 42px; " +
-	                        "-fx-font-weight: bold; " +
-	                        "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0.3, 2, 2); " +
-	                        "-fx-text-alignment: center;");
-	    winnerText.setWrappingWidth(600);
+	    winnerText.setStyle(
+	            "-fx-fill: linear-gradient(to bottom, #8B4513, #B8860B); " +
+	            "-fx-font-size: 42px; " +
+	            "-fx-font-weight: bold; " +
+	            "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0.3, 2, 2); " +
+	            "-fx-text-alignment: center;"
+	    );
+	    winnerText.setWrappingWidth(800); // קביעת רוחב ההודעה כך שיתאים לרקע
 
-	    // יצירת אזור עיצוב נוסף
-	    VBox contentBox = new VBox();
-	    contentBox.setAlignment(Pos.CENTER);
-	    contentBox.setSpacing(30);
-	    contentBox.setStyle("-fx-background-color: #FAEBD7; " +
-	                        "-fx-border-color: #8B4513; " +
-	                        "-fx-border-width: 8px; " +
-	                        "-fx-border-radius: 25px; " +
-	                        "-fx-padding: 30px;");
-	    contentBox.getChildren().add(winnerText);
+	    // יצירת BorderPane עבור מיקום כפתורים
+	    BorderPane mainPane = new BorderPane();
+	    mainPane.setStyle("-fx-background-color: #FAEBD7; " +
+	                      "-fx-border-color: #8B4513; " +
+	                      "-fx-border-width: 8px; " +
+	                      "-fx-border-radius: 25px; " +
+	                      "-fx-padding: 30px;");
 
-	    // הוספת תוכן לדיאלוג
-	    dialog.getDialogPane().setContent(contentBox);
+	    // מיקום כפתור "Home" בחלק העליון הימני
+	    BorderPane.setAlignment(homeButton, Pos.TOP_RIGHT);
+	    mainPane.setTop(homeButton);
 
-	    // הגדלת גודל החלון
+	    // מיקום כיתוב המנצח במרכז
+	    BorderPane.setAlignment(winnerText, Pos.CENTER);
+	    mainPane.setCenter(winnerText);
+
+	    // מיקום כפתור "Play Again" בתחתית
+	    BorderPane.setAlignment(playAgainButton, Pos.BOTTOM_CENTER);
+	    mainPane.setBottom(playAgainButton);
+
+	    // הגדרת תוכן הדיאלוג
+	    dialog.getDialogPane().setContent(mainPane);
 	    dialog.getDialogPane().setPrefSize(850, 450);
+
+	    // הסרת כפתורי ברירת מחדל
+	    dialog.getDialogPane().getButtonTypes().clear();
 
 	    // הצגת הדיאלוג
 	    Platform.runLater(() -> {
-	        Optional<ButtonType> result = dialog.showAndWait();
+	        // טיפול בלחיצה על כפתורים
+	        playAgainButton.setOnAction(e -> {
+	            dialog.hide(); // סגירת הדיאלוג
+	            resetApplication(); // איפוס המשחק
+	            cmd.runCommand("/start"); // התחלת משחק חדש
+	        });
 
-	        if (result.isPresent()) {
-	            if (result.get().equals(playAgainButton)) {
-	                // סגירת הדיאלוג לפני התחלת המשחק
-	                dialog.hide(); // סגירת הדיאלוג
-	                resetApplication(); // איפוס המשחק
-	                cmd.runCommand("/start"); // התחלת משחק חדש
-	            } else if (result.get().equals(homeButton)) {
-	                // סגירת הדיאלוג וחזרה למסך הפתיחה
-	                dialog.hide(); // סגירת הדיאלוג
-	                resetApplication(); // איפוס נתוני המשחק
-	                Platform.runLater(() -> {
-	                    try {
-	                        view.backgammonUI openingScreen = new view.backgammonUI();
-	                        openingScreen.start(stage); // מעבר למסך הפתיחה
-	                    } catch (Exception e) {
-	                        e.printStackTrace();
-	                    }
-	                });
-	            }
-	        }
+	        homeButton.setOnAction(e -> {
+	            dialog.hide(); // סגירת הדיאלוג
+	            resetApplication(); // איפוס נתוני המשחק
+	            Platform.runLater(() -> {
+	                try {
+	                	 // סגירת המסך הנוכחי
+	                    stage.close();
+	                	
+	                	view.backgammonUI openingScreen = new view.backgammonUI();
+	                    openingScreen.start(stage); // מעבר למסך הפתיחה
+	                } catch (Exception ex) {
+	                    ex.printStackTrace();
+	                }
+	            });
+	        });
+
+	        dialog.showAndWait();
 	    });
 	}
+
+
 	
 
 	/**
