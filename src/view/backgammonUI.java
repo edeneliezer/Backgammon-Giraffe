@@ -111,17 +111,17 @@ public class backgammonUI extends Application {
         titleBox.getChildren().addAll(bigTitle);
 
 
-        // --- PLAYERS SECTION ---
+    // --- PLAYERS SECTION ---
+
         HBox playersBox = new HBox(50);
         playersBox.setAlignment(Pos.CENTER);
 
-        VBox player1Box = createPlayerBox("player 1 name");
-        VBox player2Box = createPlayerBox("player 2 name");
+        VBox player1Box = createPlayerBox(true);
+        VBox player2Box = createPlayerBox(false);
         playersBox.getChildren().addAll(player1Box, player2Box);
-        player1Field = (TextField) player1Box.getChildren().get(1); // עכשיו הם שדות מחלקה
-        player2Field = (TextField) player2Box.getChildren().get(1);
-        
-        
+
+
+
         
         // מאזיני טקסט לשדות השחקנים
         player1Field.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -135,9 +135,7 @@ public class backgammonUI extends Application {
         HBox difficultyBox = new HBox(15);
         difficultyBox.setAlignment(Pos.CENTER);
 
-        Label difficultyLabel = new Label("Select Difficulty Level:");
-        difficultyLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-        difficultyLabel.setTextFill(Color.BLACK);
+ 
 
          easyButton = createStyledButton("Easy");
          mediumButton = createStyledButton("Medium");
@@ -183,10 +181,13 @@ public class backgammonUI extends Application {
             hardButton.setStyle("-fx-background-color: #ffcc66; -fx-text-fill: black;");
         });
 
-
+        // הגדרת גודל הכפתורים
+        easyButton.setPrefSize(120, 50); // רוחב 120, גובה 50
+        mediumButton.setPrefSize(120, 50);
+        hardButton.setPrefSize(120, 50);
 
         root.setSpacing(50); 
-        difficultyBox.getChildren().addAll(difficultyLabel, easyButton, mediumButton, hardButton);
+        difficultyBox.getChildren().addAll(easyButton, mediumButton, hardButton);
 
         // --- PLAY BUTTON ONLY (Centered) ---
         HBox bottomBox = new HBox();
@@ -194,7 +195,7 @@ public class backgammonUI extends Application {
 
         playButton = new Button("Let's play!");
         playButton.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        playButton.setStyle("-fx-background-color: #d11e1e; -fx-text-fill: white;");
+        playButton.setStyle("-fx-background-color: #d11e1e; -fx-text-fill: white; -fx-cursor: hand;");
         playButton.setPrefSize(200, 60);
         playButton.setDisable(true);
         playButton.setOnAction(e -> {
@@ -400,33 +401,64 @@ public class backgammonUI extends Application {
 
 
 
+    private VBox createPlayerBox(boolean isPlayer1) {
+        // יצירת תמונה
+        ImageView playerImage = new ImageView();
+        playerImage.setFitWidth(30);
+        playerImage.setFitHeight(30);
 
-    private VBox createPlayerBox(String playerName) {
-        Label nameLabel = new Label(playerName);
-        nameLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
-        nameLabel.setTextFill(Color.WHITE);
+        // טוען את התמונה המתאימה
+        String imagePath = isPlayer1 
+            ? "game/img/checkers/white_checkers.png" 
+            : "game/img/checkers/black_checkers.png";
+        try {
+            playerImage.setImage(new Image(imagePath));
+        } catch (Exception e) {
+            System.out.println("Error loading image: " + imagePath);
+        }
 
+        // יצירת שדה טקסט
         TextField textField = new TextField();
-        textField.setPromptText("write here");
-        textField.setPrefWidth(150);
+        textField.setPromptText("insert your name here");
 
-        VBox playerBox = new VBox(10);
+        if (isPlayer1) {
+            player1Field = textField;
+        } else {
+            player2Field = textField;
+        }
+
+        // יצירת תיבה עם תמונה ושדה טקסט
+        HBox playerBox = new HBox(10);
         playerBox.setAlignment(Pos.CENTER);
-        playerBox.setStyle("-fx-background-color: #b30000; -fx-padding: 15; -fx-border-color: black;");
-        playerBox.getChildren().addAll(nameLabel, textField);
+        playerBox.getChildren().addAll(playerImage, textField);
 
-        return playerBox;
+        // עטיפת התיבה בתיבת VBox
+        VBox container = new VBox(10);
+        container.setAlignment(Pos.CENTER);
+        container.setStyle("-fx-background-color: #b30000; -fx-padding: 15; -fx-border-color: black;");
+        container.getChildren().add(playerBox);
+
+        return container;
     }
+
+
+
     
 
     private Button createStyledButton(String text) {
         Button button = new Button(text);
-        button.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+        button.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
         button.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
         button.setPrefSize(80, 30);
+        
+        // שינוי סמן העכבר לצורת כף יד
+        button.setOnMouseEntered(e -> button.setCursor(javafx.scene.Cursor.HAND));
+        button.setOnMouseExited(e -> button.setCursor(javafx.scene.Cursor.DEFAULT));
+
         return button;
     }
 
+    
     private void addHighlightEffect(Button button) {
         button.setOnAction(e -> {
             if (selectedButton != null) {
