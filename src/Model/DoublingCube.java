@@ -148,3 +148,4 @@ public class DoublingCube extends ImageView implements ColorPerspectiveParser, T
 		setNormalImage();
 		resetRotation();
 	}
+}
