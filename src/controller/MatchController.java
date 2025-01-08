@@ -3,6 +3,7 @@ package controller;
 import java.util.Optional;
 
 import Model.Dice;
+import Model.DoublingCube;
 import Model.GameConstants;
 import Model.MatchTimer;
 import Model.Player;
@@ -223,6 +224,9 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	        gameplay.start();
 	    }
 	    gameTimer.start();
+	  //  DoublingCube doublingCube = new DoublingCube();
+	 //   doublingCube.startTimer(); // מפעיל את הטיימר
+
 
 	}
 	
