@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import view.Dialogs;
@@ -111,41 +112,70 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	    instructionLabel.setFont(javafx.scene.text.Font.font("Verdana", 16));
 	    instructionLabel.setStyle("-fx-text-fill: #8B4513;"); // Brown text
 	    
-	    // Dice views
+	 // Dice views (smaller size)
 	    ImageView bottomPlayerDice = new ImageView();
-	    bottomPlayerDice.setFitWidth(100);
-	    bottomPlayerDice.setFitHeight(100);
+	    bottomPlayerDice.setFitWidth(80); // Smaller width
+	    bottomPlayerDice.setFitHeight(80); // Smaller height
 
 	    ImageView topPlayerDice = new ImageView();
-	    topPlayerDice.setFitWidth(100);
-	    topPlayerDice.setFitHeight(100);
+	    topPlayerDice.setFitWidth(80); // Same smaller width
+	    topPlayerDice.setFitHeight(80); // Same smaller height
 
-	    // Confirm button to close the diceStage
+	    // Checker images
+	    ImageView blackChecker = new ImageView("game/img/checkers/black_checkers.png");
+	    blackChecker.setFitWidth(50);
+	    blackChecker.setFitHeight(50);
+
+	    ImageView whiteChecker = new ImageView("game/img/checkers/white_checkers.png");
+	    whiteChecker.setFitWidth(50);
+	    whiteChecker.setFitHeight(50);
+
+	    // Player names (retrieved from the previous page)
+	    javafx.scene.control.Label topPlayerNameLabel = new javafx.scene.control.Label(topPlayer.getName());
+	    topPlayerNameLabel.setFont(javafx.scene.text.Font.font("Verdana", 14));
+	    topPlayerNameLabel.setStyle("-fx-text-fill: #8B4513;");
+
+	    javafx.scene.control.Label bottomPlayerNameLabel = new javafx.scene.control.Label(bottomPlayer.getName());
+	    bottomPlayerNameLabel.setFont(javafx.scene.text.Font.font("Verdana", 14));
+	    bottomPlayerNameLabel.setStyle("-fx-text-fill: #8B4513;");
+
+	    // Layout for top player's dice and checker (Black player)
+	    HBox topPlayerLayout = new HBox(30); // Increased horizontal spacing
+	    topPlayerLayout.setAlignment(Pos.CENTER);
+	    topPlayerLayout.getChildren().addAll(blackChecker, topPlayerDice, topPlayerNameLabel); // Checker, dice, and name in the same row
+
+	    // Layout for bottom player's dice and checker (White player)
+	    HBox bottomPlayerLayout = new HBox(30); // Increased horizontal spacing
+	    bottomPlayerLayout.setAlignment(Pos.CENTER);
+	    bottomPlayerLayout.getChildren().addAll(whiteChecker, bottomPlayerDice, bottomPlayerNameLabel); // Checker, dice, and name in the same row
+
+	    // Main layout with spacing between players
+	    VBox mainPlayerLayout = new VBox(20); // Vertical spacing between players
+	    mainPlayerLayout.setAlignment(Pos.CENTER);
+	    mainPlayerLayout.getChildren().addAll(topPlayerLayout, bottomPlayerLayout);
+
+	    // Confirm button
 	    javafx.scene.control.Button confirmButton = new javafx.scene.control.Button("OK");
 	    confirmButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
-	    confirmButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"); // Brown background, cream text
-	    confirmButton.setDisable(true); // Initially disabled until dice are rolled
+	    confirmButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;");
+	    confirmButton.setDisable(true);
 	    confirmButton.setOnAction(e -> {
 	        diceStage.close();
-
-	        // Proceed with the game
 	        handleNecessitiesOfEachTurn();
-
-	        // Ensure the winner's turn is properly set
-	        isFirstRoll = false; // Indicates the first player is already set
-	        isRolled = false;    // Allow the winner to roll their actual dice
+	        isFirstRoll = false;
+	        isRolled = false;
 	    });
+	    confirmButton.setOnMouseEntered(e -> confirmButton.setStyle("-fx-background-color: #A0522D; -fx-text-fill: #FDF5E6; -fx-font-weight: bold; -fx-cursor: hand;"));
+	    confirmButton.setOnMouseExited(e -> confirmButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"));
 
 	    // Roll dice button
 	    javafx.scene.control.Button rollButton = new javafx.scene.control.Button("Roll Dice");
 	    rollButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
-	    rollButton.setStyle("-fx-background-color: #B22222; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"); // Red background, cream text
+	    rollButton.setStyle("-fx-background-color: #B22222; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;");
 	    rollButton.setOnAction(e -> {
-	        // Roll dice for both players
 	        int bottomPlayerRoll = rollDice(bottomPlayerDice);
 	        int topPlayerRoll = rollDice(topPlayerDice);
 
-	        // Determine the first player
 	        if (bottomPlayerRoll > topPlayerRoll) {
 	            setpCurrent(bottomPlayer);
 	            pOpponent = topPlayer;
@@ -157,32 +187,33 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	            instructionLabel.setText(topPlayer.getName() + " goes first with a roll of " + topPlayerRoll + "!");
 	            rollButton.setDisable(true);
 	        } else {
-	            // Handle tie by prompting to roll again
 	            instructionLabel.setText("It's a tie! Roll again.");
 	            return;
 	        }
-
-	        // Enable the confirm button after rolling
 	        confirmButton.setDisable(false);
 	    });
+	    rollButton.setOnMouseEntered(e -> rollButton.setStyle("-fx-background-color: #FF6347; -fx-text-fill: #FDF5E6; -fx-font-weight: bold; -fx-cursor: hand;"));
+	    rollButton.setOnMouseExited(e -> rollButton.setStyle("-fx-background-color: #B22222; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"));
 
-	    layout.getChildren().addAll(instructionLabel, bottomPlayerDice, topPlayerDice, rollButton, confirmButton);
+	    // Main layout
+	    layout.getChildren().addAll(instructionLabel, mainPlayerLayout, rollButton, confirmButton);
 
-	    Scene scene = new Scene(layout, 400, 400);
+	    Scene scene = new Scene(layout, 500, 400); // Adjusted width for spacing
 	    diceStage.setScene(scene);
 	    diceStage.setTitle("Dice Roll");
 	    diceStage.show();
-	    
+
 	    eventController.registerChildStage(diceStage);
-	    
-	    // Prevent closing the stage until the confirm button is clicked
+
 	    diceStage.setOnCloseRequest(event -> {
 	        if (confirmButton.isDisable()) {
-	            event.consume(); // Block the close request
+	            event.consume();
 	            new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING,
 	                "You must determine the first player before closing!").showAndWait();
 	        }
 	    });
+	
+
 
 	    diceStage.show();
 	}
