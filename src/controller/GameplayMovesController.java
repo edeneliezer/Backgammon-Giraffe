@@ -12,6 +12,7 @@ import Model.Moves;
 import Model.Pip;
 import Model.PipToHome;
 import Model.PipToPip;
+import Model.Player;
 import Model.RollMoves;
 import Model.Settings;
 import Model.SumMove;
@@ -22,7 +23,12 @@ import controller.GameplayController;
 import controller.IndexOffset;
 import controller.InputValidator;
 import controller.IntegerLettersParser;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import view.GameComponentsController;
 import view.InfoPanel;
 
@@ -46,6 +52,7 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	private GameComponentsController game;
 	private GameplayController gameplay;
 	private InfoPanel infoPnl;
+	private boolean extraTurnGranted = false;
 	
 	public GameplayMovesController(GameComponentsController game, GameplayController gameplay, InfoPanel infoPnl) {
 		this.game = game;
@@ -79,6 +86,13 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	// used to check if there are moves able to be made,
 	// if not, end turn for current player, via next().
 	public void handleEndOfMovesCalculation(Moves moves) {
+		if (extraTurnGranted) {
+	        // איפוס דגל התור הנוסף
+	        extraTurnGranted = false;
+	        infoPnl.print("Extra turn granted! Staying on the current player's turn.", MessageType.ANNOUNCEMENT);
+	        return; // עצירה לפני מעבר תור
+	    }	
+		
 		if (isStalemate()) return;
 		
 		if (moves.hasDiceResultsLeft()) {
@@ -128,6 +142,7 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	 * @return boolean value indicating if move is valid.
 	 */
 	private Move theValidMove = null;
+	
 	public boolean isValidMove(String fro, String to) {
 		boolean isValidMove = false;
 		if ((theValidMove = moves.isValidPipToPip(fro, to)) != null) {
@@ -142,6 +157,13 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 		}
 		
 		updateMovesDuringValidation();
+		
+		if (isValidMove) {
+	        // נבדוק אם השחקן נחת על תחנת הפתעה
+	        Pip targetPip = game.getBoard().getPips()[Integer.parseInt(to)];
+	        checkSurpriseStation(targetPip, gameplay.getCurrent());
+	    }
+		
 		return isValidMove;
 	}
 	
@@ -464,5 +486,75 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 			stalemateCount++;
 		}
 		return isStalemate;
+	}
+	
+	private void checkSurpriseStation(Pip targetPip, Player currentPlayer) {
+	    if (targetPip.hasSurpriseStation()) {
+	        // הדפסה ללוג
+	        infoPnl.print(currentPlayer.getName() + " landed on a Surprise Station! Extra turn granted.", MessageType.ANNOUNCEMENT);
+
+	        // תור נוסף לשחקן
+	        targetPip.activateSurprise(currentPlayer);
+
+	     // הצגת חלון עם הודעה
+	        showSurpriseStationDialog();
+	        
+	        // הגדרת דגל לתור נוסף
+	   //     extraTurnGranted = true;
+	      
+	        // הגדרת דגל תור נוסף במשחק
+	        gameplay.setExtraTurn(true);
+	        
+	        // הסרת תחנת ההפתעה מהשקע (אם היא חד-פעמית)
+	       // targetPip.removeSurpriseStation();
+	    }
+	}
+	
+	private void showSurpriseStationDialog() {
+	    // יצירת Stage חדש עבור החלון
+	    Stage dialogStage = new Stage();
+	    dialogStage.setTitle("Surprise Station");
+
+	    // קביעת פריסת החלון
+	    VBox layout = new VBox(20);
+	    layout.setAlignment(Pos.CENTER);
+	    layout.setStyle("-fx-background-color: #FDF5E6; -fx-padding: 20; -fx-border-color: #8B4513; -fx-border-width: 5;");
+
+	    // יצירת טקסט
+	    javafx.scene.control.Label messageLabel = new javafx.scene.control.Label("🎉 Congrats! 🎉\nYou've landed on a Surprise Station.\nYou earned one more turn!");
+	    messageLabel.setFont(javafx.scene.text.Font.font("Verdana", 16));
+	    messageLabel.setStyle("-fx-text-fill: #8B4513;"); // צבע טקסט חום
+	    messageLabel.setWrapText(true);
+	    messageLabel.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+
+	    // הוספת אייקון (אופציונלי)
+	    ImageView surpriseIcon = new ImageView("/game/img/board/surprise_icon.png");
+	    surpriseIcon.setFitWidth(100);
+	    surpriseIcon.setFitHeight(100);
+
+	    // כפתור לסגירת החלון
+	    javafx.scene.control.Button closeButton = new javafx.scene.control.Button("Perfect!");
+	    closeButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
+	    closeButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;");
+
+	    // שינוי סגנון על מעבר עכבר
+	    closeButton.setOnMouseEntered(e -> closeButton.setStyle("-fx-background-color: #A0522D; -fx-text-fill: #FDF5E6; -fx-font-weight: bold; -fx-cursor: hand;"));
+	    closeButton.setOnMouseExited(e -> closeButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"));
+
+	    // פעולה ללחיצה
+	    closeButton.setOnAction(e -> dialogStage.close());
+
+	    // הוספת רכיבים לפריסה
+	    layout.getChildren().addAll(surpriseIcon, messageLabel, closeButton);
+
+	    // יצירת Scene והוספתו ל-Stage
+	    Scene scene = new Scene(layout, 400, 300);
+	    dialogStage.setScene(scene);
+
+	    // מניעת אינטראקציה עם החלון הראשי עד שהדיאלוג ייסגר
+	    dialogStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+
+	    // הצגת החלון
+	    dialogStage.showAndWait();
 	}
 }

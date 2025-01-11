@@ -55,7 +55,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	private InfoPanel infoPnl;
 	private GameplayMovesController gameplayMoves;
 	private EventController eventController; // Reference to EventController
-
+	private boolean extraTurn = false;
 	
 	public GameplayController(Stage stage, MatchController root, GameComponentsController game,
             InfoPanel infoPnl, Player bottomPlayer, Player topPlayer,
@@ -373,7 +373,18 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	 * @return the next player to roll.
 	 */
 	private Timeline nextPause;
+	
 	public Player next() {
+		// אם יש תור נוסף, השאר את התור אצל אותו שחקן
+	    if (isExtraTurn()) {
+	        infoPnl.print("Extra turn granted! Staying on the current player's turn.", MessageType.ANNOUNCEMENT);
+	        setExtraTurn(false); // איפוס הדגל
+	        isRolled = false; // איפוס מצב הקוביות
+	        isMoved = false; // איפוס מצב תנועה
+	        recalculateMoves(); // חישוב מחדש של מהלכים אפשריים
+	        return getpCurrent(); // השאר את השחקן הנוכחי
+	    }
+	    
 		// this needs to be set first,
 		// if not during wait, players can /next more than once.
 		isRolled = false;
@@ -384,7 +395,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		
 		// pause for 2 seconds before "next-ing".
 		if (Settings.ENABLE_NEXT_PAUSE) {
-			nextPause = new Timeline(new KeyFrame(Duration.seconds(2), ev -> {
+			nextPause = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
 				isInTransition = false;
 				nextFunction();
 			}));
@@ -394,6 +405,7 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 		} else nextFunction();
 		return getpCurrent();
 	}
+	
 	public void nextFunction() {
 		//if (isDoubling()) stopCurrentPlayerTimer();
 		
@@ -693,5 +705,13 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 
 	public void setpCurrent(Player pCurrent) {
 		this.pCurrent = pCurrent;
+	}
+	
+	public boolean isExtraTurn() {
+	    return extraTurn;
+	}
+
+	public void setExtraTurn(boolean extraTurn) {
+	    this.extraTurn = extraTurn;
 	}
 }

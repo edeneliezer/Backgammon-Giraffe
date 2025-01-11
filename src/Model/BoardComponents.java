@@ -1,7 +1,9 @@
 package Model;
 
 import java.util.LinkedList;
+import java.util.Random;
 
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import view.BoardQuadrant;
@@ -27,6 +29,8 @@ public class BoardComponents extends HBox {
 	protected LinkedList<BoardQuadrant> quads;
 	protected Dices leftDices, rightDices, dices;
 	private boolean isLabelsFlipped;
+	protected Pip surprisePip; // משתנה לשמירה על תחנת ההפתעה
+
 	
 	/**
 	 * Default Constructor
@@ -97,8 +101,36 @@ public class BoardComponents extends HBox {
 			initCheckers(i);
 		}
 		drawPips();
+		addSurpriseStation();
 	}
 
+	public void addSurpriseStation() {
+	    if (surprisePip != null) {
+	        return; // אם תחנת הפתעה כבר קיימת, לא ניצור תחנה נוספת
+	    }
+
+	    // יצירת תחנת הפתעה
+	    SurpriseStation surpriseStation = new SurpriseStation();
+
+	    // בחירת שקע רנדומלי
+	    int randomIndex = new Random().nextInt(pips.length);
+	    surprisePip = pips[randomIndex];
+
+	    // הוספת תחנת ההפתעה לשקע
+	    surprisePip.setSurpriseStation(surpriseStation);
+	    
+	    // הוספת אייקון לשקע (אם טרם נוסף)
+	    if (!surprisePip.hasSurpriseIcon()) {
+	        ImageView surpriseIcon = new ImageView("/path/to/surprise_icon.png"); // שים את הנתיב של האייקון
+	        surpriseIcon.setFitWidth(30); // קביעת גודל האייקון
+	        surpriseIcon.setFitHeight(30);
+	        surprisePip.setSurpriseIcon(surpriseIcon); // שמירת האייקון בשקע
+	        surprisePip.getChildren().add(surpriseIcon); // הוספת האייקון ל-Pip עצמו
+	    }
+	    
+	    System.out.println("Surprise Station added to Pip " + surprisePip.getPipNumber());
+	}
+	
 	private void initCheckers() {
 		for (int i = 0; i < MAXPIPS; i++) {
 			initCheckers(i);
@@ -663,5 +695,12 @@ public class BoardComponents extends HBox {
 		dices.reset();
 		leftCubeHome.reset();
 		rightCubeHome.reset();;
+
+		// איפוס תחנת הפתעה
+	    if (surprisePip != null) {
+	       // surprisePip.removeSurpriseStation(); // שחרור התחנה הישנה
+	        surprisePip = null;
+	    }
+	    addSurpriseStation();
 	}
 }

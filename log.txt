@@ -22265,3 +22265,4705 @@
 > [System] Swapping turns...
 > [System] Trying to quit game.
 
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 17-23
+      B. 12-18
+      C. 1-7
+
+  Roll of 5
+      D. 17-22
+      E. 12-17
+
+  Roll of 11
+      F. 12-23
+      G. 1-12
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to 12.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] You can only move after rolling.
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 5
+      E. 6-1*
+      F. 8-3
+      G. 13-8
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 3.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to bar.
+> [System] Moved checker from 6 to 1.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+
+  Roll of 5
+      A. Bar-20
+
+  Roll of 7
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 20.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 20-18
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 11.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 2
+      D. 3-1
+      E. 6-4
+      F. 8-6
+      G. 13-11
+      H. 24-22
+
+  Roll of 8
+      I. 13-5*
+      J. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 4.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 1, 1, 1].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 11-10
+
+  Roll of 2
+      D. 6-4
+      E. 8-6
+      F. 11-9
+
+  Roll of 3
+      G. 6-3
+      H. 8-5
+      I. 11-8
+
+  Roll of 4
+      J. 6-2
+      K. 8-4
+      L. 11-7
+
+
+> [System] Moving...
+> [System] Moved checker from 11 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18*
+
+  Roll of 5
+      D. 6-1
+      E. 8-3
+      F. 13-8
+
+  Roll of 11
+      G. 13-2
+      H. 24-13
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 1.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18*
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 20-14
+
+  Roll of 4
+      D. 6-2
+      E. 7-3
+      F. 8-4
+      G. 13-9
+      H. 20-16
+
+  Roll of 10
+      I. 13-3
+      J. 20-10
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+      C. 8-4
+      D. 13-9
+      E. 20-16
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 3].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+
+  Roll of 3
+      C. 4-1
+      D. 6-3
+      E. 8-5*
+      F. 13-10
+      G. 24-21*
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 3.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 4, 4, 4].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+      C. 8-4
+      D. 13-9
+      E. 20-16
+
+  Roll of 8
+      F. 13-5
+
+  Roll of 12
+
+  Roll of 16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 5.
+
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+      C. 8-4
+      D. 13-9
+      E. 20-16
+
+  Roll of 8
+      F. 13-5
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+      C. 8-4
+      D. 13-9
+      E. 20-16
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 4-1
+      B. 13-10
+
+  Roll of 5
+      C. 13-8
+
+  Roll of 8
+      D. 13-5*
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Available moves:
+  Roll of 3
+      A. 4-1
+      B. 13-10
+      C. 8-5*
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 4, 4, 4].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+      C. 13-9
+      D. 20-16
+
+  Roll of 8
+      E. 13-5
+
+  Roll of 12
+
+  Roll of 16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 5.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+      C. 13-9
+      D. 20-16
+
+  Roll of 8
+      E. 13-5
+
+> [Error] You can only move from highlighted objects.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 3].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 10-5*
+      C. 13-8
+
+  Roll of 3
+      D. 4-1
+      E. 8-5*
+      F. 10-7
+      G. 13-10
+
+  Roll of 8
+      H. 10-2
+      I. 13-5*
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Available moves:
+  Roll of 3
+      A. 4-1
+      B. 10-7
+      C. 13-10
+
+
+> [System] Moving...
+> [System] Moved checker from 10 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 5-3
+      C. 6-4
+      D. 7-5
+      E. 13-11
+      F. 20-18*
+
+  Roll of 6
+      G. 13-7
+      H. 20-14
+
+  Roll of 8
+      I. 13-5
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 4-1
+      B. 7-4
+      C. 13-10
+
+  Roll of 2
+      D. 3-1
+      E. 4-2
+      F. 7-5*
+      G. 13-11
+      H. 24-22
+
+  Roll of 5
+      I. 7-2
+      J. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 7 to 4.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2
+      C. 13-11
+      D. 24-22
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 6].
+> [System] Available moves:
+  Roll of 1
+      A. 4-3*
+      B. 5-4
+      C. 6-5
+      D. 7-6
+      E. 20-19
+
+  Roll of 6
+      F. 7-1*
+      G. 20-14
+
+  Roll of 7
+      H. 20-13
+
+
+> [System] Idan landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 20 to 19.
+> [System] Available moves:
+  Roll of 6
+      A. 7-1*
+      B. 19-13
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to bar.
+> [System] Moved checker from 7 to 1.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 1, 1, 1].
+> [System] Available moves:
+  Roll of 1
+      A. Bar-24*
+
+  Roll of 2
+
+  Roll of 3
+
+  Roll of 4
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 24 to bar.
+> [System] Moved checker from bar to 24.
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 3-2
+      C. 4-3
+      D. 13-12
+      E. 24-23
+
+  Roll of 2
+      F. 3-1
+      G. 4-2
+      H. 13-11
+      I. 24-22
+
+  Roll of 3
+      J. 4-1
+      K. 13-10
+
+
+> [System] Moving...
+> [System] Moved checker from 4 to 1.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 1].
+> [System] Available moves:
+  Roll of 4
+      A. Bar-21*
+
+  Roll of 1
+
+  Roll of 5
+
+
+
+> [System] Moving...
+> [System] Moved checker from 21 to bar.
+> [System] Moved checker from bar to 21.
+> [System] Available moves:
+  Roll of 1
+      A. 4-3*
+      B. 5-4
+      C. 6-5
+      D. 7-6
+      E. 19-18
+      F. 21-20
+
+
+> [System] Moving...
+> [System] Moved checker from 21 to 20.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+> [Error] You can only move after rolling.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 4, 4, 4].
+> [Warning] No moves available, turn forfeited.
+
+> [System] Swapping turns...
+> [Error] You can only move after rolling.
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+> [Error] You can only move after rolling.
+> [Error] You can only move after rolling.
+> [Error] You can only move after rolling.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 7-1*
+      B. 19-13
+      C. 20-14
+
+  Roll of 2
+      D. 4-2
+      E. 5-3*
+      F. 6-4
+      G. 7-5
+      H. 19-17
+      I. 20-18
+
+  Roll of 8
+      J. 19-11
+
+
+> [System] Moving...
+> [System] Moved checker from 19 to 13.
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 5-3*
+      C. 6-4
+      D. 7-5
+      E. 20-18
+      F. 13-11
+
+
+> [System] Moving...
+> [System] Moved checker from 7 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 6].
+> [System] Available moves:
+  Roll of 1
+      A. Bar-24
+
+  Roll of 6
+
+  Roll of 7
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 24.
+> [System] Available moves:
+  Roll of 6
+      A. 13-7
+      B. 22-16
+      C. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 22 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 13-7
+      B. 20-14
+
+  Roll of 2
+      C. 4-2
+      D. 5-3
+      E. 6-4
+      F. 13-11
+      G. 20-18
+
+  Roll of 8
+      H. 13-5
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 5-3
+      C. 6-4
+      D. 20-18
+      E. 7-5
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 4, 4, 4].
+> [System] Available moves:
+  Roll of 4
+      A. 13-9
+      B. 16-12
+
+  Roll of 8
+      C. 13-5*
+      D. 16-8
+
+  Roll of 12
+      E. 13-1
+      F. 16-4
+
+  Roll of 16
+
+
+> [System] Moving...
+> [System] Moved checker from 16 to 8.
+> [System] Available moves:
+  Roll of 4
+      A. 13-9
+      B. 8-4
+
+  Roll of 8
+      C. 13-5*
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 9.
+> [System] Available moves:
+  Roll of 4
+      A. 13-9
+      B. 8-4
+      C. 9-5*
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 5].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+
+  Roll of 5
+      C. 7-2
+      D. 20-15
+
+  Roll of 9
+      E. 20-11
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Available moves:
+  Roll of 5
+      A. 7-2
+      B. 20-15
+
+
+> [System] Moving...
+> [System] Moved checker from 7 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 5, 5, 5].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 9-4
+      C. 13-8
+
+  Roll of 10
+      D. 13-3
+
+  Roll of 15
+
+  Roll of 20
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 3.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 9-4
+
+  Roll of 10
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Available moves:
+  Roll of 5
+      A. 9-4
+
+
+> [System] Moving...
+> [System] Moved checker from 9 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+
+> [System] Roll dice result: [6, 3].
+> [System] Available moves:
+  Roll of 6
+      A. 20-14
+
+  Roll of 3
+      B. 5-2
+      C. 6-3
+      D. 20-17
+
+  Roll of 9
+      E. 20-11
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 5 to 2.
+> [System] Available moves:
+  Roll of 6
+      A. 20-14
+
+
+> [System] Moving...
+> [System] Moved checker from 20 to 14.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 4].
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2
+      C. 9-7
+      D. 24-22
+
+  Roll of 4
+      E. 9-5
+
+  Roll of 6
+      F. 9-3
+      G. 24-18
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 14-8
+
+  Roll of 5
+      B. 6-1*
+      C. 14-9
+
+  Roll of 11
+      D. 14-3
+
+
+> [System] Moving...
+> [System] Moved checker from 14 to 8.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 9-3
+      B. 18-12
+      C. 24-18
+
+  Roll of 5
+      D. 9-4
+      E. 18-13
+
+  Roll of 11
+      F. 18-7
+      G. 24-13
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Available moves:
+  Roll of 5
+      A. 9-4
+      B. 18-13
+
+
+> [System] Moving...
+> [System] Moved checker from 18 to 13.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+
+> [System] Available moves:
+  Roll of 4
+      A. 4-Off
+      B. 5-1
+      C. 6-2
+
+  Roll of 6
+      D. 6-Off
+
+  Roll of 10
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 2, 2, 2].
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2
+      C. 9-7
+      D. 13-11
+      E. 18-16
+
+  Roll of 4
+      F. 9-5
+      G. 13-9
+      H. 18-14
+
+  Roll of 6
+      I. 9-3
+      J. 13-7
+      K. 18-12
+
+  Roll of 8
+      L. 9-1
+      M. 13-5
+      N. 18-10
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 11.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2
+      C. 9-7
+      D. 18-16
+      E. 11-9
+
+  Roll of 4
+      F. 9-5
+      G. 18-14
+      H. 11-7
+
+  Roll of 6
+      I. 9-3
+      J. 18-12
+      K. 11-5
+
+
+> [System] Moving...
+> [System] Moved checker from 18 to 12.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 4].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 3-2
+      C. 4-3
+      D. 5-4
+      E. 6-5
+
+  Roll of 4
+      F. 4-Off
+      G. 5-1
+      H. 6-2
+
+  Roll of 5
+      I. 5-Off
+      J. 6-1
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 3-2
+      C. 4-3
+      D. 5-4
+      E. 6-5
+
+
+> [System] Moving...
+> [System] Moved checker from 2 to 1.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 9-3
+      B. 11-5
+      C. 12-6
+
+  Roll of 4
+      D. 9-5
+      E. 11-7
+      F. 12-8
+
+  Roll of 10
+      G. 11-1
+      H. 12-2
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 9 to 5.
+> [System] Available moves:
+  Roll of 6
+      A. 11-5
+      B. 12-6
+
+
+> [System] Eden landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 12 to 6.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 3].
+> [System] Available moves:
+  Roll of 2
+      A. 2-Off
+      B. 3-1
+      C. 4-2
+      D. 5-3
+      E. 6-4
+
+  Roll of 3
+      F. 3-Off
+      G. 4-1
+      H. 5-2
+      I. 6-3
+
+  Roll of 5
+      J. 5-Off
+      K. 6-1
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 1
+      D. 6-5
+      E. 8-7
+      F. 24-23
+
+  Roll of 7
+      G. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now EN's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7*
+      C. 24-23
+
+  Roll of 2
+      D. 6-4
+      E. 8-6
+      F. 13-11
+      G. 24-22
+
+  Roll of 3
+      H. 6-3
+      I. 8-5
+      J. 13-10
+      K. 24-21
+
+
+> [System] EN landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 11.
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7*
+      C. 24-23
+      D. 11-10
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 23.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now ED's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 5].
+> [System] Available moves:
+  Roll of 4
+      A. 5-1*
+      B. 6-2*
+      C. 8-4
+      D. 13-9
+      E. 18-14*
+      F. 24-20
+
+  Roll of 5
+      G. 6-1*
+      H. 8-3
+      I. 13-8
+      J. 18-13
+
+  Roll of 9
+      K. 13-4
+      L. 18-9
+      M. 24-15
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 18 to 13.
+> [System] Available moves:
+  Roll of 4
+      A. 5-1*
+      B. 6-2*
+      C. 8-4
+      D. 13-9
+      E. 24-20
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now EN's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 11-5*
+      C. 13-7
+      D. 24-18
+
+  Roll of 1
+      E. 6-5*
+      F. 8-7
+      G. 11-10
+      H. 23-22
+      I. 24-23
+
+  Roll of 7
+      J. 8-1
+      K. 11-4
+      L. 13-6
+      M. 23-16
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 23 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now ED's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 5].
+> [System] Available moves:
+  Roll of 4
+      A. 5-1*
+      B. 6-2
+      C. 8-4
+      D. 13-9*
+      E. 20-16
+
+  Roll of 5
+      F. 6-1*
+      G. 8-3
+      H. 13-8
+      I. 20-15
+
+  Roll of 9
+      J. 13-4
+      K. 20-11
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 20 to 16.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+      D. 16-11
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now EN's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 11-8
+      D. 13-10
+      E. 16-13
+      F. 24-21
+
+  Roll of 5
+      G. 6-1
+      H. 8-3
+      I. 11-6
+      J. 13-8
+      K. 16-11
+
+  Roll of 8
+      L. 11-3
+      M. 13-5
+      N. 16-8
+      O. 24-16
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 8-3
+      C. 11-6
+      D. 13-8
+      E. 16-11
+      F. 21-16
+
+
+> [System] EN landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 16 to 11.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now ED's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 6, 6, 6].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 16-10
+
+  Roll of 12
+      D. 13-1
+      E. 16-4*
+
+  Roll of 18
+
+  Roll of 24
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 17-23
+      B. 12-18
+      C. 1-7
+
+  Roll of 4
+      D. 19-23
+      E. 17-21
+      F. 12-16
+      G. 1-5
+
+  Roll of 10
+      H. 12-22
+      I. 1-11
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 1 to 5.
+> [System] Available moves:
+  Roll of 6
+      A. 17-23
+      B. 12-18
+      C. 1-7
+      D. 5-11
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 18.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now uuu's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 2, 2, 2].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 4
+      E. 6-2
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+  Roll of 6
+      I. 8-2
+      J. 13-7
+      K. 24-18*
+
+  Roll of 8
+      L. 13-5*
+      M. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 4
+      E. 6-2
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now aaa's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 20-14
+      D. 24-18
+
+  Roll of 4
+      E. 6-2
+      F. 7-3
+      G. 8-4
+      H. 13-9
+      I. 20-16
+      J. 24-20
+
+  Roll of 10
+      K. 13-3
+      L. 20-10
+      M. 24-14
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now uuu's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 3].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1*
+      B. 6-5*
+      C. 8-7
+      D. 24-23
+
+  Roll of 3
+      E. 6-3
+      F. 8-5*
+      G. 13-10
+      H. 24-21
+
+  Roll of 4
+      I. 6-2
+      J. 8-4
+      K. 13-9
+      L. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 3.
+> [System] Available moves:
+  Roll of 1
+      A. 2-1*
+      B. 6-5*
+      C. 8-7
+      D. 24-23
+      E. 3-2
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to bar.
+> [System] Moved checker from 6 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now aaa's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 4].
+> [System] Available moves:
+  Roll of 5
+      A. Bar-20*
+
+  Roll of 4
+
+  Roll of 9
+
+
+> [System] Moving...
+> [System] Moved checker from 20 to bar.
+> [System] Moved checker from bar to 20.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+      C. 8-4
+      D. 13-9
+      E. 20-16
+      F. 24-20
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now uuu's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. Bar-22*
+
+  Roll of 2
+
+  Roll of 5
+
+
+> [System] Moving...
+> [System] Moved checker from 22 to bar.
+> [System] Moved checker from bar to 22.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1*
+      B. 6-4
+      C. 8-6
+      D. 13-11
+      E. 22-20
+      F. 24-22
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now aaa's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 5, 5, 5].
+> [System] Available moves:
+  Roll of 5
+      A. Bar-20
+
+  Roll of 10
+
+  Roll of 15
+
+  Roll of 20
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 20.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 7-2
+      C. 9-4
+      D. 13-8
+      E. 20-15
+      F. 24-19*
+
+  Roll of 10
+      G. 20-10
+      H. 24-14
+
+  Roll of 15
+      I. 20-5
+      J. 24-9
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 7-2
+      C. 9-4
+      D. 13-8
+      E. 20-15
+      F. 24-19*
+
+  Roll of 10
+      G. 20-10
+      H. 24-14
+
+
+> [System] Moving...
+> [System] Moved checker from 9 to 4.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 7-2
+      C. 13-8
+      D. 20-15
+      E. 24-19*
+
+
+> [System] aaa landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 19 to bar.
+> [System] Moved checker from 24 to 19.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now uuu's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+
+  Roll of 5
+      A. Bar-20
+
+  Roll of 7
+
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 19-20
+      B. 17-18
+      C. 1-2
+
+  Roll of 5
+      D. 17-22
+      E. 12-17
+
+  Roll of 6
+      F. 17-23
+      G. 12-18
+      H. 1-7
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 12 to 18.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 6].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 6
+      C. 8-2
+      D. 13-7
+      E. 24-18*
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 3].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 7-5
+      C. 8-6
+      D. 13-11
+      E. 24-22*
+
+  Roll of 3
+      F. 6-3
+      G. 7-4
+      H. 8-5
+      I. 13-10
+      J. 24-21
+
+  Roll of 5
+      K. 7-2
+      L. 8-3
+      M. 13-8
+
+
+> [System] Idan landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 6.
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 7-4
+      C. 8-5
+      D. 13-10
+      E. 24-21
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 5].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+      C. 20-15*
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 7-5*
+      C. 8-6
+      D. 10-8
+      E. 13-11
+
+  Roll of 6
+      F. 7-1*
+      G. 8-2
+      H. 10-4
+      I. 13-7
+      J. 24-18
+
+  Roll of 8
+      K. 10-2
+      L. 13-5*
+      M. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 7-5*
+      C. 8-6
+      D. 10-8
+      E. 13-11
+
+
+> [System] Idan landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 6.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 19-22
+      B. 17-20
+      C. 12-15
+      D. 1-4
+
+  Roll of 5
+      E. 17-22
+      F. 12-17
+
+  Roll of 8
+      G. 12-20
+      H. 1-9
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] ss landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 17 to 22.
+> [System] Available moves:
+  Roll of 3
+      A. 19-22
+      B. 17-20
+      C. 12-15
+      D. 1-4
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 15.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now dd's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 6].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 5].
+> [System] Available moves:
+  Roll of 4
+      A. 19-23
+      B. 17-21
+      C. 12-16
+      D. 1-5
+
+  Roll of 5
+      E. 17-22
+      F. 12-17
+
+  Roll of 9
+      G. 12-21
+      H. 1-10
+
+> [Error] You can only move from highlighted objects.
+> [Error] You can only move from highlighted objects.
+> [Error] You can only move from highlighted objects.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 1].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 1
+      C. 6-5
+      D. 8-7
+      E. 24-23
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 24-18
+
+
+> [System] jjj landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+
+> [System] jjj landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now s's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 3].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] s landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22*
+
+
+> [System] s landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 22 to bar.
+> [System] Moved checker from 24 to 22.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now jjj's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 1].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] jjj landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from bar to 23.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] jjj landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now s's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] s landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 22 to 21.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] s landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 11.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now jjj's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Moving...
+> [System] Moved checker from 7 to 1.
+> [System] Available moves:
+  Roll of 2
+      A. 5-3
+      B. 8-6
+      C. 13-11
+      D. 23-21
+      E. 24-22
+
+
+> [System] jjj landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now s's (black) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 4].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 4
+      C. 6-2
+      D. 8-4
+      E. 13-9
+      F. 24-20
+
+  Roll of 9
+      G. 13-4
+      H. 24-15
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] u landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+      C. 20-15
+
+
+> [System] u landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now l's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 1].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] l landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Available moves:
+  Roll of 1
+      A. 6-5*
+      B. 8-7
+      C. 24-23
+
+> [Error] You can only move from highlighted objects.
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move from highlighted objects.
+
+> [System] l landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now u's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 2].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Moving...
+> [System] Moved checker from 20 to 16.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1*
+      B. 6-4
+      C. 8-6
+      D. 13-11
+      E. 24-22
+      F. 16-14
+
+
+> [System] u landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now l's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 5].
+
+> [System] Extra turn granted! Staying on the current player's turn.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 4].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 4
+      C. 6-2
+      D. 8-4
+      E. 13-9
+      F. 24-20
+
+  Roll of 9
+      G. 13-4
+      H. 24-15
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 9.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+      C. 9-4
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now sss's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 2, 2, 2].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22*
+
+  Roll of 4
+      E. 6-2
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+  Roll of 6
+      I. 8-2
+      J. 13-7
+      K. 24-18
+
+  Roll of 8
+      L. 13-5
+      M. 24-16*
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now f's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 2].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 9-5
+      D. 13-9
+      E. 24-20*
+
+  Roll of 2
+      F. 6-4
+      G. 8-6
+      H. 9-7
+      I. 13-11
+      J. 24-22
+
+  Roll of 6
+      K. 8-2
+      L. 9-3
+      M. 13-7
+      N. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 9-7
+      D. 13-11
+      E. 24-22
+      F. 4-2
+
+
+> [System] f landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now sss's (black) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 1].
+> [System] Available moves:
+  Roll of 3
+      A. 19-22
+      B. 17-20
+      C. 12-15
+      D. 1-4
+
+  Roll of 1
+      E. 19-20
+      F. 17-18
+      G. 1-2
+
+  Roll of 4
+      H. 19-23
+      I. 17-21
+      J. 12-16
+      K. 1-5
+
+
+> [System] wooo landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 12 to 16.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+> [Error] Die has already been rolled.
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 4].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 4
+      E. 6-2
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+  Roll of 7
+      I. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now ss's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5*
+      B. 8-7
+      C. 24-23
+
+  Roll of 5
+      D. 6-1
+      E. 8-3
+      F. 13-8
+
+  Roll of 6
+      G. 8-2
+      H. 13-7
+      I. 24-18
+
+> [Error] You can only move from highlighted objects.
+
+> [System] ss landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 6 to 1.
+> [System] Available moves:
+  Roll of 1
+      A. 6-5*
+      B. 8-7
+      C. 24-23
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 7.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 5, 5, 5].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2
+      C. 8-3
+      D. 13-8
+
+  Roll of 10
+      E. 13-3
+
+  Roll of 15
+
+  Roll of 20
+
+> [Error] You have made your move.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 6].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+      E. 7-4
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now DD's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 6].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18*
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 3].
+> [System] Available moves:
+  Roll of 5
+      A. 7-2
+      B. 8-3
+      C. 13-8
+
+  Roll of 3
+      D. 6-3
+      E. 7-4
+      F. 8-5
+      G. 13-10
+      H. 24-21*
+
+  Roll of 8
+      I. 13-5
+      J. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 10.
+> [System] Available moves:
+  Roll of 5
+      A. 7-2
+      B. 8-3
+      C. 13-8
+      D. 10-5
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now DD's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 6-4
+      C. 8-6
+      D. 13-11
+      E. 24-22*
+
+  Roll of 5
+      F. 8-3
+      G. 13-8
+
+  Roll of 7
+      H. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 22 to bar.
+> [System] Moved checker from 24 to 22.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. Bar-23
+
+  Roll of 6
+
+  Roll of 8
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 23.
+> [System] Available moves:
+  Roll of 6
+      A. 7-1*
+      B. 8-2
+      C. 10-4
+      D. 13-7
+      E. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now DD's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 3].
+> [System] Available moves:
+  Roll of 1
+      A. 3-2*
+      B. 4-3
+      C. 6-5
+      D. 8-7
+      E. 13-12*
+      F. 22-21
+      G. 24-23
+
+  Roll of 3
+      H. 6-3
+      I. 8-5
+      J. 13-10
+      K. 24-21
+
+  Roll of 4
+      L. 6-2*
+      M. 8-4
+      N. 13-9
+      O. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 7-1*
+      B. 8-2
+      C. 10-4
+      D. 13-7
+      E. 24-18
+
+  Roll of 2
+      F. 6-4
+      G. 7-5
+      H. 8-6
+      I. 10-8
+      J. 13-11
+      K. 23-21*
+      L. 24-22*
+
+  Roll of 8
+      M. 10-2
+      N. 13-5
+      O. 23-15
+      P. 24-16*
+
+
+> [System] Eden landed on a Surprise Station! Extra turn granted.
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now DD's (black) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+      A. 19-21
+      B. 17-19
+      C. 12-14
+      D. 1-3
+
+  Roll of 5
+      E. 17-22
+      F. 12-17
+
+  Roll of 7
+      G. 12-19
+
+
+> [System] Moving...
+> [System] Moved checker from 17 to 22.
+> [System] Available moves:
+  Roll of 2
+      A. 19-21
+      B. 17-19
+      C. 12-14
+      D. 1-3
+
+
+> [System] Moving...
+> [System] Moved checker from 19 to 21.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 4, 4, 4].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 8
+      E. 13-5
+      F. 24-16
+
+  Roll of 12
+
+  Roll of 16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 5.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 8
+      E. 13-5
+      F. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Idan's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 2, 2, 2].
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 6-4
+      C. 8-6
+      D. 13-11
+      E. 24-22
+
+  Roll of 4
+      F. 6-2
+      G. 8-4
+      H. 13-9
+
+  Roll of 6
+      I. 8-2
+      J. 13-7
+
+  Roll of 8
+      K. 13-5
+
+
+> [System] Idan landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 6-4
+      C. 8-6
+      D. 13-11
+      E. 24-22
+
+  Roll of 4
+      F. 6-2
+      G. 8-4
+      H. 13-9
+
+
+> [System] Idan landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 2
+      E. 4-2
+      F. 6-4
+      G. 8-6
+      H. 13-11
+      I. 24-22
+
+  Roll of 5
+      J. 8-3
+      K. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 6.
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now Eden's (white) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 2].
+> [System] Available moves:
+  Roll of 5
+      A. 17-22
+      B. 12-17
+
+  Roll of 2
+      C. 19-21
+      D. 17-19
+      E. 12-14
+      F. 1-3
+
+  Roll of 7
+      G. 12-19
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 14.
+> [System] Available moves:
+  Roll of 5
+      A. 17-22
+      B. 12-17
+      C. 14-19
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 17.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rrr's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 3].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 3
+      E. 6-3
+      F. 8-5
+      G. 13-10
+      H. 24-21
+
+  Roll of 7
+      I. 13-6
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now sss's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5*
+      C. 11-8
+      D. 13-10
+      E. 24-21
+
+  Roll of 5
+      F. 6-1*
+      G. 8-3
+      H. 11-6
+      I. 13-8
+
+  Roll of 8
+      J. 11-3
+      K. 13-5*
+      L. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 10.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 11-6
+      D. 13-8
+      E. 10-5*
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rrr's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 10-4
+      C. 13-7
+      D. 20-14*
+      E. 24-18
+
+  Roll of 4
+      F. 6-2
+      G. 8-4
+      H. 10-6
+      I. 13-9
+      J. 20-16
+      K. 24-20
+
+  Roll of 10
+      L. 13-3
+      M. 20-10
+      N. 24-14*
+
+
+> [System] Moving...
+> [System] Moved checker from 20 to 16.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 10-4
+      C. 13-7
+      D. 24-18
+      E. 16-10
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now sss's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 10-4
+      C. 11-5
+      D. 13-7
+      E. 24-18*
+
+  Roll of 4
+      F. 6-2
+      G. 8-4
+      H. 10-6
+      I. 11-7
+      J. 13-9*
+      K. 24-20
+
+  Roll of 10
+      L. 11-1*
+      M. 13-3
+      N. 24-14
+
+
+> [System] Moving...
+> [System] Moved checker from 9 to bar.
+> [System] Moved checker from 13 to 9.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 10-4
+      C. 11-5
+      D. 13-7
+      E. 24-18*
+      F. 9-3
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rrr's (white) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 19-23
+      B. 17-21
+      C. 12-16
+      D. 1-5
+
+  Roll of 6
+      E. 17-23
+      F. 12-18
+      G. 1-7
+
+  Roll of 10
+      H. 12-22
+      I. 1-11
+
+
+> [System] Moving...
+> [System] Moved checker from 19 to 23.
+> [System] Available moves:
+  Roll of 6
+      A. 17-23
+      B. 12-18
+      C. 1-7
+
+
+> [System] Moving...
+> [System] Moved checker from 17 to 23.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rrrrrr's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+      D. 22-16
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now saa's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 6
+      E. 8-2
+      F. 13-7*
+      G. 24-18
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7*
+      C. 24-18
+      D. 22-16
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rrrrrr's (white) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 19-22
+      B. 17-20
+      C. 12-15
+      D. 1-4
+
+  Roll of 5
+      E. 17-22
+      F. 12-17
+
+  Roll of 8
+      G. 12-20
+      H. 1-9
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now ff's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 5
+      E. 6-1*
+      F. 8-3
+      G. 13-8
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now aa's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 4].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 16-13
+      E. 24-21
+
+  Roll of 4
+      F. 6-2
+      G. 8-4
+      H. 13-9*
+      I. 24-20
+
+  Roll of 7
+      J. 8-1*
+      K. 13-6
+      L. 16-9*
+
+
+> [System] aa landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 16 to 13.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9*
+      D. 24-20
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 4, 4, 4].
+> [System] Available moves:
+  Roll of 4
+      A. 19-23
+      B. 17-21
+      C. 12-16
+      D. 1-5
+
+  Roll of 8
+      E. 12-20
+      F. 1-9
+
+  Roll of 12
+
+  Roll of 16
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 20.
+> [System] Available moves:
+  Roll of 4
+      A. 19-23
+      B. 17-21
+      C. 12-16
+      D. 1-5
+
+  Roll of 8
+      E. 12-20
+      F. 1-9
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 20.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now ddd's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 2].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 2
+      C. 6-4
+      D. 8-6
+      E. 13-11
+      F. 24-22
+
+  Roll of 7
+      G. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now ggg's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 2].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 2
+      C. 5-3
+      D. 6-4
+      E. 8-6
+      F. 13-11
+      G. 24-22*
+
+  Roll of 7
+      H. 13-6
+
+
+> [System] Moving...
+> [System] Moved checker from 22 to bar.
+> [System] Moved checker from 24 to 22.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. 19-21
+      B. 17-19
+      C. 12-14
+      D. 1-3
+
+  Roll of 6
+      E. 17-23
+      F. 12-18
+      G. 1-7
+
+  Roll of 8
+      H. 12-20
+      I. 1-9
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now e's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 4].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+  Roll of 4
+      D. 6-2
+      E. 8-4
+      F. 13-9*
+      G. 24-20
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9*
+      D. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 9 to bar.
+> [System] Moved checker from 13 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now s's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 4, 4, 4].
+> [System] Available moves:
+  Roll of 4
+      A. Bar-21
+
+  Roll of 8
+
+  Roll of 12
+
+  Roll of 16
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 21.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 8
+      E. 13-5
+      F. 24-16*
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 20-16*
+
+  Roll of 8
+      E. 13-5
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 20-16*
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now e's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 6, 6, 6].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 9-3
+      C. 13-7
+      D. 24-18
+
+  Roll of 12
+      E. 13-1
+
+  Roll of 18
+
+  Roll of 24
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 9-3
+      C. 13-7
+      D. 24-18
+
+  Roll of 12
+      E. 13-1
+
+  Roll of 18
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 1.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 9-3
+      C. 13-7
+      D. 24-18
+
+
+> [System] Moving...
+
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now s's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 5].
+> [System] Available moves:
+  Roll of 3
+      A. 4-1*
+      B. 6-3
+      C. 8-5
+      D. 13-10
+      E. 21-18
+
+  Roll of 5
+      F. 6-1*
+      G. 8-3
+      H. 13-8
+      I. 20-15
+      J. 21-16*
+
+  Roll of 8
+      K. 13-5
+      L. 21-13
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Available moves:
+  Roll of 3
+      A. 4-1*
+      B. 6-3
+      C. 8-5
+      D. 13-10
+      E. 21-18
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now e's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4*
+      B. 8-6
+      C. 9-7
+      D. 13-11
+      E. 18-16
+      F. 24-22*
+
+  Roll of 5
+      G. 6-1
+      H. 8-3
+      I. 9-4*
+      J. 13-8
+      K. 18-13
+
+  Roll of 7
+      L. 8-1
+      M. 9-2
+      N. 13-6
+      O. 18-11
+      P. 24-17*
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4*
+      B. 8-6
+      C. 9-7
+      D. 13-11
+      E. 18-16
+      F. 24-22*
+
+
+> [System] Moving...
+> [System] Moved checker from 18 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now s's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1*
+      B. 3-2
+      C. 4-3
+      D. 6-5
+      E. 8-7
+      F. 10-9*
+      G. 13-12*
+      H. 21-20
+
+  Roll of 2
+      I. 3-1*
+      J. 4-2
+      K. 6-4
+      L. 8-6
+      M. 10-8
+      N. 13-11
+      O. 20-18
+
+  Roll of 3
+      P. 4-1*
+      Q. 6-3
+      R. 8-5
+      S. 10-7
+      T. 13-10
+      U. 21-18
+
+
+> [System] s landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 12 to bar.
+> [System] Moved checker from 13 to 12.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1*
+      B. 4-2
+      C. 6-4
+      D. 8-6
+      E. 10-8
+      F. 13-11
+      G. 20-18
+      H. 12-10
+
+
+> [System] Moving...
+> [System] Moved checker from 10 to 8.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 1].
+> [System] Available moves:
+  Roll of 2
+      A. 3-1*
+      B. 4-2
+      C. 6-4
+      D. 8-6
+      E. 12-10
+      F. 13-11
+      G. 20-18
+
+  Roll of 1
+      H. 2-1*
+      I. 3-2
+      J. 4-3
+      K. 6-5
+      L. 8-7
+      M. 12-11
+      N. 13-12
+      O. 21-20
+
+  Roll of 3
+      P. 4-1*
+      Q. 6-3
+      R. 8-5
+      S. 12-9*
+      T. 13-10
+      U. 21-18
+
+
+> [System] s landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 12.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1*
+      B. 4-2
+      C. 6-4
+      D. 8-6
+      E. 12-10
+      F. 13-11
+      G. 20-18
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 10.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 6].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1*
+      B. 3-2
+      C. 4-3
+      D. 6-5
+      E. 8-7
+      F. 10-9*
+      G. 12-11
+      H. 13-12
+      I. 21-20
+
+  Roll of 6
+      J. 8-2
+      K. 10-4
+      L. 12-6
+      M. 13-7
+      N. 20-14
+      O. 21-15
+
+  Roll of 7
+      P. 8-1*
+      Q. 10-3
+      R. 12-5
+      S. 13-6
+      T. 20-13
+      U. 21-14
+
+
+> [System] s landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 12.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 10-4
+      C. 12-6
+      D. 13-7
+      E. 20-14
+      F. 21-15
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 6.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 10-4
+      C. 12-6
+      D. 13-7
+      E. 20-14
+      F. 21-15
+
+  Roll of 2
+      G. 3-1*
+      H. 4-2
+      I. 6-4
+      J. 8-6
+      K. 10-8
+      L. 12-10
+      M. 13-11
+      N. 20-18
+
+  Roll of 8
+      O. 10-2
+      P. 12-4
+      Q. 13-5
+      R. 20-12
+      S. 21-13
+
+
+> [System] Moving...
+> [System] Moved checker from 21 to 15.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1*
+      B. 4-2
+      C. 6-4
+      D. 8-6
+      E. 10-8
+      F. 12-10
+      G. 13-11
+      H. 20-18
+      I. 15-13
+
+
+> [System] Moving...
+> [System] Moved checker from 20 to 18.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now e's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+
+  Roll of 1
+      A. Bar-24
+
+  Roll of 7
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 24.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 9-3
+      C. 16-10*
+      D. 24-18
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now s's (black) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 10
+      H. 13-3
+      I. 24-14
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+      D. 20-14
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 19-20
+      B. 17-18
+      C. 1-2
+
+  Roll of 5
+      D. 17-22
+      E. 12-17
+
+  Roll of 6
+      F. 17-23
+      G. 12-18
+      H. 1-7
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now g's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 1, 1, 1].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7*
+      C. 24-23
+
+  Roll of 2
+      D. 6-4
+      E. 8-6
+      F. 24-22
+
+  Roll of 3
+      G. 6-3
+      H. 8-5
+      I. 24-21
+
+  Roll of 4
+      J. 6-2
+      K. 8-4
+      L. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now f's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 6].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 18-16
+      E. 24-22
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 24-18
+
+  Roll of 8
+      I. 13-5*
+      J. 18-10
+      K. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 18 to 16.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+      D. 16-10
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now g's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 1].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+      D. 20-15
+
+  Roll of 1
+      E. 6-5
+      F. 8-7
+      G. 24-23
+
+  Roll of 6
+      H. 8-2
+      I. 13-7
+      J. 20-14
+      K. 24-18*
+
+
+> [System] Moving...
+> [System] Moved checker from 20 to 14.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now f's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 7-1*
+      B. 8-2
+      C. 13-7
+      D. 16-10
+      E. 24-18
+
+  Roll of 2
+      F. 6-4
+      G. 7-5
+      H. 8-6
+      I. 13-11*
+      J. 16-14
+      K. 24-22
+
+  Roll of 8
+      L. 13-5
+      M. 16-8
+      N. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now g's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 1, 1, 1].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 14-13
+      D. 24-23
+
+  Roll of 2
+      E. 6-4
+      F. 8-6
+      G. 24-22
+
+  Roll of 3
+      H. 6-3
+      I. 8-5
+      J. 24-21
+
+  Roll of 4
+      K. 6-2
+      L. 8-4
+      M. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now f's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 3].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 7-6
+      C. 8-7
+      D. 16-15
+
+  Roll of 3
+      E. 6-3
+      F. 7-4
+      G. 8-5
+      H. 13-10
+      I. 16-13
+
+  Roll of 4
+      J. 6-2
+      K. 7-3
+      L. 8-4
+      M. 13-9
+
+
+> [System] f landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 16 to 15.
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 7-4
+      C. 8-5
+      D. 13-10
+      E. 16-13
+
+
+> [System] Moving...
+> [System] Moved checker from 16 to 13.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 7-4
+      C. 8-5
+      D. 13-10
+
+  Roll of 2
+      E. 6-4
+      F. 7-5
+      G. 8-6
+      H. 13-11*
+      I. 15-13
+
+  Roll of 5
+      J. 6-1*
+      K. 7-2
+      L. 8-3
+      M. 13-8
+      N. 15-10
+
+
+> [System] Moving...
+> [System] Moved checker from 15 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now g's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+> [System] Available moves:
+  Roll of 1
+      A. 4-3
+      B. 6-5
+      C. 8-7
+      D. 14-13
+      E. 24-23
+
+  Roll of 2
+      F. 4-2
+      G. 6-4
+      H. 8-6
+      I. 13-11
+      J. 24-22
+
+  Roll of 3
+      K. 4-1
+      L. 6-3
+      M. 8-5
+      N. 13-10
+      O. 14-11
+      P. 24-21
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 3].
+> [System] Available moves:
+  Roll of 5
+      A. 17-22
+      B. 12-17
+
+  Roll of 3
+      C. 19-22
+      D. 17-20
+      E. 12-15
+      F. 1-4
+
+  Roll of 8
+      G. 12-20
+      H. 1-9
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 17.
+> [System] Available moves:
+  Roll of 3
+      A. 19-22
+      B. 17-20
+      C. 12-15
+      D. 1-4
+
+
+> [System] Moving...
+> [System] Moved checker from 19 to 22.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now eee's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 1
+      D. 6-5
+      E. 8-7
+      F. 24-23
+
+  Roll of 7
+      G. 13-6
+
+
+> [System] eee landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 7.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 4
+      D. 6-2
+      E. 7-3
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+  Roll of 10
+      I. 13-3
+      J. 24-14
+
+
+> [System] eee landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 18.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 1].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 7-4
+      C. 8-5
+      D. 13-10
+      E. 18-15
+      F. 24-21
+
+  Roll of 1
+      G. 6-5
+      H. 7-6
+      I. 8-7
+      J. 24-23
+
+  Roll of 4
+      K. 6-2
+      L. 7-3
+      M. 8-4
+      N. 13-9
+      O. 18-14
+      P. 24-20
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 3.
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 7-6
+      C. 8-7
+      D. 24-23
+      E. 3-2
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now sssssssssssssss's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 3].
+
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+  Roll of 3
+      D. 6-3
+      E. 8-5
+      F. 13-10
+      G. 24-21
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now eee's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 2, 2, 2].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 7-5
+      C. 13-11
+      D. 18-16
+      E. 24-22*
+
+  Roll of 4
+      F. 6-2
+      G. 7-3
+      H. 13-9
+      I. 18-14
+      J. 24-20*
+
+  Roll of 6
+      K. 13-7
+      L. 24-18
+
+  Roll of 8
+      M. 13-5
+      N. 24-16
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now sssssssssssssss's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+> [System] Available moves:
+  Roll of 1
+      A. 3-2
+      B. 5-4
+      C. 6-5
+      D. 8-7*
+
+  Roll of 2
+      E. 3-1
+      F. 5-3
+      G. 6-4
+      H. 8-6
+      I. 13-11
+      J. 24-22*
+
+  Roll of 3
+      K. 5-2
+      L. 6-3
+      M. 8-5
+      N. 13-10
+      O. 24-21
+
+
+> [System] Moving...
+> [System] Moved checker from 22 to bar.
+> [System] Moved checker from 24 to 22.
+> [System] Available moves:
+  Roll of 1
+      A. 3-2
+      B. 5-4
+      C. 6-5
+      D. 8-7*
+      E. 22-21
+
+
+> [System] Moving...
+> [System] Moved checker from 7 to bar.
+> [System] Moved checker from 8 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] You can only move after rolling.
+> [System] It is now eee's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+
+  Roll of 4
+      A. Bar-21
+
+  Roll of 10
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 21.
+> [Warning] No moves available, turn forfeited.
+
+> [System] Swapping turns...
+> [System] It is now sssssssssssssss's (black) move.
+> [System] You can only roll the dice.
+> [Error] You can only move after rolling.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+> [System] Available moves:
+  Roll of 1
+      A. 3-2
+      B. 5-4*
+      C. 6-5
+      D. 7-6
+      E. 8-7
+      F. 22-21
+
+  Roll of 2
+      G. 3-1
+      H. 5-3
+      I. 6-4*
+      J. 7-5
+      K. 8-6
+      L. 13-11
+      M. 22-20
+      N. 24-22
+
+  Roll of 3
+      O. 5-2
+      P. 6-3
+      Q. 7-4*
+      R. 8-5
+      S. 13-10
+      T. 24-21
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 22 to 20.
+> [System] Available moves:
+  Roll of 1
+      A. 3-2
+      B. 5-4*
+      C. 6-5
+      D. 7-6
+      E. 8-7
+
+> [Error] You can only move from highlighted objects.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now eee's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 4].
+> [System] Available moves:
+  Roll of 1
+
+  Roll of 4
+      A. Bar-21
+
+  Roll of 5
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 21.
+> [System] Available moves:
+  Roll of 1
+      A. 2-1*
+      B. 6-5*
+      C. 7-6
+      D. 16-15
+      E. 21-20*
+
+
+> [System] Moving...
+> [System] Moved checker from 16 to 15.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now sssssssssssssss's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 3-2
+      B. 6-5
+      C. 7-6
+      D. 8-7
+
+  Roll of 5
+      E. 6-1
+      F. 7-2
+      G. 8-3
+      H. 13-8
+      I. 20-15
+
+  Roll of 6
+      J. 7-1
+      K. 8-2
+      L. 13-7
+      M. 20-14
+
+
+> [System] Moving...
+> [System] Moved checker from 20 to 14.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now eee's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 4].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 7-4
+      C. 13-10
+
+  Roll of 4
+      D. 6-2
+      E. 7-3
+      F. 13-9
+      G. 15-11*
+
+  Roll of 7
+      H. 13-6
+      I. 15-8
+
+
+> [System] Moving...
+> [System] Moved checker from 15 to 8.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now sssssssssssssss's (black) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 4].
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+
+  Roll of 4
+      C. 6-2
+      D. 8-4
+      E. 13-9
+      F. 24-20
+
+  Roll of 9
+      G. 13-4
+      H. 24-15
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 20.
+> [System] Available moves:
+  Roll of 5
+      A. 8-3
+      B. 13-8
+      C. 20-15
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now mmmmmmmmmm's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 5].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 5
+      E. 6-1*
+      F. 8-3
+      G. 13-8
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+> [System] Trying to quit game.
+

@@ -2,10 +2,13 @@ package Model;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Random;
 
 import controller.ColorParser;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.paint.Color;
@@ -15,16 +18,14 @@ import javafx.scene.paint.Color;
  * This class helps BoardComponents class to initialize the checkers for each pip object.
  * This class also adds the checkers objects to the pip object, to be drawn to the stage.
  * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
  */
 public class Pip extends CheckersStorer implements ColorParser {
 	private Background normalBG;
 	private Background highlightedBG; 
 	private int pipNum;
+	private SurpriseStation surpriseStation;
+	private ImageView surpriseIcon;
+
 	
 	/**
 	 * Default Constructor
@@ -62,6 +63,76 @@ public class Pip extends CheckersStorer implements ColorParser {
 		setNormalImage();
 	}
 	
+	public void setSurpriseStation(SurpriseStation surpriseStation) {
+		this.surpriseStation = surpriseStation;	   
+		if (this.surpriseIcon == null) {
+	        // יצירת האייקון של תחנת ההפתעה
+	        InputStream input = getClass().getResourceAsStream("/game/img/board/surprise_icon.png");
+	        Image surpriseImage = new Image(input);
+
+	        // יצירת ImageView והגדרות
+	        surpriseIcon = new ImageView(surpriseImage);
+	        surpriseIcon.setFitWidth(20); // רוחב מותאם אישית
+	        surpriseIcon.setFitHeight(20); // גובה מותאם אישית
+	        surpriseIcon.setTranslateY(-10); // התאמה למיקום
+	        surpriseIcon.setMouseTransparent(true); // לא להגיב ללחיצות עכבר
+
+	        // הוספת האייקון לשקע
+	        this.getChildren().add(surpriseIcon);
+	        
+	      //  try {
+	        //    input.close();
+	        //} catch (IOException e) {
+	          //  e.printStackTrace();
+	        //}
+	    }
+	}
+
+	public boolean hasSurpriseStation() {
+	    return surpriseIcon != null;
+	}
+
+	// בודק אם יש אייקון
+	public boolean hasSurpriseIcon() {
+	    return surpriseIcon != null && this.getChildren().contains(surpriseIcon);
+	}
+
+	// קובע את האייקון
+	public void setSurpriseIcon(ImageView icon) {
+		this.surpriseIcon = icon;
+	    if (!this.getChildren().contains(icon)) {
+	        this.getChildren().add(icon);
+	    }// הוספת האייקון לשקע אם לא קיים
+	}
+
+	// מחזיר את האייקון
+	public ImageView getSurpriseIcon() {
+	    return surpriseIcon;
+	}
+	
+	public void ensureSurpriseIcon() {
+	    if (surpriseIcon != null && !this.getChildren().contains(surpriseIcon)) {
+	        this.getChildren().add(surpriseIcon); // הבטחה שהאייקון יישאר
+	    }
+	}
+	
+	public void activateSurprise(Player player) {
+        if (surpriseStation != null) {
+            surpriseStation.activate(player);
+          //  removeSurpriseStation();
+        }
+    }
+	  
+	/*public void removeSurpriseStation() {
+	    if (this.surpriseIcon != null) {
+	        this.getChildren().remove(surpriseIcon);
+	        surpriseIcon = null;
+	        this.surpriseStation = null;
+	    }
+	    
+	}*/
+
+	    
 	/**
 	 * Use the highlighted image.
 	 */
@@ -69,6 +140,7 @@ public class Pip extends CheckersStorer implements ColorParser {
 		setBackground(highlightedBG);
 	}
 
+	 
 	/**
 	 * Use the normal image (i.e. image that is not highlighted).
 	 */
@@ -83,4 +155,6 @@ public class Pip extends CheckersStorer implements ColorParser {
 	public int getPipNumber() {
 		return pipNum;
 	}
+
+
 }
