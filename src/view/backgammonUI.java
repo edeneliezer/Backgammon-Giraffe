@@ -49,8 +49,7 @@ public class backgammonUI extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-    	 MusicPlayer musicPlayer = new MusicPlayer();
-    	 musicPlayer.play(); // Start the music immediately
+    	
     	    
         // Main layout - Centered VBox
         VBox root = new VBox(20);
@@ -58,6 +57,16 @@ public class backgammonUI extends Application {
         root.setStyle("-fx-background-color: #fefaf4;");
         root.setAlignment(Pos.TOP_CENTER);
         root.setPrefHeight(600);
+        
+     // Create settings
+        SettingsScreen settings = new SettingsScreen();
+        VBox settingsOverlay = settings.getSettingsBox();
+        settingsOverlay.setVisible(false);
+
+        // Fade background
+        Rectangle fadeBackground = new Rectangle(800, 600);
+        fadeBackground.setFill(Color.rgb(0, 0, 0, 0.5));
+        fadeBackground.setVisible(false);
 
         // --- MENU BAR ---
         HBox menuBar = new HBox();
@@ -87,6 +96,11 @@ public class backgammonUI extends Application {
 
         Button settingsButton = createImageButton("settings.jpg", 25, 25);
         settingsButton.setId("settingsButton"); // Add an ID for lookup
+        settingsButton.setOnAction(e -> {
+            boolean isVisible = !settingsOverlay.isVisible();
+            settingsOverlay.setVisible(isVisible);
+            fadeBackground.setVisible(isVisible);
+        });
 
 
         menuButtons.getChildren().addAll(settingsButton);
@@ -198,9 +212,7 @@ public class backgammonUI extends Application {
         playButton.setStyle("-fx-background-color: #d11e1e; -fx-text-fill: white; -fx-cursor: hand;");
         playButton.setPrefSize(200, 60);
         playButton.setDisable(true);
-        playButton.setOnAction(e -> {
-        	controller.MusicPlayer.stop();
-        	
+        playButton.setOnAction(e -> {        	
         	// Map difficulty string to Dice.Mode
             Dice.Mode mode = Dice.Mode.REGULAR; // Default
             Dice.currentMode = Dice.Mode.REGULAR;
@@ -215,44 +227,37 @@ public class backgammonUI extends Application {
             primaryStage.setScene(gameScene); // Switch to the game screen
             matchController.startGame();
         });
-        
-        
-        
-
-       
         bottomBox.getChildren().add(playButton);
         
 
         // Combine everything into the root
         root.getChildren().addAll(menuBar, titleBox, playersBox, difficultyBox, bottomBox);
-
-        // Create a semi-transparent rectangle for background fading
-        Rectangle fadeBackground = new Rectangle(800, 600); // Match the scene size
-        fadeBackground.setFill(Color.rgb(0, 0, 0, 0.5)); // Black with 50% opacity
-        fadeBackground.setVisible(false); // Initially hidden
-        
-        // Create settings overlay
-        VBox settingsOverlay = createSettingsOverlay();
-        settingsOverlay.setVisible(false); // Initially hidden
-
-        // Wrap everything in a StackPane
-        
+//
+//        // Create a semi-transparent rectangle for background fading
+//        Rectangle fadeBackground = new Rectangle(800, 600); // Match the scene size
+//        fadeBackground.setFill(Color.rgb(0, 0, 0, 0.5)); // Black with 50% opacity
+//        fadeBackground.setVisible(false); // Initially hidden
+//        
+//        // Create settings overlay
+//        VBox settingsOverlay = createSettingsOverlay();
+//        settingsOverlay.setVisible(false); // Initially hidden
+//
+//        // Wrap everything in a StackPane
+//        
+//        StackPane stackPane = new StackPane(root, fadeBackground, settingsOverlay);
+//        StackPane.setMargin(settingsOverlay, new Insets(250, 250, 250, 250)); // Margin from top and right edges
+//        
+       
         StackPane stackPane = new StackPane(root, fadeBackground, settingsOverlay);
         StackPane.setMargin(settingsOverlay, new Insets(250, 250, 250, 250)); // Margin from top and right edges
-        
+
         // Scene and Stage
         Scene scene = new Scene(stackPane, 800, 600);
         primaryStage.setTitle("Backgammon Game");
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.show();
-
-        // Toggle visibility of settings overlay
-        settingsButton.setOnAction(e -> {
-            boolean isVisible = !settingsOverlay.isVisible();
-            settingsOverlay.setVisible(isVisible);
-            fadeBackground.setVisible(isVisible);
-        });   
+  
        }
     
     
@@ -270,133 +275,133 @@ public class backgammonUI extends Application {
         
     }
     
-    private VBox createSettingsOverlay() {
-        // Create the settings box (overlay container)
-        VBox settingsBox = new VBox(20); // Add smaller spacing between elements
-        settingsBox.setPadding(new Insets(20)); // Reduce padding
-        settingsBox.setAlignment(Pos.TOP_CENTER);
-        settingsBox.setStyle(
-            "-fx-background-color: #fefaf4; " + // Match the beige background
-            "-fx-border-color: brown; " +       // Dark brown border
-            "-fx-border-width: 3; " +           // Border thickness
-            "-fx-border-radius: 10; " +         // Rounded corners
-            "-fx-background-radius: 10;"        // Rounded background
-        );
-
-        // Make the box smaller
-        settingsBox.setPrefSize(150, 180); // Adjust width and height to make it smaller
-
-        // Settings Title
-        Label settingsTitle = new Label("SETTINGS");
-        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 14)); // Slightly smaller font
-        settingsTitle.setTextFill(Color.BROWN);
-
-        // Buttons for settings options with icons
-        Button musicButton = createIconButton("Music", "sound.png");
-        musicButton.setOnAction(e -> {
-        	ImageView icon;
-            if (controller.MusicPlayer.isPlaying()) {
-            	controller.MusicPlayer.pause();
-            	icon = new ImageView(new Image("mute.png"));
-                musicButton.setText("Unmute");
-            } else {
-            	controller.MusicPlayer.play();
-            	 icon = new ImageView(new Image("sound.png"));
-            	 musicButton.setText("Music");
-            }
-            // Set the size of the icon
-            icon.setFitWidth(20); // Set the width
-            icon.setFitHeight(20); // Set the height
-            musicButton.setGraphic(icon);
-        });
-       
-        Button historyButton = createIconButton("History", "history.png");
-        Button infoButton = createIconButton("Information", "info.png");
-        infoButton.setOnAction(e -> openPdfFile("BackgammonRules.pdf"));
-
-        // Close Button
-        Button closeButton = new Button("Close");
-        closeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
-        closeButton.setStyle(
-            "-fx-background-color: #d11e1e; " +  // Red button background
-            "-fx-text-fill: white; " +           // White text
-            "-fx-border-radius: 5; " +           // Rounded border
-            "-fx-background-radius: 5;"         // Rounded background
-        );
-        closeButton.setOnAction(e -> {
-            settingsBox.setVisible(false); // Hide settings box
-            StackPane stackPane = (StackPane) settingsBox.getParent();
-            Node fadeBackground = stackPane.getChildren().get(1); // Access the fade rectangle
-            fadeBackground.setVisible(false); // Hide fade background
-        });
-        
-        // Add Action to the History Button
-        historyButton.setOnAction(e -> {
-            // Switch to History Screen
-            Stage stage = (Stage) settingsBox.getScene().getWindow();
-            HistoryScreen historyScreen = new HistoryScreen();
-            historyScreen.start(stage); // Navigate to History Screen
-        });
-        
-        // Add all elements to the settings box
-        settingsBox.getChildren().addAll(settingsTitle, musicButton, historyButton, infoButton,closeButton);
-
-        return settingsBox;
-    }
-
-
-    public void openPdfFile(String resourcePath) {
-        try {
-            // Load the resource as an InputStream
-            InputStream resourceStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
-            if (resourceStream == null) {
-                throw new IllegalArgumentException("Resource not found: " + resourcePath);
-            }
-
-            // Create a temporary file
-            File tempFile = File.createTempFile("BackgammonRules", ".pdf");
-            tempFile.deleteOnExit(); // Ensure the file is deleted on JVM exit
-
-            // Write the resource contents to the temporary file
-            try (FileOutputStream outputStream = new FileOutputStream(tempFile)) {
-                byte[] buffer = new byte[1024];
-                int bytesRead;
-                while ((bytesRead = resourceStream.read(buffer)) != -1) {
-                    outputStream.write(buffer, 0, bytesRead);
-                }
-            }
-
-            // Open the PDF file using the default desktop application
-            if (Desktop.isDesktopSupported()) {
-                Desktop.getDesktop().open(tempFile);
-            } else {
-                System.err.println("Desktop is not supported on this platform.");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    private Button createIconButton(String text, String iconUrl) {
-        // Create an icon for the button
-        ImageView icon = new ImageView(new Image(iconUrl));
-        icon.setFitWidth(20); // Icon size
-        icon.setFitHeight(20);
-
-        // Create the button with the icon and text
-        Button button = new Button(text, icon);
-        button.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-        button.setStyle(
-            "-fx-background-color: #d2a679; " + // Light brown background
-            "-fx-text-fill: black; " +          // Black text
-            "-fx-border-color: brown; " +       // Dark brown border
-            "-fx-border-width: 1.5; " +         // Thin border
-            "-fx-background-radius: 10; " +    // Rounded background
-            "-fx-border-radius: 10;"           // Rounded border
-        );
-        button.setContentDisplay(ContentDisplay.LEFT); // Icon on the left of text
-        button.setPrefWidth(160); // Consistent button width
-        return button;
-    }
+//    private VBox createSettingsOverlay() {
+//        // Create the settings box (overlay container)
+//        VBox settingsBox = new VBox(20); // Add smaller spacing between elements
+//        settingsBox.setPadding(new Insets(20)); // Reduce padding
+//        settingsBox.setAlignment(Pos.TOP_CENTER);
+//        settingsBox.setStyle(
+//            "-fx-background-color: #fefaf4; " + // Match the beige background
+//            "-fx-border-color: brown; " +       // Dark brown border
+//            "-fx-border-width: 3; " +           // Border thickness
+//            "-fx-border-radius: 10; " +         // Rounded corners
+//            "-fx-background-radius: 10;"        // Rounded background
+//        );
+//
+//        // Make the box smaller
+//        settingsBox.setPrefSize(150, 180); // Adjust width and height to make it smaller
+//
+//        // Settings Title
+//        Label settingsTitle = new Label("SETTINGS");
+//        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 14)); // Slightly smaller font
+//        settingsTitle.setTextFill(Color.BROWN);
+//
+//        // Buttons for settings options with icons
+//        Button musicButton = createIconButton("Music", "sound.png");
+//        musicButton.setOnAction(e -> {
+//        	ImageView icon;
+//            if (controller.MusicPlayer.isPlaying()) {
+//            	controller.MusicPlayer.pause();
+//            	icon = new ImageView(new Image("mute.png"));
+//                musicButton.setText("Unmute");
+//            } else {
+//            	controller.MusicPlayer.play();
+//            	 icon = new ImageView(new Image("sound.png"));
+//            	 musicButton.setText("Music");
+//            }
+//            // Set the size of the icon
+//            icon.setFitWidth(20); // Set the width
+//            icon.setFitHeight(20); // Set the height
+//            musicButton.setGraphic(icon);
+//        });
+//       
+//        Button historyButton = createIconButton("History", "history.png");
+//        Button infoButton = createIconButton("Information", "info.png");
+//        infoButton.setOnAction(e -> openPdfFile("BackgammonRules.pdf"));
+//
+//        // Close Button
+//        Button closeButton = new Button("Close");
+//        closeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+//        closeButton.setStyle(
+//            "-fx-background-color: #d11e1e; " +  // Red button background
+//            "-fx-text-fill: white; " +           // White text
+//            "-fx-border-radius: 5; " +           // Rounded border
+//            "-fx-background-radius: 5;"         // Rounded background
+//        );
+//        closeButton.setOnAction(e -> {
+//            settingsBox.setVisible(false); // Hide settings box
+//            StackPane stackPane = (StackPane) settingsBox.getParent();
+//            Node fadeBackground = stackPane.getChildren().get(1); // Access the fade rectangle
+//            fadeBackground.setVisible(false); // Hide fade background
+//        });
+//        
+//        // Add Action to the History Button
+//        historyButton.setOnAction(e -> {
+//            // Switch to History Screen
+//            Stage stage = (Stage) settingsBox.getScene().getWindow();
+//            HistoryScreen historyScreen = new HistoryScreen();
+//            historyScreen.start(stage); // Navigate to History Screen
+//        });
+//        
+//        // Add all elements to the settings box
+//        settingsBox.getChildren().addAll(settingsTitle, musicButton, historyButton, infoButton,closeButton);
+//
+//        return settingsBox;
+//    }
+//
+//
+//    public void openPdfFile(String resourcePath) {
+//        try {
+//            // Load the resource as an InputStream
+//            InputStream resourceStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
+//            if (resourceStream == null) {
+//                throw new IllegalArgumentException("Resource not found: " + resourcePath);
+//            }
+//
+//            // Create a temporary file
+//            File tempFile = File.createTempFile("BackgammonRules", ".pdf");
+//            tempFile.deleteOnExit(); // Ensure the file is deleted on JVM exit
+//
+//            // Write the resource contents to the temporary file
+//            try (FileOutputStream outputStream = new FileOutputStream(tempFile)) {
+//                byte[] buffer = new byte[1024];
+//                int bytesRead;
+//                while ((bytesRead = resourceStream.read(buffer)) != -1) {
+//                    outputStream.write(buffer, 0, bytesRead);
+//                }
+//            }
+//
+//            // Open the PDF file using the default desktop application
+//            if (Desktop.isDesktopSupported()) {
+//                Desktop.getDesktop().open(tempFile);
+//            } else {
+//                System.err.println("Desktop is not supported on this platform.");
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//    private Button createIconButton(String text, String iconUrl) {
+//        // Create an icon for the button
+//        ImageView icon = new ImageView(new Image(iconUrl));
+//        icon.setFitWidth(20); // Icon size
+//        icon.setFitHeight(20);
+//
+//        // Create the button with the icon and text
+//        Button button = new Button(text, icon);
+//        button.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+//        button.setStyle(
+//            "-fx-background-color: #d2a679; " + // Light brown background
+//            "-fx-text-fill: black; " +          // Black text
+//            "-fx-border-color: brown; " +       // Dark brown border
+//            "-fx-border-width: 1.5; " +         // Thin border
+//            "-fx-background-radius: 10; " +    // Rounded background
+//            "-fx-border-radius: 10;"           // Rounded border
+//        );
+//        button.setContentDisplay(ContentDisplay.LEFT); // Icon on the left of text
+//        button.setPrefWidth(160); // Consistent button width
+//        return button;
+//    }
 
 
 

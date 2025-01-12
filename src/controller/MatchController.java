@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Rectangle;
 import java.util.Optional;
 
 import Model.Dice;
@@ -48,6 +49,7 @@ import view.HistoryScreen;
 import view.InfoPanel;
 import view.RollDieButton;
 import view.ScoreboardPrompt;
+import view.SettingsScreen;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.effect.DropShadow;
@@ -70,13 +72,16 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	private CommandController cmd;
 	private GameplayController gameplay;
 	private EventController event;
-	private MusicPlayer musicPlayer;
+//	private MusicPlayer musicPlayer;
 	private Stage stage;
 	private boolean isPlayerInfosEnteredFirstTime, isPromptCancel, hadCrawfordGame, isCrawfordGame;
 	private MatchTimer gameTimer;
-	private  Button settingsButton;
+	private Button settingsButton;
 	private Dice.Mode diceMode;
 	private SoundEffectsPlayer soundEffectsPlayer;
+	private SettingsScreen settingsScreen;
+	private StackPane stackPane;
+	private VBox settingsOverlay;
 	
 	/**
 	 * Default Constructor
@@ -103,7 +108,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		infoPnl = new InfoPanel();
 		rollDieBtn = new RollDieButton();
 	//	cmdPnl = new CommandPanel();
-		musicPlayer = new MusicPlayer();
+//		musicPlayer = new MusicPlayer();
 	    soundEffectsPlayer = new SoundEffectsPlayer(); // Initialize sound effects
 		isPlayerInfosEnteredFirstTime = true;
 		isPromptCancel = false;
@@ -123,35 +128,67 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	private void initGame() {
 		game = new GameComponentsController(bottomPlayer, topPlayer);
         gameplay = new GameplayController(stage, this, game, infoPnl, bottomPlayer, topPlayer, null);
-		cmd = new CommandController(stage, this, game, gameplay, infoPnl, bottomPlayer, topPlayer, musicPlayer);
+		cmd = new CommandController(stage, this, game, gameplay, infoPnl, bottomPlayer, topPlayer);
 		gameplay.setCommandController(cmd);
 		event = new EventController(stage, this, game, gameplay, cmd, infoPnl, rollDieBtn);
         gameplay.setEventController(event);
 		cmd.setEventController(event);
 		gameTimer = new MatchTimer();
+		
+		  // Create the Settings screen instance
+	    settingsScreen = new SettingsScreen();
+	    settingsOverlay = settingsScreen.getSettingsBox();
+	    settingsOverlay.setVisible(false); // Initially hidden
+
+	    // Wrap the root layout in a StackPane to support overlays
+//	    Scene currentScene = stage.getScene();
+//	    stackPane = new StackPane(currentScene.getRoot(), settingsOverlay);
+//	    stage.setScene(new Scene(stackPane, currentScene.getWidth(), currentScene.getHeight()));
+
 		 // Create the Settings Button
-	    settingsButton = createSettingsButton();
+	    settingsButton = new Button("Settings");
+	    settingsButton.setStyle(
+	        "-fx-font-size: 14px; " +
+	        "-fx-font-weight: bold; " +
+	        "-fx-background-color: #d2a679; " +
+	        "-fx-text-fill: black; " +
+	        "-fx-border-radius: 5; " +
+	        "-fx-background-radius: 5;"
+	    );
+	    settingsButton.setOnAction(e -> toggleSettingsOverlay());
+	    
+//	    stackPane.getChildren().add(settingsButton); // Add settings button to StackPane
+//	    StackPane.setAlignment(settingsButton, Pos.TOP_RIGHT); // Position button in top-right corner
+	    
 		initLayout();
 	}
 	
+
 	
 
-	private Button createSettingsButton() {
-        Button button = new Button("Settings");
-        button.setStyle(
-            "-fx-font-size: 14px; " +
-            "-fx-font-weight: bold; " +
-            "-fx-background-color: #d2a679; " +
-            "-fx-text-fill: black; " +
-            "-fx-border-radius: 5; " +
-            "-fx-background-radius: 5;"
-        );
-
-        button.setOnAction(e -> toggleSettingsOverlay());
-        return button;
-    }
+//	private Button createSettingsButton() {
+//        Button button = new Button("Settings");
+//        button.setStyle(
+//            "-fx-font-size: 14px; " +
+//            "-fx-font-weight: bold; " +
+//            "-fx-background-color: #d2a679; " +
+//            "-fx-text-fill: black; " +
+//            "-fx-border-radius: 5; " +
+//            "-fx-background-radius: 5;"
+//        );
+//
+//        settingsButton.setOnAction(e -> toggleSettingsOverlay());
+//        return button;
+//    }
 	
-	 VBox settingsOverlay = createSettingsOverlay();
+	
+//	private void toggleSettingsOverlay() {
+//	    boolean isVisible = !settingsOverlay.isVisible();
+//	    settingsOverlay.setVisible(isVisible);
+//	}
+	
+	
+//	 VBox settingsOverlay = createSettingsOverlay();
 	 
 	 private void toggleSettingsOverlay() {
 	      
@@ -176,7 +213,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	
 	public void resetApplication() {
 	//	cmdPnl.reset();
-		musicPlayer.reset();
+//		musicPlayer.reset();
 		bottomPlayer.reset();
 		topPlayer.reset();
 		infoPnl.reset();
@@ -609,135 +646,135 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	
 	
 	@SuppressWarnings("static-access")
-	private VBox createSettingsOverlay() {
-	        // Create the settings box (overlay container)
-	        VBox settingsBox = new VBox(20); // Add smaller spacing between elements
-	        settingsBox.setPadding(new Insets(20)); // Reduce padding
-	        settingsBox.setAlignment(Pos.TOP_CENTER);
-	        settingsBox.setStyle(
-	            "-fx-background-color: #fefaf4; " + // Match the beige background
-	            "-fx-border-color: brown; " +       // Dark brown border
-	            "-fx-border-width: 3; " +           // Border thickness
-	            "-fx-border-radius: 10; " +         // Rounded corners
-	            "-fx-background-radius: 10;"        // Rounded background
-	        );
-
-	        // Make the box smaller
-	        settingsBox.setPrefSize(150, 180); // Adjust width and height to make it smaller
-
-	        // Settings Title
-	        Label settingsTitle = new Label("SETTINGS");
-	        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 14)); // Slightly smaller font
-	        settingsTitle.setTextFill(Color.BROWN);
-
-	        // Buttons for settings options with icons
-	        Button musicButton = createIconButton("Music", "music.png");
-	        musicButton.setOnAction(e -> {
-	        	ImageView icon;
-	            if (musicPlayer.isPlaying()) {
-	            	musicPlayer.pause();
-	            	icon = new ImageView(new Image("musicOff.png"));
-	                musicButton.setText("Unmute");
-	            } else {
-	            	 musicPlayer.play();
-	            	 icon = new ImageView(new Image("music.png"));
-	            	 musicButton.setText("Music");
-	            }
-	            // Set the size of the icon
-	            icon.setFitWidth(20); // Set the width
-	            icon.setFitHeight(20); // Set the height
-	            musicButton.setGraphic(icon);
-	        });
-	        
-	        Button soundEffectsButton = createIconButton("disable Sound", "sound.png");
-//	        soundEffectsButton.setOnAction(e -> toggleSoundEffects(soundEffectsButton));
-	        soundEffectsButton.setOnAction(e -> {
-	        	ImageView pic;
-	        	 if (cmd.getSoundFXPlayer().isWorking()) {
-	        	     cmd.getSoundFXPlayer().disableEffects();
-	        	     soundEffectsButton.setText("enable Sound");
-	                 pic = new ImageView(new Image("mute.png"));
-	            } else {
-	            	cmd.getSoundFXPlayer().enableEffects();
-	                pic = new ImageView(new Image("sound.png"));
-	                soundEffectsButton.setText("disable sound");
-	            }
-	            // Set the size of the icon
-	            pic.setFitWidth(20); // Set the width
-	            pic.setFitHeight(20); // Set the height
-	            soundEffectsButton.setGraphic(pic);
-	        });
-	       
-//	        Button historyButton = createIconButton("History", "history.png");
-	        Button infoButton = createIconButton("Information", "info.png");
-
-	        // Close Button
-	        Button closeButton = new Button("Close");
-	        closeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
-	        closeButton.setStyle(
-	            "-fx-background-color: #d11e1e; " +  // Red button background
-	            "-fx-text-fill: white; " +           // White text
-	            "-fx-border-radius: 5; " +           // Rounded border
-	            "-fx-background-radius: 5;"         // Rounded background
-	        );
-	        closeButton.setOnAction(e -> {
-	            settingsBox.setVisible(false); // Hide settings box
-	            StackPane stackPane = (StackPane) settingsBox.getParent();
-	            Node fadeBackground = stackPane.getChildren().get(1); // Access the fade rectangle
-	            fadeBackground.setVisible(false); // Hide fade background
-	        });
-	        
-	        // Add Action to the History Button
-//	        historyButton.setOnAction(e -> {
-//	            // Switch to History Screen
-//	            Stage stage = (Stage) settingsBox.getScene().getWindow();
-//	            HistoryScreen historyScreen = new HistoryScreen();
-//	            historyScreen.start(stage); // Navigate to History Screen
+//	private VBox createSettingsOverlay() {
+//	        // Create the settings box (overlay container)
+//	        VBox settingsBox = new VBox(20); // Add smaller spacing between elements
+//	        settingsBox.setPadding(new Insets(20)); // Reduce padding
+//	        settingsBox.setAlignment(Pos.TOP_CENTER);
+//	        settingsBox.setStyle(
+//	            "-fx-background-color: #fefaf4; " + // Match the beige background
+//	            "-fx-border-color: brown; " +       // Dark brown border
+//	            "-fx-border-width: 3; " +           // Border thickness
+//	            "-fx-border-radius: 10; " +         // Rounded corners
+//	            "-fx-background-radius: 10;"        // Rounded background
+//	        );
+//
+//	        // Make the box smaller
+//	        settingsBox.setPrefSize(150, 180); // Adjust width and height to make it smaller
+//
+//	        // Settings Title
+//	        Label settingsTitle = new Label("SETTINGS");
+//	        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 14)); // Slightly smaller font
+//	        settingsTitle.setTextFill(Color.BROWN);
+//
+//	        // Buttons for settings options with icons
+//	        Button musicButton = createIconButton("Music", "music.png");
+//	        musicButton.setOnAction(e -> {
+//	        	ImageView icon;
+//	            if (musicPlayer.isPlaying()) {
+//	            	musicPlayer.pause();
+//	            	icon = new ImageView(new Image("musicOff.png"));
+//	                musicButton.setText("Unmute");
+//	            } else {
+//	            	 musicPlayer.play();
+//	            	 icon = new ImageView(new Image("music.png"));
+//	            	 musicButton.setText("Music");
+//	            }
+//	            // Set the size of the icon
+//	            icon.setFitWidth(20); // Set the width
+//	            icon.setFitHeight(20); // Set the height
+//	            musicButton.setGraphic(icon);
 //	        });
 //	        
-	        // Add all elements to the settings box
-	        settingsBox.getChildren().addAll(settingsTitle, musicButton, soundEffectsButton, infoButton,closeButton);
-
-	        return settingsBox;
-	    }
-	
-//	private void toggleSoundEffects(Button soundEffectsButton) {
-//	    ImageView icon;
-//	    if (soundEffectsPlayer.isEnabled()) {
-//	        soundEffectsPlayer.disable();
-//	        icon = new ImageView(new Image("mute.png"));
-//	        soundEffectsButton.setText("Unmute");
-//	    } else {
-//	        soundEffectsPlayer.enable();
-//	        icon = new ImageView(new Image("sound.png"));
-//	        soundEffectsButton.setText("Sound Effects");
+//	        Button soundEffectsButton = createIconButton("disable Sound", "sound.png");
+////	        soundEffectsButton.setOnAction(e -> toggleSoundEffects(soundEffectsButton));
+//	        soundEffectsButton.setOnAction(e -> {
+//	        	ImageView pic;
+//	        	 if (cmd.getSoundFXPlayer().isWorking()) {
+//	        	     cmd.getSoundFXPlayer().disableEffects();
+//	        	     soundEffectsButton.setText("enable Sound");
+//	                 pic = new ImageView(new Image("mute.png"));
+//	            } else {
+//	            	cmd.getSoundFXPlayer().enableEffects();
+//	                pic = new ImageView(new Image("sound.png"));
+//	                soundEffectsButton.setText("disable sound");
+//	            }
+//	            // Set the size of the icon
+//	            pic.setFitWidth(20); // Set the width
+//	            pic.setFitHeight(20); // Set the height
+//	            soundEffectsButton.setGraphic(pic);
+//	        });
+//	       
+////	        Button historyButton = createIconButton("History", "history.png");
+//	        Button infoButton = createIconButton("Information", "info.png");
+//
+//	        // Close Button
+//	        Button closeButton = new Button("Close");
+//	        closeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+//	        closeButton.setStyle(
+//	            "-fx-background-color: #d11e1e; " +  // Red button background
+//	            "-fx-text-fill: white; " +           // White text
+//	            "-fx-border-radius: 5; " +           // Rounded border
+//	            "-fx-background-radius: 5;"         // Rounded background
+//	        );
+//	        closeButton.setOnAction(e -> {
+//	            settingsBox.setVisible(false); // Hide settings box
+//	            StackPane stackPane = (StackPane) settingsBox.getParent();
+//	            Node fadeBackground = stackPane.getChildren().get(1); // Access the fade rectangle
+//	            fadeBackground.setVisible(false); // Hide fade background
+//	        });
+//	        
+//	        // Add Action to the History Button
+////	        historyButton.setOnAction(e -> {
+////	            // Switch to History Screen
+////	            Stage stage = (Stage) settingsBox.getScene().getWindow();
+////	            HistoryScreen historyScreen = new HistoryScreen();
+////	            historyScreen.start(stage); // Navigate to History Screen
+////	        });
+////	        
+//	        // Add all elements to the settings box
+//	        settingsBox.getChildren().addAll(settingsTitle, musicButton, soundEffectsButton, infoButton,closeButton);
+//
+//	        return settingsBox;
 //	    }
-//	    icon.setFitWidth(20);
-//	    icon.setFitHeight(20);
-//	    soundEffectsButton.setGraphic(icon);
-//	}
-	  
-	  private Button createIconButton(String text, String iconUrl) {
-	        // Create an icon for the button
-	        ImageView icon = new ImageView(new Image(iconUrl));
-	        icon.setFitWidth(20); // Icon size
-	        icon.setFitHeight(20);
-
-	        // Create the button with the icon and text
-	        Button button = new Button(text, icon);
-	        button.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-	        button.setStyle(
-	            "-fx-background-color: #d2a679; " + // Light brown background
-	            "-fx-text-fill: black; " +          // Black text
-	            "-fx-border-color: brown; " +       // Dark brown border
-	            "-fx-border-width: 1.5; " +         // Thin border
-	            "-fx-background-radius: 10; " +    // Rounded background
-	            "-fx-border-radius: 10;"           // Rounded border
-	        );
-	        button.setContentDisplay(ContentDisplay.LEFT); // Icon on the left of text
-	        button.setPrefWidth(160); // Consistent button width
-	        return button;
-	    }
+//	
+////	private void toggleSoundEffects(Button soundEffectsButton) {
+////	    ImageView icon;
+////	    if (soundEffectsPlayer.isEnabled()) {
+////	        soundEffectsPlayer.disable();
+////	        icon = new ImageView(new Image("mute.png"));
+////	        soundEffectsButton.setText("Unmute");
+////	    } else {
+////	        soundEffectsPlayer.enable();
+////	        icon = new ImageView(new Image("sound.png"));
+////	        soundEffectsButton.setText("Sound Effects");
+////	    }
+////	    icon.setFitWidth(20);
+////	    icon.setFitHeight(20);
+////	    soundEffectsButton.setGraphic(icon);
+////	}
+//	  
+//	  private Button createIconButton(String text, String iconUrl) {
+//	        // Create an icon for the button
+//	        ImageView icon = new ImageView(new Image(iconUrl));
+//	        icon.setFitWidth(20); // Icon size
+//	        icon.setFitHeight(20);
+//
+//	        // Create the button with the icon and text
+//	        Button button = new Button(text, icon);
+//	        button.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+//	        button.setStyle(
+//	            "-fx-background-color: #d2a679; " + // Light brown background
+//	            "-fx-text-fill: black; " +          // Black text
+//	            "-fx-border-color: brown; " +       // Dark brown border
+//	            "-fx-border-width: 1.5; " +         // Thin border
+//	            "-fx-background-radius: 10; " +    // Rounded background
+//	            "-fx-border-radius: 10;"           // Rounded border
+//	        );
+//	        button.setContentDisplay(ContentDisplay.LEFT); // Icon on the left of text
+//	        button.setPrefWidth(160); // Consistent button width
+//	        return button;
+//	    }
 
 	
 

@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import org.junit.Test;
+
+import view.SettingsScreen;
 import view.backgammonUI;
 
 public class OpenPdfFileTest {
@@ -13,6 +15,7 @@ public class OpenPdfFileTest {
     @Test
     public void testOpenValidPdfFile() throws URISyntaxException, IOException {
         backgammonUI ui = new backgammonUI();
+        SettingsScreen sc = new SettingsScreen();
 
         // Provide a valid PDF file path for testing
         URL validFileUrl = getClass().getClassLoader().getResource("BackgammonRules.pdf");
@@ -23,7 +26,7 @@ public class OpenPdfFileTest {
 
         // Simulate opening the valid file
         try {
-            ui.openPdfFile("BackgammonRules.pdf");
+        	sc.openPdfFile("BackgammonRules.pdf");
         } catch (Exception e) {
             fail("No exception should be thrown for a valid file");
         }

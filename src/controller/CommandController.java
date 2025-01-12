@@ -43,14 +43,14 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 	//private CommandPanel cmdPnl;
 	private Player bottomPlayer, topPlayer;
 	private MatchController root;
-	private MusicPlayer musicPlayer;
+//	private MusicPlayer musicPlayer;
 	private SoundEffectsPlayer soundFXPlayer;
 	
 	
 	
 	
 	public CommandController(Stage stage, MatchController root, GameComponentsController game,
-			GameplayController gameplay, InfoPanel infoPnl,Player bottomPlayer, Player topPlayer, MusicPlayer musicPlayer) {
+			GameplayController gameplay, InfoPanel infoPnl,Player bottomPlayer, Player topPlayer) {
 		this.bottomPlayer = bottomPlayer;
 		this.topPlayer = topPlayer;
 		this.stage = stage;
@@ -59,7 +59,7 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 		this.gameplay = gameplay;
 		this.infoPnl = infoPnl;
 		//this.cmdPnl = cmdPnl;
-		this.musicPlayer = musicPlayer;
+//		this.musicPlayer = musicPlayer;
 		soundFXPlayer = new SoundEffectsPlayer();
 	}
 	
@@ -117,12 +117,13 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 			runRestartCommand();
 		} else if (command.equals("/quit")) {
 			runQuitCommand();
-		} else if (command.equals("/music")) {
-			runMusicCommand(args);
 		} else if (command.equals("/test")) {
 			runTestCommand();
 		} else if (command.equals("/cheat")) {
 			runCheatCommand();
+			
+//			else if (command.equals("/music")) {
+//				runMusicCommand(args);
 		/*
 		} else if (command.equals("/light")) {
 			Settings.useLightTheme();
@@ -689,37 +690,37 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 		stage.fireEvent(new WindowEvent(infoPnl.getScene().getWindow(), WindowEvent.WINDOW_CLOSE_REQUEST));
 	}
 	
-	private void runMusicCommand(String[] args) {
-		if (args.length != 2) {
-			infoPnl.print("Incorrect Syntax: Expected /music [play | next | prev | pause | stop | repeat | mute | unmute]", MessageType.ERROR);
-			return;
-		}
-		
-		args[1] = args[1].toLowerCase();
-		
-		if (args[1].equals("random"))
-			musicPlayer.random();
-		else if (args[1].equals("play"))
-			musicPlayer.play();
-		else if (args[1].equals("next"))
-			musicPlayer.next();
-		else if (args[1].equals("prev"))
-			musicPlayer.prev();
-		else if (args[1].equals("pause"))
-			musicPlayer.pause();
-		else if (args[1].equals("stop"))
-			musicPlayer.stop();
-		else if (args[1].equals("repeat"))
-			musicPlayer.repeat();
-		else if (args[1].equals("mute"))
-			musicPlayer.muteVolume(true);
-		else if (args[1].equals("unmute")) 
-			musicPlayer.muteVolume(false);
-		else
-			infoPnl.print("Invalid command for /music", MessageType.ERROR);
-		
-		infoPnl.print(musicPlayer.getStatus(args[1]));
-	}
+//	private void runMusicCommand(String[] args) {
+//		if (args.length != 2) {
+//			infoPnl.print("Incorrect Syntax: Expected /music [play | next | prev | pause | stop | repeat | mute | unmute]", MessageType.ERROR);
+//			return;
+//		}
+//		
+//		args[1] = args[1].toLowerCase();
+//		
+//		if (args[1].equals("random"))
+//			musicPlayer.random();
+//		else if (args[1].equals("play"))
+//			musicPlayer.play();
+//		else if (args[1].equals("next"))
+//			musicPlayer.next();
+//		else if (args[1].equals("prev"))
+//			musicPlayer.prev();
+//		else if (args[1].equals("pause"))
+//			musicPlayer.pause();
+//		else if (args[1].equals("stop"))
+//			musicPlayer.stop();
+//		else if (args[1].equals("repeat"))
+//			musicPlayer.repeat();
+//		else if (args[1].equals("mute"))
+//			musicPlayer.muteVolume(true);
+//		else if (args[1].equals("unmute")) 
+//			musicPlayer.muteVolume(false);
+//		else
+//			infoPnl.print("Invalid command for /music", MessageType.ERROR);
+//		
+//		infoPnl.print(musicPlayer.getStatus(args[1]));
+//	}
 	
 	/**
 	 * Command: /cheat
