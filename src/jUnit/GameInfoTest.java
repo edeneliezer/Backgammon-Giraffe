@@ -75,12 +75,55 @@ public class GameInfoTest {
             fail("Error reading tracker file: " + e.getMessage());
         }
     }
+    
+    @After
+    public void cleanup() {
+        // Remove the last game entry added by the test
+        File gameInfoFile = new File(FILE_NAME);
 
-//    @After
-//    public void cleanup() {
-//        // Cleanup is not required since we want to retain the existing files
-//        // However, you can uncomment the following if you want to reset the files after testing
-//         new File(FILE_NAME).delete();
-//         new File(GAME_NUMBER_TRACKER).delete();
-//    }
+        if (gameInfoFile.exists()) {
+            try {
+                // Read all lines from the file
+                BufferedReader reader = new BufferedReader(new FileReader(gameInfoFile));
+                StringBuilder fileContent = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    fileContent.append(line).append("\n");
+                }
+                reader.close();
+
+                // Convert content to an array of JSON objects
+                String[] gameEntries = fileContent.toString().trim().split("\n");
+                if (gameEntries.length > 0) {
+                    // Rewrite the file without the last line
+                    try (FileWriter writer = new FileWriter(gameInfoFile, false)) {
+                        for (int i = 0; i < gameEntries.length - 1; i++) {
+                            writer.write(gameEntries[i] + "\n");
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                System.err.println("Error cleaning up test data: " + e.getMessage());
+            }
+        }
+
+        // Reset the game number tracker to its original value (if necessary)
+        File trackerFile = new File(GAME_NUMBER_TRACKER);
+        if (trackerFile.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(trackerFile))) {
+                String currentGameNumber = reader.readLine();
+                if (currentGameNumber != null) {
+                    int currentNumber = Integer.parseInt(currentGameNumber);
+                    try (FileWriter writer = new FileWriter(trackerFile)) {
+                        writer.write(String.valueOf(currentNumber - 1)); // Decrement the tracker
+                    }
+                }
+            } catch (IOException | NumberFormatException e) {
+                System.err.println("Error resetting game number tracker: " + e.getMessage());
+            }
+        }
+    }
+
+
 }
