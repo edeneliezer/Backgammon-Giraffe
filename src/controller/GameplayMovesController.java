@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -27,6 +28,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import view.GameComponentsController;
@@ -488,11 +491,37 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 		return isStalemate;
 	}
 	
+    private void playSurpriseSound() {
+        try {
+        	 // עצירת המוזיקה הראשית
+            MusicPlayer.getInstance().pause();
+        	
+        	String soundFile = getClass().getResource("/musicplayer/songs/tada.mp3").toExternalForm();
+            Media sound = new Media(soundFile);
+            MediaPlayer surprisePlayer = new MediaPlayer(sound);
+            surprisePlayer.play();
+            
+            // מאזין לסיום הצליל
+            surprisePlayer.setOnEndOfMedia(() -> {
+                // חידוש המוזיקה הראשית
+                MusicPlayer.getInstance().play();
+            });
+            
+        } catch (Exception e) {
+            System.err.println("Error playing surprise sound: " + e.getMessage());
+        }
+        
+        
+    }
+    
 	private void checkSurpriseStation(Pip targetPip, Player currentPlayer) {
 	    if (targetPip.hasSurpriseStation() && !targetPip.isSurpriseActivated()) {
 	        // הדפסה ללוג
 	        infoPnl.print(currentPlayer.getName() + " landed on a Surprise Station! Extra turn granted.", MessageType.ANNOUNCEMENT);
 
+	     // הפעלת הצליל
+	        playSurpriseSound();
+	        
 	        // תור נוסף לשחקן
 	        targetPip.activateSurprise(currentPlayer);
 
