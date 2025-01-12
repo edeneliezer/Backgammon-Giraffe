@@ -25,7 +25,7 @@ public class Pip extends CheckersStorer implements ColorParser {
 	private int pipNum;
 	private SurpriseStation surpriseStation;
 	private ImageView surpriseIcon;
-
+	private boolean isSurpriseActivated = false;
 	
 	/**
 	 * Default Constructor
@@ -119,10 +119,22 @@ public class Pip extends CheckersStorer implements ColorParser {
 	public void activateSurprise(Player player) {
         if (surpriseStation != null) {
             surpriseStation.activate(player);
+            this.isSurpriseActivated = true;
           //  removeSurpriseStation();
         }
     }
 	  
+	public boolean isSurpriseActivated() {
+	    return isSurpriseActivated;
+	}
+	
+	public void removeSurpriseIcon() {
+	    if (this.hasSurpriseIcon()) {
+	        this.getChildren().remove(this.getSurpriseIcon());
+	    }
+	}
+
+	
 	/*public void removeSurpriseStation() {
 	    if (this.surpriseIcon != null) {
 	        this.getChildren().remove(surpriseIcon);

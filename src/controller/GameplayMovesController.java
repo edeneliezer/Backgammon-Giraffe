@@ -489,7 +489,7 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	}
 	
 	private void checkSurpriseStation(Pip targetPip, Player currentPlayer) {
-	    if (targetPip.hasSurpriseStation()) {
+	    if (targetPip.hasSurpriseStation() && !targetPip.isSurpriseActivated()) {
 	        // הדפסה ללוג
 	        infoPnl.print(currentPlayer.getName() + " landed on a Surprise Station! Extra turn granted.", MessageType.ANNOUNCEMENT);
 
@@ -505,8 +505,8 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	        // הגדרת דגל תור נוסף במשחק
 	        gameplay.setExtraTurn(true);
 	        
-	        // הסרת תחנת ההפתעה מהשקע (אם היא חד-פעמית)
-	       // targetPip.removeSurpriseStation();
+	        // הסרת תחנת ההפתעה מהשקע (חד-פעמית)
+	        targetPip.removeSurpriseIcon();
 	    }
 	}
 	
