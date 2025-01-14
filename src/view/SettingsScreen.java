@@ -27,14 +27,20 @@ public class SettingsScreen {
 	private VBox settingsBox;
 	private CommandController cmd;
 	private Button soundEffectsButton;
+	private Integer back;
+	private Button historyButton;
 
-    public SettingsScreen(CommandController cmd) {
+    public SettingsScreen(CommandController cmd, int back) {
         settingsBox = createSettingsOverlay();
+    	historyButton.setDisable(true);
         if(cmd != null) {
             this.cmd = cmd;
         }
         else {
         	soundEffectsButton.setDisable(true);
+        }
+        if(back == 1) {
+        	historyButton.setDisable(false);
         }
         startMusicByDefault();
     }
@@ -101,7 +107,7 @@ public class SettingsScreen {
         soundEffectsButton.setGraphic(pic);
     });
 
-        Button historyButton = createIconButton("History", "history.png");
+        historyButton = createIconButton("History", "history.png");
         Button infoButton = createIconButton("Information", "info.png");
         infoButton.setOnAction(e -> openPdfFile("BackgammonRules.pdf"));
 
@@ -123,10 +129,10 @@ public class SettingsScreen {
 
         // Add Action to the History Button
         historyButton.setOnAction(e -> {
-            // Switch to History Screen
+        	  // Switch to History Screen and pass this SettingsScreen
             Stage stage = (Stage) settingsBox.getScene().getWindow();
-            HistoryScreen historyScreen = new HistoryScreen();
-            historyScreen.start(stage); // Navigate to History Screen
+            HistoryScreen historyScreen = new HistoryScreen(); // Pass the current SettingsScreen
+            historyScreen.start(stage);
         });
 
         // Add all elements to the settings box

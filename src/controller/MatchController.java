@@ -136,7 +136,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		gameTimer = new MatchTimer();
 		
 		  // Create the Settings screen instance
-	    settingsScreen = new SettingsScreen(cmd);
+	    settingsScreen = new SettingsScreen(cmd,0);
 	    settingsOverlay = settingsScreen.getSettingsBox();
 	    settingsOverlay.setVisible(false); // Initially hidden
 

@@ -20,13 +20,14 @@ public class HistoryScreen {
 
     private static final String FILE_NAME = "gameInfo.json";
 
+
     public void start(Stage primaryStage) {
         VBox root = new VBox(20);
         root.setPadding(new Insets(20));
         root.setStyle("-fx-background-color: #fefaf4;");
         root.setAlignment(Pos.TOP_CENTER);
         // Home Button (Top-Left Corner)
-        Button homeButton = new Button("Home");
+        Button homeButton = new Button("Back");
         homeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
         homeButton.setStyle(
             "-fx-background-color: #d11e1e; " +  // Red background
