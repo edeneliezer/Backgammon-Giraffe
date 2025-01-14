@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import controller.CommandController;
 import controller.MusicPlayer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -24,9 +25,17 @@ import javafx.stage.Stage;
 public class SettingsScreen {
 
 	private VBox settingsBox;
+	private CommandController cmd;
+	private Button soundEffectsButton;
 
-    public SettingsScreen() {
+    public SettingsScreen(CommandController cmd) {
         settingsBox = createSettingsOverlay();
+        if(cmd != null) {
+            this.cmd = cmd;
+        }
+        else {
+        	soundEffectsButton.setDisable(true);
+        }
         startMusicByDefault();
     }
 
@@ -73,6 +82,24 @@ public class SettingsScreen {
             icon.setFitHeight(20); // Set the height
             musicButton.setGraphic(icon);
         });
+        
+        soundEffectsButton = createIconButton("disable Sound", "sound.png");
+        soundEffectsButton.setOnAction(e -> {
+    	ImageView pic;
+    	 if (cmd.getSoundFXPlayer().isWorking()) {
+    	     cmd.getSoundFXPlayer().disableEffects();
+    	     soundEffectsButton.setText("enable Sound");
+             pic = new ImageView(new Image("mute.png"));
+        } else {
+        	cmd.getSoundFXPlayer().enableEffects();
+            pic = new ImageView(new Image("sound.png"));
+            soundEffectsButton.setText("disable sound");
+        }
+        // Set the size of the icon
+        pic.setFitWidth(20); // Set the width
+        pic.setFitHeight(20); // Set the height
+        soundEffectsButton.setGraphic(pic);
+    });
 
         Button historyButton = createIconButton("History", "history.png");
         Button infoButton = createIconButton("Information", "info.png");
@@ -103,7 +130,7 @@ public class SettingsScreen {
         });
 
         // Add all elements to the settings box
-        settingsBox.getChildren().addAll(settingsTitle, musicButton, historyButton, infoButton, closeButton);
+        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton, closeButton);
 
         return settingsBox;
     }

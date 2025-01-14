@@ -27253,3 +27253,41 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 4].
+> [System] Available moves:
+  Roll of 5
+      A. 17-22
+      B. 12-17
+
+  Roll of 4
+      C. 19-23
+      D. 17-21
+      E. 12-16
+      F. 1-5
+
+  Roll of 9
+      G. 12-21
+      H. 1-10
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 1 to 5.
+> [System] Available moves:
+  Roll of 5
+      A. 17-22
+      B. 12-17
+      C. 5-10
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now a's (white) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+

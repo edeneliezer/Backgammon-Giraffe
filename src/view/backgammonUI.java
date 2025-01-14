@@ -59,7 +59,7 @@ public class backgammonUI extends Application {
         root.setPrefHeight(600);
         
      // Create settings
-        SettingsScreen settings = new SettingsScreen();
+        SettingsScreen settings = new SettingsScreen(null);
         VBox settingsOverlay = settings.getSettingsBox();
         settingsOverlay.setVisible(false);
 
