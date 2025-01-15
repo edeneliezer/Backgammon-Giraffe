@@ -146,6 +146,15 @@ public class Dice extends ImageView {
 
         return canvas.snapshot(null, null);
     }
+    
+    /**
+     * Sets the mode of the dice.
+     * 
+     * @param mode The mode to set (REGULAR or HARD).
+     */
+    public void setMode(Mode mode) {
+        this.currentMode = mode;
+    }
 
     /**
      * Rolls the dice based on the current mode.
