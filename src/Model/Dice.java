@@ -4,21 +4,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Random;
 
-import controller.ColorParser;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  * This class represents the dice object with support for negative values and zero.
  */
-public class Dice extends ImageView implements ColorParser {
+public class Dice extends ImageView {
     private final int MAX_DICE_SIZE = 10; // Range: -3 to 6
     private Image[] dices;
     private int diceRollResult;
     private ColorAdjust colorAdjust;
-    private Color color;
     public static Mode currentMode = Mode.REGULAR;
 
     public enum Mode {
@@ -28,33 +27,37 @@ public class Dice extends ImageView implements ColorParser {
     /**
      * Constructors
      */
-    
     public Dice(Mode mode) {
-        this(Color.RED);
-    	//this.currentMode = mode;
+        this();
     }
-    
+
     public Dice(Dice otherDice) {
-        this(otherDice.getColor());
+        this();
         this.diceRollResult = otherDice.getDiceResult();
-        //this.currentMode = otherDice.getMode();
     }
 
     public Dice(int diceRollResult) {
-        this(Color.RED);
+        this();
         this.diceRollResult = diceRollResult;
-       // this.currentMode = Mode.REGULAR;
     }
 
-    public Dice(Color color) {
-        super();
-        this.color = color;
-       // this.currentMode = Mode.REGULAR;
-        dices = new Image[MAX_DICE_SIZE];
-        initImages();
+    public Dice() {
+    	 super();
+         dices = new Image[MAX_DICE_SIZE];
+         initImages();
 
-        colorAdjust = new ColorAdjust();
-        colorAdjust.setBrightness(-0.5);
+         // Set fixed size for dice images
+         setFitWidth(60);  // Adjust as needed
+         setFitHeight(60);
+
+         // Add rounded corners
+         Rectangle clip = new Rectangle(60, 60);
+         clip.setArcWidth(15);  // Adjust rounding size as needed
+         clip.setArcHeight(15);
+         setClip(clip);
+
+         colorAdjust = new ColorAdjust();
+         colorAdjust.setBrightness(-0.5);
     }
 
     /**
@@ -62,22 +65,20 @@ public class Dice extends ImageView implements ColorParser {
      * Includes placeholder images for negative values and zero.
      */
     private void initImages() {
-        String colorString = parseColor(color);
+    	String colorString = "black"; // Always use black images
         for (int i = -3; i <= 6; i++) {
             try {
                 if (i > 0) {
-                    // Use existing images for positive values
                     InputStream input = getClass().getResourceAsStream(
-                        "/game/img/dices/" + colorString + "/" + i + ".png");
+                            "/game/img/dices/" + colorString + "/" + i + ".png");
                     dices[i + 3] = new Image(input);
                     input.close();
                 } else {
-                    // Create placeholder images for negative values and zero
                     dices[i + 3] = createPlaceholderImage(i);
                 }
             } catch (IOException | NullPointerException e) {
                 e.printStackTrace();
-                dices[i + 3] = createPlaceholderImage(i); // Fallback to placeholder
+                dices[i + 3] = createPlaceholderImage(i);
             }
         }
     }
@@ -89,6 +90,48 @@ public class Dice extends ImageView implements ColorParser {
      * @return A placeholder Image.
      */
     private Image createPlaceholderImage(int value) {
+        String colorString = "black"; // Always use "black"
+        String fileName;
+
+        switch (value) {
+            case 0:
+                fileName = "zero.jpg";
+                break;
+            case -1:
+                fileName = "minus1.jpg";
+                break;
+            case -2:
+                fileName = "minus2.jpg";
+                break;
+            case -3:
+                fileName = "minus3.jpg";
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid dice value: " + value);
+        }
+
+        try {
+            InputStream input = getClass().getResourceAsStream(
+                    "/game/img/dices/" + colorString + "/" + fileName);
+            if (input == null) {
+                System.err.println("File not found: /game/img/dices/" + colorString + "/" + fileName);
+                throw new IOException("File not found: " + fileName);
+            }
+            return new Image(input);
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Fallback in case of an issue
+            return createFallbackPlaceholderImage(value);
+        }
+    }
+
+    /**
+     * Creates a fallback placeholder image for unexpected issues.
+     * 
+     * @param value The value for which to create a fallback image.
+     * @return A fallback placeholder Image.
+     */
+    private Image createFallbackPlaceholderImage(int value) {
         javafx.scene.canvas.Canvas canvas = new javafx.scene.canvas.Canvas(100, 100);
         javafx.scene.canvas.GraphicsContext gc = canvas.getGraphicsContext2D();
 
@@ -102,15 +145,6 @@ public class Dice extends ImageView implements ColorParser {
         gc.fillText(String.valueOf(value), 40, 55);
 
         return canvas.snapshot(null, null);
-    }
-
-    /**
-     * Sets the mode of the dice.
-     * 
-     * @param mode The mode to set (REGULAR or HARD).
-     */
-    public void setMode(Mode mode) {
-        this.currentMode = mode;
     }
 
     /**
@@ -142,7 +176,6 @@ public class Dice extends ImageView implements ColorParser {
         rotate();
         return this;
     }
-
     /**
      * Rotates the dice image randomly within a range.
      */
@@ -174,15 +207,9 @@ public class Dice extends ImageView implements ColorParser {
     public int getDiceResult() {
         return diceRollResult;
     }
-
-    /**
-     * Gets the current color of the dice.
-     * 
-     * @return The color of the dice.
-     */
-    public Color getColor() {
-        return color;
-    }
+//    public Color getColor() {
+//        return getColor();
+//    }
 
     /**
      * Checks if the dice result equals the value of another dice.
@@ -193,7 +220,6 @@ public class Dice extends ImageView implements ColorParser {
     public boolean equalsValueOf(Dice otherDice) {
         return diceRollResult == otherDice.getDiceResult();
     }
-
     /**
      * Gets the current mode of the dice.
      * 
