@@ -15,7 +15,7 @@ public class OpenPdfFileTest {
     @Test
     public void testOpenValidPdfFile() throws URISyntaxException, IOException {
         backgammonUI ui = new backgammonUI();
-        SettingsScreen sc = new SettingsScreen(null);
+        SettingsScreen sc = new SettingsScreen(null,0);
 
         // Provide a valid PDF file path for testing
         URL validFileUrl = getClass().getClassLoader().getResource("BackgammonRules.pdf");
