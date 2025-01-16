@@ -29837,3 +29837,1484 @@
 > [Error] You can only move from highlighted objects.
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 4].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+
+  Roll of 4
+      D. 6-2
+      E. 8-4
+      F. 13-9
+      G. 24-20
+
+  Roll of 5
+      H. 8-3
+      I. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 24-23
+      D. 4-3
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 1].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21*
+
+  Roll of 1
+      E. 6-5
+      F. 8-7
+      G. 24-23
+
+  Roll of 4
+      H. 6-2
+      I. 8-4
+      J. 13-9
+      K. 24-20*
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 23.
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21*
+      E. 23-20*
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 5-1*
+      B. 6-2*
+      C. 8-4
+      D. 13-9
+      E. 24-20
+
+  Roll of 6
+      F. 8-2*
+      G. 13-7
+      H. 24-18
+
+  Roll of 10
+      I. 13-3
+      J. 24-14
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Available moves:
+  Roll of 4
+      A. 5-1*
+      B. 6-2*
+      C. 8-4
+      D. 13-9
+      E. 24-20
+      F. 7-3
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 6].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 10-9
+      D. 23-22
+      E. 24-23
+
+  Roll of 6
+      F. 8-2
+      G. 10-4
+      H. 13-7
+      I. 23-17*
+      J. 24-18*
+
+  Roll of 7
+      K. 10-3
+      L. 13-6
+      M. 23-16
+      N. 24-17*
+
+
+> [System] Moving...
+> [System] Moved checker from 23 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 3].
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 5-3
+      C. 6-4
+      D. 7-5
+      E. 8-6
+      F. 13-11
+      G. 24-22
+
+  Roll of 3
+      H. 4-1*
+      I. 5-2
+      J. 6-3
+      K. 7-4
+      L. 8-5
+      M. 13-10
+      N. 24-21
+
+  Roll of 5
+      O. 6-1*
+      P. 7-2
+      Q. 8-3
+      R. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 21.
+
+> [System] Available moves:
+  Roll of 2
+      A. 4-2
+      B. 5-3
+      C. 6-4
+      D. 7-5
+      E. 8-6
+      F. 13-11
+      G. 24-22
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 6-5
+      B. 8-7
+      C. 10-9
+      D. 16-15
+      E. 24-23
+
+  Roll of 5
+      F. 6-1
+      G. 8-3*
+      H. 10-5
+      I. 13-8
+      J. 16-11
+
+  Roll of 6
+      K. 8-2
+      L. 10-4*
+      M. 13-7
+      N. 16-10
+      O. 24-18*
+
+
+> [System] Moving...
+> [System] Moved checker from 16 to 15.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 8-3*
+      C. 10-5
+      D. 13-8
+      E. 15-10
+
+
+> [System] Moving...
+> [System] Moved checker from 10 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+> [System] Available moves:
+  Roll of 1
+      A. 4-3
+      B. 5-4
+      C. 6-5
+      D. 7-6
+      E. 8-7
+      F. 21-20*
+      G. 22-21
+
+  Roll of 2
+      H. 4-2
+      I. 5-3
+      J. 6-4
+      K. 7-5
+      L. 8-6
+      M. 13-11
+      N. 22-20*
+
+  Roll of 3
+      O. 4-1*
+      P. 5-2
+      Q. 6-3
+      R. 7-4
+      S. 8-5
+      T. 13-10*
+      U. 21-18
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 5-1
+      B. 6-2
+      C. 8-4*
+      D. 13-9
+      E. 15-11
+
+  Roll of 6
+      F. 8-2
+      G. 13-7
+      H. 15-9
+      I. 24-18*
+
+  Roll of 10
+      J. 13-3*
+      K. 15-5
+      L. 24-14
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to 1.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 15-9
+      D. 24-18*
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 5, 5, 5].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 7-2
+      C. 13-8
+      D. 21-16
+
+  Roll of 10
+      E. 13-3
+      F. 21-11
+
+  Roll of 15
+      G. 21-6
+
+  Roll of 20
+      H. 21-1*
+
+
+> [System] Moving...
+> [System] Moved checker from 21 to 16.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 7-2
+      C. 13-8
+      D. 16-11
+
+  Roll of 10
+      E. 13-3
+      F. 16-6
+
+  Roll of 15
+      G. 16-1*
+
+
+> [System] Moving...
+> [System] Moved checker from 1 to bar.
+> [System] Moved checker from 16 to 1.
+> [System] Move over.
+
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+
+  Roll of 1
+      A. Bar-24*
+
+  Roll of 7
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to bar.
+> [System] Moved checker from bar to 24.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 15-9
+      D. 24-18*
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 15 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+
+  Roll of 5
+      A. Bar-20
+
+  Roll of 11
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 20.
+> [System] Available moves:
+  Roll of 6
+      A. 7-1*
+      B. 13-7
+      C. 20-14
+      D. 22-16*
+
+
+> [System] Moving...
+> [System] Moved checker from 16 to bar.
+> [System] Moved checker from 22 to 16.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [Warning] No moves available, turn forfeited.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 4-1*
+      B. 5-2
+      C. 6-3
+      D. 7-4
+      E. 13-10
+      F. 16-13
+
+  Roll of 2
+      G. 4-2
+      H. 5-3
+      I. 6-4
+      J. 7-5
+      K. 13-11
+      L. 16-14
+      M. 20-18
+
+  Roll of 5
+      N. 6-1*
+      O. 7-2
+      P. 13-8
+      Q. 16-11
+      R. 20-15
+
+
+> [System] Moving...
+> [System] Moved checker from 20 to 15.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 6, 6, 6].
+> [Warning] No moves available, turn forfeited.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 1].
+> [System] Available moves:
+  Roll of 6
+      A. 7-1*
+      B. 13-7
+      C. 15-9
+      D. 16-10
+
+  Roll of 1
+      E. 4-3
+      F. 5-4
+      G. 6-5
+      H. 7-6
+      I. 15-14
+      J. 16-15
+
+  Roll of 7
+      K. 13-6
+      L. 15-8
+      M. 16-9
+
+
+> [System] Moving...
+> [System] Moved checker from 16 to 15.
+> [System] Available moves:
+  Roll of 6
+      A. 7-1*
+      B. 13-7
+      C. 15-9
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 2].
+> [System] Available moves:
+  Roll of 4
+
+  Roll of 2
+      A. Bar-23
+
+  Roll of 6
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 23.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 2].
+> [System] Available moves:
+  Roll of 1
+      A. 4-3
+      B. 5-4
+      C. 6-5
+      D. 7-6
+      E. 15-14
+
+  Roll of 2
+      F. 4-2*
+      G. 5-3
+      H. 6-4
+      I. 7-5
+      J. 13-11
+      K. 15-13
+
+  Roll of 3
+      L. 4-1*
+      M. 5-2*
+      N. 6-3
+      O. 7-4
+      P. 13-10
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 2].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+
+  Roll of 2
+      D. 4-2
+      E. 6-4
+      F. 8-6
+      G. 13-11
+      H. 24-22
+
+  Roll of 6
+      I. 8-2
+      J. 13-7
+
+
+> [System] Moving...
+> [System] Moved checker from 24 to 22.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 1].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2*
+      C. 10-5
+      D. 13-8
+      E. 15-10
+
+  Roll of 1
+      F. 4-3*
+      G. 5-4
+      H. 6-5
+      I. 7-6
+      J. 10-9
+      K. 15-14
+
+  Roll of 6
+      L. 7-1
+      M. 10-4
+      N. 13-7
+      O. 15-9
+
+
+> [System] Moving...
+
+> [System] Moved checker from 13 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 3].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 4-3
+      C. 6-5
+      D. 8-7
+      E. 9-8
+      F. 13-12*
+      G. 23-22
+
+  Roll of 3
+      H. 4-1
+      I. 6-3
+      J. 8-5
+      K. 9-6
+
+  Roll of 4
+      L. 6-2
+      M. 8-4
+      N. 9-5
+      O. 13-9
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 6].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2*
+      C. 10-5
+      D. 13-8
+      E. 15-10
+
+  Roll of 6
+      F. 7-1
+      G. 10-4
+      H. 13-7
+      I. 15-9
+
+  Roll of 11
+      J. 13-2*
+      K. 15-4
+
+
+> [System] Moving...
+> [System] Moved checker from 15 to 9.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2*
+      C. 10-5
+      D. 13-8
+      E. 15-10
+      F. 9-4
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 4].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 4-3
+      C. 6-5
+      D. 9-8
+      E. 13-12
+      F. 23-22
+
+  Roll of 4
+      G. 6-2
+      H. 9-5
+      I. 13-9
+
+  Roll of 5
+      J. 6-1
+      K. 9-4
+      L. 13-8
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 6].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2*
+      C. 8-3*
+      D. 9-4
+      E. 10-5
+      F. 15-10
+
+  Roll of 6
+      G. 7-1
+      H. 8-2*
+      I. 9-3*
+      J. 10-4
+      K. 15-9
+
+  Roll of 11
+      L. 15-4
+
+
+> [System] Moving...
+> [System] Moved checker from 15 to 9.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2*
+      C. 8-3*
+      D. 9-4
+      E. 10-5
+
+
+> [System] Moving...
+> [System] Moved checker from 10 to 5.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 3].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 9-3
+      C. 13-7
+      D. 23-17*
+
+  Roll of 3
+      E. 4-1
+      F. 6-3
+      G. 8-5
+      H. 9-6
+      I. 13-10
+
+  Roll of 9
+      J. 13-4
+      K. 23-14
+
+
+
+> [System] Moving...
+> [System] Moved checker from 23 to 14.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 1].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2
+      C. 8-3*
+      D. 9-4
+
+  Roll of 1
+      E. 4-3*
+      F. 5-4
+      G. 6-5
+      H. 7-6
+      I. 8-7
+      J. 9-8
+
+  Roll of 6
+      K. 7-1
+      L. 8-2
+      M. 9-3*
+
+
+> [System] Moving...
+> [System] Moved checker from 3 to bar.
+> [System] Moved checker from 9 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 2].
+> [System] Available moves:
+  Roll of 4
+
+  Roll of 2
+      A. Bar-23
+
+  Roll of 6
+
+
+> [System] Moving...
+> [System] Moved checker from bar to 23.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 9-5
+      D. 13-9
+      E. 14-10
+
+
+> [System] Moving...
+> [System] Moved checker from 14 to 10.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 5-1
+      B. 6-2*
+      C. 7-3
+      D. 8-4
+      E. 9-5
+
+  Roll of 6
+      F. 7-1
+      G. 8-2*
+      H. 9-3
+
+  Roll of 10
+
+
+> [System] Moving...
+> [System] Moved checker from 9 to 3.
+> [System] Available moves:
+  Roll of 4
+      A. 5-1
+      B. 6-2*
+      C. 7-3
+      D. 8-4
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 1].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 8-3
+      C. 9-4
+      D. 10-5
+      E. 13-8
+
+  Roll of 1
+      F. 2-1
+      G. 4-3
+      H. 6-5
+      I. 8-7
+      J. 9-8
+      K. 10-9
+      L. 13-12
+
+  Roll of 6
+      M. 8-2
+      N. 9-3
+      O. 10-4
+      P. 13-7
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+
+> [System] Roll dice result: [2, 2, 2, 2].
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2*
+      C. 5-3
+      D. 6-4
+      E. 7-5
+
+  Roll of 4
+      F. 5-1
+      G. 6-2*
+      H. 7-3
+
+  Roll of 6
+      I. 7-1
+
+  Roll of 8
+
+
+> [System] Moving...
+> [System] Moved checker from 7 to 5.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2*
+      C. 5-3
+      D. 6-4
+      E. 7-5
+
+  Roll of 4
+      F. 5-1
+      G. 6-2*
+      H. 7-3
+
+  Roll of 6
+      I. 7-1
+
+
+> [System] Moving...
+> [System] Moved checker from 7 to 5.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2*
+      C. 5-3
+      D. 6-4
+      E. 7-5
+
+  Roll of 4
+      F. 5-1
+      G. 6-2*
+      H. 7-3
+
+
+> [System] Moving...
+> [System] Moved checker from 7 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 6].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 4-3
+      C. 6-5
+      D. 7-6
+      E. 8-7
+      F. 9-8
+      G. 10-9
+      H. 13-12
+
+  Roll of 6
+      I. 7-1
+      J. 8-2
+      K. 9-3
+      L. 10-4
+      M. 13-7
+      N. 23-17
+
+  Roll of 7
+      O. 8-1
+      P. 9-2
+      Q. 10-3
+      R. 13-6
+      S. 23-16
+
+
+> [System] Moving...
+> [System] Moved checker from 23 to 17.
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 4-3
+      C. 6-5
+      D. 7-6
+      E. 8-7
+      F. 9-8
+      G. 10-9
+      H. 13-12
+      I. 17-16
+
+
+> [System] Moving...
+> [System] Moved checker from 13 to 12.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 6].
+> [System] Available moves:
+  Roll of 1
+      A. 3-2
+      B. 4-3
+      C. 5-4
+      D. 6-5
+
+  Roll of 6
+      E. 6-Off
+
+  Roll of 7
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to home.
+> [System] Available moves:
+  Roll of 1
+      A. 3-2
+      B. 4-3
+      C. 5-4
+      D. 6-5
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 3].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2
+      C. 8-3
+      D. 9-4
+      E. 10-5
+      F. 12-7
+      G. 17-12
+
+  Roll of 3
+      H. 4-1
+      I. 6-3
+      J. 7-4
+      K. 8-5
+      L. 9-6
+      M. 10-7
+      N. 12-9
+      O. 17-14
+
+  Roll of 8
+      P. 9-1
+      Q. 10-2
+      R. 12-4
+      S. 17-9
+
+
+> [System] Moving...
+> [System] Moved checker from 17 to 9.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2
+      C. 5-3
+      D. 6-4
+
+  Roll of 5
+      E. 5-Off
+      F. 6-1
+
+  Roll of 7
+
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 1.
+> [System] Available moves:
+  Roll of 2
+      A. 3-1
+      B. 4-2
+      C. 5-3
+      D. 6-4
+
+
+> [System] Moving...
+> [System] Moved checker from 3 to 1.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 6].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1
+      B. 7-2
+      C. 8-3
+      D. 9-4
+      E. 10-5
+      F. 12-7
+
+  Roll of 6
+      G. 7-1
+      H. 8-2
+      I. 9-3
+      J. 10-4
+      K. 12-6
+
+  Roll of 11
+      L. 12-1
+
+
+> [System] Moving...
+> [System] Moved checker from 12 to 1.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 6-Off
+
+  Roll of 5
+      B. 5-Off
+      C. 6-1
+
+  Roll of 11
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to home.
+> [System] Available moves:
+  Roll of 5
+      A. 5-Off
+      B. 6-1
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to home.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 3].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 7-3
+      C. 8-4
+      D. 9-5
+      E. 10-6
+
+  Roll of 3
+      F. 4-1
+      G. 6-3
+      H. 7-4
+      I. 8-5
+      J. 9-6
+      K. 10-7
+
+  Roll of 7
+      L. 8-1
+      M. 9-2
+      N. 10-3
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to 2.
+> [System] Available moves:
+  Roll of 3
+      A. 4-1
+      B. 6-3
+      C. 7-4
+      D. 8-5
+      E. 9-6
+      F. 10-7
+
+
+> [System] Moving...
+> [System] Moved checker from 10 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 1-Off
+      B. 3-2
+      C. 4-3
+      D. 5-4
+      E. 6-5
+
+  Roll of 5
+      F. 5-Off
+      G. 6-1
+
+  Roll of 6
+      H. 6-Off
+
+
+> [System] Moving...
+> [System] Moved checker from 6 to home.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 5].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 4-3
+      C. 6-5
+      D. 7-6
+      E. 8-7
+      F. 9-8
+
+  Roll of 5
+      G. 6-1
+      H. 7-2
+      I. 8-3
+      J. 9-4
+
+  Roll of 6
+      K. 7-1
+      L. 8-2
+      M. 9-3
+
+
+> [System] Moving...
+> [System] Moved checker from 9 to 4.
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 4-3
+      C. 6-5
+      D. 7-6
+      E. 8-7
+      F. 9-8
+
+
+> [System] Moving...
+> [System] Moved checker from 9 to 8.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 3].
+> [System] Available moves:
+  Roll of 6
+      A. 5-Off
+
+  Roll of 3
+      B. 3-Off
+      C. 4-1
+      D. 5-2
+
+  Roll of 9
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to home.
+> [System] Available moves:
+  Roll of 3
+      A. 3-Off
+      B. 4-1
+      C. 5-2
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to 2.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [1, 1, 1, 1].
+> [System] Available moves:
+  Roll of 1
+      A. 2-1
+      B. 4-3
+      C. 6-5
+      D. 7-6
+      E. 8-7
+
+  Roll of 2
+      F. 4-2
+      G. 6-4
+      H. 7-5
+      I. 8-6
+
+  Roll of 3
+      J. 4-1
+      K. 6-3
+      L. 7-4
+      M. 8-5
+
+  Roll of 4
+      N. 6-2
+      O. 7-3
+      P. 8-4
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 4.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now rudy's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 3-Off
+      B. 4-1
+      C. 5-2
+
+  Roll of 2
+      D. 2-Off
+      E. 3-1
+      F. 4-2
+      G. 5-3
+
+  Roll of 5
+      H. 5-Off
+
+
+> [System] Moving...
+> [System] Moved checker from 5 to home.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now mariana's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 4-1
+      B. 6-3
+      C. 7-4
+      D. 8-5
+
+  Roll of 2
+      E. 4-2
+      F. 6-4
+      G. 7-5
+      H. 8-6
+
+  Roll of 5
+      I. 6-1
+      J. 7-2
+      K. 8-3
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+
+> [System] Trying to quit game.
+
