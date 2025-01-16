@@ -494,17 +494,24 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
     private void playSurpriseSound() {
         try {
         	 // עצירת המוזיקה הראשית
-            MusicPlayer.getInstance().pause();
-        	
+             boolean wasMusicEnabled = MusicPlayer.getInstance().isPlaying(); // Check current state from settings
+             
+             if (wasMusicEnabled) {
+            	 MusicPlayer.getInstance().pause(); // Pause main music
+//            	 wasMusicEnabled = false;
+             }
+             
         	String soundFile = getClass().getResource("/musicplayer/songs/tada.mp3").toExternalForm();
             Media sound = new Media(soundFile);
             MediaPlayer surprisePlayer = new MediaPlayer(sound);
             surprisePlayer.play();
             
-            // מאזין לסיום הצליל
+            surprisePlayer.play();
+            // Resume music only if it was enabled
             surprisePlayer.setOnEndOfMedia(() -> {
-                // חידוש המוזיקה הראשית
-                MusicPlayer.getInstance().play();
+                if (wasMusicEnabled) {
+                	MusicPlayer.getInstance().play();
+                }
             });
             
         } catch (Exception e) {

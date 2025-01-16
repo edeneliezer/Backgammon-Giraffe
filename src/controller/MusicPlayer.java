@@ -2,7 +2,11 @@ package controller;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import view.SettingsScreen;
+
 import java.net.URL;
+
+import Model.Settings;
 
 /**
  * Singleton class to control the music functionalities of the game.
@@ -41,8 +45,11 @@ public class MusicPlayer {
                 Media media = new Media(resource.toExternalForm());
                 mediaPlayer = new MediaPlayer(media);
                 mediaPlayer.setVolume(DEFAULT_VOLUME);
-                mediaPlayer.setOnReady(() -> mediaPlayer.setAutoPlay(true));
-            } else {
+                mediaPlayer.setOnReady(() -> {
+                    if (SettingsScreen.isMusicEnabled()) {
+                        mediaPlayer.play();
+                    }
+                });            } else {
                 throw new RuntimeException("Music resource not found: " + resourcePath);
             }
         } catch (Exception e) {

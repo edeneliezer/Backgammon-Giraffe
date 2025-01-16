@@ -3,10 +3,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import controller.MatchController;
+import controller.MusicPlayer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import view.SettingsScreen;
 import view.backgammonUI;
 
 	public class Main extends Application {
@@ -14,6 +16,7 @@ import view.backgammonUI;
 		public void start(Stage stage) throws Exception {
 		// יצירת מופע של מסך הפתיחה
 			backgammonUI openingScreen = new backgammonUI();
+	    	MusicPlayer.getInstance().play();
 		// קריאה לשיטת 'start' של מסך הפתיחה
 			openingScreen.start(stage);
 		// הוספת מאזין לכפתור ה-"Let's play!" במסך הפתיחה

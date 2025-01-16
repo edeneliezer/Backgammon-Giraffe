@@ -29,6 +29,17 @@ public class SettingsScreen {
 	private Button soundEffectsButton;
 	private Integer back;
 	private Button historyButton;
+	private Button musicButton;
+	
+	private static boolean isMusicEnabled = true; // Default state: music is on
+
+    public static boolean isMusicEnabled() {
+        return isMusicEnabled;
+    }
+
+    public static void setMusicEnabled(boolean enabled) {
+        isMusicEnabled = enabled;
+    }
 
     public SettingsScreen(CommandController cmd, int back) {
         settingsBox = createSettingsOverlay();
@@ -42,7 +53,7 @@ public class SettingsScreen {
         if(back == 1) {
         	historyButton.setDisable(false);
         }
-        startMusicByDefault();
+//        startMusicByDefault();
     }
 
     /**
@@ -71,19 +82,20 @@ public class SettingsScreen {
         settingsTitle.setTextFill(Color.BROWN);
 
         // Buttons for settings options with icons
-        Button musicButton = createIconButton("Music", "sound.png");
+        musicButton = createIconButton("Music", "sound.png");
         musicButton.setOnAction(e -> {
             ImageView icon;
-            if (MusicPlayer.getInstance().isPlaying()) {
+            if (isMusicEnabled()) {
+                setMusicEnabled(false); // Disable music globally
                 MusicPlayer.getInstance().pause();
                 icon = new ImageView(new Image("mute.png"));
                 musicButton.setText("Unmute");
             } else {
+                setMusicEnabled(true); // Enable music globally
                 MusicPlayer.getInstance().play();
                 icon = new ImageView(new Image("sound.png"));
                 musicButton.setText("Music");
-            }
-            // Set the size of the icon
+            }            // Set the size of the icon
             icon.setFitWidth(20); // Set the width
             icon.setFitHeight(20); // Set the height
             musicButton.setGraphic(icon);
@@ -206,6 +218,20 @@ public class SettingsScreen {
         if (!musicPlayer.isPlaying()) {
             musicPlayer.play();
         }
+    }
+    
+    public void updateMusicButton() {
+        ImageView icon;
+        if (isMusicEnabled()) {
+            icon = new ImageView(new Image("sound.png"));
+            musicButton.setText("Music");
+        } else {
+            icon = new ImageView(new Image("mute.png"));
+            musicButton.setText("Unmute");
+        }
+        icon.setFitWidth(20); // Set the width
+        icon.setFitHeight(20); // Set the height
+        musicButton.setGraphic(icon);
     }
 
 

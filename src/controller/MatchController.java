@@ -161,6 +161,8 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 //	    StackPane.setAlignment(settingsButton, Pos.TOP_RIGHT); // Position button in top-right corner
 	    
 		initLayout();
+		initializeMusic();
+		settingsScreen.updateMusicButton();
 	}
 	
 
@@ -782,6 +784,13 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	
 	public boolean isCrawfordGame() {
 		return isCrawfordGame;
+	}
+	
+	private void initializeMusic() {
+	    if (SettingsScreen.isMusicEnabled() && !MusicPlayer.getInstance().isPlaying()) {
+	    	MusicPlayer.getInstance().play();
+	    }
+
 	}
 	
 	
