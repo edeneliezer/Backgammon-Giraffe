@@ -160,11 +160,33 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 		}
 		
 		updateMovesDuringValidation();
-		
+		// נבדוק אם השחקן נחת על תחנת הפתעה
+
 		if (isValidMove) {
-	        // נבדוק אם השחקן נחת על תחנת הפתעה
-	        Pip targetPip = game.getBoard().getPips()[Integer.parseInt(to)];
-	        checkSurpriseStation(targetPip, gameplay.getCurrent());
+			try {
+		        // בדיקה שהמיקום `to` תקין
+		        int pipIndex = Integer.parseInt(to);
+
+		        // בדיקה שהלוח והפיפס לא null ושהמיקום חוקי
+		        if (game.getBoard() != null && game.getBoard().getPips() != null &&
+		            pipIndex >= 0 && pipIndex < game.getBoard().getPips().length) {
+
+		            Pip targetPip = game.getBoard().getPips()[pipIndex];
+
+		            // בדיקה אם `targetPip` אינו null
+		            if (targetPip != null) {
+		                checkSurpriseStation(targetPip, gameplay.getCurrent());
+		            }
+		        } else {
+		            System.err.println("Invalid pip index or board is not initialized.");
+		        }
+		    } catch (NumberFormatException e) {
+		        System.out.println("Moved to " + to);
+		    } catch (Exception e) {
+		        System.out.println("Unexpected error during surprise station check: " + e.getMessage());
+		        e.printStackTrace();
+		    }
+			
 	    }
 		
 		return isValidMove;
