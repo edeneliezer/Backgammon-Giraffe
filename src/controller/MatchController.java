@@ -97,7 +97,11 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	        initApplication();
 	        initGame();
 	        style();
-	    }
+	  }
+	 
+	 public MatchTimer getGameTimer() {
+		    return gameTimer;
+		}
 	
 	/**
 	 * Initialize players and UI components.

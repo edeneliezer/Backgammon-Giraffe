@@ -27,7 +27,7 @@ public class GameModel {
         }
     }
 
-    public static void saveGameInfo(String player1, String player2, String difficulty, String winner) {
+    public static void saveGameInfo(String player1, String player2, String difficulty, String winner, String gameTime) {
         int gameNumber = gameNumberCounter.incrementAndGet(); // Increment the game number
 
         JSONObject gameInfo = new JSONObject();
@@ -36,6 +36,7 @@ public class GameModel {
         gameInfo.put("player2", player2);
         gameInfo.put("difficulty", difficulty);
         gameInfo.put("winner", winner); // Save the winner's name
+        gameInfo.put("gameTime", gameTime); // Save the game time
 
         try {
             File file = new File(FILE_NAME);
@@ -55,7 +56,7 @@ public class GameModel {
             System.out.println("Error saving game info: " + e.getMessage());
         }
     }
-
+    
     public static void printGameInfo() {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;

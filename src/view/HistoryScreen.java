@@ -86,15 +86,16 @@ public class HistoryScreen {
                 String player2 = gameInfo.getString("player2");
                 String difficulty = gameInfo.getString("difficulty");
                 String winner = gameInfo.getString("winner");
+                String gameTime = gameInfo.optString("gameTime", "N/A"); // Get gameTime or default to "N/A"
 
-                root.getChildren().add(createGameRow(player1, player2, difficulty, winner));
+                root.getChildren().add(createGameRow(player1, player2, difficulty, winner, gameTime));
             }
         } catch (IOException e) {
             throw new IOException("Error reading game info from file.", e);
         }
     }
 
-    private HBox createGameRow(String player1, String player2, String difficulty, String winner) {
+    private HBox createGameRow(String player1, String player2, String difficulty, String winner, String gameTime) {
         HBox row = new HBox();
         row.setAlignment(Pos.CENTER);
         row.setSpacing(10);
@@ -111,14 +112,20 @@ public class HistoryScreen {
         difficultyLabel.setFont(Font.font("Verdana", 18));
         difficultyLabel.setTextFill(Color.BEIGE);
         difficultyLabel.setStyle("-fx-background-color: #8b5e3c; -fx-padding: 5; -fx-border-color: black;");
-        HBox.setHgrow(difficultyLabel, Priority.ALWAYS); // Allow the label to occupy space for centering
+        HBox.setHgrow(difficultyLabel, Priority.ALWAYS);
 
         // Player 2 or Winner Label
         Label player2Label = new Label(player2.equals(winner) ? "Winner: " + player2 : player2);
         player2Label.setFont(Font.font("Verdana", 18));
         player2Label.setTextFill(player2.equals(winner) ? Color.LIGHTGREEN : Color.WHITE);
 
-        // Create containers to force proper alignment
+        // Game Time Label
+        Label gameTimeLabel = new Label("Time: " + gameTime);
+        gameTimeLabel.setFont(Font.font("Verdana", 18));
+        gameTimeLabel.setTextFill(Color.YELLOW);
+        gameTimeLabel.setStyle("-fx-background-color: #444; -fx-padding: 5; -fx-border-color: black;");
+        
+     // Create containers to force proper alignment
         HBox player1Container = new HBox(player1Label);
         player1Container.setAlignment(Pos.CENTER_LEFT);
         HBox.setHgrow(player1Container, Priority.ALWAYS);
@@ -127,8 +134,9 @@ public class HistoryScreen {
         player2Container.setAlignment(Pos.CENTER_RIGHT);
         HBox.setHgrow(player2Container, Priority.ALWAYS);
 
-        // Add to row
-        row.getChildren().addAll(player1Container, difficultyLabel, player2Container);
+
+        // Add elements to the row
+        row.getChildren().addAll(player1Container, difficultyLabel,gameTimeLabel, player2Container);
         return row;
     }
 

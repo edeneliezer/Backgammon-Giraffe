@@ -594,7 +594,8 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	private void handleGameOverScore(boolean isIntermediate) {
 		Player winner = getpCurrent();
 		String chosenDifficulty = view.backgammonUI.getChosenDiffficulty();
-	    GameModel.saveGameInfo(bottomPlayer.getName(), topPlayer.getName(), chosenDifficulty, winner.getName());
+	    String gameTime = root.getGameTimer().getFormattedTime(); // Get the game time from MatchController
+	    GameModel.saveGameInfo(bottomPlayer.getName(), topPlayer.getName(), chosenDifficulty, winner.getName(), gameTime);
 	    GameModel.printGameInfo();
         // Print all saved games to verify
 		if (isIntermediate) {
