@@ -27413,3 +27413,56 @@
 > [System] You can only roll the dice.
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] Roll dice result: [-2, 4].
+> [System] Available moves:
+  Roll of -2
+      A. 19-17
+      B. 17-15
+      C. 12-10
+
+  Roll of 4
+      D. 19-23
+      E. 17-21
+      F. 12-16
+      G. 1-5
+
+  Roll of 2
+
+
+> [System] Moving...
+> [System] Moved checker from 19 to 17.
+> [System] Available moves:
+  Roll of 4
+      A. 19-23
+      B. 17-21
+      C. 12-16
+      D. 1-5
+
+
+> [System] Moving...
+> [System] Moved checker from 19 to 23.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now a's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [6, -3].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of -3
+      D. 6-9
+      E. 8-11
+      F. 13-16
+
+  Roll of 3
+
+> [System] Trying to quit game.
+
