@@ -33,6 +33,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import view.Dialogs;
@@ -192,12 +193,13 @@ public class GameplayController  extends Observable implements ColorParser, Colo
 	    });
 	    confirmButton.setOnMouseEntered(e -> confirmButton.setStyle("-fx-background-color: #A0522D; -fx-text-fill: #FDF5E6; -fx-font-weight: bold; -fx-cursor: hand;"));
 	    confirmButton.setOnMouseExited(e -> confirmButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"));
-
+	    AudioClip diceSound = new AudioClip(getClass().getResource("/musicplayer/songs/dice.aiff").toExternalForm());
 	    // Roll dice button
 	    javafx.scene.control.Button rollButton = new javafx.scene.control.Button("Roll Dice");
 	    rollButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
 	    rollButton.setStyle("-fx-background-color: #B22222; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;");
 	    rollButton.setOnAction(e -> {
+	    	diceSound.play();
 	        int bottomPlayerRoll = rollDice(bottomPlayerDice);
 	        int topPlayerRoll = rollDice(topPlayerDice);
 
