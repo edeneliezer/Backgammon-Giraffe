@@ -1,10 +1,13 @@
 package controller;
 
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Optional;
 
 import Model.DieInstance;
 import Model.DieResults;
 import Model.DoublingCube;
+import Model.Emoji;
 import Model.GameEndScore;
 import Model.GameModel;
 import controller.GameplayMovesController;
@@ -42,7 +45,7 @@ import view.ScoreboardPrompt;
  * Sub-controller of MainController.
 
  */
-public class GameplayController implements ColorParser, ColorPerspectiveParser, InputValidator, IndexOffset, IntegerLettersParser {
+public class GameplayController  extends Observable implements ColorParser, ColorPerspectiveParser, InputValidator, IndexOffset, IntegerLettersParser {
 	private boolean isStarted, isRolled, isMoved, isFirstRoll, isTopPlayer, isDoubling, isDoubled, isMaxDoubling, isInTransition;
 	private Player bottomPlayer, topPlayer;
 	private static Player pCurrent;
@@ -56,6 +59,8 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
 	private GameplayMovesController gameplayMoves;
 	private EventController eventController; // Reference to EventController
 	private boolean extraTurn = false;
+	private String playerStatus; 
+	private Emoji playerEmoji;
 	
 	public GameplayController(Stage stage, MatchController root, GameComponentsController game,
             InfoPanel infoPnl, Player bottomPlayer, Player topPlayer,
@@ -71,6 +76,23 @@ public class GameplayController implements ColorParser, ColorPerspectiveParser, 
             gameplayMoves = new GameplayMovesController(game, this, infoPnl);
             reset();
     } 
+	 public GameplayController(Emoji emoji) {
+	        this.playerEmoji = emoji;
+	    }
+	
+	public void setPlayerStatus(String status) {
+        this.playerStatus = status;
+        setChanged();
+        notifyObservers(status);  // Notify Emoji
+    }
+	
+	public void registerObserver(Observer observer) {
+        addObserver(observer);
+    }
+    
+    public String getPlayerStatus() {
+        return playerStatus;
+    }
 	
 	public void reset() {
 		isStarted = false;
