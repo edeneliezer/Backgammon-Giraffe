@@ -34,9 +34,10 @@ public class GameInfoTest {
         String player2 = "Bob";
         String difficulty = "Medium";
         String winner = "Alice";
+        String gameTime = "00:17";
 
         // Act
-        GameModel.saveGameInfo(player1, player2, difficulty, winner);
+        GameModel.saveGameInfo(player1, player2, difficulty, winner, gameTime);
 
         // Assert
         // Verify the game info file
