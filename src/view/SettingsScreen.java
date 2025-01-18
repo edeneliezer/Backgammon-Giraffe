@@ -5,13 +5,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 import controller.CommandController;
 import controller.MusicPlayer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,6 +33,8 @@ public class SettingsScreen {
 	private Integer back;
 	private Button historyButton;
 	private Button musicButton;
+	private Button homeButten;
+
 	
 	private static boolean isMusicEnabled = true; // Default state: music is on
 
@@ -146,9 +151,56 @@ public class SettingsScreen {
             HistoryScreen historyScreen = new HistoryScreen(); // Pass the current SettingsScreen
             historyScreen.start(stage);
         });
+        
+     // הוספת כפתור חדש למסך הבית
+        Button homeButton = new Button("Back");
+        homeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+        homeButton.setStyle(
+            "-fx-background-color: #4CAF50; " +  // ירוק ככפתור
+            "-fx-text-fill: white; " +            // טקסט לבן
+            "-fx-border-radius: 5; " +           // פינות מעוגלות
+            "-fx-background-radius: 5;"          // רקע מעוגל
+        );
+
+        homeButton.setOnAction(e -> {
+        	// יצירת alert (הודעת אזהרה) אם המשתמש בטוח שהוא רוצה לעזוב
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Are you sure you want to leave?");
+            alert.setContentText("If you leave, your current progress will be lost.");
+
+            // הגדרת התשובות האפשריות (OK ו-Cancel)
+            ButtonType yesButton = new ButtonType("Yes");
+            ButtonType cancelButton = new ButtonType("Cancel");
+            alert.getButtonTypes().setAll(yesButton, cancelButton);
+
+            // הצגת ה-alert
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // אם המשתמש לחץ על "Yes"
+            if (result.isPresent() && result.get() == yesButton) {
+                // מסתיר את מסך ההגדרות
+                settingsBox.setVisible(false);
+                StackPane stackPane = (StackPane) settingsBox.getParent();
+                Node fadeBackground = stackPane.getChildren().get(1); // גישה לרקע המאט של המסך
+                fadeBackground.setVisible(false);
+
+                // יצירת מופע של backgammonUI והפעלתו מחדש
+                Stage primaryStage = (Stage) settingsBox.getScene().getWindow();
+                backgammonUI homeScreen = new backgammonUI(); // יצירת מופע חדש של המסך הבית
+                try {
+                    homeScreen.start(primaryStage); // אתחול מסך הבית בחלון הראשי
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                // אם המשתמש לחץ על Cancel, לא נעשה כלום
+                alert.close();
+            }
+        });
 
         // Add all elements to the settings box
-        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton, closeButton);
+        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton,homeButton, closeButton);
 
         return settingsBox;
     }
