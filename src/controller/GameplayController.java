@@ -33,6 +33,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import view.Dialogs;
 import view.GameComponentsController;
@@ -123,6 +124,8 @@ public class GameplayController  extends Observable implements ColorParser, Colo
 
 	    // Create a stage for the dice roll panel
 	    Stage diceStage = new Stage();
+	    diceStage.initOwner(stage); // Set the parent stage
+	    diceStage.initModality(Modality.WINDOW_MODAL); // Make the window modal
 	    VBox layout = new VBox(20);
 	    layout.setAlignment(Pos.CENTER);
 	    
