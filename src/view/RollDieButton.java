@@ -22,7 +22,7 @@ public class RollDieButton extends Button {
         setFont(Font.font("Verdana", FontWeight.BOLD, 16)); 
 
         // Set button style
-        setStyle("-fx-background-color: #ffcc66; -fx-text-fill: black; -fx-border-color: #8b5e3c; -fx-border-width: 2px;");
+        setStyle("-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-border-width: 2px;");
 
         // Add shadow effect
         setEffect(new DropShadow(10, 0, 0, Color.BLACK));
@@ -42,14 +42,16 @@ public class RollDieButton extends Button {
             setEffect(new DropShadow(10, 0, 0, Color.BLACK));
         });
 
-        // Change cursor to hand when mouse hovers
+        // Change cursor to hand and background color on hover
         setOnMouseEntered((MouseEvent event) -> {
             setCursor(Cursor.HAND); // Change cursor to hand
+            setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-border-width: 2px;"); // Lighter green
         });
 
-        // Return cursor to default when mouse exits
+        // Return cursor and color to default when mouse exits
         setOnMouseExited((MouseEvent event) -> {
             setCursor(Cursor.DEFAULT); // Change cursor back to default
+            setStyle("-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-border-width: 2px;"); // Original green
         });
     }
 }

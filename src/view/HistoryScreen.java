@@ -26,20 +26,42 @@ public class HistoryScreen {
         root.setPadding(new Insets(20));
         root.setStyle("-fx-background-color: #fefaf4;");
         root.setAlignment(Pos.TOP_CENTER);
-        // Home Button (Top-Left Corner)
+      
+     // Home Button (Top-Left Corner)
         Button homeButton = new Button("Back");
         homeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
         homeButton.setStyle(
-            "-fx-background-color: #d11e1e; " +  // Red background
-            "-fx-text-fill: white; " +          // White text
-            "-fx-border-radius: 5; " +          // Rounded border
-            "-fx-background-radius: 5;"         // Rounded background
+            "-fx-background-color: #d11e1e; " +  // רקע אדום
+            "-fx-text-fill: white; " +          // טקסט בצבע לבן
+            "-fx-border-radius: 5; " +          // גבול מעוגל
+            "-fx-background-radius: 5; " +
+            "-fx-cursor: hand;"                // שינוי הסמן לכף יד
         );
+
+        // אפקט שינוי צבע בעת ריחוף
+        homeButton.setOnMouseEntered(e -> homeButton.setStyle(
+            "-fx-background-color: #b30000; " +  // רקע כהה יותר בעת ריחוף
+            "-fx-text-fill: white; " +
+            "-fx-border-radius: 5; " +
+            "-fx-background-radius: 5; " +
+            "-fx-cursor: hand;"
+        ));
+
+        homeButton.setOnMouseExited(e -> homeButton.setStyle(
+            "-fx-background-color: #d11e1e; " +  // חזרה לצבע המקורי
+            "-fx-text-fill: white; " +
+            "-fx-border-radius: 5; " +
+            "-fx-background-radius: 5; " +
+            "-fx-cursor: hand;"
+        ));
+
+        // פעולה בעת לחיצה על הכפתור
         homeButton.setOnAction(e -> {
-            // Navigate back to BackgammonUI
+            // חזרה למסך הראשי של המשחק
             backgammonUI backgammonScreen = new backgammonUI();
             backgammonScreen.start(primaryStage);
         });
+
 
         // Add Home Button to a HBox for alignment
         HBox homeButtonContainer = new HBox(homeButton);
@@ -111,7 +133,12 @@ public class HistoryScreen {
         Label difficultyLabel = new Label(difficulty);
         difficultyLabel.setFont(Font.font("Verdana", 18));
         difficultyLabel.setTextFill(Color.BEIGE);
-        difficultyLabel.setStyle("-fx-background-color: #8b5e3c; -fx-padding: 5; -fx-border-color: black;");
+        difficultyLabel.setStyle(
+            "-fx-background-color: #8b5e3c; " +
+            "-fx-padding: 5; " +
+            "-fx-border-color: black; " +
+            "-fx-border-width: 2;"
+        );
         HBox.setHgrow(difficultyLabel, Priority.ALWAYS);
 
         // Player 2 or Winner Label
@@ -119,13 +146,18 @@ public class HistoryScreen {
         player2Label.setFont(Font.font("Verdana", 18));
         player2Label.setTextFill(player2.equals(winner) ? Color.LIGHTGREEN : Color.WHITE);
 
-        // Game Time Label
+        // Game Time Label (Updated Styling)
         Label gameTimeLabel = new Label("Time: " + gameTime);
         gameTimeLabel.setFont(Font.font("Verdana", 18));
-        gameTimeLabel.setTextFill(Color.YELLOW);
-        gameTimeLabel.setStyle("-fx-background-color: #444; -fx-padding: 5; -fx-border-color: black;");
-        
-     // Create containers to force proper alignment
+        gameTimeLabel.setTextFill(Color.BEIGE);
+        gameTimeLabel.setStyle(
+            "-fx-background-color: #8b5e3c; " +
+            "-fx-padding: 5; " +
+            "-fx-border-color: black; " +
+            "-fx-border-width: 2;"
+        );
+
+        // Create containers to force proper alignment
         HBox player1Container = new HBox(player1Label);
         player1Container.setAlignment(Pos.CENTER_LEFT);
         HBox.setHgrow(player1Container, Priority.ALWAYS);
@@ -134,11 +166,11 @@ public class HistoryScreen {
         player2Container.setAlignment(Pos.CENTER_RIGHT);
         HBox.setHgrow(player2Container, Priority.ALWAYS);
 
-
         // Add elements to the row
-        row.getChildren().addAll(player1Container, difficultyLabel,gameTimeLabel, player2Container);
+        row.getChildren().addAll(player1Container, difficultyLabel, gameTimeLabel, player2Container);
         return row;
     }
+
 
 
 

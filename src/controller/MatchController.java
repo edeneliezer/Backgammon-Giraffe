@@ -22,6 +22,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContentDisplay;
@@ -50,6 +51,7 @@ import view.InfoPanel;
 import view.RollDieButton;
 import view.ScoreboardPrompt;
 import view.SettingsScreen;
+import view.backgammonUI;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.effect.DropShadow;
@@ -82,6 +84,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	private SettingsScreen settingsScreen;
 	private StackPane stackPane;
 	private VBox settingsOverlay;
+	private Button backToHomeBtn;
 	
 	/**
 	 * Default Constructor
@@ -116,13 +119,151 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	    soundEffectsPlayer = new SoundEffectsPlayer(); // Initialize sound effects
 		isPlayerInfosEnteredFirstTime = true;
 		isPromptCancel = false;
+		backToHomeBtn = createBTHButton();
 	}
 	
 	
 	
-	
-	
-	
+	private Button createBTHButton() {
+	    Button backToHomeBtn = new Button("Back");
+	    backToHomeBtn.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+
+	    // עיצוב הכפתור בצבע בורדו
+	    backToHomeBtn.setStyle(
+	        "-fx-background-color: #800000; " +  // צבע רקע בורדו
+	        "-fx-text-fill: white; " +           // טקסט בצבע לבן
+	        "-fx-border-radius: 5; " +           // פינות מעוגלות
+	        "-fx-background-radius: 5;" +        // רקע מעוגל
+	        "-fx-cursor: hand;"                  // שינוי ה-CURSOR לכף יד
+	    );
+
+	    // שינוי עיצוב בעת ריחוף (Hover)
+	    backToHomeBtn.setOnMouseEntered(e -> backToHomeBtn.setStyle(
+	        "-fx-background-color: #990000; " +  // צבע כהה יותר בעת ריחוף
+	        "-fx-text-fill: white; " +
+	        "-fx-border-radius: 5; " +
+	        "-fx-background-radius: 5;" +
+	        "-fx-cursor: hand;"                  // שמירה על כף יד
+	    ));
+
+	    backToHomeBtn.setOnMouseExited(e -> backToHomeBtn.setStyle(
+	        "-fx-background-color: #800000; " +  // חזרה לצבע המקורי
+	        "-fx-text-fill: white; " +
+	        "-fx-border-radius: 5; " +
+	        "-fx-background-radius: 5;" +
+	        "-fx-cursor: hand;"                  // שמירה על כף יד
+	    ));
+
+	    // פעולה שמתרחשת בעת לחיצה על הכפתור
+	    backToHomeBtn.setOnAction(e -> {
+	        // יצירת הודעת Alert מעוצבת
+	        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+	        alert.setTitle("Exit Confirmation");
+	        alert.setHeaderText(null); // אין כותרת עליונה
+
+	        // עיצוב תוכן ההודעה
+	        VBox content = new VBox(10);
+	        content.setAlignment(Pos.CENTER_LEFT);
+
+	        // טקסט גדול ובולט לחלק הראשון
+	        Label mainMessage = new Label("Are you sure you want to leave?");
+	        mainMessage.setFont(Font.font("Verdana", FontWeight.BOLD, 16)); // טקסט בולט
+	        mainMessage.setTextFill(Color.BROWN);
+
+	        // טקסט קטן יותר לחלק השני
+	        Label subMessage = new Label("If you leave, the game will end and won't be saved.");
+	        subMessage.setFont(Font.font("Verdana", FontWeight.NORMAL, 12)); // טקסט קטן יותר
+	        subMessage.setTextFill(Color.DARKRED);
+
+	        // הוספת שני חלקי הטקסט לתוכן
+	        content.getChildren().addAll(mainMessage, subMessage);
+
+	        // הגדרת התוכן המעוצב
+	        alert.getDialogPane().setContent(content);
+
+	        alert.getDialogPane().setStyle(
+	            "-fx-background-color: #fefaf4; " +  // רקע בז'
+	            "-fx-border-color: brown; " +       // גבול חום
+	            "-fx-border-width: 2; " +           // עובי הגבול
+	            "-fx-border-radius: 10; " +         // פינות מעוגלות
+	            "-fx-background-radius: 10;"        // רקע מעוגל
+	        );
+
+	        // עיצוב כפתורים (כמו בקוד הקודם)
+	        ButtonType yesButton = new ButtonType("Yes");
+	        ButtonType cancelButton = new ButtonType("Cancel");
+	        alert.getButtonTypes().setAll(yesButton, cancelButton);
+
+	        Node yesButtonNode = alert.getDialogPane().lookupButton(yesButton);
+	        if (yesButtonNode instanceof Button) {
+	            Button yesBtn = (Button) yesButtonNode;
+	            yesBtn.setStyle(
+	                "-fx-background-color: #800000; " +  // צבע בורדו
+	                "-fx-text-fill: white; " +           // טקסט בצבע לבן
+	                "-fx-border-radius: 5; " +           // פינות מעוגלות
+	                "-fx-background-radius: 5; " +
+	                "-fx-cursor: hand;"                  // שינוי ה-CURSOR לכף יד
+	            );
+	            yesBtn.setOnMouseEntered(event -> yesBtn.setStyle(
+	                "-fx-background-color: #990000; " +  // צבע כהה יותר בעת ריחוף
+	                "-fx-text-fill: white; " +
+	                "-fx-border-radius: 5; " +
+	                "-fx-background-radius: 5; " +
+	                "-fx-cursor: hand;"
+	            ));
+	            yesBtn.setOnMouseExited(event -> yesBtn.setStyle(
+	                "-fx-background-color: #800000; " +
+	                "-fx-text-fill: white; " +
+	                "-fx-border-radius: 5; " +
+	                "-fx-background-radius: 5; " +
+	                "-fx-cursor: hand;"
+	            ));
+	        }
+
+	        Node cancelButtonNode = alert.getDialogPane().lookupButton(cancelButton);
+	        if (cancelButtonNode instanceof Button) {
+	            Button cancelBtn = (Button) cancelButtonNode;
+	            cancelBtn.setStyle(
+	                "-fx-background-color: #444444; " +  // צבע אפור כהה
+	                "-fx-text-fill: white; " +           // טקסט בצבע לבן
+	                "-fx-border-radius: 5; " +           // פינות מעוגלות
+	                "-fx-background-radius: 5; " +
+	                "-fx-cursor: hand;"                  // שינוי ה-CURSOR לכף יד
+	            );
+	            cancelBtn.setOnMouseEntered(event -> cancelBtn.setStyle(
+	                "-fx-background-color: #555555; " +  // צבע כהה יותר בעת ריחוף
+	                "-fx-text-fill: white; " +
+	                "-fx-border-radius: 5; " +
+	                "-fx-background-radius: 5; " +
+	                "-fx-cursor: hand;"
+	            ));
+	            cancelBtn.setOnMouseExited(event -> cancelBtn.setStyle(
+	                "-fx-background-color: #444444; " +
+	                "-fx-text-fill: white; " +
+	                "-fx-border-radius: 5; " +
+	                "-fx-background-radius: 5; " +
+	                "-fx-cursor: hand;"
+	            ));
+	        }
+
+	        // פעולה לפי בחירת המשתמש
+	        Optional<ButtonType> result = alert.showAndWait();
+	        if (result.isPresent() && result.get() == yesButton) {
+	            resetApplication(); // איפוס המשחק
+	            try {
+	                backgammonUI homeScreen = new backgammonUI();
+	                homeScreen.start(stage); // חזרה למסך הבית
+	            } catch (Exception ex) {
+	                ex.printStackTrace();
+	            }
+	        } else {
+	            alert.close();
+	        }
+	    });
+	    
+	    return backToHomeBtn;
+	}
+
 	
 	/**
 	 * Initialize game components and sub-controllers.
@@ -149,16 +290,40 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 //	    stackPane = new StackPane(currentScene.getRoot(), settingsOverlay);
 //	    stage.setScene(new Scene(stackPane, currentScene.getWidth(), currentScene.getHeight()));
 
-		 // Create the Settings Button
+	 // Create the Settings Button
 	    settingsButton = new Button("Settings");
 	    settingsButton.setStyle(
 	        "-fx-font-size: 14px; " +
 	        "-fx-font-weight: bold; " +
-	        "-fx-background-color: #d2a679; " +
-	        "-fx-text-fill: black; " +
-	        "-fx-border-radius: 5; " +
-	        "-fx-background-radius: 5;"
+	        "-fx-background-color: #d2a679; " +  // צבע רקע מקורי
+	        "-fx-text-fill: white; " +           // טקסט בצבע לבן
+	        "-fx-border-radius: 5; " +           // פינות מעוגלות
+	        "-fx-background-radius: 5;" +        // רקע מעוגל
+	        "-fx-cursor: hand;"                  // שינוי ה-CURSOR לכף יד
 	    );
+
+	    // אפקט שינוי צבע בעת ריחוף עם העכבר
+	    settingsButton.setOnMouseEntered(e -> settingsButton.setStyle(
+	        "-fx-font-size: 14px; " +
+	        "-fx-font-weight: bold; " +
+	        "-fx-background-color: #b58a5c; " +  // צבע כהה יותר
+	        "-fx-text-fill: white; " +
+	        "-fx-border-radius: 5; " +
+	        "-fx-background-radius: 5;" +
+	        "-fx-cursor: hand;"
+	    ));
+
+	    settingsButton.setOnMouseExited(e -> settingsButton.setStyle(
+	        "-fx-font-size: 14px; " +
+	        "-fx-font-weight: bold; " +
+	        "-fx-background-color: #d2a679; " +  // חזרה לצבע המקורי
+	        "-fx-text-fill: white; " +
+	        "-fx-border-radius: 5; " +
+	        "-fx-background-radius: 5;" +
+	        "-fx-cursor: hand;"
+	    ));
+
+	    // פעולה שמתרחשת בלחיצה על הכפתור
 	    settingsButton.setOnAction(e -> toggleSettingsOverlay());
 	    
 //	    stackPane.getChildren().add(settingsButton); // Add settings button to StackPane
@@ -621,8 +786,21 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		getChildren().clear();
 		add(game, 0, 0, 1, 3);
 		add(terminal, 1, 0);
-		add(rollDieBtn, 1, 2);
-		add(settingsButton, 1, 1);
+		add(rollDieBtn, 0, 3);
+		
+		// הגדרת גדלים זהים לכפתורי Settings ו-Back
+	    double buttonWidth = 80; // רוחב קבוע לכפתורים
+	    double buttonHeight = 40; // גובה קבוע לכפתורים
+	    settingsButton.setPrefSize(buttonWidth, buttonHeight);
+	    backToHomeBtn.setPrefSize(buttonWidth, buttonHeight);
+
+	    // יצירת HBox עבור הכפתורים Settings ו-Back
+	    HBox buttonContainer = new HBox(10); // ריווח של 10 פיקסלים בין הכפתורים
+	    buttonContainer.setAlignment(Pos.CENTER_RIGHT);
+	    buttonContainer.getChildren().addAll(settingsButton, backToHomeBtn);
+
+	    // הוספת ה-HBox לפריסה
+	    add(buttonContainer, 1, 1); // מיקום ה-HBox בשורה 1, עמודה 1
 	}
 	
 	/**

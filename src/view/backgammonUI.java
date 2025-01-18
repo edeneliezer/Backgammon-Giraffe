@@ -96,11 +96,31 @@ public class backgammonUI extends Application {
 
         Button settingsButton = createImageButton("settings.jpg", 25, 25);
         settingsButton.setId("settingsButton"); // Add an ID for lookup
+
+        // הוספת Hand Cursor
+        settingsButton.setStyle(
+            "-fx-background-color: transparent; " + // רקע שקוף
+            "-fx-cursor: hand;"                     // שינוי הסמן לכף יד
+        );
+
+        // אפקט שינוי צבע בעת ריחוף
+        settingsButton.setOnMouseEntered(e -> settingsButton.setStyle(
+            "-fx-background-color: #8b5e3c; " + // רקע בהיר יותר בעת ריחוף
+            "-fx-cursor: hand;"                // שמירה על כף יד
+        ));
+
+        settingsButton.setOnMouseExited(e -> settingsButton.setStyle(
+            "-fx-background-color: transparent; " + // חזרה לרקע המקורי
+            "-fx-cursor: hand;"                     // שמירה על כף יד
+        ));
+
+        // הוספת פעולה בעת לחיצה
         settingsButton.setOnAction(e -> {
             boolean isVisible = !settingsOverlay.isVisible();
             settingsOverlay.setVisible(isVisible);
             fadeBackground.setVisible(isVisible);
         });
+
 
 
         menuButtons.getChildren().addAll(settingsButton);
@@ -166,7 +186,7 @@ public class backgammonUI extends Application {
                 checkIfReadyToPlay();  // בודק אם אפשר להפעיל את כפתור המשחק
             }
             // משבית את שאר הכפתורים
-            easyButton.setStyle("-fx-background-color: #ffcc66; -fx-text-fill: black;");
+            easyButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
             mediumButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
             hardButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
         });
@@ -179,7 +199,7 @@ public class backgammonUI extends Application {
             }
             // משבית את שאר הכפתורים
             easyButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
-            mediumButton.setStyle("-fx-background-color: #ffcc66; -fx-text-fill: black;");
+            mediumButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
             hardButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
         });
 
@@ -192,7 +212,7 @@ public class backgammonUI extends Application {
             // משבית את שאר הכפתורים
             easyButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
             mediumButton.setStyle("-fx-background-color: #8b5e3c; -fx-text-fill: white;");
-            hardButton.setStyle("-fx-background-color: #ffcc66; -fx-text-fill: black;");
+            hardButton.setStyle("-fx-background-color: #d2a679; -fx-text-fill: black;");
         });
 
         // הגדרת גודל הכפתורים

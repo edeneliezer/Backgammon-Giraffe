@@ -83,7 +83,7 @@ public class SettingsScreen {
 
         // Settings Title
         Label settingsTitle = new Label("SETTINGS");
-        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 14)); // Slightly smaller font
+        settingsTitle.setFont(Font.font("Verdana", FontWeight.BOLD, 20)); 
         settingsTitle.setTextFill(Color.BROWN);
 
         // Buttons for settings options with icons
@@ -132,11 +132,30 @@ public class SettingsScreen {
         Button closeButton = new Button("Close");
         closeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
         closeButton.setStyle(
-            "-fx-background-color: #d11e1e; " +  // Red button background
-            "-fx-text-fill: white; " +           // White text
-            "-fx-border-radius: 5; " +           // Rounded border
-            "-fx-background-radius: 5;"         // Rounded background
-        );
+        	    "-fx-background-color: #d11e1e; " +  // רקע אדום
+        	    "-fx-text-fill: white; " +           // טקסט בצבע לבן
+        	    "-fx-border-radius: 5; " +
+        	    "-fx-background-radius: 5; " +
+        	    "-fx-cursor: hand;"                // שינוי ה-Cursor לכף יד
+        	);
+
+    	// אפקט ריחוף
+    	closeButton.setOnMouseEntered(e -> closeButton.setStyle(
+    	    "-fx-background-color: #b30000; " +  // רקע אדום כהה יותר בעת ריחוף
+    	    "-fx-text-fill: white; " +
+    	    "-fx-border-radius: 5; " +
+    	    "-fx-background-radius: 5; " +
+    	    "-fx-cursor: hand;"
+    	));
+
+    	closeButton.setOnMouseExited(e -> closeButton.setStyle(
+    	    "-fx-background-color: #d11e1e; " +  // חזרה לצבע המקורי
+    	    "-fx-text-fill: white; " +
+    	    "-fx-border-radius: 5; " +
+    	    "-fx-background-radius: 5; " +
+    	    "-fx-cursor: hand;"
+    	));
+
         closeButton.setOnAction(e -> {
             settingsBox.setVisible(false); // Hide settings box
             StackPane stackPane = (StackPane) settingsBox.getParent();
@@ -152,55 +171,9 @@ public class SettingsScreen {
             historyScreen.start(stage);
         });
         
-     // הוספת כפתור חדש למסך הבית
-        Button homeButton = new Button("Back");
-        homeButton.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
-        homeButton.setStyle(
-            "-fx-background-color: #4CAF50; " +  // ירוק ככפתור
-            "-fx-text-fill: white; " +            // טקסט לבן
-            "-fx-border-radius: 5; " +           // פינות מעוגלות
-            "-fx-background-radius: 5;"          // רקע מעוגל
-        );
-
-        homeButton.setOnAction(e -> {
-        	// יצירת alert (הודעת אזהרה) אם המשתמש בטוח שהוא רוצה לעזוב
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText("Are you sure you want to leave?");
-            alert.setContentText("If you leave, your current progress will be lost.");
-
-            // הגדרת התשובות האפשריות (OK ו-Cancel)
-            ButtonType yesButton = new ButtonType("Yes");
-            ButtonType cancelButton = new ButtonType("Cancel");
-            alert.getButtonTypes().setAll(yesButton, cancelButton);
-
-            // הצגת ה-alert
-            Optional<ButtonType> result = alert.showAndWait();
-
-            // אם המשתמש לחץ על "Yes"
-            if (result.isPresent() && result.get() == yesButton) {
-                // מסתיר את מסך ההגדרות
-                settingsBox.setVisible(false);
-                StackPane stackPane = (StackPane) settingsBox.getParent();
-                Node fadeBackground = stackPane.getChildren().get(1); // גישה לרקע המאט של המסך
-                fadeBackground.setVisible(false);
-
-                // יצירת מופע של backgammonUI והפעלתו מחדש
-                Stage primaryStage = (Stage) settingsBox.getScene().getWindow();
-                backgammonUI homeScreen = new backgammonUI(); // יצירת מופע חדש של המסך הבית
-                try {
-                    homeScreen.start(primaryStage); // אתחול מסך הבית בחלון הראשי
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            } else {
-                // אם המשתמש לחץ על Cancel, לא נעשה כלום
-                alert.close();
-            }
-        });
 
         // Add all elements to the settings box
-        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton,homeButton, closeButton);
+        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton, closeButton);
 
         return settingsBox;
     }
@@ -219,15 +192,39 @@ public class SettingsScreen {
         Button button = new Button(text, icon);
         button.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
         button.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+
+        // סגנון ברירת מחדל
         button.setStyle(
-            "-fx-background-color: #fefaf4; " +
+            "-fx-background-color: #fefaf4; " + // רקע רגיל
+            "-fx-border-color: brown; " +       // גבול בצבע חום
+            "-fx-border-width: 1; " +
+            "-fx-border-radius: 5; " +
+            "-fx-background-radius: 5; " +
+            "-fx-cursor: hand;"                // שינוי ה-Cursor לכף יד
+        );
+
+        // אפקט ריחוף
+        button.setOnMouseEntered(e -> button.setStyle(
+            "-fx-background-color: #d2a679; " + // רקע חום בהיר יותר בעת ריחוף
             "-fx-border-color: brown; " +
             "-fx-border-width: 1; " +
             "-fx-border-radius: 5; " +
-            "-fx-background-radius: 5;"
-        );
+            "-fx-background-radius: 5; " +
+            "-fx-cursor: hand;"                // שמירה על כף יד
+        ));
+
+        button.setOnMouseExited(e -> button.setStyle(
+            "-fx-background-color: #fefaf4; " + // חזרה לצבע המקורי
+            "-fx-border-color: brown; " +
+            "-fx-border-width: 1; " +
+            "-fx-border-radius: 5; " +
+            "-fx-background-radius: 5; " +
+            "-fx-cursor: hand;"                // שמירה על כף יד
+        ));
+
         return button;
     }
+
 
     /**
      * Opens a PDF file in the default PDF viewer.
@@ -295,4 +292,6 @@ public class SettingsScreen {
     public VBox getSettingsBox() {
         return settingsBox;
     }
+    
+    
 }
