@@ -1,20 +1,14 @@
 package Model;
-
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SurpriseStation extends SpecialStation {
-
-    /*public void activate(Player player) {
-        System.out.println(player.getName() + " landed on a Surprise Station and gets an extra turn!");
-    }
-   */
+public class QuestionStation extends SpecialStation {
 	@Override
 	 public void performAction(Player player) {
-	        System.out.println(player.getName() + " gets an extra turn!");
+
 	     // יצירת Stage חדש עבור החלון
 		    Stage dialogStage = new Stage();
 		    dialogStage.setTitle("Surprise Station");
@@ -25,31 +19,34 @@ public class SurpriseStation extends SpecialStation {
 		    layout.setStyle("-fx-background-color: #FDF5E6; -fx-padding: 20; -fx-border-color: #8B4513; -fx-border-width: 5;");
 
 		    // יצירת טקסט
-		    javafx.scene.control.Label messageLabel = new javafx.scene.control.Label("🎉 Congrats! 🎉\nYou've landed on a Surprise Station.\nYou earned one more turn!");
+		    javafx.scene.control.Label messageLabel = new javafx.scene.control.Label("You've landed on a Question Station.\n click next to the question");
 		    messageLabel.setFont(javafx.scene.text.Font.font("Verdana", 16));
 		    messageLabel.setStyle("-fx-text-fill: #8B4513;"); // צבע טקסט חום
 		    messageLabel.setWrapText(true);
 		    messageLabel.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
 
 		    // הוספת אייקון (אופציונלי)
-		    ImageView surpriseIcon = new ImageView("/game/img/board/surprise_icon.png");
+		    ImageView surpriseIcon = new ImageView("/game/img/board/question_icon.png");
 		    surpriseIcon.setFitWidth(100);
 		    surpriseIcon.setFitHeight(100);
 
 		    // כפתור לסגירת החלון
-		    javafx.scene.control.Button closeButton = new javafx.scene.control.Button("Perfect!");
-		    closeButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
-		    closeButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;");
+		    javafx.scene.control.Button nextButton = new javafx.scene.control.Button("next");
+		    nextButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
+		    nextButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;");
 
 		    // שינוי סגנון על מעבר עכבר
-		    closeButton.setOnMouseEntered(e -> closeButton.setStyle("-fx-background-color: #A0522D; -fx-text-fill: #FDF5E6; -fx-font-weight: bold; -fx-cursor: hand;"));
-		    closeButton.setOnMouseExited(e -> closeButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"));
+		    nextButton.setOnMouseEntered(e -> nextButton.setStyle("-fx-background-color: #A0522D; -fx-text-fill: #FDF5E6; -fx-font-weight: bold; -fx-cursor: hand;"));
+		    nextButton.setOnMouseExited(e -> nextButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"));
 
-		    // פעולה ללחיצה
-		    closeButton.setOnAction(e -> dialogStage.close());
-
+		    /*nextButton.setOnAction(e -> {
+	            // הצגת השאלה כשנלחץ NEXT
+	            showQuestion(player);
+	            dialogStage.close();  // סוגר את החלון אחרי שהשאלה מוצגת
+	        });*/
+		    
 		    // הוספת רכיבים לפריסה
-		    layout.getChildren().addAll(surpriseIcon, messageLabel, closeButton);
+		    layout.getChildren().addAll(surpriseIcon, messageLabel, nextButton);
 
 		    // יצירת Scene והוספתו ל-Stage
 		    Scene scene = new Scene(layout, 400, 300);
@@ -61,5 +58,5 @@ public class SurpriseStation extends SpecialStation {
 		    // הצגת החלון
 		    dialogStage.showAndWait();
 	    }
-	
+
 }

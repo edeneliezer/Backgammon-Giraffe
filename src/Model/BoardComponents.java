@@ -14,11 +14,7 @@ import view.HalfBoard;
  * This class initializes an array of pips with their starting checkers.
  * This class creates a board made out of more components (quadrants of pip number labels and pips).
  * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
+
  */
 public class BoardComponents extends HBox {
 	protected final int MAXPIPS = GameConstants.NUMBER_OF_PIPS;
@@ -30,6 +26,7 @@ public class BoardComponents extends HBox {
 	protected Dices leftDices, rightDices, dices;
 	private boolean isLabelsFlipped;
 	protected Pip surprisePip; // משתנה לשמירה על תחנת ההפתעה
+	protected Pip questionPip;
 
 	
 	/**
@@ -102,6 +99,10 @@ public class BoardComponents extends HBox {
 		}
 		drawPips();
 		addSurpriseStation();
+		addQuestionStation();
+		addQuestionStation();
+		addQuestionStation();
+
 	}
 
 	public void addSurpriseStation() {
@@ -121,15 +122,78 @@ public class BoardComponents extends HBox {
 	    
 	    // הוספת אייקון לשקע (אם טרם נוסף)
 	    if (!surprisePip.hasSurpriseIcon()) {
-	        ImageView surpriseIcon = new ImageView("/path/to/surprise_icon.png"); // שים את הנתיב של האייקון
+	        ImageView surpriseIcon = new ImageView("/game/img/board/surprise_icon.png"); // שים את הנתיב של האייקון
 	        surpriseIcon.setFitWidth(30); // קביעת גודל האייקון
 	        surpriseIcon.setFitHeight(30);
 	        surprisePip.setSurpriseIcon(surpriseIcon); // שמירת האייקון בשקע
-	        surprisePip.getChildren().add(surpriseIcon); // הוספת האייקון ל-Pip עצמו
+	        if (!surprisePip.getChildren().contains(surpriseIcon)) {
+	        	surprisePip.getChildren().add(surpriseIcon); // הוספת אייקון הפתעה
+	        }
 	    }
 	    
 	    System.out.println("Surprise Station added to Pip " + surprisePip.getPipNumber());
 	}
+	
+	/*public void addQuestionStation() {
+	   // if (questionPip != null) {
+	   //     return; // אם תחנת הפתעה כבר קיימת, לא ניצור תחנה נוספת
+	   // }
+
+	    // יצירת תחנת הפתעה
+	    QuestionStation questionStation = new QuestionStation();
+
+	    // בחירת שקע רנדומלי
+	    int randomIndex = new Random().nextInt(pips.length);
+	    questionPip = pips[randomIndex];
+
+	    // הוספת תחנת ההפתעה לשקע
+	    questionPip.setQuestionStation(questionStation);
+	    
+	    // הוספת אייקון לשקע (אם טרם נוסף)
+	    if (!questionPip.hasQuestionIcon()) {
+	        ImageView questionIcon = new ImageView("/game/img/board/question_icon.png"); 
+	        questionIcon.setFitWidth(30); // קביעת גודל האייקון
+	        questionIcon.setFitHeight(30);
+	        questionPip.setQuestionIcon(questionIcon); // שמירת האייקון בשקע
+
+	        if (!questionPip.getChildren().contains(questionIcon)) {
+	            questionPip.getChildren().add(questionIcon); // הוספת אייקון שאלה
+	        }
+	        
+	        
+	        //questionPip.getChildren().addAll(questionIcon,surpriseIcon); // הוספת האייקון ל-Pip עצמו
+	    }
+	    
+	    System.out.println("Quetion Station added to Pip " + questionPip.getPipNumber());
+	}*/
+	
+	public void addQuestionStation() {
+	    // יצירת תחנת השאלה
+	    QuestionStation questionStation = new QuestionStation();
+
+	    // בחירת שקע רנדומלי
+	    int randomIndex = new Random().nextInt(pips.length);
+	    questionPip = pips[randomIndex];
+
+	    // הוספת תחנת השאלה לשקע
+	    questionPip.setQuestionStation(questionStation);
+
+	    // הוספת אייקון תחנה אם לא קיים
+	    if (!questionPip.hasQuestionIcon()) {
+	        ImageView questionIcon = new ImageView("/game/img/board/question_icon.png");
+	        questionIcon.setFitWidth(30); // קביעת גודל האייקון
+	        questionIcon.setFitHeight(30);
+	        questionPip.setQuestionIcon(questionIcon); // שמירת האייקון בשקע
+
+	        // הוספת האייקון לשקע אם לא קיים
+	        if (!questionPip.getChildren().contains(questionIcon)) {
+	            questionPip.getChildren().add(questionIcon); // הוספת האייקון
+	        }
+	    }
+
+	    System.out.println("Question Station added to Pip " + questionPip.getPipNumber());
+	}
+
 	
 	private void initCheckers() {
 		for (int i = 0; i < MAXPIPS; i++) {
