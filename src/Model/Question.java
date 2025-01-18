@@ -30,4 +30,22 @@ public class Question {
     public String getDifficulty() {
         return difficulty;
     }
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public void setAnswers(List<String> answers) {
+		this.answers = answers;
+	}
+
+	public void setCorrectAnswer(String correctAnswer) {
+		this.correctAnswer = correctAnswer;
+	}
+
+	public void setDifficulty(String difficulty) {
+		this.difficulty = difficulty;
+	}
+    
+    
 }

@@ -11,6 +11,7 @@ import controller.MusicPlayer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -30,6 +31,7 @@ public class SettingsScreen {
 	private Integer back;
 	private Button historyButton;
 	private Button musicButton;
+	private Button editQuestion;
 	
 	private static boolean isMusicEnabled = true; // Default state: music is on
 
@@ -146,9 +148,18 @@ public class SettingsScreen {
             HistoryScreen historyScreen = new HistoryScreen(); // Pass the current SettingsScreen
             historyScreen.start(stage);
         });
+        
+
+        editQuestion = createIconButton("Edit Questions", "history.png");
+        editQuestion.setOnAction(e -> {
+      	  // Switch to History Screen and pass this SettingsScreen
+        	  Stage stage = (Stage) settingsBox.getScene().getWindow(); // Get the current stage
+        	  Scene previousScene = stage.getScene();                  // Save the current scene
+        	  new EditQuestionsScreen(stage, previousScene); 
+      });
 
         // Add all elements to the settings box
-        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton, closeButton);
+        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton,editQuestion, closeButton);
 
         return settingsBox;
     }
