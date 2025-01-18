@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import view.QuestionOverlay;
 import view.SettingsScreen;
 import view.backgammonUI;
 
@@ -16,7 +17,9 @@ import view.backgammonUI;
 		public void start(Stage stage) throws Exception {
 		// יצירת מופע של מסך הפתיחה
 			backgammonUI openingScreen = new backgammonUI();
-	    	MusicPlayer.getInstance().play();
+//			QuestionOverlay questionOverlay = new QuestionOverlay(null);
+//			questionOverlay.showAndWait();
+			MusicPlayer.getInstance().play();
 		// קריאה לשיטת 'start' של מסך הפתיחה
 			openingScreen.start(stage);
 		// הוספת מאזין לכפתור ה-"Let's play!" במסך הפתיחה
