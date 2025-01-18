@@ -24,8 +24,13 @@ public class Pip extends CheckersStorer implements ColorParser {
 	private Background highlightedBG; 
 	private int pipNum;
 	private SurpriseStation surpriseStation;
+	private QuestionStation questionStation;
+
 	private ImageView surpriseIcon;
+	private ImageView questionIcon;
 	private boolean isSurpriseActivated = false;
+	private List<QuestionStation> questionStations;
+	
 	
 	/**
 	 * Default Constructor
@@ -61,6 +66,8 @@ public class Pip extends CheckersStorer implements ColorParser {
 		// don't simply set point max and pref size, this will effect how the point is drawn.
 		setMinSize(GameConstants.getPipSize().getWidth(), GameConstants.getPipSize().getHeight());	// highlighted and non-highlighted should have the same width & height.
 		setNormalImage();
+		
+	
 	}
 	
 	public void setSurpriseStation(SurpriseStation surpriseStation) {
@@ -124,7 +131,7 @@ public class Pip extends CheckersStorer implements ColorParser {
         }
     }
 	  
-	public boolean isSurpriseActivated() {
+	public boolean isSurpriseActivated1() {
 	    return isSurpriseActivated;
 	}
 	
@@ -145,6 +152,83 @@ public class Pip extends CheckersStorer implements ColorParser {
 	}*/
 
 	    
+	// הוספת תחנת שאלה למצב של Pip
+    public void setQuestionStation(QuestionStation questionStation) {
+    	this.questionStation = questionStation;	   
+		if (this.questionStation == null) {
+	        // יצירת האייקון של תחנת ההפתעה
+	        InputStream input = getClass().getResourceAsStream("/game/img/board/question_icon.png");
+	        Image questionImage = new Image(input);
+
+	        // יצירת ImageView והגדרות
+	        questionIcon = new ImageView(questionImage);
+	        questionIcon.setFitWidth(20); // רוחב מותאם אישית
+	        questionIcon.setFitHeight(20); // גובה מותאם אישית
+	        questionIcon.setTranslateY(-10); // התאמה למיקום
+	        questionIcon.setMouseTransparent(true); // לא להגיב ללחיצות עכבר
+
+	        // הוספת האייקון לשקע
+	        this.getChildren().add(questionIcon);
+	      //  try {
+	        //    input.close();
+	        //} catch (IOException e) {
+	          //  e.printStackTrace();
+	        //}
+	    }
+        ensureQuestionIcon();
+
+    }
+
+    // אם יש אייקון של תחנת שאלה
+    public boolean hasQuestionStation() {
+        return questionIcon != null;
+    }
+    
+ // בודק אם יש אייקון
+ 	public boolean hasQuestionIcon() {
+ 	    return questionIcon != null && this.getChildren().contains(questionIcon);
+ 	}
+
+    // מחזיר את אייקון תחנת השאלה
+    public ImageView getQuestionIcon() {
+        return questionIcon;
+    }
+
+    // פעולת הפתיחה של תחנת השאלה
+	public void activateQuestion(Player player) {
+        if (questionStation != null) {
+        	questionStation.activate(player);
+        }
+        ensureQuestionIcon();
+        
+    }
+
+    public boolean isSurpriseActivated() {
+        return isSurpriseActivated;
+    }
+
+   
+ 
+
+	// קובע את האייקון
+	public void setQuestionIcon(ImageView icon) {
+		this.questionIcon = icon;
+	    if (!this.getChildren().contains(icon)) {
+	        this.getChildren().add(icon);
+	    }// הוספת האייקון לשקע אם לא קיים
+	}
+	
+	public void ensureQuestionIcon() {
+	    if (questionIcon != null && !this.getChildren().contains(questionIcon)) {
+	        this.getChildren().add(questionIcon); // הבטחה שהאייקון יישאר
+	    }
+	}
+	
+
+	  
+
+
+    
 	/**
 	 * Use the highlighted image.
 	 */

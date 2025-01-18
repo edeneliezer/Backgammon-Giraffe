@@ -17,6 +17,7 @@ import Model.Player;
 import Model.RollMoves;
 import Model.Settings;
 import Model.SumMove;
+import Model.SurpriseStation;
 import controller.ColorParser;
 import controller.ColorPerspectiveParser;
 import controller.CommandController;
@@ -39,11 +40,7 @@ import view.InfoPanel;
  * This class handles the gameplay moves of Backgammon.
  * Sub-controller of GameplayController.
  * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
+
  */
 public class GameplayMovesController implements ColorParser, ColorPerspectiveParser, InputValidator, IndexOffset, IntegerLettersParser {
 	private Moves moves, noDuplicateRollMoves;
@@ -160,7 +157,7 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 		}
 		
 		updateMovesDuringValidation();
-		// נבדוק אם השחקן נחת על תחנת הפתעה
+		//  נבדוק אם השחקן נחת על תחנת הפתעה או שאלה
 
 		if (isValidMove) {
 			try {
@@ -176,14 +173,18 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 		            // בדיקה אם `targetPip` אינו null
 		            if (targetPip != null) {
 		                checkSurpriseStation(targetPip, gameplay.getCurrent());
+		                checkQuestionStation(targetPip, gameplay.getCurrent());
+
+		                
 		            }
+
 		        } else {
 		            System.err.println("Invalid pip index or board is not initialized.");
 		        }
 		    } catch (NumberFormatException e) {
 		        System.out.println("Moved to " + to);
 		    } catch (Exception e) {
-		        System.out.println("Unexpected error during surprise station check: " + e.getMessage());
+		        System.out.println("Unexpected error during special station check: " + e.getMessage());
 		        e.printStackTrace();
 		    }
 			
@@ -238,6 +239,8 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 		if (theMove instanceof PipToPip || theMove instanceof PipToHome) {
 			Pip[] pips = game.getBoard().getPips();
 			int fromPip = theMove.getFro();
+			
+
 			
 			if (pips[fromPip].size() == 1 || pips[fromPip].isEmpty()) {
 				moves.removeMovesOfFro(fromPip);
@@ -555,7 +558,8 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	        targetPip.activateSurprise(currentPlayer);
 
 	     // הצגת חלון עם הודעה
-	        showSurpriseStationDialog();
+	        //showSurpriseStationDialog(currentPlayer);
+	        //SurpriseStation.performAction(currentPlayer);
 	        
 	        // הגדרת דגל לתור נוסף
 	   //     extraTurnGranted = true;
@@ -568,51 +572,16 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	    }
 	}
 	
-	private void showSurpriseStationDialog() {
-	    // יצירת Stage חדש עבור החלון
-	    Stage dialogStage = new Stage();
-	    dialogStage.setTitle("Surprise Station");
+	
+	private void checkQuestionStation(Pip targetPip, Player currentPlayer) {
+	    if (targetPip.hasQuestionStation() && !targetPip.isSurpriseActivated()) {
+	        // הדפסה ללוג
+	        infoPnl.print(currentPlayer.getName() + " landed on a question Station!", MessageType.ANNOUNCEMENT);
+	 
+	        targetPip.activateQuestion(currentPlayer);
+	        targetPip.ensureQuestionIcon();
 
-	    // קביעת פריסת החלון
-	    VBox layout = new VBox(20);
-	    layout.setAlignment(Pos.CENTER);
-	    layout.setStyle("-fx-background-color: #FDF5E6; -fx-padding: 20; -fx-border-color: #8B4513; -fx-border-width: 5;");
-
-	    // יצירת טקסט
-	    javafx.scene.control.Label messageLabel = new javafx.scene.control.Label("🎉 Congrats! 🎉\nYou've landed on a Surprise Station.\nYou earned one more turn!");
-	    messageLabel.setFont(javafx.scene.text.Font.font("Verdana", 16));
-	    messageLabel.setStyle("-fx-text-fill: #8B4513;"); // צבע טקסט חום
-	    messageLabel.setWrapText(true);
-	    messageLabel.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-
-	    // הוספת אייקון (אופציונלי)
-	    ImageView surpriseIcon = new ImageView("/game/img/board/surprise_icon.png");
-	    surpriseIcon.setFitWidth(100);
-	    surpriseIcon.setFitHeight(100);
-
-	    // כפתור לסגירת החלון
-	    javafx.scene.control.Button closeButton = new javafx.scene.control.Button("Perfect!");
-	    closeButton.setFont(javafx.scene.text.Font.font("Verdana", 14));
-	    closeButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;");
-
-	    // שינוי סגנון על מעבר עכבר
-	    closeButton.setOnMouseEntered(e -> closeButton.setStyle("-fx-background-color: #A0522D; -fx-text-fill: #FDF5E6; -fx-font-weight: bold; -fx-cursor: hand;"));
-	    closeButton.setOnMouseExited(e -> closeButton.setStyle("-fx-background-color: #8B4513; -fx-text-fill: #FDF5E6; -fx-font-weight: bold;"));
-
-	    // פעולה ללחיצה
-	    closeButton.setOnAction(e -> dialogStage.close());
-
-	    // הוספת רכיבים לפריסה
-	    layout.getChildren().addAll(surpriseIcon, messageLabel, closeButton);
-
-	    // יצירת Scene והוספתו ל-Stage
-	    Scene scene = new Scene(layout, 400, 300);
-	    dialogStage.setScene(scene);
-
-	    // מניעת אינטראקציה עם החלון הראשי עד שהדיאלוג ייסגר
-	    dialogStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
-
-	    // הצגת החלון
-	    dialogStage.showAndWait();
+	  
+	    }
 	}
 }
