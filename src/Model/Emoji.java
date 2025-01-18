@@ -8,19 +8,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Random;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import view.PlayerPanel;
 
 /**
  * This class represents the emoji object in the player's panel.
  * 
  * @teamname TeaCup
  */
-public class Emoji extends ImageView {
+public class Emoji extends ImageView implements Observer{
     private ArrayList<Image> defaultImgs, thinkingImgs, hitImgs, winImgs, loseImgs;
     private Random rand = new Random();
     private final int DELAY = 10;
@@ -75,6 +77,27 @@ public class Emoji extends ImageView {
             e.printStackTrace();
         }
         return image;
+    }
+    
+    @Override
+    public void update(String status) {
+        switch (status) {
+            case "thinking":
+                setThinkingFace();
+                break;
+            case "hit":
+                setHitFace();
+                break;
+            case "win":
+                setWinFace();
+                break;
+            case "lose":
+                setLoseFace();
+                break;
+            default:
+                setDefaultFace();
+                break;
+        }
     }
 
     public void setDefaultFace() {
