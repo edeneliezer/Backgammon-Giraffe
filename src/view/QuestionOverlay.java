@@ -117,4 +117,9 @@ public class QuestionOverlay extends Stage {
         Scene scene = new Scene(root, 500, 400);
         setScene(scene);
     }
+
+	public static boolean isCorrectAnswer() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

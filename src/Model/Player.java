@@ -18,10 +18,13 @@ public class Player implements ColorPerspectiveParser {
 	private Color color;
 	private boolean hasCube;
 	private PlayerPerspectiveFrom pov;
+	private boolean skipTurn;
+	
 	
 	public Player(PlayerPerspectiveFrom pov) {
 		this.pov = pov;
 		this.color = getColor(pov);
+		 this.skipTurn = false;
 		reset();
 	}
 	
@@ -89,4 +92,20 @@ public class Player implements ColorPerspectiveParser {
 	public void setHasCube(boolean hasCube) {
 		this.hasCube = hasCube;
 	}
+	
+	   // שיטה שמדלגת על תור השחקן
+    public void skipTurn() {
+        this.skipTurn = true;
+    }
+
+    // בודקת אם התור הנוכחי של השחקן מדולג
+    public boolean isTurnSkipped() {
+        return skipTurn;
+    }
+
+    // מאפסת את המצב לאחר דילוג התור
+    public void resetSkipTurn() {
+        this.skipTurn = false;
+    }
+
 } 

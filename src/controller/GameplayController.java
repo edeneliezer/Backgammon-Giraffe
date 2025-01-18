@@ -737,4 +737,7 @@ public class GameplayController  extends Observable implements ColorParser, Colo
 	public void setExtraTurn(boolean extraTurn) {
 	    this.extraTurn = extraTurn;
 	}
+
+	
+	
 }
