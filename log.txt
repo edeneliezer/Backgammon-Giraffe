@@ -34533,3 +34533,143 @@
 
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 4].
+> [System] Available moves:
+  Roll of 6
+      A. 17-23
+      B. 12-18
+      C. 1-7
+
+  Roll of 4
+      D. 19-23
+      E. 17-21
+      F. 12-16
+      G. 1-5
+
+  Roll of 10
+      H. 12-22
+      I. 1-11
+
+
+> [System] c landed on a question Station!
+
+> [System] Moving...
+> [System] Moved checker from 1 to 5.
+> [System] Available moves:
+  Roll of 6
+      A. 17-23
+      B. 12-18
+      C. 1-7
+      D. 5-11
+
+> [Error] Die has already been rolled.
+
+> [System] Moving...
+> [System] Moved checker from 5 to 11.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [Error] Hold on cowboy, wait out the delay.
+> [System] It is now d's (white) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 5, 5, 5].
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+  Roll of 10
+      D. 13-3
+
+  Roll of 15
+
+  Roll of 20
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 8.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+  Roll of 10
+      D. 13-3
+
+  Roll of 15
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Available moves:
+  Roll of 5
+      A. 6-1*
+      B. 8-3
+      C. 13-8
+
+  Roll of 10
+      D. 13-3
+
+> [Error] You can only move from highlighted objects.
+> [Error] You can only move from highlighted objects.
+
+> [System] Moving...
+> [System] Moved checker from 13 to 3.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now c's (black) move.
+> [System] You can only roll the dice.
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 1].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+
+  Roll of 1
+      D. 6-5
+      E. 8-7
+      F. 14-13
+      G. 24-23
+
+  Roll of 3
+      H. 6-3
+      I. 8-5
+      J. 13-10
+      K. 14-11
+      L. 24-21
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] c landed on a question Station!
+
+> [System] Moving...
+> [System] Moved checker from 24 to 23.
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 23-21
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+

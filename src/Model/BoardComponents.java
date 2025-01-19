@@ -105,7 +105,7 @@ public class BoardComponents extends HBox {
 
 	}
 
-	public void addSurpriseStation() {
+	/*public void addSurpriseStation() {
 	    if (surprisePip != null) {
 	        return; // אם תחנת הפתעה כבר קיימת, לא ניצור תחנה נוספת
 	    }
@@ -132,41 +132,40 @@ public class BoardComponents extends HBox {
 	    }
 	    
 	    System.out.println("Surprise Station added to Pip " + surprisePip.getPipNumber());
-	}
-	
-	/*public void addQuestionStation() {
-	   // if (questionPip != null) {
-	   //     return; // אם תחנת הפתעה כבר קיימת, לא ניצור תחנה נוספת
-	   // }
-
-	    // יצירת תחנת הפתעה
-	    QuestionStation questionStation = new QuestionStation();
-
-	    // בחירת שקע רנדומלי
-	    int randomIndex = new Random().nextInt(pips.length);
-	    questionPip = pips[randomIndex];
-
-	    // הוספת תחנת ההפתעה לשקע
-	    questionPip.setQuestionStation(questionStation);
-	    
-	    // הוספת אייקון לשקע (אם טרם נוסף)
-	    if (!questionPip.hasQuestionIcon()) {
-	        ImageView questionIcon = new ImageView("/game/img/board/question_icon.png"); 
-	        questionIcon.setFitWidth(30); // קביעת גודל האייקון
-	        questionIcon.setFitHeight(30);
-	        questionPip.setQuestionIcon(questionIcon); // שמירת האייקון בשקע
-
-	        if (!questionPip.getChildren().contains(questionIcon)) {
-	            questionPip.getChildren().add(questionIcon); // הוספת אייקון שאלה
-	        }
-	        
-	        
-	        //questionPip.getChildren().addAll(questionIcon,surpriseIcon); // הוספת האייקון ל-Pip עצמו
-	    }
-	    
-	    System.out.println("Quetion Station added to Pip " + questionPip.getPipNumber());
 	}*/
 	
+	public void addSurpriseStation() {
+	    Random random = new Random();
+	    Pip selectedPip;
+
+	    // מציאת שקע רנדומלי שאין בו תחנה מיוחדת (לא תחנת הפתעה ולא תחנת שאלה)
+	    do {
+	        int randomIndex = random.nextInt(pips.length);
+	        System.out.println("random suprose-"+ randomIndex);
+	        selectedPip = pips[randomIndex];
+	    } while (selectedPip.hasSurpriseStation() || selectedPip.hasQuestionStation());
+
+	    // יצירת תחנת ההפתעה
+	    SurpriseStation surpriseStation = new SurpriseStation();
+	    selectedPip.setSurpriseStation(surpriseStation);
+
+	    // הוספת אייקון תחנה אם לא קיים
+	    if (!selectedPip.hasSurpriseIcon()) {
+	        ImageView surpriseIcon = new ImageView("/game/img/board/surprise_icon.png"); // שים את הנתיב של האייקון
+	        surpriseIcon.setFitWidth(30);
+	        surpriseIcon.setFitHeight(30);
+	        selectedPip.setSurpriseIcon(surpriseIcon);
+
+	        if (!selectedPip.getChildren().contains(surpriseIcon)) {
+	            selectedPip.getChildren().add(surpriseIcon);
+	        }
+	    }
+
+	    System.out.println("Surprise Station added to Pip " + selectedPip.getPipNumber());
+	}
+
+	
+	/*
 	public void addQuestionStation() {
 	    // יצירת תחנת השאלה
 	    QuestionStation questionStation = new QuestionStation();
@@ -192,7 +191,38 @@ public class BoardComponents extends HBox {
 	    }
 
 	    System.out.println("Question Station added to Pip " + questionPip.getPipNumber());
+	}*/
+	
+	public void addQuestionStation() {
+	    Random random = new Random();
+	    Pip selectedPip;
+
+	    // מציאת שקע רנדומלי שאין בו תחנה מיוחדת (לא תחנת הפתעה ולא תחנת שאלה)
+	    do {
+	        int randomIndex = random.nextInt(pips.length);
+	        System.out.println("random qa-"+randomIndex);
+	        selectedPip = pips[randomIndex];
+	    } while (selectedPip.hasSurpriseStation() || selectedPip.hasQuestionStation());
+
+	    // יצירת תחנת השאלה
+	    QuestionStation questionStation = new QuestionStation();
+	    selectedPip.setQuestionStation(questionStation);
+
+	    // הוספת אייקון תחנה אם לא קיים
+	    if (!selectedPip.hasQuestionIcon()) {
+	        ImageView questionIcon = new ImageView("/game/img/board/question_icon.png");
+	        questionIcon.setFitWidth(30);
+	        questionIcon.setFitHeight(30);
+	        selectedPip.setQuestionIcon(questionIcon);
+
+	        if (!selectedPip.getChildren().contains(questionIcon)) {
+	            selectedPip.getChildren().add(questionIcon);
+	        }
+	    }
+
+	    System.out.println("Question Station added to Pip " + selectedPip.getPipNumber());
 	}
+
 
 	
 	private void initCheckers() {
