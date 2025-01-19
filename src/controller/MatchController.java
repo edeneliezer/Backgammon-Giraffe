@@ -786,7 +786,7 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 		getChildren().clear();
 		add(game, 0, 0, 1, 3);
 		add(terminal, 1, 0);
-		add(rollDieBtn, 0, 3);
+		add(rollDieBtn, 1, 2);
 		
 		// הגדרת גדלים זהים לכפתורי Settings ו-Back
 	    double buttonWidth = 80; // רוחב קבוע לכפתורים
