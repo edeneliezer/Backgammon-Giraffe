@@ -34493,3 +34493,43 @@
 
 > [System] Trying to quit game.
 
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 2].
+> [System] Available moves:
+  Roll of 3
+      A. 19-22
+      B. 17-20
+      C. 12-15
+      D. 1-4
+
+  Roll of 2
+      E. 19-21
+      F. 17-19
+      G. 12-14
+      H. 1-3
+
+  Roll of 5
+      I. 17-22
+      J. 12-17
+
+
+> [System] ll landed on a question Station!
+
+> [System] Moving...
+> [System] Moved checker from 19 to 21.
+> [System] Available moves:
+  Roll of 3
+      A. 19-22
+      B. 17-20
+      C. 12-15
+      D. 1-4
+
+> [System] Trying to quit game.
+

@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -37,26 +38,41 @@ public class QuestionOverlay extends Stage {
         // Root container
         VBox root = new VBox(20);
         root.setPadding(new Insets(20));
-        root.setStyle("-fx-background-color: #fefaf4; -fx-border-color: #5b3924; -fx-border-width: 5; -fx-border-radius: 20; -fx-background-radius: 20;");
+        root.setStyle("-fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); " +
+                      "-fx-border-color: #5b3924; -fx-border-width: 5; -fx-border-radius: 20; -fx-background-radius: 20;");
         root.setPrefHeight(400);
+
+        // Add shadow effect
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setRadius(10);
+        dropShadow.setOffsetX(0);
+        dropShadow.setOffsetY(5);
+        dropShadow.setColor(Color.rgb(90, 90, 90, 0.5));
+        root.setEffect(dropShadow);
 
         // Question label
         Label questionLabel = new Label("Question:\n" + currentQuestion.getQuestion());
-        questionLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
-        questionLabel.setTextFill(Color.web("#5b3924"));
+        questionLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
+        questionLabel.setTextFill(Color.web("#333333"));
         questionLabel.setWrapText(true);
 
         // Answers section
         ToggleGroup toggleGroup = new ToggleGroup();
         VBox answersBox = new VBox(10);
-        answersBox.setAlignment(Pos.CENTER_LEFT);
+        answersBox.setAlignment(Pos.TOP_LEFT);
         answersBox.setPadding(new Insets(10, 20, 10, 20));
 
         for (String answer : currentQuestion.getAnswers()) {
             RadioButton answerButton = new RadioButton(answer);
             answerButton.setFont(Font.font("Verdana", FontWeight.NORMAL, 14));
             answerButton.setTextFill(Color.web("#5b3924"));
+            answerButton.setStyle("-fx-padding: 5; -fx-background-radius: 5;");
             answerButton.setToggleGroup(toggleGroup);
+
+            // Add hover effect
+            answerButton.setOnMouseEntered(e -> answerButton.setStyle("-fx-background-color: #e0e0e0; -fx-padding: 5; -fx-background-radius: 5;"));
+            answerButton.setOnMouseExited(e -> answerButton.setStyle("-fx-padding: 5; -fx-background-radius: 5;"));
+
             answersBox.getChildren().add(answerButton);
         }
 
@@ -75,7 +91,10 @@ public class QuestionOverlay extends Stage {
         // Submit button
         Button submitButton = new Button("Submit");
         submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-        submitButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white; -fx-padding: 5 20 5 20; -fx-border-radius: 10; -fx-background-radius: 10;");
+        submitButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
+        submitButton.setOnMouseEntered(e -> submitButton.setStyle("-fx-background-color: #ff4d4d; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
+        submitButton.setOnMouseExited(e -> submitButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
+
         submitButton.setOnAction(e -> {
             RadioButton selectedButton = (RadioButton) toggleGroup.getSelectedToggle();
             if (selectedButton == null) {
@@ -94,21 +113,13 @@ public class QuestionOverlay extends Stage {
             }
             close(); // Close the overlay
         });
-        
-        HBox submit = new HBox(submitButton);
-        submit.setAlignment(Pos.CENTER_RIGHT);
-        HBox.setHgrow(submit, Priority.ALWAYS);
 
-        HBox label = new HBox(difficultyLabel);
-        label.setAlignment(Pos.CENTER_LEFT);
-        HBox.setHgrow(label, Priority.ALWAYS);
-
-        // Aligning the elements
-        HBox.setHgrow(difficultyLabel, Priority.ALWAYS); // Push label to the left
-        HBox.setHgrow(submitButton, Priority.ALWAYS); // Push button to the right
-
-        // Add label and button to the bottom box
-        bottomBox.getChildren().addAll(label, submit);
+        // Combine label and button into the bottom box
+        HBox labelBox = new HBox(difficultyLabel);
+        labelBox.setAlignment(Pos.CENTER_LEFT);
+        HBox buttonBox = new HBox(submitButton);
+        buttonBox.setAlignment(Pos.CENTER_RIGHT);
+        bottomBox.getChildren().addAll(labelBox, buttonBox);
 
         // Combine all sections into the root container
         root.getChildren().addAll(questionLabel, answersBox, bottomBox);
@@ -117,9 +128,4 @@ public class QuestionOverlay extends Stage {
         Scene scene = new Scene(root, 500, 400);
         setScene(scene);
     }
-
-	public static boolean isCorrectAnswer() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
