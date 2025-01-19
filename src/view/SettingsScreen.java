@@ -12,6 +12,7 @@ import controller.MusicPlayer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -34,6 +35,7 @@ public class SettingsScreen {
 	private Button historyButton;
 	private Button musicButton;
 	private Button homeButten;
+	private Button editQuestion;
 
 	
 	private static boolean isMusicEnabled = true; // Default state: music is on
@@ -127,6 +129,14 @@ public class SettingsScreen {
         historyButton = createIconButton("History", "history.png");
         Button infoButton = createIconButton("Information", "info.png");
         infoButton.setOnAction(e -> openPdfFile("BackgammonRules.pdf"));
+        
+        editQuestion = createIconButton("Edit Questions", "history.png");
+        editQuestion.setOnAction(e -> {
+      	  // Switch to History Screen and pass this SettingsScreen
+        	  Stage stage = (Stage) settingsBox.getScene().getWindow(); // Get the current stage
+        	  Scene previousScene = stage.getScene();                  // Save the current scene
+        	  new EditQuestionsScreen(stage, previousScene); 
+      });
 
         // Close Button
         Button closeButton = new Button("Close");
@@ -173,7 +183,7 @@ public class SettingsScreen {
         
 
         // Add all elements to the settings box
-        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton, closeButton);
+        settingsBox.getChildren().addAll(settingsTitle, musicButton,soundEffectsButton, historyButton, infoButton,editQuestion, closeButton);
 
         return settingsBox;
     }
