@@ -130,7 +130,7 @@ public class SettingsScreen {
         Button infoButton = createIconButton("Information", "info.png");
         infoButton.setOnAction(e -> openPdfFile("BackgammonRules.pdf"));
         
-        editQuestion = createIconButton("Edit Questions", "history.png");
+        editQuestion = createIconButton("Edit Questions", "edit.png");
         editQuestion.setOnAction(e -> {
       	  // Switch to History Screen and pass this SettingsScreen
         	  Stage stage = (Stage) settingsBox.getScene().getWindow(); // Get the current stage
