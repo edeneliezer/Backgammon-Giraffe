@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class QuestionOverlay extends Stage {
         // Set up the modal dialog
         initModality(Modality.APPLICATION_MODAL);
         initOwner(parentStage);
+        initStyle(StageStyle.UNDECORATED); // Remove the window decorations
 
         // Load questions
         List<Question> questions = GameModel.loadQuestions();
@@ -128,7 +130,11 @@ public class QuestionOverlay extends Stage {
         });
 
         // Combine all sections into the root container
+<<<<<<< HEAD
         root.getChildren().add(rollSection);
+=======
+        root.getChildren().addAll(questionLabel, answersBox, labelBox, buttonBox);
+>>>>>>> 27a6d014e667b37f955097ac8e68d2cc8f4a866d
 
         // Set up the scene
         Scene scene = new Scene(root, 500, 400);
