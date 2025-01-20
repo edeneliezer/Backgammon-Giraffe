@@ -34,10 +34,10 @@ public class EditQuestionsScreen extends Stage {
     private TextField answer1Field, answer2Field, answer3Field, answer4Field;
     private ComboBox<String> levelComboBox;
     private TextField correctAnswerField;
-    private  Scene scene;
+    private Scene scene;
 
     public EditQuestionsScreen(Stage stage, Scene previousScene) {
-		// Set up the modal dialog
+        // Set up the modal dialog
         initOwner(stage);
 
         // Prompt for password
@@ -73,7 +73,7 @@ public class EditQuestionsScreen extends Stage {
         HBox label = new HBox(backButton);
         label.setAlignment(Pos.CENTER_LEFT);
         HBox.setHgrow(label, Priority.ALWAYS);
-        
+
         root.getChildren().add(label);
 
         // Title
@@ -92,19 +92,27 @@ public class EditQuestionsScreen extends Stage {
         // Question field
         questionField = new TextField();
         questionField.setPromptText("Question...");
+        questionField.setDisable(true);
         root.getChildren().add(createLabeledField("QUESTION", questionField));
+        
 
         // Answers fields
         answer1Field = new TextField();
         answer2Field = new TextField();
         answer3Field = new TextField();
         answer4Field = new TextField();
+        answer1Field.setDisable(true);
+        answer2Field.setDisable(true);
+        answer3Field.setDisable(true);
+        answer4Field.setDisable(true);
+        
         VBox answersBox = new VBox(10,
                 createLabeledField("1.", answer1Field),
                 createLabeledField("2.", answer2Field),
                 createLabeledField("3.", answer3Field),
                 createLabeledField("4.", answer4Field));
         answersBox.setPadding(new Insets(10));
+//        answersBox.setDisable(true);
         root.getChildren().add(createLabeledBox("ANSWERS:", answersBox));
 
         // Level and Correct Answer
@@ -112,20 +120,75 @@ public class EditQuestionsScreen extends Stage {
         levelComboBox = new ComboBox<>();
         levelComboBox.getItems().addAll("1", "2", "3");
         levelComboBox.setPromptText("Level");
+        levelComboBox.setDisable(true);
         correctAnswerField = new TextField();
         correctAnswerField.setPromptText("Correct Answer");
+        correctAnswerField.setDisable(true);
         levelAndCorrectAnswerBox.getChildren().addAll(
                 createLabeledField("LEVEL", levelComboBox),
                 createLabeledField("CORRECT ANSWER", correctAnswerField)
         );
         root.getChildren().add(levelAndCorrectAnswerBox);
 
-        // Submit button
-        Button submitButton = new Button("Submit");
-        submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-        submitButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
-        submitButton.setOnAction(e -> saveQuestion());
-        root.getChildren().add(submitButton);
+        // Buttons: Submit, Add, Delete
+        HBox buttonBox = new HBox(10);
+        buttonBox.setAlignment(Pos.BOTTOM_RIGHT);
+
+        Button editButton = new Button("Edit");
+        editButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        editButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
+        editButton.setOnAction(e -> {
+        	if(editButton.getText().equals("Edit"))
+        	{
+        		 int index = questionsComboBox.getSelectionModel().getSelectedIndex();
+                 if (index == -1) {
+                     Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
+                     alert.showAndWait();
+                     return;
+                 }
+        	   editButton.setText("Submit");
+        	   enableFields(true);
+        	}else {
+        	  if(isAnyFieldEmpty()) {
+        		  Alert alert = new Alert(Alert.AlertType.ERROR, "All fields must be filled out.", ButtonType.OK);
+                  alert.showAndWait();
+                  return;
+        	  }
+        	  editQuestion();
+       	      enableFields(false);
+         	  editButton.setText("Edit");
+        	}
+        	
+        });
+
+        Button addButton = new Button("Add");
+        addButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        addButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
+        addButton.setOnAction(e -> {
+        	if(addButton.getText().equals("Add")) {
+        		addButton.setText("Submit");
+        		clearFields();
+                questionsComboBox.setPromptText("Select a question...");
+        		enableFields(true);
+        	}else {
+        		 if(isAnyFieldEmpty()) {
+           		  Alert alert = new Alert(Alert.AlertType.ERROR, "All fields must be filled out.", ButtonType.OK);
+                     alert.showAndWait();
+                     return;
+           	  }
+        	  saveNewQuestion();
+              enableFields(false);
+        	  addButton.setText("Add");
+        	}
+        });
+
+        Button deleteButton = new Button("Delete");
+        deleteButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        deleteButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
+        deleteButton.setOnAction(e -> deleteQuestion());
+
+        buttonBox.getChildren().addAll(editButton, addButton, deleteButton);
+        root.getChildren().add(buttonBox);
 
         // Initialize the 'scene' field
         this.scene = new Scene(root, 800, 600);
@@ -181,14 +244,13 @@ public class EditQuestionsScreen extends Stage {
         correctAnswerField.setText(question.getCorrectAnswer());
     }
 
-    private void saveQuestion() {
-        int index = questionsComboBox.getSelectionModel().getSelectedIndex();
-        if (index == -1) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
-
+    private void editQuestion() {
+    	 int index = questionsComboBox.getSelectionModel().getSelectedIndex();
+         if (index == -1) {
+             Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
+             alert.showAndWait();
+             return;
+         }
         // Get the selected question
         Question question = questions.get(index);
 
@@ -207,8 +269,76 @@ public class EditQuestionsScreen extends Stage {
         saveQuestionsToJSON();
 
         // Show success alert
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Question saved successfully!", ButtonType.OK);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Question Edited successfully!", ButtonType.OK);
         alert.showAndWait();
+    }
+    
+    private void saveNewQuestion() {
+//        int index = questionsComboBox.getSelectionModel().getSelectedIndex();
+//        if (index == -1) {
+//            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
+//            alert.showAndWait();
+//            return;
+//        }
+
+//        // Get the selected question
+        Question question = new Question();
+
+        // Update the question details
+        question.setQuestion(questionField.getText());
+        question.setAnswers(Arrays.asList(
+                answer1Field.getText(),
+                answer2Field.getText(),
+                answer3Field.getText(),
+                answer4Field.getText()
+        ));
+        question.setDifficulty(levelComboBox.getValue());
+        question.setCorrectAnswer(correctAnswerField.getText());
+
+        // Save updated questions to JSON
+//        saveQuestionsToJSON();
+        GameModel.saveQuestion(question);
+        
+        questions.add(question);
+        questionsComboBox.getItems().add(question.getQuestion());
+
+        // Show success alert
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Question Added successfully!", ButtonType.OK);
+        alert.showAndWait();
+    }
+
+    
+    private void deleteQuestion() {
+        int index = questionsComboBox.getSelectionModel().getSelectedIndex();
+        if (index == -1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to delete.", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+
+        // Remove the selected question
+        questions.remove(index);
+        questionsComboBox.getItems().remove(index);
+
+        // Save to JSON
+        saveQuestionsToJSON();
+
+        // Clear fields and update ComboBox
+        clearFields();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Question deleted successfully!", ButtonType.OK);
+        alert.showAndWait();
+    }
+
+    private void clearFields() {
+        questionField.clear();
+        answer1Field.clear();
+        answer2Field.clear();
+        answer3Field.clear();
+        answer4Field.clear();
+        levelComboBox.setValue(null);
+        correctAnswerField.clear();
+        questionsComboBox.getSelectionModel().clearSelection();
     }
 
     private List<Question> loadQuestions() {
@@ -247,7 +377,6 @@ public class EditQuestionsScreen extends Stage {
         }
     }
 
-
     private void saveQuestionsToJSON() {
         try {
             JSONArray questionsArray = new JSONArray();
@@ -264,10 +393,59 @@ public class EditQuestionsScreen extends Stage {
 
             try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("questions.json"))) {
                 writer.write(jsonObject.toString(4));
-            }        } catch (Exception e) {
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
     
- 
+    
+    private void enableFields(boolean enable) {
+        questionField.setDisable(!enable);
+        answer1Field.setDisable(!enable);
+        answer2Field.setDisable(!enable);
+        answer3Field.setDisable(!enable);
+        answer4Field.setDisable(!enable);
+        levelComboBox.setDisable(!enable);
+        correctAnswerField.setDisable(!enable);
+    }
+    
+    private boolean isAnyFieldEmpty() {
+        return questionField.getText().isEmpty() ||
+               answer1Field.getText().isEmpty() ||
+               answer2Field.getText().isEmpty() ||
+               answer3Field.getText().isEmpty() ||
+               answer4Field.getText().isEmpty() ||
+               correctAnswerField.getText().isEmpty() ||
+               levelComboBox.getValue() == null;
+    }
+    
+    private void addNewQuestion() {
+        if (isAnyFieldEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "All fields must be filled out to add a new question.", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+
+        Question newQuestion = new Question(
+                questionField.getText(),
+                Arrays.asList(
+                        answer1Field.getText(),
+                        answer2Field.getText(),
+                        answer3Field.getText(),
+                        answer4Field.getText()
+                ),
+                correctAnswerField.getText(),
+                levelComboBox.getValue()
+        );
+
+        questions.add(newQuestion);
+        questionsComboBox.getItems().add(newQuestion.getQuestion());
+        saveQuestionsToJSON();
+        clearFields();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "New question added successfully!", ButtonType.OK);
+        alert.showAndWait();
+    }
+
 }

@@ -46,4 +46,8 @@ public class Question {
 	public void setDifficulty(String difficulty) {
 		this.difficulty = difficulty;
 	}
+
+	public Question() {
+		super();
+	}
 }
