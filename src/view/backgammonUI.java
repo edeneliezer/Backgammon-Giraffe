@@ -243,8 +243,10 @@ public class backgammonUI extends Application {
         	
             // Create a new MatchController instance
         	MatchController matchController = new MatchController(primaryStage, mode); // assuming primaryStage is available here
-            Scene gameScene = new Scene(matchController, 1000, 800); // adjust size as needed
+            Scene gameScene = new Scene(matchController, 1400, 800); // adjust size as needed
+            
             primaryStage.setScene(gameScene); // Switch to the game screen
+            primaryStage.centerOnScreen();
             matchController.startGame();
         });
         bottomBox.getChildren().add(playButton);

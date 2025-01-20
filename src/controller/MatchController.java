@@ -766,6 +766,8 @@ public class MatchController extends GridPane implements ColorPerspectiveParser,
 	 */
 	public void style() {
 		//setStyle("-fx-font-size: " + GameConstants.FONT_SIZE + "px; -fx-font-family: '" + GameConstants.FONT_FAMILY + "';");
+		   double newWidth = GameConstants.getScreenSize().getWidth() * 1.2; // Increase width by 20%
+		    double newHeight = GameConstants.getScreenSize().getHeight();
 		setBackground(GameConstants.getTableImage());
 		setPadding(new Insets(10));
 		setVgap(GameConstants.getUIVGap());
