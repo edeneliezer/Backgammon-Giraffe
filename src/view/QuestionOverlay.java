@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class QuestionOverlay extends Stage {
         // Set up the modal dialog
         initModality(Modality.APPLICATION_MODAL);
         initOwner(parentStage);
+        initStyle(StageStyle.UNDECORATED); // Remove the window decorations
+
 
         // Load questions
         List<Question> questions = GameModel.loadQuestions();
@@ -99,6 +102,7 @@ public class QuestionOverlay extends Stage {
             // Submit button
             Button submitButton = new Button("Submit");
             submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+            submitButton.setAlignment(Pos.CENTER_RIGHT);
             submitButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
             submitButton.setOnMouseEntered(ev -> submitButton.setStyle("-fx-background-color: #ff4d4d; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
             submitButton.setOnMouseExited(ev -> submitButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
@@ -121,11 +125,27 @@ public class QuestionOverlay extends Stage {
                 }
                 close(); // Close the overlay
             });
+            
+         // Level label
+            Label difficultyLabel = new Label("Level: " + currentQuestion.getDifficulty());
+            difficultyLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+            difficultyLabel.setTextFill(Color.web("#5b3924"));
+            difficultyLabel.setAlignment(Pos.CENTER_LEFT);
+            
+            HBox labelBox = new HBox(difficultyLabel);
+            labelBox.setAlignment(Pos.CENTER_LEFT);
+            HBox.setHgrow(labelBox, Priority.ALWAYS);
+
+            HBox buttonBox = new HBox(submitButton);
+            buttonBox.setAlignment(Pos.CENTER_RIGHT);
+            HBox.setHgrow(buttonBox, Priority.ALWAYS);
 
             // Add question and answers to the question box
-            questionBox.getChildren().addAll(questionLabel, answersBox, submitButton);
+            questionBox.getChildren().addAll(questionLabel, answersBox, labelBox, buttonBox);
             root.getChildren().add(questionBox);
         });
+        
+        
 
         // Combine all sections into the root container
         root.getChildren().add(rollSection);
