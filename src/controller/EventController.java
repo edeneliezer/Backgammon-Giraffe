@@ -35,6 +35,7 @@ import view.CommandPanel;
 import view.InfoPanel;
 import view.QuestionOverlay;
 import view.RollDieButton;
+import view.backgammonUI;
 
 /**
  * This class handles all the events that is triggered by the user.
@@ -387,10 +388,13 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 	private int dieState = 2;
 	private void initRollDieButtonListeners() {
 	    rollDieBtn.setOnAction((ActionEvent event) -> {
-	    	QuestionOverlay questionOverlay = new QuestionOverlay(null);
-		questionOverlay.showAndWait();
+	    	
+	    	if(backgammonUI.getChosenDiffficulty()!="Easy") {
+	    		QuestionOverlay questionOverlay = new QuestionOverlay(null);
+	    		questionOverlay.showAndWait();
+	    	}
 
-	        // Show the popup and wait for it to close
+	   
 	       
 
 	        // Continue with the action logic after the popup is closed
