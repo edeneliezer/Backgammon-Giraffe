@@ -549,7 +549,7 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	private void checkSurpriseStation(Pip targetPip, Player currentPlayer) {
 	    if (targetPip.hasSurpriseStation() && !targetPip.isSurpriseActivated()) {
 	        // הדפסה ללוג
-	        infoPnl.print(currentPlayer.getName() + " landed on a Surprise Station! Extra turn granted.", MessageType.ANNOUNCEMENT);
+	        infoPnl.print(currentPlayer.getName() + " landed on a Surprise Station!! Extra turn granted.", MessageType.ANNOUNCEMENT);
 
 	     // הפעלת הצליל
 	        playSurpriseSound();
@@ -568,7 +568,7 @@ public class GameplayMovesController implements ColorParser, ColorPerspectivePar
 	        gameplay.setExtraTurn(true);
 	        
 	        // הסרת תחנת ההפתעה מהשקע (חד-פעמית)
-	        targetPip.removeSurpriseIcon();
+	       // targetPip.removeSurpriseIcon();
 	    }
 	}
 	

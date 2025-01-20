@@ -141,7 +141,7 @@ public class BoardComponents extends HBox {
 	    // מציאת שקע רנדומלי שאין בו תחנה מיוחדת (לא תחנת הפתעה ולא תחנת שאלה)
 	    do {
 	        int randomIndex = random.nextInt(pips.length);
-	        System.out.println("random suprose-"+ randomIndex);
+	        System.out.println("Surprise Station added to Pip "+ randomIndex);
 	        selectedPip = pips[randomIndex];
 	    } while (selectedPip.hasSurpriseStation() || selectedPip.hasQuestionStation());
 
@@ -149,7 +149,7 @@ public class BoardComponents extends HBox {
 	    SurpriseStation surpriseStation = new SurpriseStation();
 	    selectedPip.setSurpriseStation(surpriseStation);
 
-	    // הוספת אייקון תחנה אם לא קיים
+	/*    // הוספת אייקון תחנה אם לא קיים
 	    if (!selectedPip.hasSurpriseIcon()) {
 	        ImageView surpriseIcon = new ImageView("/game/img/board/surprise_icon.png"); // שים את הנתיב של האייקון
 	        surpriseIcon.setFitWidth(30);
@@ -159,9 +159,9 @@ public class BoardComponents extends HBox {
 	        if (!selectedPip.getChildren().contains(surpriseIcon)) {
 	            selectedPip.getChildren().add(surpriseIcon);
 	        }
-	    }
+	    }*/
 
-	    System.out.println("Surprise Station added to Pip " + selectedPip.getPipNumber());
+	   // System.out.println("Surprise Station added to Pip " + selectedPip.getPipNumber());
 	}
 
 	
@@ -199,8 +199,8 @@ public class BoardComponents extends HBox {
 
 	    // מציאת שקע רנדומלי שאין בו תחנה מיוחדת (לא תחנת הפתעה ולא תחנת שאלה)
 	    do {
-	        int randomIndex = random.nextInt(pips.length);
-	        System.out.println("random qa-"+randomIndex);
+	        int randomIndex = random.nextInt(pips.length)+1;
+	        System.out.println("Question Station added to Pip "+ randomIndex);
 	        selectedPip = pips[randomIndex];
 	    } while (selectedPip.hasSurpriseStation() || selectedPip.hasQuestionStation());
 
@@ -220,7 +220,7 @@ public class BoardComponents extends HBox {
 	        }
 	    }
 
-	    System.out.println("Question Station added to Pip " + selectedPip.getPipNumber());
+	    //System.out.println("Question Station added to Pip " + selectedPip.getPipNumber());
 	}
 
 
