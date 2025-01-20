@@ -99,7 +99,7 @@ public class Pip extends CheckersStorer implements ColorParser {
 	    return surpriseIcon != null;
 	}
 
-	// בודק אם יש אייקון
+/*	// בודק אם יש אייקון
 	public boolean hasSurpriseIcon() {
 	    return surpriseIcon != null && this.getChildren().contains(surpriseIcon);
 	}
@@ -121,7 +121,7 @@ public class Pip extends CheckersStorer implements ColorParser {
 	    if (surpriseIcon != null && !this.getChildren().contains(surpriseIcon)) {
 	        this.getChildren().add(surpriseIcon); // הבטחה שהאייקון יישאר
 	    }
-	}
+	}*/
 	
 	public void activateSurprise(Player player) {
         if (surpriseStation != null) {
@@ -135,11 +135,11 @@ public class Pip extends CheckersStorer implements ColorParser {
 	    return isSurpriseActivated;
 	}
 	
-	public void removeSurpriseIcon() {
+	/*public void removeSurpriseIcon() {
 	    if (this.hasSurpriseIcon()) {
 	        this.getChildren().remove(this.getSurpriseIcon());
 	    }
-	}
+	}*/
 
 	
 	/*public void removeSurpriseStation() {
