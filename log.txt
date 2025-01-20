@@ -34946,3 +34946,28 @@
 
 > [System] Trying to quit game.
 
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 3, 3, 3].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 9
+      H. 13-4
+      I. 24-15
+
+  Roll of 12
+
+> [System] Trying to quit game.
+
