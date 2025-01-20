@@ -74,7 +74,7 @@ public class Pip extends CheckersStorer implements ColorParser {
 		this.surpriseStation = surpriseStation;	   
 		if (this.surpriseIcon == null) {
 	        // יצירת האייקון של תחנת ההפתעה
-	        InputStream input = getClass().getResourceAsStream("/game/img/board/surprise_icon.png");
+	        InputStream input = getClass().getResourceAsStream("/game/img/board/SurpriseIcon.png");
 	        Image surpriseImage = new Image(input);
 
 	        // יצירת ImageView והגדרות
