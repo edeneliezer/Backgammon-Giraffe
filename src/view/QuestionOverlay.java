@@ -1,5 +1,6 @@
 package view;
 
+import Model.DifficultyDice;
 import Model.GameModel;
 import Model.Question;
 import javafx.geometry.Insets;
@@ -7,6 +8,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -24,8 +27,10 @@ public class QuestionOverlay extends Stage {
         // Set up the modal dialog
         initModality(Modality.APPLICATION_MODAL);
         initOwner(parentStage);
-        initStyle(StageStyle.UNDECORATED); // Remove the window decorations
+        initStyle(StageStyle.UNDECORATED); // Remove window decorations
+        setResizable(false);
 
+        DifficultyDice dice = new DifficultyDice(); // Initialize DifficultyDice
 
         // Load questions
         List<Question> questions = GameModel.loadQuestions();
@@ -35,11 +40,15 @@ public class QuestionOverlay extends Stage {
             return;
         }
 
-        // Root container
+        // Roll the dice to get the difficulty level
+        String difficulty = dice.roll();
+
+        // Set up the root container
         VBox root = new VBox(20);
         root.setPadding(new Insets(20));
-        root.setStyle("-fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); " +
-                      "-fx-border-color: #5b3924; -fx-border-width: 5; -fx-border-radius: 20; -fx-background-radius: 20;");
+        root.setAlignment(Pos.CENTER);
+        root.setStyle("-fx-background-color: linear-gradient(to bottom, #FAEBD7, #FFF8DC); " +
+                      "-fx-border-color: #5B3924; -fx-border-width: 5; -fx-border-radius: 20; -fx-background-radius: 20;");
         root.setPrefHeight(400);
 
         // Add shadow effect
@@ -50,33 +59,34 @@ public class QuestionOverlay extends Stage {
         dropShadow.setColor(Color.rgb(90, 90, 90, 0.5));
         root.setEffect(dropShadow);
 
-        // Title and Roll Button Container
-        VBox rollSection = new VBox(10);
-        rollSection.setAlignment(Pos.CENTER);
+        // Dice Image Section
+        ImageView diceImageView = new ImageView(new Image("game/img/dices/black/" + difficulty.toLowerCase() + ".png"));
+        diceImageView.setFitWidth(120);
+        diceImageView.setFitHeight(120);
 
-        Label titleLabel = new Label("Roll to Get a Question");
-        titleLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
-        titleLabel.setTextFill(Color.web("#333333"));
+        // Label showing the rolled difficulty level
+        Label difficultyLabel = new Label("You rolled: " + difficulty);
+        difficultyLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
+        difficultyLabel.setTextFill(Color.web("#5B3924"));
 
-        Button rollButton = new Button("Roll Question");
-        rollButton.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
-        rollButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
-        rollButton.setOnMouseEntered(e -> rollButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
-        rollButton.setOnMouseExited(e -> rollButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
-
-        rollSection.getChildren().addAll(titleLabel, rollButton);
+        // Next Button
+        Button nextButton = new Button("Next");
+        nextButton.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
+        nextButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
+        nextButton.setOnMouseEntered(e -> nextButton.setStyle("-fx-background-color: #45A049; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
+        nextButton.setOnMouseExited(e -> nextButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
 
         // Placeholder for the question and answers
         VBox questionBox = new VBox(10);
         questionBox.setAlignment(Pos.TOP_LEFT);
         questionBox.setPadding(new Insets(10, 20, 10, 20));
 
-        rollButton.setOnAction(e -> {
-            // Roll the dice to get a question
-            currentQuestion = questions.get((int) (Math.random() * questions.size()));
+        nextButton.setOnAction(e -> {
+            // Remove the dice section
+            root.getChildren().clear();
 
-            // Remove the roll section
-            root.getChildren().remove(rollSection);
+            // Roll the question based on difficulty
+            currentQuestion = questions.get((int) (Math.random() * questions.size()));
 
             // Display the question and answers
             Label questionLabel = new Label("Question:\n" + currentQuestion.getQuestion());
@@ -93,7 +103,7 @@ public class QuestionOverlay extends Stage {
             for (String answer : currentQuestion.getAnswers()) {
                 RadioButton answerButton = new RadioButton(answer);
                 answerButton.setFont(Font.font("Verdana", FontWeight.NORMAL, 14));
-                answerButton.setTextFill(Color.web("#5b3924"));
+                answerButton.setTextFill(Color.web("#5B3924"));
                 answerButton.setToggleGroup(toggleGroup);
 
                 answersBox.getChildren().add(answerButton);
@@ -102,10 +112,9 @@ public class QuestionOverlay extends Stage {
             // Submit button
             Button submitButton = new Button("Submit");
             submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-            submitButton.setAlignment(Pos.CENTER_RIGHT);
-            submitButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
-            submitButton.setOnMouseEntered(ev -> submitButton.setStyle("-fx-background-color: #ff4d4d; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
-            submitButton.setOnMouseExited(ev -> submitButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
+            submitButton.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
+            submitButton.setOnMouseEntered(ev -> submitButton.setStyle("-fx-background-color: #FF4D4D; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
+            submitButton.setOnMouseExited(ev -> submitButton.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
 
             submitButton.setOnAction(ev -> {
                 RadioButton selectedButton = (RadioButton) toggleGroup.getSelectedToggle();
@@ -125,30 +134,14 @@ public class QuestionOverlay extends Stage {
                 }
                 close(); // Close the overlay
             });
-            
-         // Level label
-            Label difficultyLabel = new Label("Level: " + currentQuestion.getDifficulty());
-            difficultyLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-            difficultyLabel.setTextFill(Color.web("#5b3924"));
-            difficultyLabel.setAlignment(Pos.CENTER_LEFT);
-            
-            HBox labelBox = new HBox(difficultyLabel);
-            labelBox.setAlignment(Pos.CENTER_LEFT);
-            HBox.setHgrow(labelBox, Priority.ALWAYS);
-
-            HBox buttonBox = new HBox(submitButton);
-            buttonBox.setAlignment(Pos.CENTER_RIGHT);
-            HBox.setHgrow(buttonBox, Priority.ALWAYS);
 
             // Add question and answers to the question box
-            questionBox.getChildren().addAll(questionLabel, answersBox, labelBox, buttonBox);
+            questionBox.getChildren().addAll(questionLabel, answersBox, submitButton);
             root.getChildren().add(questionBox);
         });
-        
-        
 
-        // Combine all sections into the root container
-        root.getChildren().add(rollSection);
+        // Add the dice section to the root container
+        root.getChildren().addAll(diceImageView, difficultyLabel, nextButton);
 
         // Set up the scene
         Scene scene = new Scene(root, 500, 400);

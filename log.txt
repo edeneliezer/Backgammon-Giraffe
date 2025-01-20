@@ -35068,3 +35068,102 @@
 
 > [System] Trying to quit game.
 
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 19-23
+      B. 17-21
+      C. 12-16
+      D. 1-5
+
+  Roll of 6
+      E. 17-23
+      F. 12-18
+      G. 1-7
+
+  Roll of 10
+      H. 12-22
+      I. 1-11
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [3, 4].
+> [System] Available moves:
+  Roll of 3
+      A. 6-3
+      B. 8-5
+      C. 13-10
+      D. 24-21
+
+  Roll of 4
+      E. 6-2
+      F. 8-4
+      G. 13-9
+      H. 24-20
+
+  Roll of 7
+      I. 13-6
+
+
+> [System] q landed on a question Station!
+
+> [System] Moving...
+> [System] Moved checker from 8 to 5.
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+> [Error] Die has already been rolled.
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 5].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 5
+      D. 8-3
+      E. 13-8
+
+  Roll of 11
+      F. 13-2
+      G. 24-13
+
+
+> [System] Moving...
+> [System] Moved checker from 8 to 3.
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+> [System] You must complete your current turn before rolling again.
+
+> [System] q landed on a Surprise Station! Extra turn granted.
+
+> [System] Moving...
+> [System] Moved checker from 8 to 2.
+> [System] Move over.
+
+> [System] Extra turn granted! Staying on the current player's turn.
+> [System] You must complete your current turn before rolling again.
+> [System] You must complete your current turn before rolling again.
+> [System] You must complete your current turn before rolling again.
+> [System] You must complete your current turn before rolling again.
+> [System] Trying to quit game.
+
