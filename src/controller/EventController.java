@@ -33,6 +33,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import view.CommandPanel;
 import view.InfoPanel;
+import view.QuestionOverlay;
 import view.RollDieButton;
 
 /**
@@ -385,14 +386,21 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 
 	private int dieState = 2;
 	private void initRollDieButtonListeners() {
-		rollDieBtn.setOnAction((ActionEvent event) -> {
-			if (dieState == 1) {
-				dieState = 2;
-			} else {
-				dieState = 1;
-			}
-			cmd.runCommand("/roll " + Integer.toString(dieState));
-		});
+	    rollDieBtn.setOnAction((ActionEvent event) -> {
+	    	QuestionOverlay questionOverlay = new QuestionOverlay(null);
+		questionOverlay.showAndWait();
+
+	        // Show the popup and wait for it to close
+	       
+
+	        // Continue with the action logic after the popup is closed
+	        if (dieState == 1) {
+	            dieState = 2;
+	        } else {
+	            dieState = 1;
+	        }
+	        cmd.runCommand("/roll " + Integer.toString(dieState));
+	    });
 	}
 	
 	// Register child stages
