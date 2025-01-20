@@ -393,10 +393,6 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 	    		QuestionOverlay questionOverlay = new QuestionOverlay(null);
 	    		questionOverlay.showAndWait();
 	    	}
-
-	   
-	       
-
 	        // Continue with the action logic after the popup is closed
 	        if (dieState == 1) {
 	            dieState = 2;
