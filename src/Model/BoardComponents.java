@@ -199,7 +199,7 @@ public class BoardComponents extends HBox {
 
 	    // מציאת שקע רנדומלי שאין בו תחנה מיוחדת (לא תחנת הפתעה ולא תחנת שאלה)
 	    do {
-	        int randomIndex = random.nextInt(pips.length)+1;
+	        int randomIndex = random.nextInt(pips.length);
 	        System.out.println("Question Station added to Pip "+ randomIndex);
 	        selectedPip = pips[randomIndex];
 	    } while (selectedPip.hasSurpriseStation() || selectedPip.hasQuestionStation());
