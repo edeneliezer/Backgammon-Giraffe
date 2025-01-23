@@ -42,7 +42,7 @@ public class QuestionBuilder {
         if (answers.size() < 2) {
             throw new IllegalStateException("A question must have at least two answers.");
         }
-        if (correctAnswer == null || !answers.contains(correctAnswer)) {
+        if (correctAnswer == null || correctAnswer.isEmpty()) {
             throw new IllegalStateException("Correct answer must be one of the provided answers.");
         }
         if (difficulty == null || difficulty.isEmpty()) {

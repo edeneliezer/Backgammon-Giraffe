@@ -11,14 +11,157 @@
         "correct_ans": "2"
     },
     {
-        "difficulty": "2",
-        "question": "q2",
+        "difficulty": "1",
+        "question": "What is the difference between functional and non-functional requirements?",
         "answers": [
-            "1",
-            "2",
-            "3",
-            "4"
+            "Functional requirements describe services, while non-functional requirements define performance constraints.",
+            "Functional requirements describe constraints, while non-functional requirements describe services.",
+            "There is no difference; both describe services.",
+            "Functional requirements deal with software, and non-functional requirements deal with hardware."
         ],
         "correct_ans": "1"
+    },
+    {
+        "difficulty": "2",
+        "question": "What does a software requirements document include?",
+        "answers": [
+            "Only functional requirements.",
+            "A description of the system and how it will be implemented.",
+            "User and system requirements.",
+            "Only operational constraints of the system."
+        ],
+        "correct_ans": "3"
+    },
+    {
+        "difficulty": "3",
+        "question": "What is the meaning of Requirements Validation, and why is it important?",
+        "answers": [
+            "Ensuring the requirements meet customer needs to avoid costly errors.",
+            "The process of writing the requirements in a formal document.",
+            "Testing the software code.",
+            "Creating a system prototype."
+        ],
+        "correct_ans": "1"
+    },
+    {
+        "difficulty": "3",
+        "question": "Which architectural pattern describes the separation of data , presentation ,and interaction?",
+        "answers": [
+            "Layered architecture, Which architec",
+            "Model-View-Controller (MVC)",
+            "Client-Server architecture",
+            "Repository Pattern"
+        ],
+        "correct_ans": "2"
+    },
+    {
+        "difficulty": "1",
+        "question": "What is the main difference between White-Box and Black-Box testing?",
+        "answers": [
+            "White-Box testing deals with user interface, while Black-Box testing deals with algorithms.",
+            "White-Box testing focuses on customer requirements, while Black-Box testing focuses on code.",
+            "There is no difference; both focus on testing functionality ",
+            "White-Box testing focuses on code structure, while Black-Box testing focuses on software behavior."
+        ],
+        "correct_ans": "4"
+    },
+    {
+        "difficulty": "2",
+        "question": "What is the concept of \"Cyclomatic Complexity\" in White-Box testing?",
+        "answers": [
+            "The amount of code that must be tested to cover all possible paths.",
+            "The maximum number of independent paths in the program flow graph.",
+            "The number of uninitialized variables in the code.",
+            "The number of tests required to check the code inputs."
+        ],
+        "correct_ans": "2"
+    },
+    {
+        "difficulty": "3",
+        "question": "When is it appropriate to use Black-Box testing?",
+        "answers": [
+            "When focusing solely on software structure.",
+            "When checking if the output matches requirements, regadless of code structure.",
+            "When there is no access to the source code or variables.",
+            "When the software does not rely on complex algorithms."
+        ],
+        "correct_ans": "2"
+    },
+    {
+        "difficulty": "1",
+        "question": "What is the difference between Verification and Validation?",
+        "answers": [
+            "There is no difference; both describe the same process.",
+            "Verification checks user requirements, and validation checks the code.",
+            "Verification checks if we are building the product right, and validation checks if it is the right product for the user.",
+            "Verification deals with load testing, while valedation deals only with functional testing."
+        ],
+        "correct_ans": "3"
+    },
+    {
+        "difficulty": "1",
+        "question": "Which stage of software testing involves testing a complete version of the system before it is released to users?",
+        "answers": [
+            "Development testing.",
+            "Release testing.",
+            "User testing.",
+            "Unit testing."
+        ],
+        "correct_ans": "2"
+    },
+    {
+        "difficulty": "2",
+        "question": "What are the main advantages of the Agile approach compared to the Waterfall approach?",
+        "answers": [
+            "Improved software quality through early testing, enhanced transparency, and reduced risks.",
+            "Reduced resources and costs by postponing testing to the final project phase.",
+            "Strict upfront requirement definition without possible changes.",
+            "Detailed planning and predefined stages without allowing flexibility during development."
+        ],
+        "correct_ans": "1"
+    },
+    {
+        "difficulty": "1",
+        "question": "What is a user story in Agile ?",
+        "answers": [
+            "A process for time estimation of project tasks.",
+            "A detailed document describing all development stages.",
+            "A brief description of a requirememt or feature from the user's persprective.",
+            "A UML diagram outlining code structures."
+        ],
+        "correct_ans": "3"
+    },
+    {
+        "difficulty": "2",
+        "question": "What is one of the key challenges in software maintenance?",
+        "answers": [
+            "The inability to identify errors in the original documentation.",
+            "The software structure degrades as changes are made.",
+            "The inability to implement requirement changes.",
+            "Maintenance does not require software expertise"
+        ],
+        "correct_ans": "2"
+    },
+    {
+        "difficulty": "1",
+        "question": "What are three types of software maintenance?",
+        "answers": [
+            "User management, code optimization, and data cleaning.",
+            "Documentation improvement, redevelopment, and redesign.",
+            "Fault repair, enviromental adaptation, and functionality modification.",
+            "Component removal, bug fixing, and optimization."
+        ],
+        "correct_ans": "3"
+    },
+    {
+        "difficulty": "3",
+        "question": "What is the Refactoring process and how does it contribute to software maintenance?",
+        "answers": [
+            "Rewriting the software to add new features.",
+            "Improving the software structure to facilitate future changes without altering functionality.",
+            "Redeveloping old software using new technologies.",
+            "Fixing critical bugs in the code while maintaining existing documentation."
+        ],
+        "correct_ans": "2"
     }
 ]}
