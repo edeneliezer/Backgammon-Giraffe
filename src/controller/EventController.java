@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.TrayIcon.MessageType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -9,20 +8,10 @@ import Model.Bar;
 import Model.DoublingCubeHome;
 import view.GameComponentsController;
 import Model.GameConstants;
-import controller.GameplayController;
 import view.Home;
-import controller.MatchController;
 import Model.Pip;
 import Model.Settings;
 import Model.TouchablesStorer;
-import controller.ColorParser;
-import controller.ColorPerspectiveParser;
-import controller.CommandController;
-import controller.InputValidator;
-import controller.OutOfTimeHandler;
-import controller.OutOfTimeSelectedEvent;
-import controller.TouchablesStorerHandler;
-import controller.TouchablesStorerSelectedEvent;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -31,22 +20,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import view.CommandPanel;
 import view.InfoPanel;
 import view.QuestionOverlay;
 import view.RollDieButton;
 import view.backgammonUI;
 
-/**
- * This class handles all the events that is triggered by the user.
- * Sub-controller of MainController.
- * 
- * @teamname TeaCup
- * @author Bryan Sng, 17205050
- * @author @LxEmily, 17200573
- * @author Braddy Yeoh, 17357376
- *
- */
+
+
 public class EventController implements ColorParser, ColorPerspectiveParser, InputValidator {
 	private Stage stage;
 	private MatchController root;
@@ -118,38 +98,7 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 		//root.addEventHandler(TouchableSelectedEvent.TOUCHABLE_SELECTED, touchableHandler);
 	}
 	
-	/*
-	TouchableHandler touchableHandler = new TouchableHandler() {
-		@Override
-		public void onClicked(Touchable object) {
-			if (object instanceof DoublingCube) {
-				infoPnl.print("Doubling Cube selected.", MessageType.DEBUG);
-
-				// if cube at its box.
-				if (!game.getOtherHome().getCubeHome().isEmpty()) {
-					
-				} else if (!game) {
-					
-				}
-				
-				if (gameplay.isStarted()) {
-					//  
-					if (!gameplay.isDoubling()) {
-						// highlight cube box.
-						game.getOtherHome().getCubeHome().highlight();
-					}
-					
-					game.getOtherHome().getHome(gameplay.getCurrent().getColor()).highlight();
-				} else {
-					// highlight player's other homes.
-					game.getOtherHome().getHome(Settings.getBottomPerspectiveColor()).highlight();
-					game.getOtherHome().getHome(Settings.getTopPerspectiveColor()).highlight();
-				}
-				isCubeSelectionMode = true;
-			}
-		}
-	};
-	*/
+	
 	
 	private void initTouchablesStorersListeners() {
 		root.addEventHandler(TouchablesStorerSelectedEvent.STORER_SELECTED, touchablesStorerHandler);
@@ -340,59 +289,16 @@ public class EventController implements ColorParser, ColorPerspectiveParser, Inp
 			initStageListeners();
 	}
 
-	/**
-	 * Manages command panel listeners.
-	 * 		- if its a command (i.e. start with '/'), run it.
-	 * 		- echoes player input to infoPanel.
-	 * 		- does not echo empty strings/whitespace.
-	 */
-/*	private void initCommandPanelListeners() {
-		cmdPnl.setOnAction((ActionEvent event) -> {
-			String text = cmdPnl.getText();
-			cmdPnl.addHistory(text);
-			String[] args = text.split(" ");
-			
-			if (cmdPnl.isCommand(text)) {
-				cmd.runCommand(cmdPnl.getText(), true);
-			} else if (args.length == 2 && isPip(args[0]) && isPip(args[1])) {
-				cmd.runCommand("/move " + text, true);
-			} else if (gameplay.getGameplayMoves().isMapped() && gameplay.getGameplayMoves().isKey(text.toUpperCase().trim())) {
-				cmd.runCommand(gameplay.getGameplayMoves().getMapping(text.toUpperCase().trim()));
-			} else if (text.equals("double")) {
-				cmd.runCommand("/double");
-			} else if (text.equals("yes") && gameplay.isDoubling()) {
-				cmd.runCommand("/accept");
-			} else if (text.equals("no") && gameplay.isDoubling()) {
-				cmd.runCommand("/decline");
-			} else if (text.equals("start")) {
-				cmd.runCommand("/start");
-			} else if (text.equals("roll")) {
-				cmd.runCommand("/roll");
-			} else if (text.equals("next")) {
-				cmd.runCommand("/next");
-			} else if (text.equals("cheat")) {
-				cmd.runCommand("/cheat");
-			} else if (text.equals("save")) {
-				cmd.runCommand("/save");
-			} else if (text.equals("quit")) {
-				cmd.runCommand("/quit");
-			} else if (text.trim().isEmpty()) {
-				// ignores if string empty or whitespace only.
-			} else {
-				infoPnl.print(text, MessageType.CHAT);
-			}
-			cmdPnl.setText("");
-		});
-	}*/
+	
 
 	private int dieState = 2;
 	private void initRollDieButtonListeners() {
 	    rollDieBtn.setOnAction((ActionEvent event) -> {
 	    	
-	    	if(backgammonUI.getChosenDiffficulty()!="Easy") {
-	    		QuestionOverlay questionOverlay = new QuestionOverlay(null);
-	    		questionOverlay.showAndWait();
-	    	}
+//	    	if(backgammonUI.getChosenDiffficulty()!="Easy") {
+//	    		QuestionOverlay questionOverlay = new QuestionOverlay(null);
+//	    		questionOverlay.showAndWait();
+//	    	}
 	        // Continue with the action logic after the popup is closed
 	        if (dieState == 1) {
 	            dieState = 2;

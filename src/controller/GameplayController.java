@@ -376,23 +376,7 @@ public class GameplayController  extends Observable implements ColorParser, Colo
 		}
 	}
 	
-	/**
-	 * Starts the timer for the respective player's turn.
-	 * If the safe timer runs out (15 secs),
-	 * it will start decrementing the player's individual timer per sec.
-	 */
-/*	private void startCurrentPlayerTimer() {
-		if (getpCurrent() != null) game.getPlayerPanel(getpCurrent().getColor()).getTimer().start();
-	}*/
 	
-	/**
-	 * Stops the timer for the respective player's turn.
-	 * If timer is stopped within the safe timer's limit, then nothing is decremented,
-	 * else, update the player's individual timer
-	 */
-/*	public void stopCurrentPlayerTimer() {
-		if (getpCurrent() != null) game.getPlayerPanel(getpCurrent().getColor()).getTimer().stop();
-	}*/
 	
 	/**
 	 * Swap players and pip number labels, used to change turns.

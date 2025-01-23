@@ -35255,3 +35255,68 @@
 > [System] You can only roll the dice.
 > [System] Trying to quit game.
 
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 5].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 5
+      E. 8-3
+      F. 13-8
+
+  Roll of 7
+      G. 13-6
+
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [2, 3].
+> [System] Available moves:
+  Roll of 2
+      A. 6-4
+      B. 8-6
+      C. 13-11
+      D. 24-22
+
+  Roll of 3
+      E. 6-3
+      F. 8-5
+      G. 13-10
+      H. 24-21
+
+  Roll of 5
+      I. 8-3
+      J. 13-8
+
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [6, 2].
+> [System] Available moves:
+  Roll of 6
+      A. 8-2
+      B. 13-7
+      C. 24-18
+
+  Roll of 2
+      D. 6-4
+      E. 8-6
+      F. 13-11
+      G. 24-22
+
+  Roll of 8
+      H. 13-5
+      I. 24-16
+
+> [Error] Die has already been rolled.
+> [System] Trying to quit game.
+

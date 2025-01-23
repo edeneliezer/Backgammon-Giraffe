@@ -27,6 +27,8 @@ import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import view.CommandPanel;
 import view.InfoPanel;
+import view.QuestionOverlay;
+import view.backgammonUI;
 
 /**
  * This class handles all the commands that is entered by the user.
@@ -326,6 +328,10 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 			}
 			
 			if (!gameplay.isRolled()) {
+				if(backgammonUI.getChosenDiffficulty()!="Easy") {
+		    		QuestionOverlay questionOverlay = new QuestionOverlay(null);
+		    		questionOverlay.showAndWait();
+		    	}
 				infoPnl.print("Rolling...", MessageType.ANNOUNCEMENT);
 				gameplay.roll();
 				event.resetSelections();
