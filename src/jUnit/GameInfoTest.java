@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 
-import Model.GameModel;
+import Model.SysData;
 
 import org.json.JSONObject;
 
@@ -37,7 +37,7 @@ public class GameInfoTest {
         String gameTime = "00:17";
 
         // Act
-        GameModel.saveGameInfo(player1, player2, difficulty, winner, gameTime);
+        SysData.saveGameInfo(player1, player2, difficulty, winner, gameTime);
 
         // Assert
         // Verify the game info file

@@ -1,7 +1,7 @@
 package view;
 
 import Model.DifficultyDice;
-import Model.GameModel;
+import Model.SysData;
 import Model.Question;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -34,7 +34,7 @@ public class QuestionOverlay extends Stage {
         DifficultyDice dice = new DifficultyDice(); // Initialize DifficultyDice
 
         // Load questions
-        List<Question> questions = GameModel.loadQuestions();
+        List<Question> questions = SysData.loadQuestions();
         if (questions.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "No questions available!", ButtonType.OK);
             alert.showAndWait();

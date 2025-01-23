@@ -1,6 +1,6 @@
 package view;
 
-import Model.GameModel;
+import Model.SysData;
 import Model.Question;
 
 import javafx.geometry.Insets;
@@ -297,7 +297,7 @@ public class EditQuestionsScreen extends Stage {
 
         // Save updated questions to JSON
 //        saveQuestionsToJSON();
-        GameModel.saveQuestion(question);
+        SysData.saveQuestion(question);
         
         questions.add(question);
         questionsComboBox.getItems().add(question.getQuestion());

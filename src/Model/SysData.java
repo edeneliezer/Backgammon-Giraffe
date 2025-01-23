@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class GameModel {
+public class SysData {
     private static final String FILE_NAME = "gameInfo.json";
     private static final String GAME_NUMBER_TRACKER = "gameNumberTracker.txt"; // File to track the last game number
     private static AtomicInteger gameNumberCounter = new AtomicInteger(0);

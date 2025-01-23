@@ -9,7 +9,7 @@ import Model.DieResults;
 import Model.DoublingCube;
 import Model.Emoji;
 import Model.GameEndScore;
-import Model.GameModel;
+import Model.SysData;
 import controller.GameplayMovesController;
 import view.Home;
 import controller.MatchController;
@@ -606,8 +606,8 @@ public class GameplayController  extends Observable implements ColorParser, Colo
 		Player winner = getpCurrent();
 		String chosenDifficulty = view.backgammonUI.getChosenDiffficulty();
 	    String gameTime = root.getGameTimer().getFormattedTime(); // Get the game time from MatchController
-	    GameModel.saveGameInfo(bottomPlayer.getName(), topPlayer.getName(), chosenDifficulty, winner.getName(), gameTime);
-	    GameModel.printGameInfo();
+	    SysData.saveGameInfo(bottomPlayer.getName(), topPlayer.getName(), chosenDifficulty, winner.getName(), gameTime);
+	    SysData.printGameInfo();
         // Print all saved games to verify
 		if (isIntermediate) {
 			// round end, allocate points as required.

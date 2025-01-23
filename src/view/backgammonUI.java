@@ -7,9 +7,9 @@ import java.io.InputStream;
 import java.net.URL;
 
 import Model.Dice;
-import Model.GameModel;
+import Model.SysData;
 import controller.MatchController;
-import controller.jsonController;
+import controller.SysDataController;
 import controller.MusicPlayer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
