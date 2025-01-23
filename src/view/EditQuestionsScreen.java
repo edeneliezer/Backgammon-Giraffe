@@ -2,7 +2,7 @@ package view;
 
 import Model.SysData;
 import Model.Question;
-
+import Model.QuestionBuilder;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -33,26 +33,46 @@ public class EditQuestionsScreen extends Stage {
     private TextField questionField;
     private TextField answer1Field, answer2Field, answer3Field, answer4Field;
     private ComboBox<String> levelComboBox;
-    private TextField correctAnswerField;
     private Scene scene;
+    private Button addButton;
+    private Button editButton;
+    private Button deleteButton;
+    private ComboBox<String> correctAnswerField;
+
 
     public EditQuestionsScreen(Stage stage, Scene previousScene) {
         // Set up the modal dialog
         initOwner(stage);
 
-        // Prompt for password
-        TextInputDialog passwordDialog = new TextInputDialog();
-        passwordDialog.setHeaderText("Enter Password");
-        passwordDialog.setContentText("Password:");
-        passwordDialog.initModality(Modality.APPLICATION_MODAL);
-        passwordDialog.initOwner(stage);
+     // Replace the TextInputDialog with a custom password prompt
+        Stage passwordStage = new Stage();
+        passwordStage.initModality(Modality.APPLICATION_MODAL);
+        passwordStage.initOwner(stage);
+        passwordStage.setTitle("Enter Password");
 
-        String password = passwordDialog.showAndWait().orElse("");
-        if (!password.equals(PASSWORD)) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect password!", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
+        VBox passwordRoot = new VBox(10);
+        passwordRoot.setPadding(new Insets(20));
+        passwordRoot.setAlignment(Pos.CENTER);
+
+        Label passwordLabel = new Label("Enter Password:");
+        PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("Password");
+
+        Button submitPasswordButton = new Button("Submit");
+        submitPasswordButton.setOnAction(e -> {
+            if (passwordField.getText().equals(PASSWORD)) {
+                passwordStage.close();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect password!", ButtonType.OK);
+                alert.showAndWait();
+            }
+        });
+
+        passwordRoot.getChildren().addAll(passwordLabel, passwordField, submitPasswordButton);
+        Scene passwordScene = new Scene(passwordRoot, 300, 150);
+        passwordStage.setScene(passwordScene);
+        passwordStage.showAndWait();
+
 
         // Load questions from JSON
         questions = loadQuestions();
@@ -121,8 +141,10 @@ public class EditQuestionsScreen extends Stage {
         levelComboBox.getItems().addAll("1", "2", "3");
         levelComboBox.setPromptText("Level");
         levelComboBox.setDisable(true);
-        correctAnswerField = new TextField();
+        correctAnswerField = new ComboBox<>();
+        correctAnswerField.getItems().addAll("1", "2", "3", "4");
         correctAnswerField.setPromptText("Correct Answer");
+        correctAnswerField.setDisable(true);
         correctAnswerField.setDisable(true);
         levelAndCorrectAnswerBox.getChildren().addAll(
                 createLabeledField("LEVEL", levelComboBox),
@@ -134,7 +156,7 @@ public class EditQuestionsScreen extends Stage {
         HBox buttonBox = new HBox(10);
         buttonBox.setAlignment(Pos.BOTTOM_RIGHT);
 
-        Button editButton = new Button("Edit");
+        editButton = new Button("Edit");
         editButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
         editButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
         editButton.setOnAction(e -> {
@@ -146,6 +168,8 @@ public class EditQuestionsScreen extends Stage {
                      alert.showAndWait();
                      return;
                  }
+               addButton.setDisable(true);
+               deleteButton.setDisable(true);
         	   editButton.setText("Submit");
         	   enableFields(true);
         	}else {
@@ -156,33 +180,57 @@ public class EditQuestionsScreen extends Stage {
         	  }
         	  editQuestion();
        	      enableFields(false);
+       	      addButton.setDisable(false);
+              deleteButton.setDisable(false);
          	  editButton.setText("Edit");
         	}
         	
         });
 
-        Button addButton = new Button("Add");
+        addButton = new Button("Add");
         addButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
         addButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
         addButton.setOnAction(e -> {
         	if(addButton.getText().equals("Add")) {
         		addButton.setText("Submit");
+        		editButton.setDisable(true);
+        		deleteButton.setDisable(true);
         		clearFields();
                 questionsComboBox.setPromptText("Select a question...");
         		enableFields(true);
         	}else {
-        		 if(isAnyFieldEmpty()) {
-           		  Alert alert = new Alert(Alert.AlertType.ERROR, "All fields must be filled out.", ButtonType.OK);
-                     alert.showAndWait();
-                     return;
-           	  }
+        	    if (isAnyFieldEmpty()) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Incomplete Fields");
+                    alert.setHeaderText("Some fields are empty.");
+                    alert.setContentText("Do you want to cancel the process?");
+
+                    ButtonType cancelButtonType = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+                    ButtonType continueButtonType = new ButtonType("Continue Editing", ButtonBar.ButtonData.OK_DONE);
+
+                    alert.getButtonTypes().setAll(continueButtonType, cancelButtonType);
+                    ButtonType result = alert.showAndWait().orElse(cancelButtonType);
+
+                    if (result == cancelButtonType) {
+                        clearFields();
+                        enableFields(false);
+                        addButton.setText("Add");
+                        editButton.setDisable(false);
+                        deleteButton.setDisable(false);
+                        return;
+                    } else {
+                        return; // Let the user continue editing
+                    }
+                }
         	  saveNewQuestion();
+        	  deleteButton.setDisable(false);
+        	  editButton.setDisable(false);
               enableFields(false);
         	  addButton.setText("Add");
         	}
         });
 
-        Button deleteButton = new Button("Delete");
+        deleteButton = new Button("Delete");
         deleteButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
         deleteButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
         deleteButton.setOnAction(e -> deleteQuestion());
@@ -241,70 +289,62 @@ public class EditQuestionsScreen extends Stage {
         answer3Field.setText(answers.size() > 2 ? answers.get(2) : "");
         answer4Field.setText(answers.size() > 3 ? answers.get(3) : "");
         levelComboBox.setValue(question.getDifficulty());
-        correctAnswerField.setText(question.getCorrectAnswer());
+        correctAnswerField.setValue(question.getCorrectAnswer());
     }
 
     private void editQuestion() {
-    	 int index = questionsComboBox.getSelectionModel().getSelectedIndex();
-         if (index == -1) {
-             Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
-             alert.showAndWait();
-             return;
-         }
-        // Get the selected question
-        Question question = questions.get(index);
+        int index = questionsComboBox.getSelectionModel().getSelectedIndex();
+        if (index == -1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
 
-        // Update the question details
-        question.setQuestion(questionField.getText());
-        question.setAnswers(Arrays.asList(
-                answer1Field.getText(),
-                answer2Field.getText(),
-                answer3Field.getText(),
-                answer4Field.getText()
-        ));
-        question.setDifficulty(levelComboBox.getValue());
-        question.setCorrectAnswer(correctAnswerField.getText());
+        try {
+            Question editedQuestion = new QuestionBuilder()
+                    .setQuestionText(questionField.getText())
+                    .addAnswer(answer1Field.getText())
+                    .addAnswer(answer2Field.getText())
+                    .addAnswer(answer3Field.getText())
+                    .addAnswer(answer4Field.getText())
+                    .setCorrectAnswer(correctAnswerField.getValue())
+                    .setDifficulty(levelComboBox.getValue())
+                    .build();
 
-        // Save updated questions to JSON
-        saveQuestionsToJSON();
+            questions.set(index, editedQuestion);
+            saveQuestionsToJSON();
 
-        // Show success alert
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Question Edited successfully!", ButtonType.OK);
-        alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Question edited successfully!", ButtonType.OK);
+            alert.showAndWait();
+        } catch (IllegalStateException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
     }
+
     
     private void saveNewQuestion() {
-//        int index = questionsComboBox.getSelectionModel().getSelectedIndex();
-//        if (index == -1) {
-//            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
-//            alert.showAndWait();
-//            return;
-//        }
+        try {
+            Question newQuestion = new QuestionBuilder()
+                    .setQuestionText(questionField.getText())
+                    .addAnswer(answer1Field.getText())
+                    .addAnswer(answer2Field.getText())
+                    .addAnswer(answer3Field.getText())
+                    .addAnswer(answer4Field.getText())
+                    .setCorrectAnswer(correctAnswerField.getValue())
+                    .setDifficulty(levelComboBox.getValue())
+                    .build();
 
-//        // Get the selected question
-        Question question = new Question();
+            SysData.saveQuestion(newQuestion);
+            questions.add(newQuestion);
+            questionsComboBox.getItems().add(newQuestion.getQuestion());
 
-        // Update the question details
-        question.setQuestion(questionField.getText());
-        question.setAnswers(Arrays.asList(
-                answer1Field.getText(),
-                answer2Field.getText(),
-                answer3Field.getText(),
-                answer4Field.getText()
-        ));
-        question.setDifficulty(levelComboBox.getValue());
-        question.setCorrectAnswer(correctAnswerField.getText());
-
-        // Save updated questions to JSON
-//        saveQuestionsToJSON();
-        SysData.saveQuestion(question);
-        
-        questions.add(question);
-        questionsComboBox.getItems().add(question.getQuestion());
-
-        // Show success alert
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Question Added successfully!", ButtonType.OK);
-        alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Question added successfully!", ButtonType.OK);
+            alert.showAndWait();
+        } catch (IllegalStateException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     
@@ -337,7 +377,7 @@ public class EditQuestionsScreen extends Stage {
         answer3Field.clear();
         answer4Field.clear();
         levelComboBox.setValue(null);
-        correctAnswerField.clear();
+        correctAnswerField.setValue(null);;
         questionsComboBox.getSelectionModel().clearSelection();
     }
 
@@ -416,7 +456,7 @@ public class EditQuestionsScreen extends Stage {
                answer2Field.getText().isEmpty() ||
                answer3Field.getText().isEmpty() ||
                answer4Field.getText().isEmpty() ||
-               correctAnswerField.getText().isEmpty() ||
+               correctAnswerField.getValue() == null ||
                levelComboBox.getValue() == null;
     }
     
@@ -435,7 +475,7 @@ public class EditQuestionsScreen extends Stage {
                         answer3Field.getText(),
                         answer4Field.getText()
                 ),
-                correctAnswerField.getText(),
+                correctAnswerField.getValue(),
                 levelComboBox.getValue()
         );
 

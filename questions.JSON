@@ -1,11 +1,24 @@
-{"questions": [{
-    "difficulty": "1",
-    "question": "What is the purpose of a \"Requirements Document\" in software engineering?",
-    "answers": [
-        "To design the software's user interface.",
-        "To outline what the software should do and its constraints.",
-        "To describe how the software should be tested.",
-        "To define the coding standards for developers."
-    ],
-    "correct_ans": "2"
-}]}
+{"questions": [
+    {
+        "difficulty": "1",
+        "question": "What is the purpose of a \"Requirements Document\" in software engineering?",
+        "answers": [
+            "To design the software's user interface.",
+            "To outline what the software should do and its constraints.",
+            "To describe how the software should be tested.",
+            "To define the coding standards for developers."
+        ],
+        "correct_ans": "2"
+    },
+    {
+        "difficulty": "2",
+        "question": "q2",
+        "answers": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "correct_ans": "1"
+    }
+]}
