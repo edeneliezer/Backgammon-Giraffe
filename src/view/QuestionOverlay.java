@@ -22,6 +22,7 @@ import java.util.List;
 
 public class QuestionOverlay extends Stage {
     private Question currentQuestion;
+    private boolean isDiceRolled = false;
 
     public QuestionOverlay(Stage parentStage) {
         // Set up the modal dialog
@@ -40,9 +41,6 @@ public class QuestionOverlay extends Stage {
             return;
         }
 
-        // Roll the dice to get the difficulty level
-        String difficulty = dice.roll();
-
         // Set up the root container
         VBox root = new VBox(20);
         root.setPadding(new Insets(20));
@@ -60,88 +58,101 @@ public class QuestionOverlay extends Stage {
         root.setEffect(dropShadow);
 
         // Dice Image Section
-        ImageView diceImageView = new ImageView(new Image("game/img/dices/black/" + difficulty.toLowerCase() + ".png"));
+        ImageView diceImageView = new ImageView();
         diceImageView.setFitWidth(120);
         diceImageView.setFitHeight(120);
 
         // Label showing the rolled difficulty level
-        Label difficultyLabel = new Label("You rolled: " + difficulty);
+        Label difficultyLabel = new Label();
         difficultyLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
         difficultyLabel.setTextFill(Color.web("#5B3924"));
-
-        // Next Button
-        Button nextButton = new Button("Next");
-        nextButton.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
-        nextButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
-        nextButton.setOnMouseEntered(e -> nextButton.setStyle("-fx-background-color: #45A049; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
-        nextButton.setOnMouseExited(e -> nextButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
 
         // Placeholder for the question and answers
         VBox questionBox = new VBox(10);
         questionBox.setAlignment(Pos.TOP_LEFT);
         questionBox.setPadding(new Insets(10, 20, 10, 20));
 
-        nextButton.setOnAction(e -> {
-            // Remove the dice section
-            root.getChildren().clear();
+        // Roll Question Dice Button
+        Button rollDiceButton = new Button("Roll Question Dice");
+        rollDiceButton.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
+        rollDiceButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
+        rollDiceButton.setOnMouseEntered(e -> rollDiceButton.setStyle("-fx-background-color: #45A049; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
+        rollDiceButton.setOnMouseExited(e -> rollDiceButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
 
-            // Roll the question based on difficulty
-            currentQuestion = questions.get((int) (Math.random() * questions.size()));
+        rollDiceButton.setOnAction(e -> {
+            if (!isDiceRolled) {
+                // Roll the dice to get the difficulty level
+                String difficulty = dice.roll();
 
-            // Display the question and answers
-            Label questionLabel = new Label("Question:\n" + currentQuestion.getQuestion());
-            questionLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
-            questionLabel.setTextFill(Color.web("#333333"));
-            questionLabel.setWrapText(true);
+                // Update dice image and difficulty label
+                diceImageView.setImage(new Image("game/img/dices/black/" + difficulty.toLowerCase() + ".png"));
+                difficultyLabel.setText("You rolled: " + difficulty);
 
-            // Answer options
-            ToggleGroup toggleGroup = new ToggleGroup();
-            VBox answersBox = new VBox(10);
-            answersBox.setAlignment(Pos.TOP_LEFT);
-            answersBox.setPadding(new Insets(10, 20, 10, 20));
+                // Change button text to "Next"
+                rollDiceButton.setText("Next");
+                isDiceRolled = true;
+            } else {
+                // Roll the question based on difficulty
+                currentQuestion = questions.get((int) (Math.random() * questions.size()));
 
-            for (String answer : currentQuestion.getAnswers()) {
-                RadioButton answerButton = new RadioButton(answer);
-                answerButton.setFont(Font.font("Verdana", FontWeight.NORMAL, 14));
-                answerButton.setTextFill(Color.web("#5B3924"));
-                answerButton.setToggleGroup(toggleGroup);
+                // Display the question and answers
+                questionBox.getChildren().clear();
+                root.getChildren().clear();
 
-                answersBox.getChildren().add(answerButton);
+                Label questionLabel = new Label("Question:\n" + currentQuestion.getQuestion());
+                questionLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
+                questionLabel.setTextFill(Color.web("#333333"));
+                questionLabel.setWrapText(true);
+
+                // Answer options
+                ToggleGroup toggleGroup = new ToggleGroup();
+                VBox answersBox = new VBox(10);
+                answersBox.setAlignment(Pos.TOP_LEFT);
+                answersBox.setPadding(new Insets(10, 20, 10, 20));
+
+                for (String answer : currentQuestion.getAnswers()) {
+                    RadioButton answerButton = new RadioButton(answer);
+                    answerButton.setFont(Font.font("Verdana", FontWeight.NORMAL, 14));
+                    answerButton.setTextFill(Color.web("#5B3924"));
+                    answerButton.setToggleGroup(toggleGroup);
+
+                    answersBox.getChildren().add(answerButton);
+                }
+
+                // Submit button
+                Button submitButton = new Button("Submit");
+                submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+                submitButton.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
+                submitButton.setOnMouseEntered(ev -> submitButton.setStyle("-fx-background-color: #FF4D4D; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
+                submitButton.setOnMouseExited(ev -> submitButton.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
+
+                submitButton.setOnAction(ev -> {
+                    RadioButton selectedButton = (RadioButton) toggleGroup.getSelectedToggle();
+                    if (selectedButton == null) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "Please select an answer!", ButtonType.OK);
+                        alert.showAndWait();
+                        return;
+                    }
+
+                    String selectedAnswer = selectedButton.getText();
+                    if (selectedAnswer.equals(currentQuestion.getAnswers().get(Integer.parseInt(currentQuestion.getCorrectAnswer()) - 1))) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Correct!", ButtonType.OK);
+                        alert.showAndWait();
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Wrong answer.", ButtonType.OK);
+                        alert.showAndWait();
+                    }
+                    close(); // Close the overlay
+                });
+
+                // Add question and answers to the question box
+                questionBox.getChildren().addAll(questionLabel, answersBox, submitButton);
+                root.getChildren().add(questionBox);
             }
-
-            // Submit button
-            Button submitButton = new Button("Submit");
-            submitButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-            submitButton.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;");
-            submitButton.setOnMouseEntered(ev -> submitButton.setStyle("-fx-background-color: #FF4D4D; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
-            submitButton.setOnMouseExited(ev -> submitButton.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10;"));
-
-            submitButton.setOnAction(ev -> {
-                RadioButton selectedButton = (RadioButton) toggleGroup.getSelectedToggle();
-                if (selectedButton == null) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING, "Please select an answer!", ButtonType.OK);
-                    alert.showAndWait();
-                    return;
-                }
-
-                String selectedAnswer = selectedButton.getText();
-                if (selectedAnswer.equals(currentQuestion.getAnswers().get(Integer.parseInt(currentQuestion.getCorrectAnswer()) - 1))) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Correct!", ButtonType.OK);
-                    alert.showAndWait();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Wrong answer.", ButtonType.OK);
-                    alert.showAndWait();
-                }
-                close(); // Close the overlay
-            });
-
-            // Add question and answers to the question box
-            questionBox.getChildren().addAll(questionLabel, answersBox, submitButton);
-            root.getChildren().add(questionBox);
         });
 
-        // Add the dice section to the root container
-        root.getChildren().addAll(diceImageView, difficultyLabel, nextButton);
+        // Add components to the root container
+        root.getChildren().addAll(diceImageView, difficultyLabel, rollDiceButton, questionBox);
 
         // Set up the scene
         Scene scene = new Scene(root, 500, 400);
