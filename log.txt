@@ -36526,3 +36526,51 @@
 
 > [System] Trying to quit game.
 
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+
+> [System] Rolling...
+> [System] Roll dice result: [5, 4].
+> [System] Available moves:
+  Roll of 5
+      A. 17-22
+      B. 12-17
+
+  Roll of 4
+      C. 19-23
+      D. 17-21
+      E. 12-16
+      F. 1-5
+
+  Roll of 9
+      G. 12-21
+      H. 1-10
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+
+> [System] Trying to quit game.
+

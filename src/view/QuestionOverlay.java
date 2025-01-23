@@ -28,8 +28,16 @@ public class QuestionOverlay extends Stage {
         // Set up the modal dialog
         initModality(Modality.APPLICATION_MODAL);
         initOwner(parentStage);
-        initStyle(StageStyle.UNDECORATED); // Remove window decorations
-        setResizable(false);
+//        initStyle(StageStyle.TRANSPARENT); // Remove window decorations
+//        setResizable(false);
+        setOnCloseRequest(event -> {
+            // Consume the event to prevent the window from closing
+            event.consume();
+
+            // Optional: Show a warning or message
+            Alert alert = new Alert(Alert.AlertType.WARNING, "You cannot close this window without answering the question!", ButtonType.OK);
+            alert.showAndWait();
+        });
 
         DifficultyDice dice = new DifficultyDice(); // Initialize DifficultyDice
 
@@ -40,14 +48,15 @@ public class QuestionOverlay extends Stage {
             alert.showAndWait();
             return;
         }
-
+        
         // Set up the root container
         VBox root = new VBox(20);
         root.setPadding(new Insets(20));
         root.setAlignment(Pos.CENTER);
         root.setStyle("-fx-background-color: linear-gradient(to bottom, #FAEBD7, #FFF8DC); " +
                       "-fx-border-color: #5B3924; -fx-border-width: 5; -fx-border-radius: 20; -fx-background-radius: 20;");
-        root.setPrefHeight(400);
+        root.setPrefSize(800, 600);
+        
 
         // Add shadow effect
         DropShadow dropShadow = new DropShadow();
@@ -71,6 +80,7 @@ public class QuestionOverlay extends Stage {
         VBox questionBox = new VBox(10);
         questionBox.setAlignment(Pos.TOP_LEFT);
         questionBox.setPadding(new Insets(10, 20, 10, 20));
+        questionBox.setPrefSize(600, 700);
 
         // Roll Question Dice Button
         Button rollDiceButton = new Button("Roll Question Dice");
@@ -144,9 +154,23 @@ public class QuestionOverlay extends Stage {
                     }
                     close(); // Close the overlay
                 });
+                
+                // Level label
+                Label diffLabel = new Label("Level: " + currentQuestion.getDifficulty());
+                diffLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+                diffLabel.setTextFill(Color.web("#5b3924"));
+                diffLabel.setAlignment(Pos.CENTER_LEFT);
+                
+                HBox labelBox = new HBox(diffLabel);
+                labelBox.setAlignment(Pos.CENTER_LEFT);
+                HBox.setHgrow(labelBox, Priority.ALWAYS);
+
+                HBox buttonBox = new HBox(submitButton);
+                buttonBox.setAlignment(Pos.CENTER_RIGHT);
+                HBox.setHgrow(buttonBox, Priority.ALWAYS);
 
                 // Add question and answers to the question box
-                questionBox.getChildren().addAll(questionLabel, answersBox, submitButton);
+                questionBox.getChildren().addAll(questionLabel, answersBox,labelBox, buttonBox);
                 root.getChildren().add(questionBox);
             }
         });
