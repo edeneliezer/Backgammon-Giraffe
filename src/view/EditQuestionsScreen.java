@@ -50,7 +50,12 @@ public class EditQuestionsScreen extends Stage {
         passwordStage.initModality(Modality.APPLICATION_MODAL);
         passwordStage.initOwner(stage);
         passwordStage.setTitle("Enter Password");
-        passwordStage.initStyle(StageStyle.UNDECORATED);
+//        passwordStage.initStyle(StageStyle.UNDECORATED);
+//        passwordStage.setOnCloseRequest(e -> {
+//            e.consume(); // Consume the event to prevent default close behavior
+//            passwordStage.close(); // Close the password stage
+//            // Do nothing else (prevent opening the Edit Questions Screen)
+//        });
 
         
       
@@ -63,9 +68,12 @@ public class EditQuestionsScreen extends Stage {
         passwordField.setPromptText("Password");
 
         Button submitPasswordButton = new Button("Submit");
+        final boolean[] isPasswordCorrect = {false}; 
+        
         submitPasswordButton.setOnAction(e -> {
             if (passwordField.getText().equals(PASSWORD)) {
                 passwordStage.close();
+                isPasswordCorrect[0] = true;
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect password!", ButtonType.OK);
                 alert.showAndWait();
@@ -75,7 +83,21 @@ public class EditQuestionsScreen extends Stage {
         passwordRoot.getChildren().addAll(passwordLabel, passwordField, submitPasswordButton);
         Scene passwordScene = new Scene(passwordRoot, 300, 150);
         passwordStage.setScene(passwordScene);
+//        passwordStage.showAndWait();
+        
+        // Handle the close button behavior
+        passwordStage.setOnCloseRequest(e -> {
+            isPasswordCorrect[0] = false; // Ensure password is marked as incorrect on close
+            passwordStage.close();
+        });
+
+        // Show the password stage and wait for user interaction
         passwordStage.showAndWait();
+
+        // Only proceed if the password is correct
+        if (!isPasswordCorrect[0]) {
+            return; // Exit constructor if password is incorrect or dialog is closed
+        }
 
 
         // Load questions from JSON
