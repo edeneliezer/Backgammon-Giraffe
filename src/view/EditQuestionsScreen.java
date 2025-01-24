@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -49,7 +50,10 @@ public class EditQuestionsScreen extends Stage {
         passwordStage.initModality(Modality.APPLICATION_MODAL);
         passwordStage.initOwner(stage);
         passwordStage.setTitle("Enter Password");
+        passwordStage.initStyle(StageStyle.UNDECORATED);
 
+        
+      
         VBox passwordRoot = new VBox(10);
         passwordRoot.setPadding(new Insets(20));
         passwordRoot.setAlignment(Pos.CENTER);
