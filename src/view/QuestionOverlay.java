@@ -154,7 +154,7 @@ public class QuestionOverlay extends Stage implements QuestionSubject {
             notifyCorrectAnswer();
             isWrong = false;
         } else {
-            Alert wrongAlert = new Alert(Alert.AlertType.ERROR, "Wrong answer! Try again next time.", ButtonType.OK);
+            Alert wrongAlert = new Alert(Alert.AlertType.ERROR, "Wrong answer!  Opponent gets your turn.", ButtonType.OK);
             wrongAlert.showAndWait();
             notifyWrongAnswer();
             isWrong = true;
