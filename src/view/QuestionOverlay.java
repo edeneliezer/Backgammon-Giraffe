@@ -139,12 +139,16 @@ public class QuestionOverlay extends Stage implements QuestionSubject {
             return;
         }
 
-        int correctAnswerIndex = Integer.parseInt(currentQuestion.getCorrectAnswer().trim());
-        
-        System.out.println("Selected: " + correctAnswerIndex);
-        System.out.println("Correct: " + currentQuestion.getCorrectAnswer().trim());
-        
-        if (Integer.parseInt(currentQuestion.getCorrectAnswer().trim()) == correctAnswerIndex) {
+        // Get the selected answer
+        RadioButton selectedButton = (RadioButton) toggleGroup.getSelectedToggle();
+        String selectedAnswer = selectedButton.getText().trim();
+
+        // Get the correct answer text using the correct answer index
+        int correctAnswerIndex = Integer.parseInt(currentQuestion.getCorrectAnswer().trim()) - 1;
+        String correctAnswer = currentQuestion.getAnswers().get(correctAnswerIndex).trim();
+
+        // Compare the selected answer with the correct answer
+        if (selectedAnswer.equals(correctAnswer)) {
             Alert correctAlert = new Alert(Alert.AlertType.INFORMATION, "Correct answer! Well done.", ButtonType.OK);
             correctAlert.showAndWait();
             notifyCorrectAnswer();
@@ -157,7 +161,6 @@ public class QuestionOverlay extends Stage implements QuestionSubject {
         }
         close();
     }
-
     private void startCountdown() {
         timer = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateTimer()));
         timer.setCycleCount(30);

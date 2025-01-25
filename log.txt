@@ -36731,3 +36731,54 @@
 > [System] You can only roll the dice.
 > [System] Trying to quit game.
 
+> [System] It is now qqS's (white) move.
+> [System] You can only roll the dice.
+> [System] qqS it's your turn now!
+
+> [System] Swapping turns...
+
+> [System] Rolling...
+> [System] Roll dice result: [4, 6].
+> [System] Available moves:
+  Roll of 4
+      A. 6-2
+      B. 8-4
+      C. 13-9
+      D. 24-20
+
+  Roll of 6
+      E. 8-2
+      F. 13-7
+      G. 24-18
+
+  Roll of 10
+      H. 13-3
+      I. 24-14
+
+> [System] It is now e's (black) move.
+> [System] You can only roll the dice.
+> [Error] Die has already been rolled.
+> [Error] Die has already been rolled.
+> [Error] Die has already been rolled.
+> [Error] You can only move highlighted checkers to highlighted pips.
+> [Error] You can only move from highlighted objects.
+
+> [System] Moving...
+> [System] Moved checker from 19 to 23.
+> [System] Available moves:
+  Roll of 6
+      A. 17-23
+      B. 12-18
+      C. 1-7
+
+> [Error] You can only move highlighted checkers to highlighted pips.
+
+> [System] Moving...
+> [System] Moved checker from 1 to 7.
+> [System] Move over.
+
+> [System] Swapping turns...
+> [System] It is now qqS's (white) move.
+> [System] You can only roll the dice.
+> [System] Trying to quit game.
+
