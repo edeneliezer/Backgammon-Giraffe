@@ -1,4 +1,5 @@
 package Model;
+import controller.GameplayController;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -13,12 +14,14 @@ import javafx.stage.Stage;
 import view.QuestionOverlay;
 import javafx.scene.control.Alert.AlertType;
 
-public class QuestionStation extends SpecialStation {
-    @Override
+public class QuestionStation extends SpecialStation implements QuestionObserver{
+   
+
+	@Override
     public void performAction(Player player) {
         // יצירת Stage חדש עבור החלון
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Surprise Station");
+        dialogStage.setTitle("Question Station");
 
         // קביעת פריסת החלון
         VBox layout = new VBox(20);
@@ -44,7 +47,7 @@ public class QuestionStation extends SpecialStation {
         nextButton.setOnAction(e -> {
             // פתיחת חלון השאלה
             QuestionOverlay questionOverlay = new QuestionOverlay(dialogStage);
-            
+            questionOverlay.addObserver(this);
             questionOverlay.showAndWait();
 
             dialogStage.close(); // סגירת חלון התחנה
@@ -58,5 +61,20 @@ public class QuestionStation extends SpecialStation {
         dialogStage.setScene(scene);
         dialogStage.initModality(Modality.APPLICATION_MODAL);
         dialogStage.showAndWait();
+    }
+	
+	@Override
+    public void onCorrectAnswer() {
+        // המשחק ממשיך כרגיל, תור לא משתנה
+    }
+
+    @Override
+    public void onWrongAnswer() {
+        //
+    }
+
+    @Override
+    public void onTimeExpired() {
+       // 
     }
 }

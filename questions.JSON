@@ -190,7 +190,7 @@
         "difficulty": "1",
         "question": "What is the purpose of System Models?",
         "answers": [
-            "1.To illustrate the organizational structure of a company.",
+            "To illustrate the organizational structure of a company.",
             "To develop an abstract representation of a system and communicate with customers.",
             "To plan the project budget.",
             "To replace the standard model in the development process."

@@ -30,11 +30,6 @@ public class QuestionOverlay extends Stage implements QuestionSubject {
     private boolean isDiceRolled = false;
     private Label timerLabel;
     private Timeline timer;
-    private boolean isWrong;
-    
-    
-  
-
 	private List<QuestionObserver> observers = new ArrayList<>();
 
     public QuestionOverlay(Stage parentStage) {
@@ -152,12 +147,10 @@ public class QuestionOverlay extends Stage implements QuestionSubject {
             Alert correctAlert = new Alert(Alert.AlertType.INFORMATION, "Correct answer! Well done.", ButtonType.OK);
             correctAlert.showAndWait();
             notifyCorrectAnswer();
-            isWrong = false;
         } else {
             Alert wrongAlert = new Alert(Alert.AlertType.ERROR, "Wrong answer!  Opponent gets your turn.", ButtonType.OK);
             wrongAlert.showAndWait();
             notifyWrongAnswer();
-            isWrong = true;
         }
         close();
     }
@@ -211,11 +204,4 @@ public class QuestionOverlay extends Stage implements QuestionSubject {
         }
     }
     
-    public boolean isWrong() {
-  		return isWrong;
-  	}
-
-  	public void setWrong(boolean isWrong) {
-  		this.isWrong = isWrong;
-  	}
 }
