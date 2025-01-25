@@ -333,6 +333,9 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 		    		QuestionOverlay questionOverlay = new QuestionOverlay(null);
 		    		questionOverlay.addObserver(this);
 		    		questionOverlay.showAndWait();
+		    		if(questionOverlay.isWrong()) {
+		    			gameplay.next();
+		    		}
 		    	}
 				infoPnl.print("Rolling...", MessageType.ANNOUNCEMENT);
 				gameplay.roll();
