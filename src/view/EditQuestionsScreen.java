@@ -108,17 +108,25 @@ public class EditQuestionsScreen extends Stage {
         root.setPadding(new Insets(20));
         root.setStyle("-fx-background-color: #fefaf4;");
         root.setAlignment(Pos.TOP_CENTER);
-
+        
         // Back button
         Button backButton = new Button("Back");
         backButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
         backButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
+        backButton.setCursor(javafx.scene.Cursor.HAND); // Set cursor to hand on hover
+
+        // Change style on mouse hover
+        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: #7A0000; -fx-text-fill: white;"));
+        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;"));
+
         backButton.setOnAction(e -> {
             stage.setScene(previousScene); // Switch back to the previous scene
         });
         HBox label = new HBox(backButton);
+
         label.setAlignment(Pos.CENTER_LEFT);
         HBox.setHgrow(label, Priority.ALWAYS);
+
 
         root.getChildren().add(label);
 
@@ -182,50 +190,44 @@ public class EditQuestionsScreen extends Stage {
         HBox buttonBox = new HBox(10);
         buttonBox.setAlignment(Pos.BOTTOM_RIGHT);
 
-        editButton = new Button("Edit");
-        editButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-        editButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
+        editButton = createButton("Edit");
         editButton.setOnAction(e -> {
-        	if(editButton.getText().equals("Edit"))
-        	{
-        		 int index = questionsComboBox.getSelectionModel().getSelectedIndex();
-                 if (index == -1) {
-                     Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
-                     alert.showAndWait();
-                     return;
-                 }
-               addButton.setDisable(true);
-               deleteButton.setDisable(true);
-        	   editButton.setText("Submit");
-        	   enableFields(true);
-        	}else {
-        	  if(isAnyFieldEmpty()) {
-        		  Alert alert = new Alert(Alert.AlertType.ERROR, "All fields must be filled out.", ButtonType.OK);
-                  alert.showAndWait();
-                  return;
-        	  }
-        	  editQuestion();
-       	      enableFields(false);
-       	      addButton.setDisable(false);
-              deleteButton.setDisable(false);
-         	  editButton.setText("Edit");
-        	}
-        	
+            if(editButton.getText().equals("Edit")) {
+                int index = questionsComboBox.getSelectionModel().getSelectedIndex();
+                if (index == -1) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a question to edit.", ButtonType.OK);
+                    alert.showAndWait();
+                    return;
+                }
+                addButton.setDisable(true);
+                deleteButton.setDisable(true);
+                editButton.setText("Submit");
+                enableFields(true);
+            } else {
+                if(isAnyFieldEmpty()) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "All fields must be filled out.", ButtonType.OK);
+                    alert.showAndWait();
+                    return;
+                }
+                editQuestion();
+                enableFields(false);
+                addButton.setDisable(false);
+                deleteButton.setDisable(false);
+                editButton.setText("Edit");
+            }
         });
 
-        addButton = new Button("Add");
-        addButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-        addButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
+        addButton = createButton("Add");
         addButton.setOnAction(e -> {
-        	if(addButton.getText().equals("Add")) {
-        		addButton.setText("Submit");
-        		editButton.setDisable(true);
-        		deleteButton.setDisable(true);
-        		clearFields();
+            if(addButton.getText().equals("Add")) {
+                addButton.setText("Submit");
+                editButton.setDisable(true);
+                deleteButton.setDisable(true);
+                clearFields();
                 questionsComboBox.setPromptText("Select a question...");
-        		enableFields(true);
-        	}else {
-        	    if (isAnyFieldEmpty()) {
+                enableFields(true);
+            } else {
+                if (isAnyFieldEmpty()) {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("Incomplete Fields");
                     alert.setHeaderText("Some fields are empty.");
@@ -248,17 +250,15 @@ public class EditQuestionsScreen extends Stage {
                         return; // Let the user continue editing
                     }
                 }
-        	  saveNewQuestion();
-        	  deleteButton.setDisable(false);
-        	  editButton.setDisable(false);
-              enableFields(false);
-        	  addButton.setText("Add");
-        	}
+                saveNewQuestion();
+                deleteButton.setDisable(false);
+                editButton.setDisable(false);
+                enableFields(false);
+                addButton.setText("Add");
+            }
         });
 
-        deleteButton = new Button("Delete");
-        deleteButton.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-        deleteButton.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
+        deleteButton = createButton("Delete");
         deleteButton.setOnAction(e -> deleteQuestion());
 
         buttonBox.getChildren().addAll(editButton, addButton, deleteButton);
@@ -269,6 +269,18 @@ public class EditQuestionsScreen extends Stage {
 
         // Set the scene to the stage
         stage.setScene(this.scene); // Switch to the new scene
+    }
+    
+    // Creating a method to style buttons consistently
+    private Button createButton(String text) {
+        Button button = new Button(text);
+        button.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        button.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;");
+        button.setCursor(javafx.scene.Cursor.HAND); // Set cursor to hand on hover
+        // Hover effects
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #7A0000; -fx-text-fill: white;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #b30000; -fx-text-fill: white;"));
+        return button;
     }
 
     private VBox createLabeledField(String labelText, TextField textField) {

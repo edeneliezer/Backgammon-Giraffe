@@ -163,5 +163,38 @@
             "Fixing critical bugs in the code while maintaining existing documentation."
         ],
         "correct_ans": "2"
+    },
+    {
+        "difficulty": "1",
+        "question": "What is the purpose of a Quality Review?",
+        "answers": [
+            "To summarize the project budget.",
+            "To create a report for the management team only.",
+            "To identify errors and improve documentation.",
+            "To decide on user interface design."
+        ],
+        "correct_ans": "3"
+    },
+    {
+        "difficulty": "2",
+        "question": "What is one advantage of a Formal Review?",
+        "answers": [
+            "An informal approach to product evaluation.",
+            "Reducing the cost of documentation.",
+            "Involvement of all team members in the review.",
+            "The ability to approve or deny a critical product."
+        ],
+        "correct_ans": "4"
+    },
+    {
+        "difficulty": "1",
+        "question": "What is the purpose of System Models?",
+        "answers": [
+            "1.To illustrate the organizational structure of a company.",
+            "To develop an abstract representation of a system and communicate with customers.",
+            "To plan the project budget.",
+            "To replace the standard model in the development process."
+        ],
+        "correct_ans": "2"
     }
 ]}
