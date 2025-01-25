@@ -22,7 +22,7 @@ import view.PlayerPanel;
  * 
  * @teamname TeaCup
  */
-public class Emoji extends ImageView implements Observer{
+public class Emoji extends ImageView{
     private ArrayList<Image> defaultImgs, thinkingImgs, hitImgs, winImgs, loseImgs;
     private Random rand = new Random();
     private final int DELAY = 10;
@@ -77,27 +77,6 @@ public class Emoji extends ImageView implements Observer{
             e.printStackTrace();
         }
         return image;
-    }
-    
-    @Override
-    public void update(String status) {
-        switch (status) {
-            case "thinking":
-                setThinkingFace();
-                break;
-            case "hit":
-                setHitFace();
-                break;
-            case "win":
-                setWinFace();
-                break;
-            case "lose":
-                setLoseFace();
-                break;
-            default:
-                setDefaultFace();
-                break;
-        }
     }
 
     public void setDefaultFace() {

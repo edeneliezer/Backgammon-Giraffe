@@ -18,6 +18,7 @@ import Model.MoveResult;
 import Model.Pip;
 import Model.Player;
 import Model.PlayerPerspectiveFrom;
+import Model.QuestionObserver;
 import Model.Settings;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -36,7 +37,7 @@ import view.backgammonUI;
  * 
 
  */
-public class CommandController implements ColorParser, InputValidator, IndexOffset {
+public class CommandController implements ColorParser, InputValidator, IndexOffset, QuestionObserver {
 	private Stage stage;
 	private GameComponentsController game;
 	private GameplayController gameplay;
@@ -330,6 +331,7 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 			if (!gameplay.isRolled()) {
 				if(backgammonUI.getChosenDiffficulty()!="Easy") {
 		    		QuestionOverlay questionOverlay = new QuestionOverlay(null);
+		    		questionOverlay.addObserver(this);
 		    		questionOverlay.showAndWait();
 		    	}
 				infoPnl.print("Rolling...", MessageType.ANNOUNCEMENT);
@@ -854,4 +856,21 @@ public class CommandController implements ColorParser, InputValidator, IndexOffs
 		checkerPos = 24;
 		step = 1;
 	}
+	
+	@Override
+    public void onCorrectAnswer() {
+        // המשחק ממשיך כרגיל, תור לא משתנה
+    }
+
+    @Override
+    public void onWrongAnswer() {
+        gameplay.changeTurnToNextPlayer();
+    }
+
+    @Override
+    public void onTimeExpired() {
+        gameplay.changeTurnToNextPlayer();
+    }
+    
+    
 }

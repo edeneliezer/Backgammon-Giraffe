@@ -1,13 +1,10 @@
 package controller;
 
-import java.util.Observable;
-import java.util.Observer;
-import java.util.Optional;
 
+import java.util.Optional;
 import Model.DieInstance;
 import Model.DieResults;
 import Model.DoublingCube;
-import Model.Emoji;
 import Model.GameEndScore;
 import Model.SysData;
 import controller.GameplayMovesController;
@@ -16,6 +13,7 @@ import controller.MatchController;
 import Model.MessageType;
 import Model.Moves;
 import Model.Player;
+import Model.QuestionObserver;
 import Model.Settings;
 import controller.ColorParser;
 import controller.ColorPerspectiveParser;
@@ -47,7 +45,7 @@ import view.ScoreboardPrompt;
  * Sub-controller of MainController.
 
  */
-public class GameplayController  extends Observable implements ColorParser, ColorPerspectiveParser, InputValidator, IndexOffset, IntegerLettersParser {
+public class GameplayController implements ColorParser, ColorPerspectiveParser, InputValidator, IndexOffset, IntegerLettersParser{
 	private boolean isStarted, isRolled, isMoved, isFirstRoll, isTopPlayer, isDoubling, isDoubled, isMaxDoubling, isInTransition;
 	private Player bottomPlayer, topPlayer;
 	private static Player pCurrent;
@@ -61,8 +59,6 @@ public class GameplayController  extends Observable implements ColorParser, Colo
 	private GameplayMovesController gameplayMoves;
 	private EventController eventController; // Reference to EventController
 	private boolean extraTurn = false;
-	private String playerStatus; 
-	private Emoji playerEmoji;
 	
 	public GameplayController(Stage stage, MatchController root, GameComponentsController game,
             InfoPanel infoPnl, Player bottomPlayer, Player topPlayer,
@@ -78,23 +74,7 @@ public class GameplayController  extends Observable implements ColorParser, Colo
             gameplayMoves = new GameplayMovesController(game, this, infoPnl);
             reset();
     } 
-	 public GameplayController(Emoji emoji) {
-	        this.playerEmoji = emoji;
-	    }
-	
-	public void setPlayerStatus(String status) {
-        this.playerStatus = status;
-        setChanged();
-        notifyObservers(status);  // Notify Emoji
-    }
-	
-	public void registerObserver(Observer observer) {
-        addObserver(observer);
-    }
-    
-    public String getPlayerStatus() {
-        return playerStatus;
-    }
+
 	
 	public void reset() {
 		isStarted = false;
@@ -667,6 +647,13 @@ public class GameplayController  extends Observable implements ColorParser, Colo
 	public String correct(int pipNum) {
 		return gameplayMoves.correct(pipNum);
 	}
+    
+	public void changeTurnToNextPlayer() {
+		nextFunction();
+	    System.out.println("changing player");
+	    infoPnl.print(pCurrent.getName() + " it's your turn now!");
+	}
+
 	
 	public boolean isStarted() {
 		return isStarted;
