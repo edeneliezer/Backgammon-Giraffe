@@ -29,35 +29,36 @@ public class CheckersStorer extends TouchablesStorer {
      * (i.e. how it will be drawn eventually on the stage).
      */
     public void drawCheckers() {
-		// Clear the point object of any children.
-		getChildren().clear();
-		
-		// If total height of checkers greater than point, we overlap the checkers.
-		int numCheckers = size();
-		double slack = GameConstants.getPipSize().getHeight() * 0.2;
-		double diff = numCheckers * GameConstants.getCheckerSize().getHeight() - GameConstants.getPipSize().getHeight() + slack;
-		
-		if (top() instanceof Checker) {
-			// If overlap, we basically add an y offset to the checkers so that they overlap each other.
-			// Else, we simply add them to the point without any offsets.
-			if (diff >= 0) {
-				int i = 0;
-				double yOffset = (diff / numCheckers);
-				for (Touchable chk : this) {
-					ImageView checker = (Checker) chk;
-					checker.setTranslateY(yOffset*(numCheckers-i-1));
-					checker.setViewOrder(i);	// lower order - higher z-index, i.e. order 1 overlaps order 2.
-					getChildren().add(checker);
-					i++;
-				}
-			} else {
-				for (Touchable chk : this) {
-					ImageView checker = (Checker) chk;
-					checker.setTranslateY(0);
-					getChildren().add(checker);
-				}
-			}
-		}
+        // Clear the point object of any children.
+        getChildren().clear();
+
+        // If total height of checkers greater than point, we overlap the checkers.
+        int numCheckers = size();
+        double slack = GameConstants.getPipSize().getHeight() * 0.2;
+        double diff = numCheckers * GameConstants.getCheckerSize().getHeight() - GameConstants.getPipSize().getHeight() + slack;
+
+        if (top() instanceof Checker) {
+            // If overlap, we add an y offset to the checkers so that they overlap each other.
+            if (diff >= 0) {
+                int i = 0;
+                double yOffset = (diff / numCheckers);
+                for (Touchable chk : this) {
+                    ImageView checker = (Checker) chk;
+                    checker.setTranslateY(yOffset * (numCheckers - i - 1));
+
+                    // Add checkers to children in order, controlling Z-index
+                    getChildren().add(i, checker); // Add at position `i` for Z-index control
+                    i++;
+                }
+            } else {
+                // No overlap, simply add checkers to the point
+                for (Touchable chk : this) {
+                    ImageView checker = (Checker) chk;
+                    checker.setTranslateY(0);
+                    getChildren().add(checker);
+                }
+            }
+        }
     }
 
     /**
