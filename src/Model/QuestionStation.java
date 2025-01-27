@@ -1,6 +1,7 @@
 package Model;
 
 import controller.GameplayController;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -8,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -19,6 +21,7 @@ import view.QuestionOverlay;
  */
 public class QuestionStation extends SpecialStation implements QuestionObserver {
 
+	AudioClip diceSound = new AudioClip(getClass().getResource("/musicplayer/songs/dice.aiff").toExternalForm());
     @Override
     public void performAction(Player player) {
         Stage dialogStage = new Stage();
@@ -69,7 +72,14 @@ public class QuestionStation extends SpecialStation implements QuestionObserver 
 
     @Override
     public void onTimeExpired() {
-        showAlert("Time Expired", "Time's up!\nRoll the negative dice.");
+    	Platform.runLater(() -> {
+    	    try {
+    	        showAlert("Time Expired", "Time's up!\nRoll the negative dice.");
+    	    } catch (Exception e) {
+    	        e.printStackTrace();
+    	    }
+    	});
+
     }
 
     private void showAlert(String title, String message) {
@@ -92,7 +102,8 @@ public class QuestionStation extends SpecialStation implements QuestionObserver 
         rollButton.setCursor(javafx.scene.Cursor.HAND);
 
         rollButton.setOnAction(e -> {
-            Dice dice = new Dice(Dice.Mode.NEGATIVE); // קובייה שלילית
+        	diceSound.play();
+        	Dice dice = new Dice(Dice.Mode.NEGATIVE); // קובייה שלילית
             int rollResult = dice.roll();
             dice.draw(rollResult);
 
