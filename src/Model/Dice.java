@@ -21,7 +21,7 @@ public class Dice extends ImageView {
     public static Mode currentMode = Mode.REGULAR;
 
     public enum Mode {
-        REGULAR, HARD
+        REGULAR, HARD, NEGATIVE
     }
 
     /**
@@ -29,6 +29,7 @@ public class Dice extends ImageView {
      */
     public Dice(Mode mode) {
         this();
+        setMode(mode);
     }
 
     public Dice(Dice otherDice) {
@@ -42,30 +43,30 @@ public class Dice extends ImageView {
     }
 
     public Dice() {
-    	 super();
-         dices = new Image[MAX_DICE_SIZE];
-         initImages();
+        super();
+        dices = new Image[MAX_DICE_SIZE];
+        initImages();
 
-         // Set fixed size for dice images
-         setFitWidth(60);  // Adjust as needed
-         setFitHeight(60);
+        // Set fixed size for dice images
+        setFitWidth(60);  // Adjust as needed
+        setFitHeight(60);
 
-         // Add rounded corners
-         Rectangle clip = new Rectangle(60, 60);
-         clip.setArcWidth(15);  // Adjust rounding size as needed
-         clip.setArcHeight(15);
-         setClip(clip);
+        // Add rounded corners
+        Rectangle clip = new Rectangle(60, 60);
+        clip.setArcWidth(15);  // Adjust rounding size as needed
+        clip.setArcHeight(15);
+        setClip(clip);
 
-         colorAdjust = new ColorAdjust();
-         colorAdjust.setBrightness(-0.5);
+        colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-0.5);
     }
 
     /**
-     * Initializes the dice images for both Regular and Hard modes.
+     * Initializes the dice images for both Regular, Hard, and Negative modes.
      * Includes placeholder images for negative values and zero.
      */
     private void initImages() {
-    	String colorString = "black"; // Always use black images
+        String colorString = "black"; // Always use black images
         for (int i = -3; i <= 6; i++) {
             try {
                 if (i > 0) {
@@ -146,14 +147,14 @@ public class Dice extends ImageView {
 
         return canvas.snapshot(null, null);
     }
-    
+
     /**
      * Sets the mode of the dice.
      * 
-     * @param mode The mode to set (REGULAR or HARD).
+     * @param mode The mode to set (REGULAR, HARD, or NEGATIVE).
      */
     public void setMode(Mode mode) {
-        this.currentMode = mode;
+        currentMode = mode;
     }
 
     /**
@@ -163,10 +164,16 @@ public class Dice extends ImageView {
      */
     public int roll() {
         Random rand = new Random();
-        if (currentMode == Mode.REGULAR) {
-            diceRollResult = rand.nextInt(6) + 1; // Regular mode: 1 to 6
-        } else if (currentMode == Mode.HARD) {
-            diceRollResult = rand.nextInt(10) - 3; // Hard mode: -3 to 6
+        switch (currentMode) {
+            case REGULAR:
+                diceRollResult = rand.nextInt(6) + 1; // Regular mode: 1 to 6
+                break;
+            case HARD:
+                diceRollResult = rand.nextInt(10) - 3; // Hard mode: -3 to 6
+                break;
+            case NEGATIVE:
+                diceRollResult = -rand.nextInt(4); // Negative mode: -3 to 0
+                break;
         }
         return diceRollResult;
     }
@@ -185,6 +192,7 @@ public class Dice extends ImageView {
         rotate();
         return this;
     }
+
     /**
      * Rotates the dice image randomly within a range.
      */
@@ -216,9 +224,6 @@ public class Dice extends ImageView {
     public int getDiceResult() {
         return diceRollResult;
     }
-//    public Color getColor() {
-//        return getColor();
-//    }
 
     /**
      * Checks if the dice result equals the value of another dice.
@@ -229,10 +234,11 @@ public class Dice extends ImageView {
     public boolean equalsValueOf(Dice otherDice) {
         return diceRollResult == otherDice.getDiceResult();
     }
+
     /**
      * Gets the current mode of the dice.
      * 
-     * @return The current mode (REGULAR or HARD).
+     * @return The current mode (REGULAR, HARD, or NEGATIVE).
      */
     public Mode getMode() {
         return currentMode;
