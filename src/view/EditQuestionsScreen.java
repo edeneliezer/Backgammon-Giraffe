@@ -42,6 +42,7 @@ public class EditQuestionsScreen extends Stage {
 
 
     public EditQuestionsScreen(Stage stage, Scene previousScene) {
+    	
         // Set up the modal dialog
         initOwner(stage);
 
@@ -265,7 +266,7 @@ public class EditQuestionsScreen extends Stage {
         root.getChildren().add(buttonBox);
 
         // Initialize the 'scene' field
-        this.scene = new Scene(root, 800, 600);
+        this.scene = new Scene(root, 800, 650);
 
         // Set the scene to the stage
         stage.setScene(this.scene); // Switch to the new scene
