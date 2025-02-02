@@ -1,6 +1,5 @@
 package Model;
 import controller.GameplayController;
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -9,7 +8,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.AudioClip;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -20,7 +18,10 @@ public class QuestionStation extends SpecialStation implements QuestionObserver{
    
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	AudioClip diceSound = new AudioClip(getClass().getResource("/musicplayer/songs/dice.aiff").toExternalForm());
+=======
+>>>>>>> parent of b7b78b8 (Bonus - Negative dice when run of time on Question Station + add sound when roll the negative dice)
     @Override
 =======
 	@Override
@@ -83,6 +84,7 @@ public class QuestionStation extends SpecialStation implements QuestionObserver{
     @Override
     public void onTimeExpired() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     	Platform.runLater(() -> {
     	    try {
     	        showAlert("Time Expired", "Time's up!\nRoll the negative dice.");
@@ -91,6 +93,9 @@ public class QuestionStation extends SpecialStation implements QuestionObserver{
     	    }
     	});
 
+=======
+        showAlert("Time Expired", "Time's up!\nRoll the negative dice.");
+>>>>>>> parent of b7b78b8 (Bonus - Negative dice when run of time on Question Station + add sound when roll the negative dice)
     }
 
     private void showAlert(String title, String message) {
@@ -113,8 +118,7 @@ public class QuestionStation extends SpecialStation implements QuestionObserver{
         rollButton.setCursor(javafx.scene.Cursor.HAND);
 
         rollButton.setOnAction(e -> {
-        	diceSound.play();
-        	Dice dice = new Dice(Dice.Mode.NEGATIVE); // קובייה שלילית
+            Dice dice = new Dice(Dice.Mode.NEGATIVE); // קובייה שלילית
             int rollResult = dice.roll();
             dice.draw(rollResult);
 
