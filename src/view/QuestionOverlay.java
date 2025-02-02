@@ -150,7 +150,6 @@ public class QuestionOverlay extends Stage implements QuestionSubject {
         } else {
             Alert wrongAlert = new Alert(Alert.AlertType.ERROR, "Wrong answer!  Opponent gets your turn.", ButtonType.OK);
             wrongAlert.showAndWait();
-            notifyWrongAnswer();
         }
         close();
     }
@@ -182,13 +181,7 @@ public class QuestionOverlay extends Stage implements QuestionSubject {
         }
     }
 
-    @Override
-    public void notifyWrongAnswer() {
-        stopTimer();
-        for (QuestionObserver observer : observers) {
-            observer.onWrongAnswer();
-        }
-    }
+   
 
     @Override
     public void notifyTimeExpired() {
