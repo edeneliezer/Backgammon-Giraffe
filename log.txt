@@ -36918,6 +36918,7 @@
 > [System] You can only roll the dice.
 > [System] Trying to quit game.
 
+<<<<<<< HEAD
 > [System] Trying to quit game.
 
 
@@ -41837,3 +41838,5 @@
 > [System] You can only roll the dice.
 > [System] Trying to quit game.
 
+=======
+>>>>>>> parent of f14f380 (Merge branch 'main' of https://github.com/edeneliezer/Backgammon-Giraffe)
